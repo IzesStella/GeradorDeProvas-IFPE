@@ -1,0 +1,83 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: a) Dado um array de uma dimensão como parâmetro, retornar a soma de seus elementos.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Fácil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: b) Dados dois arrays de uma dimensão como parâmetros, copiar o conteúdo do primeiro para o segundo, em ordem inversa.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: a) Dado um array de duas dimensões como parâmetro, retornar a soma de seus elementos.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: b) Dados dois arrays de duas dimensões como parâmetros, copiar o conteúdo do primeiro para o segundo, em ordem inversa.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Tipos e Variáveis",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações: a) Criar o tipo Ingresso com ao menos 3 atributos; b) Criar um subprograma que, dados dois ingressos como parâmetros, retorna true quando ambos forem para shows do mesmo artista, ou false, caso contrário.",
+    "codigo_typescript": "// Implemente os tipos e subprogramas aqui",
+    "nivel_dificuldade": "Fácil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Tipos e Variáveis",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações: c) Criar o tipo Show com ao menos 3 atributos; d) Criar um subprograma que, dado um Show como parâmetro, retorna a quantidade de ingressos disponíveis.",
+    "codigo_typescript": "// Implemente os tipos e subprogramas aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Tipos e Variáveis",
+    "enunciado": "O programa abaixo deveria implementar o tipo Postagem, representando uma publicação de um texto em uma rede social, além do subprograma contemPalavraNosComentarios que, dado uma Postagem e uma palavra como parâmetros, retorna o primeiro comentário que contém a palavra. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Postagem {\n  conteudo: string =\n  comentarios: string = []\n}\n\nfunction contemPalavraNos Comentarios (p: Postagem, p: Palavra): Palavra {\n  for (let i: number; i < p.comentaios.length; i++) {\n    // contains testa se uma string ocorre dentro de outra\n    if (p.comentaios[i].contains(p)) {\n      return p.comentaios[i]\n    }\n  }\n}",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 21)?",
+    "codigo_typescript": "class S13 {\n  mj: string = \"\"\n  mr: string = \"\"\n}\n\nfunction mm(kk: string): S13 {\n  let sa: S13 = {mj: \"\", mr: \"\"}\n  for (let i: number = 0; i < kk.length; i++) {\n    if (i > (kk.length / 2)) {\n      sa.mj = sa.mj + kk[i]\n    } else {\n      sa.mr = sa.mr + kk[i]\n    }\n  }\n  return sa\n}\n\nlet om: S13 = mm(\"Kawaii.Sansei\")\nconsole.log(om.mj + om.mr)",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": "Música referência da questão: https://youtu.be/f4TuPNWoD14",
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Sem utilizar laços, implemente uma função capaz de imprimir todos os elementos de um array de 3 dimensões.",
+    "codigo_typescript": "// Implemente sua função recursiva aqui",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": 2025
+  }
+]

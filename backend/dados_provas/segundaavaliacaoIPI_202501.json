@@ -1,0 +1,83 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: a) Dado um array de uma dimensão e um número como parâmetros, retornar quantas vezes que o número ocorre no array.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: b) Dados dois arrays de uma dimensão como parâmetros, retornar true quando ambos os arrays são iguais, ou false, caso contrário.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: a) Dado um array de duas dimensões e um número como parâmetros, retornar quantas vezes que o número ocorre no array.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações: b) Dados dois arrays de duas dimensões como parâmetros, retornar true quando ambos os arrays são iguais, ou false, caso contrário.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Tipos e Variáveis",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações: a) Criar o tipo Paciente com ao menos 3 atributos; b) Criar um subprograma que, dado um Paciente como parâmetro, retorna true quando ele for maior de idade, ou false, caso contrário.",
+    "codigo_typescript": "// Implemente os tipos e subprogramas aqui",
+    "nivel_dificuldade": "Fácil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Tipos e Variáveis",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações: c) Criar o tipo Medico com ao menos 3 atributos; d) Criar um subprograma que, dado um Medico como parâmetro, retorna a quantidade dos seus pacientes que são maiores de idade.",
+    "codigo_typescript": "// Implemente os tipos e subprogramas aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Tipos e Variáveis",
+    "enunciado": "O programa abaixo deveria implementar o tipo Data, contendo dia, mês e ano, além do subprograma mesmaData que, dadas duas Datas parâmetros, retorna true quando ambas são idênticas, ou false, caso contrário. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Data {\n  dia: number = 0\n  mes: string = \"\"\n  ano: number = 0\n}\n\nfunction mesmaData (d1: data, d2: data): void {\n  return d1.dia && d2.dia == d1.mes && d2.mes == d1.ano && d2.ano\n}",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 21)?",
+    "codigo_typescript": "class KP {\n  hh: string = \"\"\n  smn: string = \"\"\n}\n\nfunction s2(ily: string): KP {\n  let hh: KP = {hh: \"\", smn: \"\"}\n  for (let i: number = 0; i < ily.length; i++) {\n    if (i % 2 == 0) {\n      hh.hh = hh.hh + ily[i]\n    } else {\n      hh.smn = hh.smn + ily[i]\n    }\n  }\n  return hh\n}\n\nlet hh: KP = s2(\"htoonmdia..ihLiy\")\nconsole.log(hh.hh + hh.smn)",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": "Música referência da questão: https://youtu.be/XceS5vnJvUg (ao modinhas de plantão que vivem dizendo que só escuto jpop, apresento a vocês o futuro do kpop)",
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Sem utilizar laços, implemente um subprograma capaz de imprimir todos os elementos de uma diagonal de um array de 3 dimensões.",
+    "codigo_typescript": "// Implemente seu subprograma recursivo aqui",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": 2025
+  }
+]

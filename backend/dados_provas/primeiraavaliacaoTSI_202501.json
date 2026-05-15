@@ -1,0 +1,65 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Dados três números como entrada. Implemente um programa capaz de identificar quando há exatamente dois números positivos. Exemplos de entrada: 1, 2, 3, saída: não.",
+    "codigo_typescript": "// Implemente seu código aqui",
+    "nivel_dificuldade": "Fácil",
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Transforme sua resposta da questão 1 em um subprograma que recebe como parâmetro três números e retorna true quando exatamente dois deles são positivos, ou false, caso contrário.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprima os n primeiros números da sequência: 0, 3, 4, 9, 8, 15, 12, 21, 16, 27, ... Dica: veja a sequência como se fosse a combinação de duas outras.",
+    "codigo_typescript": "// Implemente seu código aqui",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Transforme sua resposta da questão 3 em um subprograma que recebe como parâmetro n, e imprime os primeiros n números da sequência.",
+    "codigo_typescript": "// Implemente seu subprograma aqui",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada sg(5)?",
+    "codigo_typescript": "function sg(n1: number): string {\n  let ma: string = \"\"\n  for (let i: number = n1; i > -1; i--) {\n    if (i % 3 == 2) {\n      ma = ma + \"ai\"\n    } else if (i % 3 == 1) {\n      ma = ma + \"taka\"\n    } else {\n      ma = ma + \"tta.\"\n    }\n  }\n  return ma\n}",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": "Música referência da questão: https://youtu.be/LdL8yFy3ZY4",
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os primeiros números múltiplos de um número m. Comente cada uma das modificações feitas. Exemplo de entrada: n = 4, m = 2, saída: 0, 2, 4, 6",
+    "codigo_typescript": "function multiplos(m: number, n: number): void {\n  for (let i: number = 1; i < n; i++) {\n    return console.log(i * n)\n  }\n}",
+    "nivel_dificuldade": "Média",
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de construir uma string caractere por caractere e retornar o seguinte padrão, quando seu parâmetro n é 9:\n\nX###X###X\n#X##X##X#\n##X#X#X##\n###XXX###\n####X####",
+    "codigo_typescript": "// Implemente seu subprograma recursivo aqui",
+    "nivel_dificuldade": "Difícil",
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": 2025
+  }
+]
