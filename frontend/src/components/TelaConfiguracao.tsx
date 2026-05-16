@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 interface TelaConfiguracaoProps {
   onGerar: (filtros: any) => void;
+  onAcessarAdmin: () => void;
 }
 
-export function TelaConfiguracao({ onGerar }: TelaConfiguracaoProps) {
+export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoProps) {
   const [quantidade, setQuantidade] = useState(5);
   const [topicosSelecionados, setTopicosSelecionados] = useState<string[]>([]);
   const [dificuldade, setDificuldade] = useState<string>('');
@@ -18,14 +19,24 @@ export function TelaConfiguracao({ onGerar }: TelaConfiguracaoProps) {
   };
 
   return (
-    <div style={{ backgroundColor: '#121418', minHeight: '100vh', color: '#e0e0e0', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', backgroundColor: '#121418', minHeight: '100vh', color: '#e0e0e0', display: 'flex', flexDirection: 'column' }}>
       <header style={{ backgroundColor: '#1a1d24', padding: '20px 50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <div style={{ width: '32px', height: '32px', backgroundColor: '#2ecc71', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#121418', fontWeight: 'bold' }}>IF</div>
           <span style={{ fontWeight: 'bold', fontSize: '16px', letterSpacing: '1px' }}>INSTITUTO FEDERAL<br/><span style={{fontSize: '11px', fontWeight: 'normal'}}>Pernambuco</span></span>
         </div>
+        
         <div style={{ fontSize: '18px', fontWeight: 'bold' }}>Gerador de Provas</div>
-        <div style={{ width: '30px', height: '30px', borderRadius: '50%', backgroundColor: '#333', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>?</div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <button 
+            onClick={onAcessarAdmin} 
+            style={{ backgroundColor: 'transparent', color: '#2ecc71', border: '1px solid #2ecc71', padding: '8px 15px', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'inherit' }}
+          >
+            Painel Admin
+          </button>
+          <div style={{ width: '30px', height: '30px', borderRadius: '50%', backgroundColor: '#333', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>?</div>
+        </div>
       </header>
 
       <div style={{ display: 'flex', flex: 1, padding: '60px 80px', gap: '60px', alignItems: 'center', justifyContent: 'center' }}>
@@ -69,7 +80,7 @@ export function TelaConfiguracao({ onGerar }: TelaConfiguracaoProps) {
             </div>
           </div>
 
-          <button onClick={() => onGerar({ topicosSelecionados, quantidade, dificuldade })} style={{ width: '100%', backgroundColor: '#2ecc71', color: '#121418', border: 'none', padding: '15px', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer' }}>
+          <button onClick={() => onGerar({ topicosSelecionados, quantidade, dificuldade })} style={{ width: '100%', backgroundColor: '#2ecc71', color: '#121418', border: 'none', padding: '15px', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer', fontFamily: 'inherit' }}>
             Gerar Simulado
           </button>
         </div>
