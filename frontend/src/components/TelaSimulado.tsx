@@ -9,7 +9,7 @@ interface Questao {
   nivel_dificuldade: string;
   easter_egg_conteudo: string | null;
   origem: string;
-  ano: number;
+  ano: string | number;
 }
 
 interface TelaSimuladoProps {

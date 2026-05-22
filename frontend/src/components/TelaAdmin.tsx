@@ -9,12 +9,13 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
   const [enunciado, setEnunciado] = useState('');
   const [codigo, setCodigo] = useState('');
   const [dificuldade, setDificuldade] = useState('Fácil');
+  
+ const [semestre, setSemestre] = useState('');
 
   const handleSalvar = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
-      
       const resposta = await fetch('http://localhost:3333/api/questoes', {
         method: 'POST',
         headers: {
@@ -23,22 +24,23 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         body: JSON.stringify({
           topico,
           enunciado,
-          codigo_typescript: codigo, // Nome exato da coluna lá no banco
+          codigo_typescript: codigo,
           nivel_dificuldade: dificuldade,
-          easter_egg_conteudo: null, // Deixando nulo no cadastro manual por enquanto
+          easter_egg_conteudo: null,
           origem: 'Cadastro Manual - Painel',
-          ano: new Date().getFullYear() // Pega o ano atual de forma automática
+          // ALTERADO: Agora enviamos o texto exato que estiver no campo do semestre
+          ano: semestre 
         }),
       });
 
       if (resposta.ok) {
         alert('Questão salva com sucesso no banco de dados!');
         
-        // Limpa tudo para facilitar o próximo cadastro
         setTopico('');
         setEnunciado('');
         setCodigo('');
         setDificuldade('Fácil');
+        setSemestre('');
       } else {
         alert('Erro ao salvar a questão. Verifique o console do navegador.');
       }
@@ -111,6 +113,19 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 rows={5}
                 placeholder="// Digite o código aqui ou deixe em branco"
                 style={{ width: '100%', padding: '12px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#2ecc71', borderRadius: '8px', fontFamily: 'monospace', resize: 'vertical' }}
+              />
+            </div>
+
+            {/* NOVO: Campo de input para o usuário poder digitar o semestre exato */}
+            <div>
+              <label style={{ display: 'block', marginBottom: '8px', color: '#a0aab5' }}>Semestre / Ano:</label>
+              <input 
+                type="text" 
+                value={semestre} 
+                onChange={(e) => setSemestre(e.target.value)} 
+                placeholder="Ex: 2025.1"
+                required 
+                style={{ width: '100%', padding: '12px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '8px', fontFamily: 'inherit' }}
               />
             </div>
 
