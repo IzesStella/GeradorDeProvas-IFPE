@@ -7,14 +7,33 @@ import './App.css';
 export default function App() {
   const [telaAtual, setTelaAtual] = useState<'configuracao' | 'simulado' | 'admin'>('configuracao');
   const [filtrosSimulado, setFiltrosSimulado] = useState<any>(null);
-  
-  // estado vazio para guardar as questões 
   const [questoesAtuais, setQuestoesAtuais] = useState<any[]>([]);
 
-  const handleGerar = (filtros: any) => {
+  const handleGerar = async (filtros: any) => {
     setFiltrosSimulado(filtros);
-    setQuestoesAtuais([]); 
-    setTelaAtual('simulado');
+    
+    try {
+      const resposta = await fetch('http://localhost:3333/api/simulado', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(filtros),
+      });
+
+      if (resposta.ok) {
+        // Recebe as questões filtradas e embaralhadas
+        const questoesSorteadas = await resposta.json();
+        
+        setQuestoesAtuais(questoesSorteadas);
+        setTelaAtual('simulado');
+      } else {
+        alert('Erro ao buscar as questões. Verifique o servidor.');
+      }
+    } catch (erro) {
+      console.error('Erro na requisição:', erro);
+      alert('Erro de conexão. O backend está rodando na porta 3333?');
+    }
   };
 
   return (

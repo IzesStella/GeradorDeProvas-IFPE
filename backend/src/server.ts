@@ -4,7 +4,6 @@ import { supabase } from './config/supabase.js';
 
 const app = express();
 
-// Permite que o frontend (na porta 5173) converse com o backend
 app.use(cors());
 app.use(express.json());
 
@@ -21,6 +20,44 @@ app.post('/api/questoes', async (req, res) => {
   }
 
   return res.status(201).json({ message: 'Questão cadastrada com sucesso!', data });
+});
+
+// rota para buscar, filtrar e sortear as questões do simulado
+app.post('/api/simulado', async (req, res) => {
+  const { topicosSelecionados, quantidade, dificuldade } = req.body;
+
+  try {
+    let query = supabase.from('questoes').select('*');
+
+    // Filtra pelos tópicos marcados
+    if (topicosSelecionados && topicosSelecionados.length > 0) {
+      query = query.in('topico', topicosSelecionados);
+    }
+
+    // Filtra pela dificuldade escolhida
+    if (dificuldade) {
+      query = query.eq('nivel_dificuldade', dificuldade);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    if (!data || data.length === 0) {
+      return res.status(200).json([]);
+    }
+
+    // Embaralha as questões encontradas e corta na quantidade solicitada
+    const questoesEmbaralhadas = data.sort(() => 0.5 - Math.random());
+    const questoesSorteadas = questoesEmbaralhadas.slice(0, quantidade);
+
+    return res.status(200).json(questoesSorteadas);
+  } catch (erro) {
+    console.error('Erro na geração do simulado:', erro);
+    return res.status(500).json({ error: 'Erro interno no servidor' });
+  }
 });
 
 const PORT = 3333;
