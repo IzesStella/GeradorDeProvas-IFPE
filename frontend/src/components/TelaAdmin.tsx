@@ -28,7 +28,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           nivel_dificuldade: dificuldade,
           easter_egg_conteudo: null,
           origem: 'Cadastro Manual - Painel',
-          // ALTERADO: Agora enviamos o texto exato que estiver no campo do semestre
           ano: semestre 
         }),
       });

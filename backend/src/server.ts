@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { supabase } from './config/supabase.js';
+import { pool } from './config/database.js';
 import simuladoRoutes from './routes/simulado.routes.js';
 
 const app = express();
@@ -10,19 +10,29 @@ app.use(express.json());
 
 app.use('/api', simuladoRoutes);
 
-// Manter a rota de cadastro de questões aqui por enquanto (por causa da telaAdmin)
 app.post('/api/questoes', async (req, res) => {
   const { topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano } = req.body;
 
-  const { data, error } = await supabase.from('questoes').insert([
-    { topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano }
-  ]);
+  try {
+    const sql = `
+      INSERT INTO questoes (topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING *;
+    `;
+    
+    const values = [topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano];
+    
+    const { rows } = await pool.query(sql, values);
 
-  if (error) {
+    return res.status(201).json({ 
+      message: 'Questão cadastrada com sucesso.', 
+      data: rows[0] 
+    });
+    
+  } catch (error: any) {
+    console.error('Erro ao cadastrar questão:', error);
     return res.status(500).json({ error: error.message });
   }
-
-  return res.status(201).json({ message: 'Questão cadastrada com sucesso.', data });
 });
 
 const PORT = 3333;
