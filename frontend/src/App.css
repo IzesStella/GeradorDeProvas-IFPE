@@ -1,0 +1,27 @@
+/* --- REGRAS EXCLUSIVAS PARA A HORA DE IMPRIMIR O PDF --- */
+@media print {
+  /* 1. Esconde os botões e fundos escuros do painel */
+  .esconder-na-impressao {
+    display: none !important;
+  }
+
+  /* 2. Força o fundo a ser branco e o texto preto para economizar tinta */
+  body, .fundo-prova {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* 3. Tira sombras das questões e evita que uma questão seja cortada no meio da folha */
+  .questao-impressao {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+    margin-bottom: 20px !important;
+    color: black !important;
+  }
+
+  /* 4. Tira aquele "localhost" e a data padrão do navegador das bordas do papel */
+  @page {
+    margin: 1.5cm;
+  }
+}
