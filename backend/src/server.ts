@@ -34,7 +34,7 @@ app.post('/api/questoes', async (req, res) => {
   }
 });
 
-// Rota para listar todas as questões na Tela Admin (Apenas as ativas)
+// Rota para listar todas as questões na Tela Admin (apenas as atiivas)
 app.get('/api/questoes', async (req, res) => {
   try {
     // busca apenas questões onde ativo é true, ordenando pelas mais recentes
@@ -64,6 +64,37 @@ app.delete('/api/questoes/:id', async (req, res) => {
     return res.json({ message: 'Questão desativada com sucesso.' });
   } catch (error: any) {
     console.error('Erro ao desativar questão:', error);
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+//Rota de Edição (Update) para a Tela Admin
+app.put('/api/questoes/:id', async (req, res) => {
+  const { id } = req.params;
+  const { topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano } = req.body;
+
+  try {
+    const sql = `
+      UPDATE questoes 
+      SET topico = $1, enunciado = $2, codigo_typescript = $3, nivel_dificuldade = $4, easter_egg_conteudo = $5, origem = $6, ano = $7
+      WHERE id = $8 
+      RETURNING *;
+    `;
+    
+    // O ID da questão sempre vai por último no array de valores ($8)
+    const values = [topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano, id];
+    const { rows, rowCount } = await pool.query(sql, values);
+
+    if (rowCount === 0) {
+      return res.status(404).json({ error: 'Questão não encontrada.' });
+    }
+
+    return res.json({ 
+      message: 'Questão atualizada com sucesso.', 
+      data: rows[0] 
+    });
+  } catch (error: any) {
+    console.error('Erro ao atualizar questão:', error);
     return res.status(500).json({ error: error.message });
   }
 });

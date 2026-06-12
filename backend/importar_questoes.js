@@ -1,30 +1,26 @@
 import fs from 'fs';
 import path from 'path';
-import { createClient } from '@supabase/supabase-js';
+import pkg from 'pg';
 import dotenv from 'dotenv';
 
+const { Pool } = pkg;
+
+// Lê o arquivo .env
 dotenv.config();
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Cria a conexão direta com o PostgreSQL local usando sua variável de ambiente
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 async function importarTodasAsProvas() {
-  console.log("Iniciando o carteiro robô avançado... 🤖");
+  console.log("Iniciando...");
   const pastaProvas = './dados_provas';
 
   try {
-    // Limpa a tabela inteira antes de importar para evitar duplicações
+    // Limpa a tabela inteira e reinicia o contador do ID SERIAL de volta para 1
     console.log("Limpando o banco de dados antigo para evitar clones...");
-    const { error: erroLimpeza } = await supabase
-      .from('questoes')
-      .delete()
-      .neq('id', 0); // O Supabase exige uma condição para deletar múltiplos, 'id diferente de 0' pega todos.
-
-    if (erroLimpeza) {
-      console.error("❌ Erro ao limpar a tabela:", erroLimpeza.message);
-      return; // Para o robô aqui se não conseguir limpar
-    }
+    await pool.query('TRUNCATE TABLE questoes RESTART IDENTITY CASCADE;');
     console.log("✨ Banco de dados limpo! Começando a importação...");
 
     // Lê todos os nomes de arquivos que estão na pasta
@@ -37,20 +33,38 @@ async function importarTodasAsProvas() {
         const arquivoBruto = fs.readFileSync(caminhoCompleto, 'utf-8');
         const questoes = JSON.parse(arquivoBruto);
         
-        // Envia as questões do arquivo atual
-        const { error } = await supabase.from('questoes').insert(questoes);
+        console.log(`Lendo o arquivo ${arquivo} (${questoes.length} questões)...`);
 
-        if (error) {
-          console.error(`Erro ao importar ${arquivo}:`, error.message);
-        } else {
-          console.log(`Arquivo ${arquivo} importado com sucesso! (${questoes.length} questões)`);
-          totalQuestoes += questoes.length;
+        // Percorre cada questão do JSON e insere usando SQL puro
+        for (const questao of questoes) {
+          const sql = `
+            INSERT INTO questoes (topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano)
+            VALUES ($1, $2, $3, $4, $5, $6, $7);
+          `;
+          
+          const values = [
+            questao.topico,
+            questao.enunciado,
+            questao.codigo_typescript,
+            questao.nivel_dificuldade,
+            questao.easter_egg_conteudo,
+            questao.origem,
+            questao.ano
+          ];
+
+          await pool.query(sql, values);
         }
+
+        console.log(`Arquivo ${arquivo} importado com sucesso para o banco local!`);
+        totalQuestoes += questoes.length;
       }
     }
-    console.log(`Finalizado! Um total de ${totalQuestoes} questões foram salvas no banco sem duplicações.`);
+    console.log(`\n Finalizado com sucesso! Um total de ${totalQuestoes} questões foram salvas no PostgreSQL.`);
   } catch (erro) {
-    console.error("Erro no processo:", erro.message);
+    console.error("Erro no processo de importação:", erro.message);
+  } finally {
+    
+    await pool.end();
   }
 }
 

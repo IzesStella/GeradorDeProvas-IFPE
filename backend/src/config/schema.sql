@@ -6,6 +6,6 @@ CREATE TABLE questoes (
     nivel_dificuldade VARCHAR(50),
     easter_egg_conteudo TEXT,
     origem VARCHAR(255),
-    ano INTEGER,
+    ano VARCHAR(20),
     ativo BOOLEAN DEFAULT true
 );
