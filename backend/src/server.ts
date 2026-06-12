@@ -34,6 +34,21 @@ app.post('/api/questoes', async (req, res) => {
   }
 });
 
+// Rota de autenticação do administrador
+app.post('/api/login', (req, res) => {
+  const { usuario, senha } = req.body;
+
+  if (usuario === 'admin' && senha === 'ifpe2026') {
+    // Retorna um token fictício que o frontend usará como chave de acesso
+    return res.json({ 
+      auth: true, 
+      token: 'questify-token-seguro-2026' 
+    });
+  }
+
+  return res.status(401).json({ error: 'Usuário ou senha inválidos.' });
+});
+
 // Rota para listar todas as questões na Tela Admin (apenas as atiivas)
 app.get('/api/questoes', async (req, res) => {
   try {

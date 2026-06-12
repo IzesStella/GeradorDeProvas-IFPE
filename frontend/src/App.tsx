@@ -2,12 +2,23 @@ import { useState } from 'react';
 import { TelaConfiguracao } from './components/TelaConfiguracao';
 import { TelaSimulado } from './components/TelaSimulado';
 import { TelaAdmin } from './components/TelaAdmin';
+import { TelaLogin } from './components/TelaLogin';
 import './App.css';
 
 export default function App() {
   const [telaAtual, setTelaAtual] = useState<'configuracao' | 'simulado' | 'admin'>('configuracao');
   const [filtrosSimulado, setFiltrosSimulado] = useState<any>(null);
   const [questoesAtuais, setQuestoesAtuais] = useState<any[]>([]);
+
+  const [autenticado, setAutenticado] = useState(() => {
+    return !!localStorage.getItem('gerador_token');
+  });
+
+  const handleLogout = () => {
+    localStorage.removeItem('gerador_token');
+    setAutenticado(false);
+    setTelaAtual('configuracao');
+  };
 
   const handleGerar = async (filtros: any) => {
     setFiltrosSimulado(filtros);
@@ -22,9 +33,7 @@ export default function App() {
       });
 
       if (resposta.ok) {
-        // Recebe as questões filtradas e embaralhadas
         const questoesSorteadas = await resposta.json();
-        
         setQuestoesAtuais(questoesSorteadas);
         setTelaAtual('simulado');
       } else {
@@ -54,9 +63,18 @@ export default function App() {
       )}
 
       {telaAtual === 'admin' && (
-        <TelaAdmin 
-          onVoltar={() => setTelaAtual('configuracao')} 
-        />
+        <>
+          {!autenticado ? (
+            <TelaLogin 
+              onLoginSucesso={() => setAutenticado(true)} 
+              onVoltar={() => setTelaAtual('configuracao')} 
+            />
+          ) : (
+            <TelaAdmin 
+              onVoltar={handleLogout} 
+            />
+          )}
+        </>
       )}
     </>
   );
