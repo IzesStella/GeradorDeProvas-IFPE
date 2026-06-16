@@ -2,23 +2,24 @@ import { pool } from '../config/database.js';
 
 export const SorteioService = {
   async gerarSimulado(filtros: any) {
-    const { topicosSelecionados, quantidade, dificuldade } = filtros;
+  
+    const { topicos, quantidade, dificuldades } = filtros;
     
-    //  consulta base C um array para guardar os valores dos filtros
     let sql = 'SELECT * FROM questoes WHERE 1=1';
     const values: any[] = [];
     let contadorVariaveis = 1;
 
-    // iltro de Tópicos (usando o ANY do PostgreSQL para arrays)
-    if (topicosSelecionados && topicosSelecionados.length > 0) {
+    // Filtro de Tópicos 
+    if (topicos && topicos.length > 0) {
       sql += ` AND topico = ANY($${contadorVariaveis})`;
-      values.push(topicosSelecionados);
+      values.push(topicos);
       contadorVariaveis++;
     }
 
-    if (dificuldade) {
-      sql += ` AND nivel_dificuldade = $${contadorVariaveis}`;
-      values.push(dificuldade);
+    // Filtro de Dificuldades 
+    if (dificuldades && dificuldades.length > 0) {
+      sql += ` AND nivel_dificuldade = ANY($${contadorVariaveis})`;
+      values.push(dificuldades);
       contadorVariaveis++;
     }
 
@@ -28,14 +29,12 @@ export const SorteioService = {
       return [];
     }
 
-    // Fisher-Yates Shuffle
+    // Fisher-Yates Shuffle maravilhoso
     let questoes = [...rows];
     for (let i = questoes.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      // Troca os elementos de lugar
       [questoes[i], questoes[j]] = [questoes[j], questoes[i]];
     }
-
 
     return questoes.slice(0, quantidade);
   }
