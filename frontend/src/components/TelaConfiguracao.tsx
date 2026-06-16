@@ -18,7 +18,8 @@ const TOPICOS_DISPONIVEIS = [
 export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoProps) {
   const [topicosSelecionados, setTopicosSelecionados] = useState<string[]>([]);
   const [quantidade, setQuantidade] = useState(5);
-  const [dificuldade, setDificuldade] = useState('');
+  const [dificuldadesSelecionadas, setDificuldadesSelecionadas] = useState<string[]>([]);
+  const [erro, setErro] = useState<string | null>(null);
 
   const handleToggleTopico = (topico: string) => {
     setTopicosSelecionados(prev => 
@@ -26,22 +27,33 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         ? prev.filter(t => t !== topico)
         : [...prev, topico]
     );
+    setErro(null);
+  };
+
+  const handleToggleDificuldade = (nivel: string) => {
+    setDificuldadesSelecionadas(prev => 
+      prev.includes(nivel) 
+        ? prev.filter(d => d !== nivel)
+        : [...prev, nivel]
+    );
+    setErro(null);
   };
 
   const handleGerar = () => {
     if (topicosSelecionados.length === 0) {
-      alert('Selecione pelo menos um tópico!');
+      setErro('Selecione pelo menos um tópico!');
       return;
     }
-    if (!dificuldade) {
-      alert('Selecione o nível de dificuldade!');
+    if (dificuldadesSelecionadas.length === 0) {
+      setErro('Selecione pelo menos um nível de dificuldade!');
       return;
     }
 
+    setErro(null);
     onGerar({
       topicos: topicosSelecionados,
       quantidade,
-      dificuldade
+      dificuldades: dificuldadesSelecionadas
     });
   };
 
@@ -58,6 +70,37 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         * {
           box-sizing: border-box;
         }
+        
+        /* Mágica do CSS para deixar o checkbox redondo com o "v" */
+        .checkbox-redondo {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 16px;
+          height: 16px;
+          border: 1px solid #6a737d;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          margin: 0;
+          transition: all 0.2s ease-in-out;
+        }
+        .checkbox-redondo:checked {
+          background-color: #2ecc71;
+          border-color: #2ecc71;
+        }
+        .checkbox-redondo:checked::after {
+          content: '';
+          width: 4px;
+          height: 8px;
+          border: solid #121418;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+          margin-bottom: 2px;
+        }
+
         @media (max-width: 768px) {
           .header-config {
             flex-direction: column;
@@ -72,10 +115,8 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
 
       <div style={{ backgroundColor: '#121418', minHeight: '100vh', display: 'flex', flexDirection: 'column', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
         
-        {/* HEADER - Dividido em 3 partes iguais (flex: 1) para centralizar perfeitamente */}
+        {/* HEADER */}
         <header className="header-config" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
-          
-          {/* Esquerda: LOGO */}
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
             <svg viewBox="0 0 2300 470" height="48" style={{ flexShrink: 0 }}>
               <g transform="translate(5, 5)">
@@ -95,12 +136,10 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
             </svg>
           </div>
 
-          {/* Centro: TÍTULO (Ícone removido e centralizado) */}
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>Gerador de Provas</span>
           </div>
 
-          {/* Direita: BOTÕES */}
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '15px' }}>
             <button onClick={onAcessarAdmin} style={{ backgroundColor: 'transparent', color: '#a0aab5', border: '1px solid #2a2d35', padding: '8px 15px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: 'bold' }}>
               Painel Admin
@@ -159,17 +198,46 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
               </div>
             </div>
 
-            <div style={{ marginBottom: '35px' }}>
+            {/* DIFICULDADE - Agora com a classe redonda! */}
+            <div style={{ marginBottom: '25px' }}>
               <label style={{ display: 'block', color: '#a0aab5', fontSize: '14px', marginBottom: '10px' }}>Dificuldade</label>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 {['Fácil', 'Média', 'Difícil'].map(nivel => (
                   <label key={nivel} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', color: '#e0e0e0', fontSize: '14px' }}>
-                    <input type="radio" name="dificuldade" value={nivel} checked={dificuldade === nivel} onChange={(e) => setDificuldade(e.target.value)} style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#2ecc71' }} />
+                    <input 
+                      type="checkbox" 
+                      className="checkbox-redondo"
+                      checked={dificuldadesSelecionadas.includes(nivel)}
+                      onChange={() => handleToggleDificuldade(nivel)}
+                    />
                     {nivel}
                   </label>
                 ))}
               </div>
             </div>
+
+            {/* CARD DE ERRO ESTILIZADO */}
+            {erro && (
+              <div style={{ 
+                backgroundColor: 'rgba(231, 76, 60, 0.1)', 
+                border: '1px solid #e74c3c', 
+                color: '#ff6b6b', 
+                padding: '12px 15px', 
+                borderRadius: '6px', 
+                marginBottom: '20px',
+                fontSize: '14px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                {erro}
+              </div>
+            )}
 
             <button onClick={handleGerar} style={{ width: '100%', backgroundColor: '#36a860', color: '#121418', border: 'none', padding: '15px', borderRadius: '6px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}>
               Gerar Simulado
@@ -177,6 +245,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
           </div>
         </main>
 
+        {/* FOOTER */}
         <footer style={{ borderTop: '1px solid #2a2d35', padding: '20px', textAlign: 'center', color: '#6a737d', fontSize: '13px' }}>
           Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
         </footer>
