@@ -55,7 +55,7 @@ Object.keys(coresTCC).forEach(token => {
 });
 
 
-export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
+export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps) {
   
   const handleImprimir = () => {
     window.print();
@@ -161,6 +161,31 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
         </header>
 
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px' }}>
+          
+          {/* ======================================================== */}
+          {/* AVISO: QUANTIDADE SOLICITADA MAIOR QUE O DISPONÍVEL      */}
+          {/* ======================================================== */}
+          {filtros?.quantidade && questoes.length > 0 && questoes.length < Number(filtros.quantidade) && (
+            <div style={{ 
+              backgroundColor: '#e8f4fd', // Fundo azul bem clarinho e suave
+              borderLeft: '5px solid #3695D7', // Borda azul puxando a cor da sua Syntax
+              padding: '16px 20px', 
+              borderRadius: '6px', 
+              marginBottom: '30px', 
+              color: '#005b8f', // Texto azul escuro para leitura perfeita
+              fontSize: '15px',
+              boxShadow: '0 2px 8px rgba(54, 149, 215, 0.1)', // Sombra sutil azulada
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px'
+            }}>
+              <span style={{ fontSize: '22px' }}>ℹ️</span>
+              <div>
+                <strong>Informação:</strong> Você solicitou <strong>{filtros.quantidade}</strong> questões, mas encontramos apenas <strong>{questoes.length}</strong> no banco de dados com os filtros aplicados.
+              </div>
+            </div>
+          )}
+
           {questoes.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '50px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 6px 15px rgba(0,0,0,0.08)' }}>
               <h2>Nenhuma questão encontrada com esses filtros.</h2>
