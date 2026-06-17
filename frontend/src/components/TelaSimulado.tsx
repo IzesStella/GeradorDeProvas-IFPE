@@ -18,6 +18,43 @@ interface TelaSimuladoProps {
   filtros: any;
 }
 
+// TEMA SEMÂNTICO DE CORES DO CÓDIGO
+const temaDoTCC = JSON.parse(JSON.stringify(vscDarkPlus));
+
+// TABELA DE CORES
+const coresTCC: Record<string, string> = {
+  'keyword': '#3695D7',      // Palavras-chave (function, let, return): Azul
+  'builtin': '#3695D7',      // Tipos (number, string): Azul
+  'number': '#82B384',       // Números (30, 40): Verde claro
+  'string': '#939393',       // Textos ("valor da..."): Cinza escuro
+  'comment': '#5EA63D',      // Comentários (//...): Verde escuro
+  'punctuation': '#FFF500',  // Parênteses e chaves: Amarelo vibrante
+  
+  'function': '#ffffff',     // Nomes de função (multiplicar, log): Branco
+  'class-name': '#ffffff',   // Classes Globais (console): Branco
+  'variable': '#ffffff',     // Nomes de variáveis (resultado, x): Branco
+  'parameter': '#ffffff',    // Parâmetros (a, b, c): Branco
+  'property': '#ffffff',     // Propriedades: Branco
+  'operator': '#ffffff'      // Operadores (=, *): Branco
+};
+
+// Aplica as cores e remove o itálico de tudo (menos dos comentários)
+Object.keys(temaDoTCC).forEach((key) => {
+  if (temaDoTCC[key].fontStyle === 'italic' && key !== 'comment') {
+    temaDoTCC[key].fontStyle = 'normal';
+  }
+});
+
+Object.keys(coresTCC).forEach(token => {
+  if (temaDoTCC[token]) {
+    temaDoTCC[token].color = coresTCC[token];
+    if (token !== 'comment') temaDoTCC[token].fontStyle = 'normal'; 
+  } else {
+    temaDoTCC[token] = { color: coresTCC[token], fontStyle: token === 'comment' ? 'italic' : 'normal' };
+  }
+});
+
+
 export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
   
   const handleImprimir = () => {
@@ -26,20 +63,16 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
 
   const topicosUnicos = Array.from(new Set(questoes.map(q => q.topico))).join(', ');
 
-  // MÁGICA: Função inteligente que detecta desenhos/padrões no meio do texto
   const formatarEnunciado = (texto: string) => {
     if (!texto) return null;
     return texto.split('\n').map((linha, index) => {
-      // Regra: Se a linha NÃO tem letras minúsculas E tem símbolos de padrão (X, #, *, -, etc)
       const ehPadraoCodigo = linha.trim().length > 0 && !/[a-z]/.test(linha) && /[X#\*\-\+\[\]\(\)\=]/.test(linha);
       
       return (
         <span key={index} style={{ 
           display: 'block', 
-          // Se for código, usa fonte de programador e alinha perfeitamente
-          fontFamily: ehPadraoCodigo ? "'Courier New', Courier, monospace" : 'inherit',
+          fontFamily: ehPadraoCodigo ? "Consolas, 'Courier New', monospace" : 'inherit',
           letterSpacing: ehPadraoCodigo ? '2px' : 'normal', 
-          fontWeight: ehPadraoCodigo ? 'bold' : 'normal',
           color: ehPadraoCodigo ? '#111' : 'inherit',
           minHeight: '1.6em'
         }}>
@@ -50,58 +83,65 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
   };
 
   return (
-    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh', color: '#333' }}>
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, minHeight: '100vh', backgroundColor: '#f4f6f8', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#333' }}>
       
       <style>
         {`
-          /* COMPORTAMENTO NA TELA DO PC */
+          body, html {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f4f6f8;
+          }
+          * { box-sizing: border-box; }
+
           @media screen {
             .documento-pdf { display: none !important; }
-            .tela-sistema { background-color: #f4f6f8; min-height: 100vh; padding-bottom: 60px; }
+            .tela-sistema { width: 100%; padding-bottom: 60px; }
           }
 
-          /* COMPORTAMENTO NA HORA DE IMPRIMIR (PAPEL) */
           @media print {
             .tela-sistema { display: none !important; }
             .documento-pdf { display: block !important; width: 100%; }
-            
-            * {
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
             @page { margin: 1.5cm; }
-            
-            body, html { 
-              background-color: white !important; 
-              margin: 0;
-              padding: 0;
-            }
-            
+            body, html { background-color: white !important; }
             .questao-item { break-inside: avoid; margin-bottom: 30px; }
-            
             pre { white-space: pre-wrap !important; word-wrap: break-word !important; }
           }
         `}
       </style>
 
-      {/* ========================================== */}
-      {/* 1. O VISUAL DO SISTEMA (TELA DO COMPUTADOR) */}
-      {/* ========================================== */}
+      {/* TELA DO SISTEMA */}
       <div className="tela-sistema">
-        <header style={{ backgroundColor: '#1a1b26', color: 'white', padding: '15px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '50px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <div style={{ width: '32px', height: '32px', backgroundColor: '#2ecc71', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '20px', color: '#1a1b26' }}>IF</div>
-            <span style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' }}>Instituto Federal</span>
+        <header style={{ backgroundColor: '#1a1d24', color: 'white', padding: '15px 5vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '50px', borderBottom: '1px solid #2a2d35' }}>
+          
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0 }}>
+              <g transform="translate(5, 5)">
+                <circle cx="50" cy="50" r="55" fill="#c8191e" />
+                <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
+                <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+              </g>
+              <text x="390" y="340" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="140" fill="#ffffff" letterSpacing="2">INSTITUTO FEDERAL</text>
+              <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="#ffffff">Pernambuco</text>
+            </svg>
           </div>
-          <h2 style={{ margin: 0, fontSize: '20px', fontWeight: 500 }}>Simulado Personalizado: Lógica de Programação</h2>
+
+          <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 500 }}>Simulado Personalizado</h2>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <span style={{ fontSize: '14px' }}>Questões: {questoes.length}</span>
-            <button onClick={handleImprimir} style={{ backgroundColor: '#2ecc71', color: '#1a1b26', border: 'none', padding: '8px 20px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'inherit' }}>
+            <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#a0aab5' }}>Questões: {questoes.length}</span>
+            <button onClick={handleImprimir} style={{ backgroundColor: '#36a860', color: '#121418', border: 'none', padding: '8px 20px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'inherit' }}>
               IMPRIMIR PDF
             </button>
-            <button onClick={onVoltar} style={{ backgroundColor: '#2c3e50', color: '#2ecc71', border: 'none', padding: '8px 20px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'inherit' }}>
+            <button onClick={onVoltar} style={{ backgroundColor: '#2c3e50', color: '#2ecc71', border: 'none', padding: '8px 20px', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'inherit' }}>
               VOLTAR
             </button>
           </div>
@@ -128,20 +168,46 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
                   </div>
                 </div>
                 
-                {/* O ENUNCIADO AGORA PASSA PELO DETECTOR DE PADRÕES */}
                 <div style={{ fontSize: '17px', lineHeight: '1.6', marginBottom: '25px' }}>
                   {formatarEnunciado(questao.enunciado)}
                 </div>
                 
                 {questao.codigo_typescript && questao.codigo_typescript.trim() !== '' && (
-                  <SyntaxHighlighter language="typescript" style={vscDarkPlus} showLineNumbers={true} customStyle={{ borderRadius: '8px', padding: '20px', fontSize: '14px', fontFamily: 'monospace' }}>
+                  <SyntaxHighlighter 
+                    language="typescript" 
+                    style={temaDoTCC} 
+                    showLineNumbers={true} 
+                    customStyle={{ 
+                      borderRadius: '8px', 
+                      padding: '20px', 
+                      fontSize: '14px', 
+                      fontFamily: "Consolas, 'Courier New', monospace", 
+                      backgroundColor: '#1e1e1e', 
+                      color: '#ffffff' // Garante que tudo que não tiver regra (pontos e virgulas) fique branco
+                    }}
+                  >
                     {questao.codigo_typescript}
                   </SyntaxHighlighter>
                 )}
                 
                 {questao.easter_egg_conteudo && (
                   <div style={{ backgroundColor: '#fdf8e4', border: '1px solid #faebcc', borderRadius: '8px', marginTop: '25px', padding: '15px', color: '#8a6d3b' }}>
-                    <strong>💡 Curiosidade:</strong> {questao.easter_egg_conteudo}
+                    <strong>💡 Curiosidade: </strong>
+                    {questao.easter_egg_conteudo.split(/(https?:\/\/[^\s]+)/g).map((part, i) => 
+                      part.match(/https?:\/\/[^\s]+/) ? (
+                        <a 
+                          key={i} 
+                          href={part} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          style={{ color: '#8a6d3b', textDecoration: 'underline', fontWeight: 'bold' }}
+                        >
+                          {part}
+                        </a>
+                      ) : (
+                        part
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -150,11 +216,8 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
         </div>
       </div>
 
-      {/* ========================================== */}
-      {/* 2. O VISUAL DA PROVA IMPRESSA (PDF / A4)  */}
-      {/* ========================================== */}
+      {/* TELA DE IMPRESSÃO (PDF) */}
       <div className="documento-pdf">
-        
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px', paddingBottom: '15px', borderBottom: '2px solid #eaeaea' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '3px' }}>
@@ -189,7 +252,6 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
             {questoes.map((questao, index) => (
               <div key={`print-${questao.id}`} className="questao-item">
-                
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
                   <div style={{ backgroundColor: '#2ea73a', color: '#fff', width: '32px', height: '32px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px' }}>
                     {index + 1}
@@ -198,26 +260,21 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
                     Questão {index + 1} - {questao.topico}
                   </h3>
                 </div>
-
                 <div style={{ marginLeft: '44px', marginBottom: '15px' }}>
                   <span style={{ fontSize: '13px', color: '#666', fontWeight: 500 }}>
                     Fonte: {questao.origem} ({questao.ano})
                   </span>
                 </div>
-                
-                {/* O ENUNCIADO NO PDF TAMBÉM PASSA PELO DETECTOR */}
                 <div style={{ fontSize: '16px', lineHeight: '1.6', margin: '0 0 20px 0', color: '#222' }}>
                   {formatarEnunciado(questao.enunciado)}
                 </div>
-                
                 {questao.codigo_typescript && questao.codigo_typescript.trim() !== '' && (
                   <div style={{ marginBottom: '25px' }}>
-                    <SyntaxHighlighter language="typescript" style={vscDarkPlus} customStyle={{ borderRadius: '8px', padding: '15px', fontSize: '14px', fontFamily: 'monospace', margin: 0 }}>
+                    <SyntaxHighlighter language="typescript" style={temaDoTCC} customStyle={{ borderRadius: '8px', padding: '15px', fontSize: '14px', fontFamily: "Consolas, 'Courier New', monospace", backgroundColor: '#1e1e1e', margin: 0 }}>
                       {questao.codigo_typescript}
                     </SyntaxHighlighter>
                   </div>
                 )}
-
                 <div style={{ marginTop: '15px' }}>
                   <p style={{ fontWeight: 'bold', fontSize: '15px', marginBottom: '10px', color: '#333' }}>Sua resposta:</p>
                   <div style={{ border: '2px solid #ccc', borderRadius: '8px', minHeight: '160px', backgroundColor: '#fafafa' }}></div>
@@ -227,7 +284,6 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
           </div>
         )}
       </div>
-
     </div>
   );
 }
