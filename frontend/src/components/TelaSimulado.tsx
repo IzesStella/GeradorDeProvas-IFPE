@@ -112,14 +112,52 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
             .tela-sistema { width: 100%; padding-bottom: 60px; }
           }
 
+          /* === REGRAS ESPECÍFICAS PARA O PDF === */
           @media print {
             .tela-sistema { display: none !important; }
-            .documento-pdf { display: block !important; width: 100%; }
+            .documento-pdf { 
+                display: block !important; 
+                width: 100%; 
+                font-family: Arial, sans-serif; 
+                background-color: white !important;
+            }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            @page { margin: 1.5cm; }
+            
+            @page { 
+                margin: 1.5cm; 
+                size: A4 portrait; 
+            }
+            
             body, html { background-color: white !important; }
-            .questao-item { break-inside: avoid; margin-bottom: 30px; }
-            pre { white-space: pre-wrap !important; word-wrap: break-word !important; }
+            
+            .questao-item { 
+                break-inside: auto; 
+                page-break-inside: auto; 
+                margin-bottom: 30px; 
+                padding-bottom: 20px;
+                border-bottom: 1px dashed #ccc; 
+            }
+            
+            .questao-item:last-child {
+                border-bottom: none;
+            }
+
+            .bloco-inquebravel {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            pre { 
+                white-space: pre-wrap !important; 
+                word-wrap: break-word !important; 
+                break-inside: avoid !important; 
+                page-break-inside: avoid !important;
+            }
+
+            .caixa-resposta {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
           }
         `}
       </style>
@@ -167,14 +205,14 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           {/* ======================================================== */}
           {filtros?.quantidade && questoes.length > 0 && questoes.length < Number(filtros.quantidade) && (
             <div style={{ 
-              backgroundColor: '#e8f4fd', // Fundo azul bem clarinho e suave
-              borderLeft: '5px solid #3695D7', // Borda azul puxando a cor da sua Syntax
+              backgroundColor: '#e8f4fd', 
+              borderLeft: '5px solid #3695D7', 
               padding: '16px 20px', 
               borderRadius: '6px', 
               marginBottom: '30px', 
-              color: '#005b8f', // Texto azul escuro para leitura perfeita
+              color: '#005b8f', 
               fontSize: '15px',
-              boxShadow: '0 2px 8px rgba(54, 149, 215, 0.1)', // Sombra sutil azulada
+              boxShadow: '0 2px 8px rgba(54, 149, 215, 0.1)', 
               display: 'flex',
               alignItems: 'center',
               gap: '12px'
@@ -258,67 +296,80 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
       {/* TELA DE IMPRESSÃO (PDF) */}
       <div className="documento-pdf">
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px', paddingBottom: '15px', borderBottom: '2px solid #eaeaea' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '3px' }}>
-              <div style={{ width: '14px', height: '14px', backgroundColor: '#e74c3c', borderRadius: '2px' }}></div>
-              <div style={{ width: '14px', height: '14px', backgroundColor: '#2ecc71', borderRadius: '2px' }}></div>
-              <div style={{ width: '14px', height: '14px', backgroundColor: '#2ecc71', borderRadius: '2px' }}></div>
-              <div style={{ width: '14px', height: '14px', backgroundColor: '#2ecc71', borderRadius: '2px' }}></div>
-            </div>
-            <div>
-              <h1 style={{ margin: 0, fontSize: '20px', fontWeight: '800', letterSpacing: '-0.5px', color: '#111' }}>INSTITUTO FEDERAL</h1>
-              <p style={{ margin: 0, fontSize: '14px', color: '#555' }}>Pernambuco</p>
-            </div>
-          </div>
-          <div style={{ textAlign: 'right', borderLeft: '3px solid #2ecc71', paddingLeft: '15px' }}>
-            <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 'bold', color: '#111' }}>Simulado Personalizado</h2>
+        <header style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '20px', paddingBottom: '15px', borderBottom: '2px solid #eaeaea' }}>
+          
+          <svg viewBox="0 0 350 470" height="45" style={{ flexShrink: 0 }}>
+            <g transform="translate(5, 5)">
+              <circle cx="50" cy="50" r="55" fill="#c8191e" />
+              <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
+              <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+            </g>
+          </svg>
+
+          <div style={{ borderLeft: '3px solid #2ecc71', paddingLeft: '15px' }}>
+            <h2 style={{ margin: 0, fontSize: '20px', fontWeight: 'bold', color: '#111' }}>Simulado Personalizado</h2>
             <p style={{ margin: 0, fontSize: '14px', color: '#666' }}>Gerador de Provas</p>
           </div>
         </header>
 
-        <div style={{ backgroundColor: '#f8f9fa', borderRadius: '8px', padding: '20px', marginBottom: '35px', display: 'flex', gap: '30px', border: '1px solid #e2e2e2' }}>
-          <div style={{ flex: 1 }}>
-            <p style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#444' }}><strong>Origem:</strong> Simulado Personalizado</p>
-            <p style={{ margin: 0, fontSize: '14px', color: '#444' }}><strong>Aluno(a):</strong> _______________________________________________________</p>
-          </div>
-          <div style={{ flex: 1 }}>
-            <p style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#444' }}><strong>Tópicos:</strong> {topicosUnicos}</p>
-            <p style={{ margin: 0, fontSize: '14px', color: '#444' }}><strong>Quantidade de Questões:</strong> {questoes.length}</p>
+        {/* FUNDO CINZA REMOVIDO E LINHA DO ALUNO REDUZIDA */}
+        <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', marginBottom: '30px', backgroundColor: 'transparent' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ fontSize: '15px', color: '#111' }}>
+              <strong>Aluno(a):</strong> __________________________________________________________________
+            </div>
+            <div style={{ fontSize: '15px', color: '#111' }}>
+              <strong>Tópicos:</strong> {topicosUnicos}
+            </div>
           </div>
         </div>
 
         {questoes.length > 0 && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {questoes.map((questao, index) => (
               <div key={`print-${questao.id}`} className="questao-item">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
-                  <div style={{ backgroundColor: '#2ea73a', color: '#fff', width: '32px', height: '32px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px' }}>
-                    {index + 1}
+                
+                {/* BLOCO INQUEBRÁVEL: NÚMERO DA QUESTÃO + ENUNCIADO FICAM SEMPRE JUNTOS */}
+                <div className="bloco-inquebravel">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
+                    <div style={{ backgroundColor: '#2ea73a', color: '#fff', width: '28px', height: '28px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '14px' }}>
+                      {index + 1}
+                    </div>
+                    <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold', color: '#111' }}>
+                      Questão {index + 1} - {questao.topico}
+                    </h3>
                   </div>
-                  <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 'bold', color: '#111' }}>
-                    Questão {index + 1} - {questao.topico}
-                  </h3>
+                  <div style={{ marginLeft: '40px', marginBottom: '10px' }}>
+                    <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>
+                      Fonte: {questao.origem} ({questao.ano})
+                    </span>
+                  </div>
+                  
+                  <div style={{ fontSize: '15px', lineHeight: '1.5', margin: '0 0 15px 0', color: '#222' }}>
+                    {formatarEnunciado(questao.enunciado)}
+                  </div>
                 </div>
-                <div style={{ marginLeft: '44px', marginBottom: '15px' }}>
-                  <span style={{ fontSize: '13px', color: '#666', fontWeight: 500 }}>
-                    Fonte: {questao.origem} ({questao.ano})
-                  </span>
-                </div>
-                <div style={{ fontSize: '16px', lineHeight: '1.6', margin: '0 0 20px 0', color: '#222' }}>
-                  {formatarEnunciado(questao.enunciado)}
-                </div>
+                
                 {questao.codigo_typescript && questao.codigo_typescript.trim() !== '' && (
-                  <div style={{ marginBottom: '25px' }}>
-                    <SyntaxHighlighter language="typescript" style={temaDoTCC} customStyle={{ borderRadius: '8px', padding: '15px', fontSize: '14px', fontFamily: "Consolas, 'Courier New', monospace", backgroundColor: '#1e1e1e', margin: 0 }}>
+                  <div style={{ marginBottom: '15px' }}>
+                    <SyntaxHighlighter language="typescript" style={temaDoTCC} customStyle={{ borderRadius: '6px', padding: '12px', fontSize: '13px', fontFamily: "Consolas, 'Courier New', monospace", backgroundColor: '#1e1e1e', margin: 0 }}>
                       {questao.codigo_typescript}
                     </SyntaxHighlighter>
                   </div>
                 )}
-                <div style={{ marginTop: '15px' }}>
-                  <p style={{ fontWeight: 'bold', fontSize: '15px', marginBottom: '10px', color: '#333' }}>Sua resposta:</p>
-                  <div style={{ border: '2px solid #ccc', borderRadius: '8px', minHeight: '160px', backgroundColor: '#fafafa' }}></div>
+                
+                <div className="caixa-resposta" style={{ marginTop: '15px' }}>
+                  <p style={{ fontWeight: 'bold', fontSize: '14px', marginBottom: '8px', color: '#333' }}>Sua resposta:</p>
+                  <div style={{ border: '1px solid #aaa', borderRadius: '6px', minHeight: '220px', backgroundColor: '#fff' }}></div>
                 </div>
+
               </div>
             ))}
           </div>
