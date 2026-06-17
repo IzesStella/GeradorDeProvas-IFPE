@@ -104,50 +104,54 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         .main-container {
           flex: 1;
           display: flex;
-          flex-wrap: wrap;
-          padding: 60px 5vw;
-          align-items: flex-start;
-          justify-content: space-between;
-          gap: 40px;
-          max-width: 1300px;
+          flex-direction: row; /* Força lado a lado */
+          flex-wrap: nowrap; /* Impede a quebra de linha forçada */
+          padding: 30px 5vw;
+          
+          /* Centraliza em monitores grandes */
+          align-items: center; 
+          justify-content: center; 
+          gap: 50px; 
+          
+          max-width: 1100px;
           margin: 0 auto;
           width: 100%;
         }
 
         .coluna-esquerda {
-          flex: 1 1 450px;
-          max-width: 650px;
+          flex: 1 1 350px;
+          max-width: 450px;
           display: flex;
           flex-direction: column;
-          gap: 30px;
+          gap: 15px;
         }
 
         .coluna-direita {
-          flex: 1 1 350px;
-          max-width: 420px;
+          flex: 1 1 320px;
+          max-width: 380px;
           background-color: #1a1d24;
-          padding: 35px;
+          padding: 25px;
           border-radius: 12px;
           box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+          width: 100%;
         }
 
         .titulo-principal {
-          font-size: 34px;
-          margin-bottom: 15px;
+          font-size: 28px;
+          margin-bottom: 5px;
           color: #fff;
         }
 
         .texto-principal {
-          font-size: 18px;
+          font-size: 15px;
           color: #a0aab5;
-          line-height: 1.6;
+          line-height: 1.5;
           margin: 0;
         }
 
-        /* Responsividade para Tablets e Celulares (Aumentado para 960px) */
+        /* Responsividade para Tablets e Celulares */
         @media (max-width: 960px) {
           
-          /* Refatoração do Cabeçalho Mobile */
           .header-config {
             flex-direction: row !important;
             flex-wrap: wrap;
@@ -179,17 +183,16 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
             height: 35px !important;
           }
           
-          /* Container e alinhamento das colunas ao empilhar */
+          /* Ajuste CRUCIAL para não quebrar a tela em tablets/notebooks pequenos */
           .main-container {
-            padding: 30px 5vw;
-            gap: 40px;
-            justify-content: center; /* Garante que o conteúdo fique no meio */
+            padding: 30px 2vw; /* Reduz a margem lateral */
+            gap: 20px; /* Reduz o espaço entre as caixas para caber */
+            flex-wrap: nowrap; /* Continua forçando lado a lado */
           }
           
           .coluna-esquerda, .coluna-direita {
-            flex: 1 1 100%;
-            max-width: 600px; /* Limita o esticamento em telas médias */
-            margin: 0 auto; /* Segredo para a caixa ficar sempre no centro */
+            flex: 1 1 50%; /* Divide o espaço restante por igual */
+            max-width: 500px;
           }
           
           .coluna-esquerda {
@@ -198,17 +201,29 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
           }
           
           .titulo-principal {
-            font-size: 26px;
+            font-size: 24px;
           }
           
           .texto-principal {
-            font-size: 16px;
+            font-size: 15px;
           }
 
           .coluna-direita {
             padding: 25px 20px;
           }
         }
+        
+        /* A quebra para empilhar vai ocorrer apenas em celulares bem estreitos */
+        @media (max-width: 600px) {
+           .main-container {
+               flex-direction: column; /* Aí sim, empilha */
+           }
+           
+           .coluna-esquerda, .coluna-direita {
+               flex: 1 1 100%;
+           }
+        }
+
       `}</style>
 
       <div style={{ backgroundColor: '#121418', minHeight: '100vh', display: 'flex', flexDirection: 'column', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
@@ -216,7 +231,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         {/* HEADER */}
         <header className="header-config" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-            <svg viewBox="0 0 2300 470" height="48" style={{ flexShrink: 0, maxWidth: '100%' }}>
+            <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%' }}>
               <g transform="translate(5, 5)">
                 <circle cx="50" cy="50" r="55" fill="#c8191e" />
                 <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
@@ -262,17 +277,17 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
             <img 
               src={ilustracaoCodigo} 
               alt="Ilustração gerador de simulados" 
-              style={{ width: '100%', maxWidth: '600px', objectFit: 'contain' }} 
+              style={{ width: '100%', maxWidth: '500px', objectFit: 'contain' }} 
             />
           </div>
 
           {/* LADO DIREITO */}
           <div className="coluna-direita">
-            <h2 style={{ fontSize: '22px', marginBottom: '25px', color: '#fff' }}>Configure o seu simulado</h2>
+            <h2 style={{ fontSize: '20px', marginBottom: '20px', color: '#fff' }}>Configure o seu simulado</h2>
 
-            <div style={{ marginBottom: '25px' }}>
-              <label style={{ display: 'block', color: '#a0aab5', fontSize: '14px', marginBottom: '10px' }}>Seleção de Tópicos</label>
-              <div style={{ border: '1px solid #2a2d35', borderRadius: '8px', padding: '15px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', color: '#a0aab5', fontSize: '13px', marginBottom: '8px' }}>Seleção de Tópicos</label>
+              <div style={{ border: '1px solid #2a2d35', borderRadius: '8px', padding: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {TOPICOS_DISPONIVEIS.map(topico => (
                   <label key={topico} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '14px', color: '#e0e0e0', wordBreak: 'break-word' }}>
                     <input 
@@ -287,17 +302,17 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
               </div>
             </div>
 
-            <div style={{ marginBottom: '25px' }}>
-              <label style={{ display: 'block', color: '#a0aab5', fontSize: '14px', marginBottom: '10px' }}>Quantidade de Questões</label>
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', color: '#a0aab5', fontSize: '13px', marginBottom: '8px' }}>Quantidade de Questões</label>
               <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#121418', borderRadius: '8px', border: '1px solid #2a2d35' }}>
-                <button onClick={() => setQuantidade(Math.max(1, quantidade - 1))} style={{ flex: 1, padding: '12px', background: 'none', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer' }}>-</button>
+                <button onClick={() => setQuantidade(Math.max(1, quantidade - 1))} style={{ flex: 1, padding: '8px', background: 'none', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer' }}>-</button>
                 <span style={{ flex: 2, textAlign: 'center', fontWeight: 'bold', fontSize: '16px' }}>{quantidade}</span>
-                <button onClick={() => setQuantidade(quantidade + 1)} style={{ flex: 1, padding: '12px', background: 'none', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer' }}>+</button>
+                <button onClick={() => setQuantidade(quantidade + 1)} style={{ flex: 1, padding: '8px', background: 'none', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer' }}>+</button>
               </div>
             </div>
 
-            <div style={{ marginBottom: '25px' }}>
-              <label style={{ display: 'block', color: '#a0aab5', fontSize: '14px', marginBottom: '10px' }}>Dificuldade</label>
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'block', color: '#a0aab5', fontSize: '13px', marginBottom: '8px' }}>Dificuldade</label>
               <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
                 {['Fácil', 'Média', 'Difícil'].map(nivel => (
                   <label key={nivel} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', color: '#e0e0e0', fontSize: '14px' }}>
@@ -318,15 +333,15 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
                 backgroundColor: 'rgba(231, 76, 60, 0.1)', 
                 border: '1px solid #e74c3c', 
                 color: '#ff6b6b', 
-                padding: '12px 15px', 
+                padding: '10px 12px', 
                 borderRadius: '6px', 
-                marginBottom: '20px',
-                fontSize: '14px',
+                marginBottom: '15px',
+                fontSize: '13px',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px'
               }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                   <circle cx="12" cy="12" r="10"></circle>
                   <line x1="12" y1="8" x2="12" y2="12"></line>
                   <line x1="12" y1="16" x2="12.01" y2="16"></line>
@@ -335,13 +350,13 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
               </div>
             )}
 
-            <button onClick={handleGerar} style={{ width: '100%', backgroundColor: '#36a860', color: '#121418', border: 'none', padding: '15px', borderRadius: '6px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}>
+            <button onClick={handleGerar} style={{ width: '100%', backgroundColor: '#36a860', color: '#121418', border: 'none', padding: '12px', borderRadius: '6px', fontSize: '15px', fontWeight: 'bold', cursor: 'pointer' }}>
               Gerar Simulado
             </button>
           </div>
         </main>
 
-        <footer style={{ borderTop: '1px solid #2a2d35', padding: '20px', textAlign: 'center', color: '#6a737d', fontSize: '13px' }}>
+        <footer style={{ borderTop: '1px solid #2a2d35', padding: '15px', textAlign: 'center', color: '#6a737d', fontSize: '12px' }}>
           Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
         </footer>
 
