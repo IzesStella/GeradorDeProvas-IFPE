@@ -94,6 +94,19 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
           }
           * { box-sizing: border-box; }
 
+          /* === ESTILO DAS DIFICULDADES === */
+          .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+          }
+          .badge-facil { background-color: #e8f8f5; color: #2ecc71; }
+          .badge-media { background-color: #fef5e7; color: #f39c12; }
+          .badge-dificil { background-color: #fdedec; color: #e74c3c; }
+
           @media screen {
             .documento-pdf { display: none !important; }
             .tela-sistema { width: 100%; padding-bottom: 60px; }
@@ -164,7 +177,9 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
                   </div>
                   <div style={{ display: 'flex', gap: '10px' }}>
                     <span style={{ backgroundColor: '#e2f6ff', color: '#0077b3', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' }}>{questao.topico}</span>
-                    <span style={{ backgroundColor: '#fff3e0', color: '#e65100', padding: '6px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' }}>{questao.nivel_dificuldade}</span>
+                    <span className={`badge ${questao.nivel_dificuldade === 'Fácil' ? 'badge-facil' : questao.nivel_dificuldade === 'Média' ? 'badge-media' : 'badge-dificil'}`}>
+                      {questao.nivel_dificuldade}
+                    </span>
                   </div>
                 </div>
                 
@@ -183,7 +198,7 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
                       fontSize: '14px', 
                       fontFamily: "Consolas, 'Courier New', monospace", 
                       backgroundColor: '#1e1e1e', 
-                      color: '#ffffff' // Garante que tudo que não tiver regra (pontos e virgulas) fique branco
+                      color: '#ffffff'
                     }}
                   >
                     {questao.codigo_typescript}
