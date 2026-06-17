@@ -144,9 +144,9 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           background-color: #36a860;
           color: #121418;
           border: none;
-          padding: 12px;
+          padding: 10px 12px;
           border-radius: 6px;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: bold;
           cursor: pointer;
           transition: opacity 0.2s;
@@ -177,7 +177,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           color: #36a860; 
           border: none;
           padding: 0;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: bold;
           cursor: pointer;
           transition: opacity 0.2s;
@@ -189,7 +189,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           color: #e74c3c; 
           border: none;
           padding: 0;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: bold;
           cursor: pointer;
           transition: opacity 0.2s;
@@ -197,7 +197,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         .btn-link-excluir:hover { text-decoration: underline; opacity: 0.8; }
 
         .badge {
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 600;
           display: inline-flex;
           align-items: center;
@@ -221,22 +221,81 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
 
         .form-container-fixo {
           background-color: #1a1d24;
-          padding: 30px;
+          padding: 25px;
           border-radius: 12px;
-          flex: 1 1 350px;
-          max-width: 500px;
+          flex: 1 1 320px;
+          max-width: 420px; /* Reduzido de 500px para ficar mais compacto */
           width: 100%;
           box-shadow: 0 10px 30px rgba(0,0,0,0.5);
           position: sticky;
-          top: 30px; 
+          top: 25px; 
           align-self: flex-start;
+          
+          max-height: calc(100vh - 50px);
+          overflow-y: auto;
+        }
+
+        .form-container-fixo::-webkit-scrollbar {
+          width: 6px;
+        }
+        .form-container-fixo::-webkit-scrollbar-track {
+          background: #1a1d24; 
+        }
+        .form-container-fixo::-webkit-scrollbar-thumb {
+          background: #2a2d35; 
+          border-radius: 4px;
+        }
+        .form-container-fixo::-webkit-scrollbar-thumb:hover {
+          background: #3a3d45; 
+        }
+
+        /* === RESPONSIVIDADE === */
+        @media (max-width: 960px) {
+          .header-admin { 
+            flex-direction: row !important; 
+            flex-wrap: wrap;
+            padding: 15px 20px !important;
+          }
+          .header-admin > div:nth-child(1) {
+            flex: unset !important;
+            width: 50%;
+            justify-content: flex-start !important;
+          }
+          .header-admin > div:nth-child(3) {
+            flex: unset !important;
+            width: 50%;
+            justify-content: flex-end !important;
+          }
+          .header-admin > div:nth-child(2) {
+            flex: unset !important;
+            width: 100%;
+            justify-content: center !important;
+            margin-top: 15px;
+            order: 3;
+            text-align: center;
+          }
+          .container-principal { 
+            padding: 20px 15px !important; 
+          }
         }
 
         @media (max-width: 768px) {
-          .header-admin { flex-direction: column; gap: 20px; }
-          .header-admin > div { justify-content: center !important; width: 100%; }
-          .container-principal { padding: 20px 5vw !important; flex-direction: column; }
-          .form-container-fixo { position: static; }
+          .container-principal { 
+            flex-direction: column; 
+            align-items: center !important;
+          }
+          .form-container-fixo { 
+            position: static; 
+            max-width: 100%; 
+            padding: 20px;
+            max-height: unset;
+            overflow-y: visible;
+          }
+          .tabela-container {
+            max-width: 100% !important;
+            width: 100%;
+            padding: 20px 15px !important;
+          }
         }
       `}</style>
 
@@ -246,7 +305,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         <header className="header-admin" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
           
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-            <svg viewBox="0 0 2300 470" height="48" style={{ flexShrink: 0 }}>
+            <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%' }}>
               <g transform="translate(5, 5)">
                 <circle cx="50" cy="50" r="55" fill="#c8191e" />
                 <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
@@ -275,10 +334,10 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 backgroundColor: 'transparent', 
                 color: '#a0aab5', 
                 border: '1px solid #2a2d35', 
-                padding: '8px 15px', 
+                padding: '6px 14px', 
                 borderRadius: '6px', 
                 cursor: 'pointer', 
-                fontSize: '14px', 
+                fontSize: '13px', 
                 fontWeight: 'bold' 
               }}
             >
@@ -288,19 +347,19 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         </header>
 
         {/* CONTAINER PRINCIPAL */}
-        <div className="container-principal" style={{ flex: 1, padding: '40px 5vw', display: 'flex', gap: '30px', alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div className="container-principal" style={{ flex: 1, padding: '25px 5vw', display: 'flex', gap: '25px', alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
           
           {/* FORMULÁRIO (FIXO) */}
           <div className="form-container-fixo">
-            <h2 style={{ color: '#fff', marginBottom: '25px', fontSize: '22px', marginTop: 0 }}>
+            <h2 style={{ color: '#fff', marginBottom: '20px', fontSize: '20px', marginTop: 0 }}>
               {editandoId ? 'Editar Questão' : 'Cadastrar Nova Questão'}
             </h2>
             
-            <form onSubmit={handleSalvar} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <form onSubmit={handleSalvar} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               
               <div>
-                <label style={{ display: 'block', marginBottom: '6px', color: '#a0aab5', fontSize: '14px' }}>Tópico da Questão:</label>
-                <select value={topico} onChange={(e) => setTopico(e.target.value)} required style={{ width: '100%', padding: '10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '8px', fontFamily: 'inherit', boxSizing: 'border-box' }}>
+                <label style={{ display: 'block', marginBottom: '4px', color: '#a0aab5', fontSize: '13px' }}>Tópico da Questão:</label>
+                <select value={topico} onChange={(e) => setTopico(e.target.value)} required style={{ width: '100%', padding: '8px 10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '6px', fontFamily: 'inherit', boxSizing: 'border-box', fontSize: '14px' }}>
                   <option value="" disabled>Selecione um tópico</option>
                   {TOPICOS_DISPONIVEIS.map((t) => (
                     <option key={t} value={t}>{t}</option>
@@ -309,8 +368,8 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
               </div>
 
               <div>
-                <label style={{ display: 'block', marginBottom: '6px', color: '#a0aab5', fontSize: '14px' }}>Nível de Dificuldade:</label>
-                <select value={dificuldade} onChange={(e) => setDificuldade(e.target.value)} style={{ width: '100%', padding: '10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '8px', fontFamily: 'inherit', boxSizing: 'border-box' }}>
+                <label style={{ display: 'block', marginBottom: '4px', color: '#a0aab5', fontSize: '13px' }}>Nível de Dificuldade:</label>
+                <select value={dificuldade} onChange={(e) => setDificuldade(e.target.value)} style={{ width: '100%', padding: '8px 10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '6px', fontFamily: 'inherit', boxSizing: 'border-box', fontSize: '14px' }}>
                   <option value="Fácil">Fácil</option>
                   <option value="Média">Média</option>
                   <option value="Difícil">Difícil</option>
@@ -318,23 +377,23 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
               </div>
 
               <div>
-                <label style={{ display: 'block', marginBottom: '6px', color: '#a0aab5', fontSize: '14px' }}>Origem / Fonte:</label>
-                <input type="text" value={origem} onChange={(e) => setOrigem(e.target.value)} placeholder="Ex: Primeira Avaliação Individual - IPI" required style={{ width: '100%', padding: '10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '8px', fontFamily: 'inherit', boxSizing: 'border-box' }} />
+                <label style={{ display: 'block', marginBottom: '4px', color: '#a0aab5', fontSize: '13px' }}>Origem / Fonte:</label>
+                <input type="text" value={origem} onChange={(e) => setOrigem(e.target.value)} placeholder="Ex: Primeira Avaliação Individual - IPI" required style={{ width: '100%', padding: '8px 10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '6px', fontFamily: 'inherit', boxSizing: 'border-box', fontSize: '14px' }} />
               </div>
 
               <div>
-                <label style={{ display: 'block', marginBottom: '6px', color: '#a0aab5', fontSize: '14px' }}>Semestre / Ano:</label>
-                <input type="text" value={semestre} onChange={(e) => setSemestre(e.target.value)} placeholder="Ex: 2025.1" required style={{ width: '100%', padding: '10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '8px', fontFamily: 'inherit', boxSizing: 'border-box' }} />
+                <label style={{ display: 'block', marginBottom: '4px', color: '#a0aab5', fontSize: '13px' }}>Semestre / Ano:</label>
+                <input type="text" value={semestre} onChange={(e) => setSemestre(e.target.value)} placeholder="Ex: 2025.1" required style={{ width: '100%', padding: '8px 10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '6px', fontFamily: 'inherit', boxSizing: 'border-box', fontSize: '14px' }} />
               </div>
 
               <div>
-                <label style={{ display: 'block', marginBottom: '6px', color: '#a0aab5', fontSize: '14px' }}>Enunciado:</label>
-                <textarea value={enunciado} onChange={(e) => setEnunciado(e.target.value)} rows={4} required style={{ width: '100%', padding: '10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '8px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box' }} />
+                <label style={{ display: 'block', marginBottom: '4px', color: '#a0aab5', fontSize: '13px' }}>Enunciado:</label>
+                <textarea value={enunciado} onChange={(e) => setEnunciado(e.target.value)} rows={3} required style={{ width: '100%', padding: '8px 10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#fff', borderRadius: '6px', fontFamily: 'inherit', resize: 'vertical', boxSizing: 'border-box', fontSize: '14px' }} />
               </div>
 
               <div>
-                <label style={{ display: 'block', marginBottom: '6px', color: '#a0aab5', fontSize: '14px' }}>Código TypeScript (Opcional):</label>
-                <textarea value={codigo} onChange={(e) => setCodigo(e.target.value)} rows={3} style={{ width: '100%', padding: '10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#36a860', borderRadius: '8px', fontFamily: 'monospace', resize: 'vertical', boxSizing: 'border-box' }} />
+                <label style={{ display: 'block', marginBottom: '4px', color: '#a0aab5', fontSize: '13px' }}>Código TypeScript (Opcional):</label>
+                <textarea value={codigo} onChange={(e) => setCodigo(e.target.value)} rows={3} style={{ width: '100%', padding: '8px 10px', backgroundColor: '#121418', border: '1px solid #2a2d35', color: '#36a860', borderRadius: '6px', fontFamily: 'monospace', resize: 'vertical', boxSizing: 'border-box', fontSize: '13px' }} />
               </div>
 
               <div style={{ display: 'flex', gap: '10px', marginTop: '5px' }}>
@@ -351,13 +410,13 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           </div>
 
           {/* TABELA DE QUESTÕES */}
-          <div style={{ backgroundColor: '#1a1d24', padding: '30px', borderRadius: '12px', flex: '2 1 450px', width: '100%', maxWidth: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', overflowX: 'auto' }}>
-            <h2 style={{ color: '#fff', marginBottom: '25px', fontSize: '22px', marginTop: 0 }}>Banco de Questões</h2>
+          <div className="tabela-container" style={{ backgroundColor: '#1a1d24', padding: '25px', borderRadius: '12px', flex: '2 1 450px', width: '100%', maxWidth: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+            <h2 style={{ color: '#fff', marginBottom: '20px', fontSize: '20px', marginTop: 0 }}>Banco de Questões</h2>
             
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '500px' }}>
+            <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '10px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
                 <thead>
-                  <tr style={{ borderBottom: '2px solid #2a2d35', color: '#a0aab5', fontSize: '14px' }}>
+                  <tr style={{ borderBottom: '2px solid #2a2d35', color: '#a0aab5', fontSize: '13px' }}>
                     <th style={{ padding: '10px 8px' }}>ID</th>
                     <th style={{ padding: '10px 8px' }}>Tópico</th>
                     <th style={{ padding: '10px 8px' }}>Origem/Ano</th>
@@ -372,11 +431,11 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                     </tr>
                   ) : (
                     questoes.map((q) => (
-                      <tr key={q.id} style={{ borderBottom: '1px solid #2a2d35', fontSize: '14px' }}>
-                        <td style={{ padding: '14px 8px', color: '#a0aab5' }}>#{q.id}</td>
-                        <td style={{ padding: '14px 8px', fontWeight: 'bold', color: '#e0e0e0' }}>{q.topico}</td>
-                        <td style={{ padding: '14px 8px', color: '#a0aab5' }}>{q.origem} - {q.ano}</td>
-                        <td style={{ padding: '14px 8px' }}>
+                      <tr key={q.id} style={{ borderBottom: '1px solid #2a2d35', fontSize: '13px' }}>
+                        <td style={{ padding: '12px 8px', color: '#a0aab5' }}>#{q.id}</td>
+                        <td style={{ padding: '12px 8px', fontWeight: 'bold', color: '#e0e0e0' }}>{q.topico}</td>
+                        <td style={{ padding: '12px 8px', color: '#a0aab5' }}>{q.origem} - {q.ano}</td>
+                        <td style={{ padding: '12px 8px' }}>
                           <span className={
                             q.nivel_dificuldade === 'Fácil' ? 'badge badge-facil' : 
                             q.nivel_dificuldade === 'Média' ? 'badge badge-media' : 
@@ -385,7 +444,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                             {q.nivel_dificuldade}
                           </span>
                         </td>
-                        <td style={{ padding: '14px 8px' }}>
+                        <td style={{ padding: '12px 8px' }}>
                           <div style={{ display: 'flex', gap: '15px' }}>
                             <button onClick={() => handleEditar(q)} className="btn-link-editar">
                               Editar
