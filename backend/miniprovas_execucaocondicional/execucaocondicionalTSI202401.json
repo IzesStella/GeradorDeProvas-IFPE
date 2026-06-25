@@ -1,11 +1,7 @@
 [
   {
     "topico": "Execução Condicional",
-<<<<<<< Updated upstream
-    "enunciado": "Implemente um programa capaz de imprimir o valor de um balde de pipoca em um Cinema de acordo com seu tamanho. Os valores são os seguintes: balde grande - R$25,00, balde médio - R$18,00 e balde pequeno - R$12,00. Exemplo de entrada: balde = \"grande\". Saída correspondente: R$25,00.",
-=======
     "enunciado": "Implemente um programa capaz de imprimir o valor de um balde de pipoca em um Cinema de acordo com seu tamanho. Os valores são os seguintes: balde grande - R$25,00, balde médio - R$18,00 e balde pequeno - R$12,00.\n\nExemplo de entrada:\nbalde = \"grande\"\n\nSaída correspondente:\nR$25,00",
->>>>>>> Stashed changes
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

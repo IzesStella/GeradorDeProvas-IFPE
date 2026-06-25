@@ -138,10 +138,6 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
     });
   };
 
-<<<<<<< Updated upstream
-  // Componente SVG do Cadeado para reutilizar facilmente
-=======
->>>>>>> Stashed changes
   const LockIcon = () => (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '-1px' }}>
       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>

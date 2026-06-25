@@ -1,11 +1,7 @@
 [
   {
     "topico": "Execução Condicional",
-<<<<<<< Updated upstream
-    "enunciado": "Implemente um programa capaz de identificar se um estudante foi aprovado, reprovado ou irá fazer a prova final conforme as regras da tabela abaixo. Exemplo de entrada: nota: 7,5. Resultado ao final do programa: Aprovado.",
-=======
     "enunciado": "Implemente um programa capaz de identificar se um estudante foi aprovado, reprovado ou irá fazer a prova final conforme as regras da tabela:\n\nExemplo de entrada:\nnota: 7,5\n\nResultado ao final do programa:\nAprovado",
->>>>>>> Stashed changes
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",
@@ -21,11 +17,7 @@
   },
   {
     "topico": "Execução Condicional",
-<<<<<<< Updated upstream
-    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
-=======
     "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?\nDica: \"IF\" + \"PE\" = \"IFPE\".",
->>>>>>> Stashed changes
     "codigo_typescript": "let e: string = \"hi\"\nlet ri: string = \"c\"\nlet i: string = \"ba\"\nlet ano: number = 2022\nlet nome: string = \"\"\n\nif ((2025 - ano) > 10) {\n  nome = nome + ri\n  nome = e + i\n} else if ((2025 - ano) % 3 == 0) {\n  nome = e + i\n  nome = ri + nome\n}\n\nconsole.log(nome)",
     "nivel_dificuldade": "Média",
     "tipo_questao": "Execução de Código",
