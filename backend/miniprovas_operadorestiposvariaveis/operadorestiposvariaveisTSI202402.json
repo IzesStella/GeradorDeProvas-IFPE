@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de computar a média ponderada entre quatro números. Fórmula: Media = (numeroA x pesoX + numeroB x pesoZ) / (pesoX + pesoZ). Exemplo de entrada: númeroA = 1; pesoX = 2; númeroB = 4; pesoZ = 1. Resultado ao final do programa: Média = 3.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 1\nlet b: number = 1\nlet c: number = a - b\nlet d: boolean = a == a\nlet e: number = 1\n\na = (b * b) - a\nb = (3 * a) - (2 * b) + e\nc = c + (-b) - a\nd = (2 * a) > b\ne = 5 % c\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2024.02"
+  }
+]

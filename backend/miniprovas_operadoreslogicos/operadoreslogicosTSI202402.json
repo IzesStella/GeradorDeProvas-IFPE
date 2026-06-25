@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de identificar porque um estudante é elegível ou não para um hipotético edital de Manutenção Acadêmica. O estudante pode receber a bolsa de manutenção quando a renda por pessoa na família é inferior a 1.5 salários mínimos e possui frequência nas aulas superior a 80%.\n\nExemplo de entrada:\nValor do salário mínimo: R$ 1.412,00\nNúmero de pessoas na família: 4\nRenda familiar mensal: R$ 10.000,00\nFrequência nas aulas: 0.95 (note como 95% é o mesmo que 0.95)\n\nResultado ao final do programa:\nO estudante não está elegível para o edital por conta da renda familiar",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let y : string = \"ma\"\nlet u : string = \"o\"\nlet ko: string = \"shi\"\nlet g48 : number = 2012\nlet name : string = \"\"\n\nif (g48 < 2014 && g48 > 2006) {\n  name = ko + name + y\n} else if (g48 < 2014 || g48 > 2006) {\n  name = ko + y + name\n}\n\nname = u + name\n\nconsole.log(name)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/Oshima_Yuko",
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2024.02"
+  }
+]

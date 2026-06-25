@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Na física a Força Elétrica entre dois objetos é calculada usando suas cargas elétricas (Q1 e Q2), a distância entre as cargas (d) e a constante eletrostática no vácuo (K = 9 * 10^9), de acordo com a seguinte fórmula: F = (K * Q1 * Q2) / d^2. Escreva um programa que computa F, dados Q1, Q2 e d. Exemplo de entrada: Q1 = 5; Q2 = 4; d = 3 * 10^4. Resultado ao final do programa: F = 200.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let x: number = -1\nlet y: number = 0\nlet z: number = y - x\nlet w: number = z * x\nlet q: boolean = true == (y == -0)\n\nx = z / x\ny = y + (x * w)\nz = z - (2 * y)\nw = (x + (8 * y)) % 4\nq = ((w - w) > (0 + y)) == false\n\nconsole.log(x, y, z, w, q)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2025.02"
+  }
+]

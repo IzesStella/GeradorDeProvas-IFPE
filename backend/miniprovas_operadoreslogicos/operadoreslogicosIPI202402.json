@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de identificar se um estudante do segundo semestre de TSI é elegível para um hipotético edital do Programa de Educação Tutorial. O estudante pode concorrer ao edital se possuir coeficiente de rendimento (média das suas notas) igual ou superior a 8 e não possuir reprovações no histórico do curso.\n\nExemplo de entrada:\nNota em Programação Imperativa: 8\nNota em Fundamentos de Computação para Internet: 7\nNota em Redes de Computadores: 9\nNota em Introdução à Administração: 7.5\nNota em Fundamentos do Design Digital: 3 (reprovação)\nNota em Ética, Cidadania e Sustentabilidade: 8\nNota em Inglês I: 9\nNota em Cálculo para Computação: 7.5\n\nResultado ao final do programa:\nO estudante não está elegível para o edital",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let bl : string = \"s\"\nlet u : string = \"e\"\nlet e: string = \"o\"\nlet team: string = \"k\"\nlet title: string = \"blue\"\n\ntitle = \"r\" + e\n\nif (title === \"\" && !(team != \"k\")) {\n  title = bl + title + u\n} else if (!(title !== \"\") || team === \"k\") {\n  title = title + bl + u\n}\n\nconsole.log(title)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/W10KNJVWIdA",
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2024.02"
+  }
+]

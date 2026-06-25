@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de imprimir o preço do quilo da banana de acordo com seu tipo. Os valores são os seguintes: pacovã - R$4,00, nanica - R$7,00 e prata - R$8,50. Exemplo de entrada: tipo = \"prata\". Saída correspondente: R$8,50.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let a : string = \"a\"\nlet k : string = \"yu\"\nlet b : string = \"m\"\n\nlet g48 : number = 21\nlet nick : string = \"\"\n\nif (g48 % 5 > 3) {\n  nick = k + nick + a\n  nick = nick + b + a\n} else if (g48 % 6 <= 3) {\n  nick = nick + a + k\n  nick = b + nick + k\n}\n\nconsole.log(nick)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/Watanabe_Mayu",
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2024.01"
+  }
+]

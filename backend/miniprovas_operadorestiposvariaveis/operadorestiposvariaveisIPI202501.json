@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "O Coeficiente de Rendimento Escolar (CRE) de um estudante é a média aritmética de suas notas nas matérias durante todo o curso. Considerando que no curso de Informática para Internet os estudantes cursam sete matérias no primeiro semestre, compute o CRE de um estudante ao final do primeiro semestre. Exemplo de entrada: Nota de Lógica = 5; nota de Redes = 7, nota de Fundamentos = 9, nota de Inglês = 5, nota de Seguranca = 7, nota de Português = 8, nota de Matemática = 7. Resultado ao final do programa: Média = 7.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let x: number = 0\nlet y: number = -1\nlet z: number = 4\nlet w: boolean = (y - z) == 5\nlet s: boolean = false\n\nx = (z + x) % 2\ny = z * y\nz = x - y\nw = !w\ns = s != (y < 0)\n\nconsole.log(x, y, z, w, s)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2025.01"
+  }
+]

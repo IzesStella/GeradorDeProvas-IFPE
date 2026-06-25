@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de, dado um intervalo numérico (inclusivo), identificar quando um número é par e encontra-se dentro do intervalo.\n\nExemplo de entrada:\ninicio do intervalo: 10\nfim do intervalo: 20\nnúmero: 16\n\nSaída ao final da execução do programa:\nPassou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let gar : string = \"no\"\nlet el : string = \"ka\"\nlet den : string = \"hi\"\nlet le : string = \"ze\"\n\nif (el != le && gar == den) {\n  console.log(le, el, den, gar)\n} else if (den == el || le == den) {\n  console.log(den, gar, el, le)\n} else if (!(den == el) || !(le != den)) {\n  console.log(el, le, gar, den)\n} else {\n  console.log(den, gar, le, el)\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/yNOQ1QHc2tg",
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2026.01"
+  }
+]

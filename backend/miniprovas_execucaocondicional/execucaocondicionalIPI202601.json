@@ -1,0 +1,30 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa que, dadas a velocidade máxima de uma via e a velocidade detectada de um veículo, é capaz identificar se há infração e qual a gravidade da mesma de acordo com a tabela abaixo. Exemplo de entrada: Velocidade Máxima: 100 km/h. Velocidade Detectada: 100 km/h. Resultado ao final do programa: Não há infração. Dicas: 20% de A é igual a A * 0.2; 120% de A é igual a A * 1.2;",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": [
+      ["Condição", "Infração"],
+      ["Inferior ou igual a 100% da velocidade máxima", "Não há infração"],
+      ["Até 20% da velocidade máxima", "Média"],
+      ["Acima de 20% até 50% da velocidade máxima", "Grave"],
+      ["Acima de 50% da velocidade máxima", "Gravíssima"]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
+    "codigo_typescript": "let a: string = \"N\"; let b: string = \"y\"; let c: string = \"a\"\nlet d: string = \"K\"; let e: string = \"B\"\nlet x: number = 15; let r: string = \"\"\n\nif (x % 3 == 0) {\n  r = d + e\n} else {\n  r = a + b + r\n}\n\nif ((10 - x) > 0) {\n  r = e + d\n} else {\n  if (a == \"N\") {\n    r = c + c + r\n  }\n  r = a + b + r\n}\n\nconsole.log(r)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/Lwlm_TSvhyQ",
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2026.01"
+  }
+]

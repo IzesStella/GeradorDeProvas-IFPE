@@ -1,0 +1,29 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de sugerir se um livro deve ser lido por um estudante de acordo com os cenários abaixo listados. Exemplo de entrada: Gênero: Romance. Páginas: 674. Resultado ao final do programa: Leitura nas Férias.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": [
+      ["Gênero", "Páginas", "Recomendação"],
+      ["Romance", "Inferior a 500", "Leitura"],
+      ["Romance", "Igual ou superior a 500", "Leitura nas férias"],
+      ["Outros gêneros", "Qualquer valor", "Não leitura"]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
+    "codigo_typescript": "let ju: string = \"a\"; let ri: string = \"gl\"; let na: string = \"ys\"; let ske: string = \"oryd\"\nlet x: number = 123; let resultado: string = \"\"\n\nif ((x - 23 + 100) < 150) {\n  resultado = resultado + ri\n  resultado = na + resultado\n  x = x + 100\n} else {\n  resultado = resultado + ju\n  resultado = ske + resultado\n  x = x - 100\n}\n\nif ((x % 10) >= 3) {\n  resultado = resultado + na\n  resultado = ri + resultado\n} else {\n  resultado = ske + resultado\n  resultado = resultado + ri\n}\n\nconsole.log(resultado)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/oOkEuV9frmY",
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2025.02"
+  }
+]

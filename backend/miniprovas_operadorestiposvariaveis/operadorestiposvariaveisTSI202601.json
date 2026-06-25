@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de, dados a altura e o perímetro de um retângulo, computa a sua área. altura = 10, perímetro = 30. Resultado ao final do programa: 50. Dicas: Matemática nem sempre é igual à programação; Pense no computador como uma calculadora, então deixe que ele faz as contas; Seu programa deve funcionar para qualquer entrada, não apenas para o exemplo acima; Compute o valor da base do perímetro usando a fórmula do perímetro; Fórmula do perímetro de um retângulo: 2 x (base + altura); Fórmula da área de um retângulo: base x altura.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 1\nlet b: number = 2\nlet c: number = 3\nlet d: number = a * -c\nlet e: boolean = (a == c) == (c == b)\n\na = -2 * a\nb = b - a\nc = 10 % c\nd = a - b + c - d\ne = (a != b) != e\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2026.01"
+  }
+]

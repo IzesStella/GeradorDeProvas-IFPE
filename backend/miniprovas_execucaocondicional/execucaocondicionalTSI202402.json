@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível no edital de Manutenção Acadêmica. O estudante pode receber a bolsa de manutenção quando a renda por pessoa na família é inferior a 1.5 salários mínimos. Exemplo de entrada: Valor do salário mínimo: R$ 1.412,00. Número de pessoas na família: 4. Renda familiar mensal: R$ 5.000,00. Resultado ao final do programa: O estudante está elegível para o edital.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let a : string = \"z\"\nlet k : string = \"u\"\nlet b : string = \"a\"\n\nlet s25 : number = 2012\nlet single : string = a\n\nif (a === b) {\n  single = b + single+ a\n  single = b + a + single\n} else if ((2024 - s25) <= 12) {\n  single = single + b\n  single = k + single\n}\n\nconsole.log(single)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/watch?v=WIdWXhV33vs",
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2024.02"
+  }
+]

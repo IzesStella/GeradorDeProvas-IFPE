@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de, dados quatro números, identificar quando exatamente três deles são iguais.\n\nExemplo de entrada:\na: 2\nb: 2\nc: 2\nd: 2\n\nSaída ao final da execução do programa:\nNão passou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let ya : string = \"shī\"\nlet hagi : string = \"48?\"\nlet moe : string = \"jera\"\nlet ka : string = \"naifu\"\n\nif (moe != ka && !(ya != hagi)) {\n  console.log(moe + ka + ya + hagi)\n} else if ((\"48 + ?\") == hagi && (hagi == (\"48\" + \"?\"))) {\n  console.log(hagi + ya + ka + hagi)\n} else if ((moe + ka) == (ya + hagi)) {\n  console.log(ya + hagi + moe)\n} else {\n  console.log(moe + ya + ka)\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/watch?v=sHOPBO5EGl0",
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2025.02"
+  }
+]

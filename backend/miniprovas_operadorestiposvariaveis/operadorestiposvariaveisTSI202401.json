@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de somar todos os números em um determinado intervalo (inclusivo). Fórmula para a soma: ((quantidade de números) x (início + fim)) / 2. Exemplo de entrada: inicio = 10, fim = 15. Resultado ao final do programa: soma = 75.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 12)?",
+    "codigo_typescript": "let a: number = 1\nlet b: number = -2\nlet c: number = b\nlet d: boolean = false\nlet e: number = a - b - c\n\na = (2 * b) + e\nc = (b * 2) - (a * 3)\nd = a == c\nb = (-c) % (a)\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2024.01"
+  }
+]

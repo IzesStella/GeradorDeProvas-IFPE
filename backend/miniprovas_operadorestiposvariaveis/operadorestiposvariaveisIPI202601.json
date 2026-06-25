@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de, dadas as notas de dois estudantes distintos em quatro matérias, imprimir true quando o primeiro possui a maior média aritmética (soma das notas dividida pela quantidade de notas), ou false caso contrário.\n\nExemplo de entrada:\ne1m1 = 1; e1m2 = 2; e1m3 = 3; e1m4 = 4; e2m1 = 2; e2m2 = 3; e2m3 = 4; e2m4 = 5\n\nResultado ao final do programa:\nfalse\n\nDicas:\n• Matemática nem sempre é igual à programação;\n• Pense no computador como uma calculadora, então deixe que ele faz as contas;\n• Seu programa deve funcionar para qualquer entrada, não apenas para o exemplo acima;\n• console.log(5 > 3) imprime true.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 1\nlet b: number = 2\nlet c: number = 3\nlet d: number = a - c\nlet e: boolean = a == c\n\na = a * (-a)\nb = (b * c * 2) % 4\nc = a + b\nd = d - a - b - c - d\ne = (a < b) == (d >= c)\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2026.01"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de, dado um intervalo numérico (exclusivo), identificar se um número é ímpar e encontra-se fora do intervalo.\n\nExemplo de entrada:\ninicio do intervalo: 10\nfim do intervalo: 20\nnúmero: 16\n\nSaída ao final da execução do programa:\nNão passou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let ka : string = \"ya\"\nlet ze : string = \"ma\"\nlet no : string = \"mo\"\nlet hi : string = \"to\"\n\nif (ka == ze || ze == hi) {\n  console.log(no, hi, ka, ze)\n} else if (!(ka != ka) && (ze == no)) {\n  console.log(ze, no, ka, hi)\n} else if (no != hi && !(no == no)) {\n  console.log(ze, no, hi, ka)\n} else {\n  console.log(ka, ze, no, hi)\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/6DvFcZmxQ9Y",
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2026.01"
+  }
+]

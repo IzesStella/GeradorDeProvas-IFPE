@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de imprimir o valor de um balde de pipoca em um Cinema de acordo com seu tamanho. Os valores são os seguintes: balde grande - R$25,00, balde médio - R$18,00 e balde pequeno - R$12,00. Exemplo de entrada: balde = \"grande\". Saída correspondente: R$25,00.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let a : string = \"u\"\nlet k : string = \"p\"\nlet b : string = \"rur\"\n\nlet g48 : number = 23\nlet nick : string = \"a\"\n\nif (g48 % 4 == 3) {\n  nick = k + nick\n  nick = nick + b\n} else if (g48 % 4 == 0) {\n  nick = nick + b\n  nick = k + nick\n}\n\nif ((g48 - 8) < 20) {\n  nick = nick + a\n}\n\nconsole.log(nick)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/Shimazaki_Haruka",
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2024.01"
+  }
+]

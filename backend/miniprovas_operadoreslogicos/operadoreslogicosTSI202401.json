@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de, dados dois números, identificar quando exatamente (apenas) um deles está no intervalo inclusivo entre 0 e 10.\n\nExemplo de entrada:\na = 0\nb = 10\n\nSaída correspondente no console:\nNão passou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let a = 4; let k = 6; let b = true; let s = true; let e = 0\n\nif (a >= 4 && k <= 6) {\n  a = (a + k + 2) / a\n  k = (a - e) * a\n  b = (!(a != k)) && (a == 0)\n} else if (!b || !s) {\n  s = ((a <= k) && (a > e)) || (!s)\n  k = a - k - e\n  e = (a + k) * k\n}\n\ne = (2 * k) - ((3 * a) - e)\nconsole.log(a, k, b, s, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - TSI",
+    "ano": "2024.01"
+  }
+]

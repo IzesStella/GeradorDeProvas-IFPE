@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de computar o valor de f na seguinte equação: f(a,b,c) = (3 * a^3 * b) + (2 * (b^2 - c^2)) - (c - a). Exemplo de entrada: a = 1; b = 2; c = 3. Resultado ao final do programa: f = -6.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 1\nlet b: number = 2\nlet c: number = 2 * (a - b)\nlet d: number = -c\nlet e: boolean = c > d\n\na = (-b) * a\nb = a * (-b)\nc = (4 + a) % 3\nd = d * c\ne = e != ((a + b) > 0)\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2025.02"
+  }
+]

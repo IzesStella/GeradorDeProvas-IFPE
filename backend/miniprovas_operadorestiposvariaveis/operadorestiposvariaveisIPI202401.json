@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de computar as raízes de uma equação do segundo grau no formato: ax² + bx + c = 0. Fórmulas: delta = b² - 4ac; x1 = (-b + raíz_quadrada(delta))/(2a); x2 = (-b - raíz_quadrada(delta))/(2a). Dicas: A linha z = Math.sqrt(w), computa a raiz quadrada de w e guarda na variável z. Assuma que o delta nunca será negativo. Exemplo de entrada: a = 1; b = -3; c = -10. Resultado ao final do programa: x1 = 5; x2 = -2.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 2\nlet b: number = -3\nlet c: number = a\nlet d: boolean = true\nlet e: number = a - b + c\n\na = (b * b) + a\nb = a - b + e\nc = (b * 2) - (a * 3)\nd = a != b\nb = a % 3\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2024.01"
+  }
+]

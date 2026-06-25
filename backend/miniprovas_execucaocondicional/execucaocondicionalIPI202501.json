@@ -1,0 +1,29 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de identificar se um estudante foi aprovado, reprovado ou irá fazer a prova final conforme as regras da tabela abaixo. Exemplo de entrada: nota: 7,5. Resultado ao final do programa: Aprovado.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": [
+      ["Nota", "Resultado"],
+      ["Inferior a 2", "Reprovado"],
+      ["Igual ou superior a 2 mas inferior a 6", "Prova final"],
+      ["Igual ou superior a seis", "Aprovado"]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
+    "codigo_typescript": "let e: string = \"hi\"\nlet ri: string = \"c\"\nlet i: string = \"ba\"\nlet ano: number = 2022\nlet nome: string = \"\"\n\nif ((2025 - ano) > 10) {\n  nome = nome + ri\n  nome = e + i\n} else if ((2025 - ano) % 3 == 0) {\n  nome = e + i\n  nome = ri + nome\n}\n\nconsole.log(nome)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2025.01"
+  }
+]

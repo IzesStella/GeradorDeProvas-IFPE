@@ -1,0 +1,29 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa que, dados o valor do salário mínimo e a renda mensal de uma família, é capaz identificar a classe social da família de acordo com a tabela abaixo. Exemplo de entrada: Valor do salário mínimo: R$ 1.621,00. Renda familiar: R$ 5.000,00. Resultado ao final do programa: Classe: B. Dica: Cuidado com os pontos e as vírgulas porque em português a vírgula é equivalente ao ponto em inglês na hora de organizar os números.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": [
+      ["Classe", "Renda familiar mensal"],
+      ["C", "até 2 salários mínimos (inclusivo)"],
+      ["B", "entre 2 (não inclusivo) e 10 (inclusivo) salários mínimos"],
+      ["A", "acima de 10 salários mínimos"]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
+    "codigo_typescript": "let nn: string = \"Natsuno\"; let mr: string = \"Easy\"; let sr: string = \"Free\"\nlet x: number = 46; let n46: string = \"\"\n\nif ((x + 2) >= 48) {\n  n46 = sr + \"&\" + mr\n} else {\n  n46 = nn + \"8\" + sr + n46\n}\n\nif ((x % 6) == (x - 46)) {\n  n46 = n46 + nn\n} else if ((x % 6) == (x - 42)) {\n  n46 = nn + n46\n}\n\nconsole.log(n46)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/mZfMSWh58fk",
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2026.01"
+  }
+]

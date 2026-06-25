@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de, dados três números, identificar quando exatamente (apenas) dois deles são negativos. O uso de operadores lógicos é obrigatório.\n\nExemplo de entrada:\na = -1\nb = 0\nc = 1\n\nSaída correspondente no console:\nNão passou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let h = 4; let k = 8; let t = true; let s = true; let u = 0\n\nif ((k <= 4 ) || !(u != 0)) {\n  h = (h - k + k) / h\n  k = (h - u) * h\n  t = (!(h == k)) && (h != 0)\n} else if (!t || !s) {\n  s = ((h <= k) && (h > u)) && (s)\n  t = (h < k) && (u > h)\n  u = (h + k) * k\n}\n\nu = (k % 3) - ((2 * h) + u)\nconsole.log(h, k, t, s, t, u)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2024.01"
+  }
+]

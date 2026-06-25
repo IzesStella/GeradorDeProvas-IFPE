@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível para um hipotético edital do Programa de Educação Tutorial. O estudante pode concorrer ao edital se possuir coeficiente de rendimento igual ou superior a 7 e não possuir reprovações no histórico do curso. Exemplo de entrada: Coeficiente de rendimento: 7.25, Reprovações: 2. Resultado ao final do programa: O estudante não está elegível para o edital.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let o : string = \"y\"\nlet shi : string = \"ko\"\nlet ma : string = \"u\"\nlet g48 : number = 2006\n\nif (g48 % 4 == 2) {\n  ma = o + ma\n} else if (g48 % 4 == 0) {\n  ma = ma + o\n}\n\nlet name : string = ma + shi\n\nconsole.log(name)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/Oshima_Yuko",
+    "origem": "Miniprova - Execução Condicional - IPI",
+    "ano": "2024.02"
+  }
+]

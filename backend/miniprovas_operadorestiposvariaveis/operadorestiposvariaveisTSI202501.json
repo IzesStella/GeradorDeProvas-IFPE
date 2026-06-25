@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de computar o valor de y na seguinte equação: y = (3 * a^3) + (2 * b^2) - c. Exemplo de entrada: a = 1; b = 2; c = 3. Resultado ao final do programa: y = 8.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 0\nlet b: number = -2\nlet c: number = 1 - b\nlet d: number = a - b + c\nlet e: boolean = -2 < b\n\na = (a * a) - (b * b)\nb = c - a + d\nc = b % (2 + 1)\nd = d + a - 2 * b\ne = e == ((a + c) > (a - b))\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "ano": "2025.01"
+  }
+]

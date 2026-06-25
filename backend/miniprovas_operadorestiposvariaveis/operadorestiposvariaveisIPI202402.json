@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Implemente um programa capaz de computar a média harmônica entre 2 números. Fórmula: Media = 2 / ((1 / numero A) + (1 / numero B)). Exemplo de entrada: númeroA = 4; númeroB = 10. Resultado ao final do programa: Média = 5.714285714285714.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Operadores, Tipos e Variáveis",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 1\nlet b: number = 2\nlet c: number = 3\nlet d: boolean = (a + b) <= c\nlet e: number = 4\n\na = -e + (b * b)\nb = b - a\nc = (2 * a) + (2 * b)\nd = (2 * a) > b\ne = c % 3\n\nconsole.log(a, b, c, d, e)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
+    "ano": "2024.02"
+  }
+]

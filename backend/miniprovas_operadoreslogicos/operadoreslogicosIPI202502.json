@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de, dados quatro números, identificar quando apenas um deles é divisível por 3.\n\nExemplo de entrada:\na: 1\nb: 2\nc: 3\nd: 0\n\nSaída ao final da execução do programa:\nNão passou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let oo : string = \"Mukanee\"\nlet shi : string = \"Mae\"\nlet ma : string = \"Shika\"\nlet yuko : string = \"48\"\n\nif (oo == shi || ma == oo) {\n  yuko = shi + ma + yuko\n} else if ((\"47 + 1\") == yuko && !(ma != shi)) {\n  yuko = yuko + oo + shi\n} else if (oo != shi && ma != yuko) {\n  yuko = shi + ma + oo\n} else {\n  yuko = oo + shi + ma\n}\n\nconsole.log(yuko)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/watch?v=n24zp_wPC7E",
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2025.02"
+  }
+]

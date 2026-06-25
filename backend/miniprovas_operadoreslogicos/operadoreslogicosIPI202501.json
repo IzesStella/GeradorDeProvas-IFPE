@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de identificar se um número é ímpar e está fora de um determinado intervalo exclusivo ao mesmo tempo.\n\nExemplo de entrada:\nInício do intervalo: 0\nFim do intervalo: 10\nNúmero: 5\n\nResultado ao final do programa:\nNão passou no teste",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?",
+    "codigo_typescript": "let s1 : string = \"add\"\nlet s2 : string = \"fuji\"\nlet s3 : string = \"ion\"\nlet s4 : string = \"ict\"\n\nlet a : number = -2\n\nif (a > -10 && (a + 2) == 0) {\n  s4 = s1 + s4\n  if (s1 === s4) {\n    s1 = s1 + s2\n  } else {\n    s1 = s4 + s3\n  }\n} else if (a < 0 || a % -2 == 0) {\n  s2 = s1 + s3\n  if (s1 === s4) {\n    s1 = s2 + s1\n  }\n}\n\nconsole.log(s1)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/ReuFa_D1Vok",
+    "origem": "Miniprova - Operadores Lógicos - IPI",
+    "ano": "2025.01"
+  }
+]

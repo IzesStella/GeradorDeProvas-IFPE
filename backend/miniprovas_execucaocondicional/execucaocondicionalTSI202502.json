@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Implemente um programa capaz de, dados três números como entradas, identificar quando o primeiro deles é o maior. Exemplo de entrada: a: 4, b: 2, c: -3. Resultado ao final do programa: O primeiro número é o maior.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Execução Condicional",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
+    "codigo_typescript": "let mo: string = \"tai\", a: string = \"na\"\nlet e: string = \"ble\", k: string = \"sus\"\nlet ka: number = 56, b: string = \"\"\n\nif (ka % 5 > 0) {\n  b = mo + b + a\n} else {\n  b = a + b + mo\n}\n\nif ((ka - (ka % 10)) <= 3) {\n  b = e + b + k\n} else {\n  b = k + b + e\n}\n\nconsole.log(b)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/0pKfxbCHLOU",
+    "origem": "Miniprova - Execução Condicional - TSI",
+    "ano": "2025.02"
+  }
+]

@@ -11,16 +11,28 @@ app.use(express.json());
 app.use('/api', simuladoRoutes);
 
 app.post('/api/questoes', async (req, res) => {
-  const { topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano } = req.body;
+  // Pegando os novos campos do body
+  const { topico, enunciado, codigo_typescript, nivel_dificuldade, tipo_questao, tabela_enunciado, easter_egg_conteudo, origem, ano } = req.body;
 
   try {
     const sql = `
-      INSERT INTO questoes (topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      INSERT INTO questoes (topico, enunciado, codigo_typescript, nivel_dificuldade, tipo_questao, tabela_enunciado, easter_egg_conteudo, origem, ano)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING *;
     `;
     
-    const values = [topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano];
+    const values = [
+      topico, 
+      enunciado, 
+      codigo_typescript, 
+      nivel_dificuldade, 
+      tipo_questao, 
+      tabela_enunciado ? JSON.stringify(tabela_enunciado) : null, // Proteção para o JSONB
+      easter_egg_conteudo, 
+      origem, 
+      ano
+    ];
+    
     const { rows } = await pool.query(sql, values);
 
     return res.status(201).json({ 
@@ -49,7 +61,7 @@ app.post('/api/login', (req, res) => {
   return res.status(401).json({ error: 'Usuário ou senha inválidos.' });
 });
 
-// Rota para listar todas as questões na Tela Admin (apenas as atiivas)
+// Rota para listar todas as questões na Tela Admin (apenas as ativas)
 app.get('/api/questoes', async (req, res) => {
   try {
     // busca apenas questões onde ativo é true, ordenando pelas mais recentes
@@ -86,18 +98,30 @@ app.delete('/api/questoes/:id', async (req, res) => {
 //Rota de Edição (Update) para a Tela Admin
 app.put('/api/questoes/:id', async (req, res) => {
   const { id } = req.params;
-  const { topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano } = req.body;
+  const { topico, enunciado, codigo_typescript, nivel_dificuldade, tipo_questao, tabela_enunciado, easter_egg_conteudo, origem, ano } = req.body;
 
   try {
     const sql = `
       UPDATE questoes 
-      SET topico = $1, enunciado = $2, codigo_typescript = $3, nivel_dificuldade = $4, easter_egg_conteudo = $5, origem = $6, ano = $7
-      WHERE id = $8 
+      SET topico = $1, enunciado = $2, codigo_typescript = $3, nivel_dificuldade = $4, tipo_questao = $5, tabela_enunciado = $6, easter_egg_conteudo = $7, origem = $8, ano = $9
+      WHERE id = $10 
       RETURNING *;
     `;
     
-    // O ID da questão sempre vai por último no array de valores ($8)
-    const values = [topico, enunciado, codigo_typescript, nivel_dificuldade, easter_egg_conteudo, origem, ano, id];
+    // O ID da questão sempre vai por último no array de valores ($10)
+    const values = [
+      topico, 
+      enunciado, 
+      codigo_typescript, 
+      nivel_dificuldade, 
+      tipo_questao, 
+      tabela_enunciado ? JSON.stringify(tabela_enunciado) : null, 
+      easter_egg_conteudo, 
+      origem, 
+      ano, 
+      id
+    ];
+    
     const { rows, rowCount } = await pool.query(sql, values);
 
     if (rowCount === 0) {
