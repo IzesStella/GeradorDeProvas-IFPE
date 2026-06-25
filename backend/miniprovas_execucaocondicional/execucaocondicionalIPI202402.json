@@ -1,7 +1,11 @@
 [
   {
     "topico": "Execução Condicional",
+<<<<<<< Updated upstream
     "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível para um hipotético edital do Programa de Educação Tutorial. O estudante pode concorrer ao edital se possuir coeficiente de rendimento igual ou superior a 7 e não possuir reprovações no histórico do curso. Exemplo de entrada: Coeficiente de rendimento: 7.25, Reprovações: 2. Resultado ao final do programa: O estudante não está elegível para o edital.",
+=======
+    "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível para um hipotético edital do Programa de Educação Tutorial. O estudante pode concorrer ao edital se possuir coeficiente de rendimento igual ou superior a 7 e não possuir reprovações no histórico do curso.\n\nExemplo de entrada:\nCoeficiente de rendimento: 7.25\nReprovações: 2\n\nResultado ao final do programa:\nO estudante não está elegível para o edital",
+>>>>>>> Stashed changes
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

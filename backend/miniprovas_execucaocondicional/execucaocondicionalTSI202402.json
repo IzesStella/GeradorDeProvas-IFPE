@@ -1,7 +1,11 @@
 [
   {
     "topico": "Execução Condicional",
+<<<<<<< Updated upstream
     "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível no edital de Manutenção Acadêmica. O estudante pode receber a bolsa de manutenção quando a renda por pessoa na família é inferior a 1.5 salários mínimos. Exemplo de entrada: Valor do salário mínimo: R$ 1.412,00. Número de pessoas na família: 4. Renda familiar mensal: R$ 5.000,00. Resultado ao final do programa: O estudante está elegível para o edital.",
+=======
+    "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível no edital de Manutenção Acadêmica. O estudante pode receber a bolsa de manutenção quando a renda por pessoa na família é inferior a 1.5 salários mínimos.\n\nExemplo de entrada:\nValor do salário mínimo: R$ 1.412,00\nNúmero de pessoas na família: 4\nRenda familiar mensal: R$ 5.000,00\n\nResultado ao final do programa:\nO estudante está elegível para o edital",
+>>>>>>> Stashed changes
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

@@ -1,7 +1,11 @@
 [
   {
     "topico": "Execução Condicional",
+<<<<<<< Updated upstream
     "enunciado": "Implemente um programa capaz de imprimir o preço do quilo da banana de acordo com seu tipo. Os valores são os seguintes: pacovã - R$4,00, nanica - R$7,00 e prata - R$8,50. Exemplo de entrada: tipo = \"prata\". Saída correspondente: R$8,50.",
+=======
+    "enunciado": "Implemente um programa capaz de imprimir o preço do quilo da banana de acordo com seu tipo. Os valores são os seguintes: pacovã - R$4,00, nanica - R$7,00 e prata - R$8,50.\n\nExemplo de entrada:\ntipo = \"prata\"\n\nSaída correspondente:\nR$8,50",
+>>>>>>> Stashed changes
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

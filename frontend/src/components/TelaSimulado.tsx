@@ -7,6 +7,8 @@ interface Questao {
   enunciado: string;
   codigo_typescript: string;
   nivel_dificuldade: string;
+  tipo_questao?: string;
+  tabela_enunciado: string[][] | null;
   easter_egg_conteudo: string | null;
   origem: string;
   ano: string | number;
@@ -29,7 +31,6 @@ const coresTCC: Record<string, string> = {
   'string': '#939393',       // Textos ("valor da..."): Cinza escuro
   'comment': '#5EA63D',      // Comentários (//...): Verde escuro
   'punctuation': '#FFF500',  // Parênteses e chaves: Amarelo vibrante
-  
   'function': '#ffffff',     // Nomes de função (multiplicar, log): Branco
   'class-name': '#ffffff',   // Classes Globais (console): Branco
   'variable': '#ffffff',     // Nomes de variáveis (resultado, x): Branco
@@ -48,15 +49,58 @@ Object.keys(temaDoTCC).forEach((key) => {
 Object.keys(coresTCC).forEach(token => {
   if (temaDoTCC[token]) {
     temaDoTCC[token].color = coresTCC[token];
-    if (token !== 'comment') temaDoTCC[token].fontStyle = 'normal'; 
+    if (token !== 'comment') temaDoTCC[token].fontStyle = 'normal';
   } else {
-    temaDoTCC[token] = { color: coresTCC[token], fontStyle: token === 'comment' ? 'italic' : 'normal' };
+    temaDoTCC[token] = { 
+      color: coresTCC[token], 
+      fontStyle: token === 'comment' ? 'italic' : 'normal' 
+    };
   }
 });
 
+// COMPONENTE PARA RENDERIZAR A TABELA DO ENUNCIADO
+const TabelaEnunciado = ({ tabelaData }: { tabelaData: string[][] | null }) => {
+  if (!tabelaData || !Array.isArray(tabelaData) || tabelaData.length === 0) return null;
+
+  const cabecalhos = tabelaData[0];
+  const linhas = tabelaData.slice(1);
+
+  return (
+    <div style={{ overflowX: 'auto', margin: '20px 0' }} className="bloco-inquebravel">
+      <table style={{ 
+        width: '100%', 
+        borderCollapse: 'collapse', 
+        fontFamily: 'sans-serif',
+        border: '1px solid #ddd',
+        fontSize: '14px'
+      }}>
+        <thead>
+          <tr style={{ backgroundColor: '#f2f2f2' }}>
+            {cabecalhos.map((cabecalho, index) => (
+              <th key={index} style={{ padding: '10px 12px', border: '1px solid #ddd', textAlign: 'left', color: '#333' }}>
+                {cabecalho}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {linhas.map((linha, rowIndex) => (
+            <tr key={rowIndex} style={{ borderBottom: '1px solid #ddd' }}>
+              {linha.map((celula, cellIndex) => (
+                <td key={cellIndex} style={{ padding: '10px 12px', border: '1px solid #ddd', color: '#444' }}>
+                  {celula}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps) {
-  
+
   const handleImprimir = () => {
     window.print();
   };
@@ -69,13 +113,16 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
       const ehPadraoCodigo = linha.trim().length > 0 && !/[a-z]/.test(linha) && /[X#\*\-\+\[\]\(\)\=]/.test(linha);
       
       return (
-        <span key={index} style={{ 
-          display: 'block', 
-          fontFamily: ehPadraoCodigo ? "Consolas, 'Courier New', monospace" : 'inherit',
-          letterSpacing: ehPadraoCodigo ? '2px' : 'normal', 
-          color: ehPadraoCodigo ? '#111' : 'inherit',
-          minHeight: '1.6em'
-        }}>
+        <span 
+          key={index} 
+          style={{ 
+            display: 'block', 
+            fontFamily: ehPadraoCodigo ? "Consolas, 'Courier New', monospace" : 'inherit',
+            letterSpacing: ehPadraoCodigo ? '2px' : 'normal',
+            color: ehPadraoCodigo ? '#111' : 'inherit',
+            minHeight: '1.6em'
+          }}
+        >
           {linha}
         </span>
       );
@@ -84,25 +131,13 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, minHeight: '100vh', backgroundColor: '#f4f6f8', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#333' }}>
-      
       <style>
         {`
-          body, html {
-            margin: 0 !important;
-            padding: 0 !important;
-            background-color: #f4f6f8;
-          }
+          body, html { margin: 0 !important; padding: 0 !important; background-color: #f4f6f8; }
           * { box-sizing: border-box; }
-
+          
           /* === ESTILO DAS DIFICULDADES === */
-          .badge {
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-block;
-            text-align: center;
-          }
+          .badge { padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; display: inline-block; text-align: center; }
           .badge-facil { background-color: #e8f8f5; color: #2ecc71; }
           .badge-media { background-color: #fef5e7; color: #f39c12; }
           .badge-dificil { background-color: #fdedec; color: #e74c3c; }
@@ -115,49 +150,16 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           /* === REGRAS ESPECÍFICAS PARA O PDF === */
           @media print {
             .tela-sistema { display: none !important; }
-            .documento-pdf { 
-                display: block !important; 
-                width: 100%; 
-                font-family: Arial, sans-serif; 
-                background-color: white !important;
-            }
+            .documento-pdf { display: block !important; width: 100%; font-family: Arial, sans-serif; background-color: white !important; }
             * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-            
-            @page { 
-                margin: 1.5cm; 
-                size: A4 portrait; 
-            }
-            
+            @page { margin: 1.5cm; size: A4 portrait; }
             body, html { background-color: white !important; }
             
-            .questao-item { 
-                break-inside: auto; 
-                page-break-inside: auto; 
-                margin-bottom: 30px; 
-                padding-bottom: 20px;
-                border-bottom: 1px dashed #ccc; 
-            }
-            
-            .questao-item:last-child {
-                border-bottom: none;
-            }
-
-            .bloco-inquebravel {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
-
-            pre { 
-                white-space: pre-wrap !important; 
-                word-wrap: break-word !important; 
-                break-inside: avoid !important; 
-                page-break-inside: avoid !important;
-            }
-
-            .caixa-resposta {
-                break-inside: avoid !important;
-                page-break-inside: avoid !important;
-            }
+            .questao-item { break-inside: auto; page-break-inside: auto; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #ccc; }
+            .questao-item:last-child { border-bottom: none; }
+            .bloco-inquebravel { break-inside: avoid !important; page-break-inside: avoid !important; }
+            pre { white-space: pre-wrap !important; word-wrap: break-word !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+            .caixa-resposta { break-inside: avoid !important; page-break-inside: avoid !important; }
           }
         `}
       </style>
@@ -165,7 +167,6 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
       {/* TELA DO SISTEMA */}
       <div className="tela-sistema">
         <header style={{ backgroundColor: '#1a1d24', color: 'white', padding: '15px 5vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '50px', borderBottom: '1px solid #2a2d35' }}>
-          
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0 }}>
               <g transform="translate(5, 5)">
@@ -184,7 +185,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
               <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="#ffffff">Pernambuco</text>
             </svg>
           </div>
-
+          
           <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 500 }}>Simulado Personalizado</h2>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
@@ -200,23 +201,9 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px' }}>
           
-          {/* ======================================================== */}
-          {/* AVISO: QUANTIDADE SOLICITADA MAIOR QUE O DISPONÍVEL      */}
-          {/* ======================================================== */}
+          {/* AVISO: QUANTIDADE SOLICITADA MAIOR QUE O DISPONÍVEL    */}
           {filtros?.quantidade && questoes.length > 0 && questoes.length < Number(filtros.quantidade) && (
-            <div style={{ 
-              backgroundColor: '#e8f4fd', 
-              borderLeft: '5px solid #3695D7', 
-              padding: '16px 20px', 
-              borderRadius: '6px', 
-              marginBottom: '30px', 
-              color: '#005b8f', 
-              fontSize: '15px',
-              boxShadow: '0 2px 8px rgba(54, 149, 215, 0.1)', 
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}>
+            <div style={{ backgroundColor: '#e8f4fd', borderLeft: '5px solid #3695D7', padding: '16px 20px', borderRadius: '6px', marginBottom: '30px', color: '#005b8f', fontSize: '15px', boxShadow: '0 2px 8px rgba(54, 149, 215, 0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
               <span style={{ fontSize: '22px' }}>ℹ️</span>
               <div>
                 <strong>Informação:</strong> Você solicitou <strong>{filtros.quantidade}</strong> questões, mas encontramos apenas <strong>{questoes.length}</strong> no banco de dados com os filtros aplicados.
@@ -231,6 +218,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           ) : (
             questoes.map((questao, index) => (
               <div key={questao.id} style={{ backgroundColor: '#ffffff', borderRadius: '12px', marginBottom: '35px', padding: '25px 30px', boxShadow: '0 6px 15px rgba(0,0,0,0.08)' }}>
+                
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', paddingBottom: '15px', marginBottom: '20px' }}>
                   <div>
                     <h3 style={{ margin: 0, fontSize: '18px' }}>Questão {index + 1}</h3>
@@ -245,41 +233,29 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
                     </span>
                   </div>
                 </div>
-                
+
                 <div style={{ fontSize: '17px', lineHeight: '1.6', marginBottom: '25px' }}>
                   {formatarEnunciado(questao.enunciado)}
+                  <TabelaEnunciado tabelaData={questao.tabela_enunciado} />
                 </div>
-                
+
                 {questao.codigo_typescript && questao.codigo_typescript.trim() !== '' && (
                   <SyntaxHighlighter 
                     language="typescript" 
                     style={temaDoTCC} 
-                    showLineNumbers={true} 
-                    customStyle={{ 
-                      borderRadius: '8px', 
-                      padding: '20px', 
-                      fontSize: '14px', 
-                      fontFamily: "Consolas, 'Courier New', monospace", 
-                      backgroundColor: '#1e1e1e', 
-                      color: '#ffffff'
-                    }}
+                    showLineNumbers={true}
+                    customStyle={{ borderRadius: '8px', padding: '20px', fontSize: '14px', fontFamily: "Consolas, 'Courier New', monospace", backgroundColor: '#1e1e1e', color: '#ffffff' }}
                   >
                     {questao.codigo_typescript}
                   </SyntaxHighlighter>
                 )}
-                
+
                 {questao.easter_egg_conteudo && (
                   <div style={{ backgroundColor: '#fdf8e4', border: '1px solid #faebcc', borderRadius: '8px', marginTop: '25px', padding: '15px', color: '#8a6d3b' }}>
                     <strong>💡 Curiosidade: </strong>
                     {questao.easter_egg_conteudo.split(/(https?:\/\/[^\s]+)/g).map((part, i) => 
                       part.match(/https?:\/\/[^\s]+/) ? (
-                        <a 
-                          key={i} 
-                          href={part} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          style={{ color: '#8a6d3b', textDecoration: 'underline', fontWeight: 'bold' }}
-                        >
+                        <a key={i} href={part} target="_blank" rel="noopener noreferrer" style={{ color: '#8a6d3b', textDecoration: 'underline', fontWeight: 'bold' }}>
                           {part}
                         </a>
                       ) : (
@@ -288,6 +264,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
                     )}
                   </div>
                 )}
+                
               </div>
             ))
           )}
@@ -296,8 +273,8 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
       {/* TELA DE IMPRESSÃO (PDF) */}
       <div className="documento-pdf">
+        
         <header style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '20px', paddingBottom: '15px', borderBottom: '2px solid #eaeaea' }}>
-          
           <svg viewBox="0 0 350 470" height="45" style={{ flexShrink: 0 }}>
             <g transform="translate(5, 5)">
               <circle cx="50" cy="50" r="55" fill="#c8191e" />
@@ -312,14 +289,12 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
               <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
             </g>
           </svg>
-
           <div style={{ borderLeft: '3px solid #2ecc71', paddingLeft: '15px' }}>
             <h2 style={{ margin: 0, fontSize: '20px', fontWeight: 'bold', color: '#111' }}>Simulado Personalizado</h2>
             <p style={{ margin: 0, fontSize: '14px', color: '#666' }}>Gerador de Provas</p>
           </div>
         </header>
 
-        {/* FUNDO CINZA REMOVIDO E LINHA DO ALUNO REDUZIDA */}
         <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', marginBottom: '30px', backgroundColor: 'transparent' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div style={{ fontSize: '15px', color: '#111' }}>
@@ -336,7 +311,6 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
             {questoes.map((questao, index) => (
               <div key={`print-${questao.id}`} className="questao-item">
                 
-                {/* BLOCO INQUEBRÁVEL: NÚMERO DA QUESTÃO + ENUNCIADO FICAM SEMPRE JUNTOS */}
                 <div className="bloco-inquebravel">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
                     <div style={{ backgroundColor: '#2ea73a', color: '#fff', width: '28px', height: '28px', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '14px' }}>
@@ -346,25 +320,31 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
                       Questão {index + 1} - {questao.topico}
                     </h3>
                   </div>
+                  
                   <div style={{ marginLeft: '40px', marginBottom: '10px' }}>
                     <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>
                       Fonte: {questao.origem} ({questao.ano})
                     </span>
                   </div>
-                  
+
                   <div style={{ fontSize: '15px', lineHeight: '1.5', margin: '0 0 15px 0', color: '#222' }}>
                     {formatarEnunciado(questao.enunciado)}
+                    <TabelaEnunciado tabelaData={questao.tabela_enunciado} />
                   </div>
                 </div>
-                
+
                 {questao.codigo_typescript && questao.codigo_typescript.trim() !== '' && (
                   <div style={{ marginBottom: '15px' }}>
-                    <SyntaxHighlighter language="typescript" style={temaDoTCC} customStyle={{ borderRadius: '6px', padding: '12px', fontSize: '13px', fontFamily: "Consolas, 'Courier New', monospace", backgroundColor: '#1e1e1e', margin: 0 }}>
+                    <SyntaxHighlighter 
+                      language="typescript" 
+                      style={temaDoTCC} 
+                      customStyle={{ borderRadius: '6px', padding: '12px', fontSize: '13px', fontFamily: "Consolas, 'Courier New', monospace", backgroundColor: '#1e1e1e', margin: 0 }}
+                    >
                       {questao.codigo_typescript}
                     </SyntaxHighlighter>
                   </div>
                 )}
-                
+
                 <div className="caixa-resposta" style={{ marginTop: '15px' }}>
                   <p style={{ fontWeight: 'bold', fontSize: '14px', marginBottom: '8px', color: '#333' }}>Sua resposta:</p>
                   <div style={{ border: '1px solid #aaa', borderRadius: '6px', minHeight: '220px', backgroundColor: '#fff' }}></div>
@@ -374,6 +354,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
             ))}
           </div>
         )}
+
       </div>
     </div>
   );

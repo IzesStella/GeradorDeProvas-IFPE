@@ -1,7 +1,11 @@
 [
   {
     "topico": "Execução Condicional",
+<<<<<<< Updated upstream
     "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível em um sistema de cotas de uma hipotética instituição federal de ensino. O sistema funciona de acordo com a tabela abaixo. Exemplo de entrada: Valor do salário mínimo: R$ 1.518,00. Estou em escola pública: sim. Renda familiar por pessoa: R$ 800,00. Resultado ao final do programa: cotas por renda.",
+=======
+    "enunciado": "Implemente um programa capaz de identificar se um estudante é elegível em um sistema de cotas de uma hipotética instituição federal de ensino. O sistema funciona de acordo com a tabela:\n\nExemplo de entrada:\nValor do salário mínimo: R$ 1.518,00\nEstou em escola pública: sim\nRenda familiar por pessoa: R$ 800,00\n\nResultado ao final do programa:\ncotas por renda",
+>>>>>>> Stashed changes
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",
@@ -17,7 +21,11 @@
   },
   {
     "topico": "Execução Condicional",
+<<<<<<< Updated upstream
     "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)? Dica: \"IF\" + \"PE\" = \"IFPE\".",
+=======
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução do programa)?\nDica: \"IF\" + \"PE\" = \"IFPE\".",
+>>>>>>> Stashed changes
     "codigo_typescript": "let s: string = \"i\"\nlet t: string = \"r\"\nlet r: string = \"e\"\nlet nome: string = s\n\nif (r === t) {\n  nome = s + nome + r\n  nome = t + nome + s\n} else if (nome !== t) {\n  nome = r + t + nome\n  nome = nome + s\n}\n\nconsole.log(nome)",
     "nivel_dificuldade": "Média",
     "tipo_questao": "Execução de Código",
