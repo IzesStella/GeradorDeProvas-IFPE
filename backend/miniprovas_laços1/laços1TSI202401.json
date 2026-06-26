@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de imprimir o n-ésimo número da sequência: 1, 3, 9, 27, 81, 243, 729...\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n9",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let b: number = 1\nlet k: number = 0\nlet n: number = -1\n\nwhile (b < 5) {\n  if (b % 3 == 0) {\n    b = b + 1\n    k = b - k + n\n  } else if (b % 2 == 0) {\n    n = (2 * n) - k\n  }\n  console.log(b, k, n)\n  b = b + 1\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - TSI",
+    "ano": "2024.01"
+  }
+]

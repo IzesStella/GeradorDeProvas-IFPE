@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números ímpares negativos.\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n-1, -3, -5",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let j: number = 2\nlet k: number = 0\nlet t: number = 0\n\nwhile (j < 10) {\n  if (j % 3 == 0) {\n    j = j + 1\n    k = (j + k + t) * -1\n  } else if (j % 2 == 0) {\n    t = t - (k * 2)\n    j = j + 3\n  }\n  console.log(j, k, t)\n  j = j + 1\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - IPI",
+    "ano": "2024.01"
+  }
+]

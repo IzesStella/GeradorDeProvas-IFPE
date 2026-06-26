@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de computar o valor de f na seguinte equação: f(a,b,c) = (3 * a^3 * b) + (2 * (b^2 - c^2)) - (c - a). Exemplo de entrada: a = 1; b = 2; c = 3. Resultado ao final do programa: f = -6.",
+    "enunciado": "Implemente um programa capaz de computar o valor de f na seguinte equação:\n\n$f(a,b,c)=(3\\times a^{3}\\times b)+(2\\times(b^{2}-c^{2}))-(c-a)$\n\nExemplo de entrada:\n$a=1$; $b=2$; $c=3$\n\nResultado ao final do programa:\n$f=-6$\n\nDicas:\n• Matemática nem sempre é igual à programação;\n• Pense no computador como uma calculadora, então deixe que ele faz as contas;\n• Seu programa deve funcionar para qualquer entrada, não apenas para o exemplo acima.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

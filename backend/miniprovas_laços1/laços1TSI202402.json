@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números da sequência:\n-1, 2, 7, 14, 23, 34...\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n-1, 2, 7",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let x: number = 1\nlet y: number = 0\nlet z: number = -1\nlet w: number = -1\nlet k: boolean = true\n\nwhile (3 > y) {\n  if (y % 3 == 1) {\n    x = (x * y) + (2 * z)\n    z = x - z\n  } else if (y % 3 != 0) {\n    w = (x * x) + w\n    k = k && (x > 0)\n  }\n  console.log(x, y, z, w, k)\n  y = y + 1\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - TSI",
+    "ano": "2024.02"
+  }
+]

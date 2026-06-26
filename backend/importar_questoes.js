@@ -19,6 +19,7 @@ async function importarTodasAsProvas() {
     './miniprovas_execucaocondicional',
     './miniprovas_operadoreslogicos',
     './miniprovas_operadorestiposvariaveis',
+    './miniprovas_laços1',
     './dados_provas' 
   ];
 

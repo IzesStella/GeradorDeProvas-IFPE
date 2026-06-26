@@ -1,0 +1,32 @@
+[
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros caracteres da sequência: NMBNMBNMBNMB...\n\nExemplo de entrada:\nn = 6\n\nSaída correspondente:\nNMBNMB",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/@NMB48official",
+    "origem": "Miniprova - Laços Parte 1 - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?\nResponda à questão em formato de tabela.",
+    "codigo_typescript": "let a: number = 2\nlet b: number = 1\nlet c: boolean = true\n\nwhile (b < 8) {\n  c = (a % 4 == 0) && (b % 3 < 2)\n  if (a >= 2 && b < a) {\n    b = b * 2\n  } else if (a % 2 == 0 || b % 2 == 0) {\n    a = a + b\n  }\n  console.log(a, b, c)\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": [
+      [" ", "a", "b", "c"],
+      ["1", " ", " ", " "],
+      ["2", " ", " ", " "],
+      ["3", " ", " ", " "],
+      ["4", " ", " ", " "],
+      ["5", " ", " ", " "],
+      ["...", " ", " ", " "]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - IPI",
+    "ano": "2026.01"
+  }
+]

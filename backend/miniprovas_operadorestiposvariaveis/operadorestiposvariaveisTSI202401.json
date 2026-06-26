@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de somar todos os números em um determinado intervalo (inclusivo). Fórmula para a soma: ((quantidade de números) x (início + fim)) / 2. Exemplo de entrada: inicio = 10, fim = 15. Resultado ao final do programa: soma = 75.",
+    "enunciado": "Implemente um programa capaz de somar todos os números em um determinado intervalo (inclusivo).\n\nFórmula para a soma:\n$\\frac{quantidade\\_de\\_numeros \\times (inicio + fim)}{2}$\n\nExemplo de entrada:\ninicio = 10, fim = 15.\n\nResultado ao final do programa:\nsoma = 75.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

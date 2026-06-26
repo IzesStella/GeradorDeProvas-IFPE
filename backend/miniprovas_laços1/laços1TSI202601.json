@@ -1,0 +1,32 @@
+[
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números da sequência:\n1, -1, 2, -2, 3, -3...\n\nDica: você pode tratar a sequência como se fossem duas.\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n1\n-1\n2",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?\nResponda à questão em formato de tabela.",
+    "codigo_typescript": "let a: number = 10\nlet b: number = 10\nlet c: boolean = true\nlet i: number = 0\n\nwhile (i < 5) {\n  if (a % 2 == 0) {\n    a = a - 3\n    b = b + 2\n  } else if (b % 2 == 0) {\n    a = a + 3\n    b = b - 2\n  }\n  c = (a > b) || (a == b)\n  i++\n  console.log(a, b, c)\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": [
+      [" ", "a", "b", "c"],
+      ["1", " ", " ", " "],
+      ["2", " ", " ", " "],
+      ["3", " ", " ", " "],
+      ["4", " ", " ", " "],
+      ["5", " ", " ", " "],
+      ["...", " ", " ", " "]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 1 - TSI",
+    "ano": "2026.01"
+  }
+]

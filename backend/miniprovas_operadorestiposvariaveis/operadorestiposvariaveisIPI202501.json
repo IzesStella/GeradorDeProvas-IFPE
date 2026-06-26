@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "O Coeficiente de Rendimento Escolar (CRE) de um estudante é a média aritmética de suas notas nas matérias durante todo o curso. Considerando que no curso de Informática para Internet os estudantes cursam sete matérias no primeiro semestre, compute o CRE de um estudante ao final do primeiro semestre. Exemplo de entrada: Nota de Lógica = 5; nota de Redes = 7, nota de Fundamentos = 9, nota de Inglês = 5, nota de Seguranca = 7, nota de Português = 8, nota de Matemática = 7. Resultado ao final do programa: Média = 7.",
+    "enunciado": "O Coeficiente de Rendimento Escolar (CRE) de um estudante é a média aritmética de suas notas nas matérias durante todo o curso. Considerando que no curso de Informática para Internet os estudantes cursam sete matérias no primeiro semestre, compute o CRE de um estudante ao final do primeiro semestre.\n\nExemplo de entrada:\nNota de Lógica = 5; nota de Redes = 7, nota de Fundamentos = 9, nota de Inglês = 5, nota de Seguranca = 7, nota de Português = 8, nota de Matemática = 7.\n\nResultado ao final do programa:\nMédia = 7.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

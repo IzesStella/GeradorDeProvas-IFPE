@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de computar as raízes de uma equação do segundo grau no formato: ax² + bx + c = 0. Fórmulas: delta = b² - 4ac; x1 = (-b + raíz_quadrada(delta))/(2a); x2 = (-b - raíz_quadrada(delta))/(2a). Dicas: A linha z = Math.sqrt(w), computa a raiz quadrada de w e guarda na variável z. Assuma que o delta nunca será negativo. Exemplo de entrada: a = 1; b = -3; c = -10. Resultado ao final do programa: x1 = 5; x2 = -2.",
+    "enunciado": "Implemente um programa capaz de computar as raízes de uma equação do segundo grau no formato: $ax^2 + bx + c = 0$.\n\nFórmulas:\n$\\Delta = b^2 - 4ac$\n$x_1 = \\frac{-b + \\sqrt{\\Delta}}{2a}$\n$x_2 = \\frac{-b - \\sqrt{\\Delta}}{2a}$\n\nDicas:\n• A linha `z = Math.sqrt(w)`, computa a raiz quadrada de w e guarda na variável z.\n• Assuma que o delta nunca será negativo.\n\nExemplo de entrada:\na = 1; b = -3; c = -10.\n\nResultado ao final do programa:\nx1 = 5; x2 = -2.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",
