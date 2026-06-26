@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Implemente um programa capaz de imprimir a quantidade de divisores de um número n.\n\nExemplo de entrada:\nn = 12\n\nSaída correspondente:\n6",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let str: string = \"\"\n\nfor (let i: number = 0; i < 3; i++) {\n  for (let j: number = 0; j < 6; j++) {\n    if (i % 3 < 1) {\n      str = str + \"||\"\n    } else if (i % 3 < 2) {\n      str = str + \"KU\"\n    } else if (i % 3 == 2) {\n      str = str + \".TSU\"\n    } else {\n      str = str + \"TA\"\n    }\n  }\n  str = str + \"\\n\" // quebra a linha\n}\n\nconsole.log(str)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/@ikutaerikaofficial",
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2025.02"
+  }
+]

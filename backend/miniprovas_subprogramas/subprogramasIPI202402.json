@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar a soma dos números divisíveis por 3, dado um intervalo numérico inclusivo.\n\nExemplo de entrada:\ninicio = 1\nfim = 6\n\nSaída correspondente:\n9",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada ie(4, 6)?",
+    "codigo_typescript": "function ie(i: number, e: number): string {\n  let mm: string = \"\"\n  for (let a: number = 0; a < i; a++) {\n    for (let b: number = 0; b < e; b++) {\n      if ((a + b) % 3 == 0) {\n        mm = mm + \"SAI\"\n      } else if ((a + b) % 3 == 1) {\n        mm = mm + \"KI\"\n      } else {\n        mm = mm + \"YOU\"\n      }\n      mm = mm + \".\"\n    }\n    mm = mm + \"\\n\"\n  }\n  return mm\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/watch?v=SdzaettYxyc",
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2024.02"
+  }
+]

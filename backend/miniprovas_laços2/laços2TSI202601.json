@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Implemente um programa capaz de imprimir todos os números entre dois números dados como entrada (intervalo exclusivo) em ordem decrescente.\n\nExemplo de entrada:\na = 15\nb = 10\n\nSaída no console:\n14\n13\n12\n11",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let r: string = \"\"\nlet t: number = 4\n\nfor (let i: number = 0; i < t; i++) {\n  for (let j: number = 0; j < t; j++) {\n    if (j == t - i - 1) {\n      r = r + \"E\"\n    } else if (i == j) {\n      r = r + \"S\"\n    } else {\n      r = r + \"K\"\n    }\n  }\n  r = r + \"\\n\"\n}\n\nconsole.log(r)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/@SKE48",
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2026.01"
+  }
+]

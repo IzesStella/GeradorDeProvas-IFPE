@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Implemente um programa capaz de imprimir o maior divisor inteiro de um número que não seja ele próprio.\n\nExemplo de entrada:\nn = 12\n\nSaída correspondente:\n6",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let x: number = 6\nlet s: string = \"\"\n\nfor (let i: number = x; i > 0; i--) {\n  for (let j: number = 0; j < i; j++) {\n    s = s + \"*\"\n  }\n  s = s + \"\\n\"\n}\n\nconsole.log(s)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - IPI",
+    "ano": "2024.02"
+  }
+]

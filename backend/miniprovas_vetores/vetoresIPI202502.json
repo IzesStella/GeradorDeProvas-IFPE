@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor de números como parâmetro, retornar a soma dos números positivos presentes nele.\n\nExemplo de parâmetro:\nvetor = [-10, 0, 3, 2.5, 5, 8, 0]\n\nRetorno:\n18.5",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada skz46(\"uxhhpcyptazn\")?\n\nDica: trate a string como um vetor de caracteres.",
+    "codigo_typescript": "function skz46(fk: string): string {\n  let yt: string = \"\"; // string vazia\n\n  for (let i: number = 0; i < 7; i++) {\n    if (i % 2 == 0) {\n      yt = yt + fk[i];\n    } else {\n      yt = yt + fk[fk.length - i];\n    }\n  }\n\n  return yt;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/hBfDlIN0WtI",
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2025.02"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor como parâmetro, somar 2 aos seus elementos.\n\nDica: vetores são passados por referência.\n\nExemplo de parâmetro:\nvetor = [-10, 0, 3, 2.5, 5, 8, 0]\n\nEstado do vetor após a execução do subprograma:\nvetor = [-8, 2, 5, 4.5, 7, 10, 2]",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada ngz46(\"ngenavel.ora\")?\n\nDica: trate a string como um vetor de caracteres.",
+    "codigo_typescript": "function ngz46(s38: string): string {\n  let nain: string = \"\"; // string vazia\n\n  for (let i: number = 0; i < s38.length; i++) {\n    nain = nain + s38[(i+3) % s38.length];\n  }\n\n  return nain;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/ZoS13X1A2JY",
+    "origem": "Miniprova - Vetores - TSI",
+    "ano": "2025.01"
+  }
+]

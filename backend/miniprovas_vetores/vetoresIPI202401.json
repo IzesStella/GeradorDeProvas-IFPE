@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor, retornar a quantidade de elementos entre 0 e 100 (intervalo inclusivo).\n\nExemplo de parâmetro:\nvetor = [100, 0, 300, 445, -5, 67, 76]\n\nRetorno correspondente:\n4",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada ito(\"mmkaoo\")?\n\nDica: uma string é um vetor onde cada caractere é um elemento do mesmo.",
+    "codigo_typescript": "function ito(a: string): string {\n  let i: string = \"\";\n\n  for (let ri = 0; ri < (a.length / 2); ri++) {\n    i = i + a[ri];\n    i = i + a[a.length - ri - 1];\n  }\n\n  return i;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2024.01"
+  }
+]

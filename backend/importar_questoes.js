@@ -20,7 +20,9 @@ async function importarTodasAsProvas() {
     './miniprovas_operadoreslogicos',
     './miniprovas_operadorestiposvariaveis',
     './miniprovas_laços1',
-    './dados_provas' 
+    './miniprovas_laços2',
+    './miniprovas_subprogramas',
+    './miniprovas_vetores'
   ];
 
   try {

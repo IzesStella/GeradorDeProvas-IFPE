@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor e um número n, subtrair n de todos os elementos do vetor.\n\nExemplo de parâmetros:\nvetor = [-10, 0, 3, 2.5, 5, 8, 0]\nn = 2\n\nEstado do vetor após a execução do subprograma:\nvetor = [-12, -2, 1, 0.5, 3, 6, -2]",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada a(\"antnteattt!e\")?\n\nDica: uma string é um vetor onde cada caractere é um elemento do mesmo.",
+    "codigo_typescript": "function a(k: string): string {\n  let b: string = \"\";\n\n  for (let i: number = k.length - 2; i >= 0; i = i - 2) {\n    b = k[i+1] + k[i] + b;\n  }\n\n  return b;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/9d-Tk-mYS44",
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2024.02"
+  }
+]

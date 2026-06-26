@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor, retornar a quantidade de elementos pares presente nele.\n\nExemplo de parâmetro:\nvetor = [1, 0, 3, 4, 5, 6, 7]\n\nRetorno correspondente:\n3",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada hoshikuzu(\"pathelet\")?\n\nDica: uma string é um vetor onde cada caractere é um elemento do mesmo.",
+    "codigo_typescript": "function hoshikuzu(im: string): string {\n  let sa: string = \"\";\n\n  for (let i = 0; i < im.length; i++) {\n    if (i < (im.length / 2)) {\n      sa = sa + im[i];\n    } else {\n      sa = im[i] + sa;\n    }\n  }\n\n  return sa;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/zGkK7tywYiA",
+    "origem": "Miniprova - Vetores - TSI",
+    "ano": "2024.01"
+  }
+]

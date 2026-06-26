@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor, substituir seus itens com os números inteiros positivos em ordem crescente.\n\nExemplo de parâmetro:\nvetor = [-10, 0, 3, 2.5, 5, 8, 0]\n\nEstado do vetor após a execução do subprograma:\nvetor = [1, 2, 3, 4, 5, 6, 7]",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada mm(\"aeu allcp-kw\")?\n\nDica: uma string é um vetor onde cada caractere é um elemento do mesmo.",
+    "codigo_typescript": "function mm(ie: string): string {\n  let single: string = \"\";\n\n  for (let i: number = 0; i < ie.length / 2; i++) {\n    single = single + ie[ie.length - i - 1] + ie[i];\n  }\n\n  return single;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/AyxwVijAsVE",
+    "origem": "Miniprova - Vetores - TSI",
+    "ano": "2024.02"
+  }
+]

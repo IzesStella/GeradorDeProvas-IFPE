@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de, dado um vetor de números como parâmetro, retornar a quantidade de números positivos presentes nele.\n\nExemplo de parâmetro:\nvetor = [-10, 0, 3, 2.5, 5, 8, 0]\n\nRetorno:\n4",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada oni(\"hsniofīn\")?\n\nDica: trate a string como um vetor de caracteres.",
+    "codigo_typescript": "function oni(shi: string): string {\n  let momoka: string = \"\"; // string vazia\n\n  for (let i: number = shi.length - 2; i >= 0; i = i - 2) {\n    momoka = shi[i+1] + shi[i] + momoka;\n  }\n\n  return momoka;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/vRdMndsEqIs",
+    "origem": "Miniprova - Vetores - IPI",
+    "ano": "2025.01"
+  }
+]

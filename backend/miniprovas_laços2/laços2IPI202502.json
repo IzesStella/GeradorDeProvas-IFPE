@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Implemente um programa capaz de imprimir o menor divisor inteiro de um número que não seja 1.\n\nExemplo de entrada:\nn = 12\n\nSaída correspondente:\n2",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let str: string = \"\"\n\nfor (let i: number = 0; i < 3; i++) {\n  for (let j: number = 0; j < 6; j++) {\n    if (j % 3 == 1) {\n      str = str + \"KA\"\n    } else if (j % 3 == 0) {\n      str = str + \"O\"\n    } else if (j % 3 == 2) {\n      str = str + \".TSU\"\n    } else {\n      str = str + \"DA.\"\n    }\n  }\n  str = str + \"\\n\" // quebra a linha\n}\n\nconsole.log(str)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/@okadanana1107",
+    "origem": "Miniprova - Laços Parte 2 - IPI",
+    "ano": "2025.02"
+  }
+]

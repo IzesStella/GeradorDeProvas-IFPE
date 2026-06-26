@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números da sequência:\n-2, 4, -8, 16, -32, 64, -128, 256...\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n-2, 4, -8",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let k: string = \"\"\n\nfor (let i: number = 0; i < 6; i++) {\n  for (let p: number = 0; p < 6; p++) {\n    if (p % 3 == 0) {\n      k = k + \"k\"\n    } else if (p % 3 == 1) {\n      k = k + \"L\"\n    } else {\n      k = k + \"P\"\n    }\n  }\n  k = k + \"\\n\" // quebra a linha\n}\n\nconsole.log(k)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2024.01"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar a soma dos n primeiros números da sequência: -2, 4, -8, 16, -32, 64, -128, 256…\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n-6",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada kubo(3,3) após a execução do programa abaixo?",
+    "codigo_typescript": "function kubo(hi: number, nano: number) {\n  let s: string = \"\"\n  for (let a: number = 0; a < hi; a++) {\n    for (let e: number = 0; e < nano; e++) {\n      if (a % 3 == 0) {\n        s = \"ME\" + s\n      } else if (a % 3 == 1) {\n        s = \"LA\" + s\n      } else {\n        s = \"UN\" + s\n      }\n    }\n    s = \"\\n\" + s // quebra a linha\n  }\n  return s\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2024.01"
+  }
+]

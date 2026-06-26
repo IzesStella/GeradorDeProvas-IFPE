@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Implemente um programa capaz de imprimir o fatorial dos n primeiros números inteiros.\n\nDica: fatorial de $n = 1 \\times 2 \\times 3 .... \\times n$\n\nExemplo de entrada:\nn = 6\n\nSaída correspondente:\n1\n2\n6\n24\n120\n720",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Laços - Parte 2",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "let str: string = \"\"\n\nfor (let i: number = 0; i < 9; i++) {\n  for (let j: number = 0; j < 6; j++) {\n    if ((i + j) % 3 == 0) {\n      str = str + \"H\"\n    } else if ((i + j) % 3 == 1) {\n      str = str + \"K\"\n    } else {\n      str = str + \"T\"\n    }\n  }\n  str = str + \"\\n\" // quebra a linha\n}\n\nconsole.log(str)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/HKT48",
+    "origem": "Miniprova - Laços Parte 2 - TSI",
+    "ano": "2025.01"
+  }
+]   

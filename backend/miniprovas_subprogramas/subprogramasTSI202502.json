@@ -1,0 +1,31 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dados três números como parâmetros, retorna true quando todos eles são positivos ou false, caso contrário...\n\nExemplo de entrada:\na = 1, b = 0, c = 3\n\nRetorno correspondente:\nfalse",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?\nResponda à questão em formato de tabela.",
+    "codigo_typescript": "function xy(a: number, b: number) {\n  let c: boolean = true\n  while (a < 40) {\n    if (a > b && b % 2 == 0) {\n      a = a - b\n      b = b * -2\n    } else {\n      b = b - a\n      a = -2 * a\n    }\n    c = (a > b) || ((a == b) == c)\n    console.log(a, b, c)\n  }\n}\n\nxy(0, -10)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": [
+      [" ", "a", "b", "c"],
+      ["1", " ", " ", " "],
+      ["2", " ", " ", " "],
+      ["3", " ", " ", " "],
+      ["4", " ", " ", " "],
+      ["...", " ", " ", " "]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2025.02"
+  }
+]

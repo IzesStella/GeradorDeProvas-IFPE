@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar uma string de n partes (cada parte é delimitada por um ponto) seguindo o padrão:\nai.no.omo.sa.ai.no.omo.sa.ai.no.omo.sa...\n\nExemplo de entrada:\nn = 6\n\nSaída correspondente:\nai.no.omo.sa.ai.no.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/1DmzCz91hLU",
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "function x(n: number): string {\n  let s: string = \"\"\n  let k: number = 1\n  for (let i: number = 0; i <= n; i++) {\n    let r: string = \"\"\n    for (let j: number = 0; j < k; j++) {\n      r = r + \".\"\n    }\n    if (i >= (n / 2)) {\n      k--\n    } else {\n      k++\n    }\n    s = s + r + \"\\n\"\n  }\n  return s\n}\n\nconsole.log(x(6))",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2025.01"
+  }
+]

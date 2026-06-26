@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar uma string de n caracteres seguindo o padrão: STUSTUSTUSTU...\n\nExemplo de entrada:\nn = 6\n\nSaída correspondente:\nSTUSTU",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/STU48",
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "function x(n: number): string {\n  let s: string = \"\"\n  for (let i: number = 0; i < n; i++) {\n    let r: number = 0\n    for (let j: number = 0; j < i; j++) {\n      r = r + (i - j)\n    }\n    s = s + r + \"\\n\"\n  }\n  return s\n}\n\nconsole.log(x(5))",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2025.01"
+  }
+]

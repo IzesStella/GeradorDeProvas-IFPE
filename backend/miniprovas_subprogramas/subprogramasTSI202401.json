@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar a soma dos n primeiros números da sequência: 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5…\nPs: você consegue resolver a questão sem usar um if?\n\nExemplo de entrada:\nn = 3\n\nSaída correspondente:\n3",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada skz(4, 6)?",
+    "codigo_typescript": "function skz(x: number, y: number): string {\n  let k: string = \"\"\n  for (let l: number = 0; l < x; l++) {\n    for (let p: number = 0; p < y; p++) {\n      if ((p + l) % 3 == 0) {\n        k = k + \"K\"\n      } else if ((p + l) % 3 == 1) {\n        k = k + \"L\"\n      } else {\n        k = k + \"P\"\n      }\n      k = k + \" \"\n    }\n    k = k + \"\\n\" // quebra a linha\n  }\n  return k\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2024.01"
+  }
+]
