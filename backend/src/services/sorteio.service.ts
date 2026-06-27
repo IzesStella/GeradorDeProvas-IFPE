@@ -24,7 +24,7 @@ export const SorteioService = {
       return rows; 
     }
 
-    // LÓGICA PADRÃO - FILTRO ESTRITO
+    // LÓGICA PADRÃO - FILTRO ESTRITO NO SQL
     let sql = 'SELECT * FROM questoes WHERE ativo = true';
     const values: any[] = [];
     let contadorVariaveis = 1;
@@ -35,7 +35,7 @@ export const SorteioService = {
       contadorVariaveis++;
     }
 
-    // AQUI ESTÁ A CORREÇÃO: O banco SÓ vai buscar se a dificuldade bater exatamente com o que foi pedido!
+    // O banco SÓ vai trazer as questões se elas baterem com a dificuldade marcada.
     if (dificuldades && dificuldades.length > 0) {
       sql += ` AND nivel_dificuldade = ANY($${contadorVariaveis})`;
       values.push(dificuldades);
@@ -44,6 +44,8 @@ export const SorteioService = {
 
     const { rows, rowCount } = await pool.query(sql, values);
 
+    // Se o banco não achar NADA com essa exata combinação, devolve vazio. 
+    // (Isso gera o Aviso Absoluto na tela)
     if (!rows || rowCount === 0) return [];
 
     // Agrupa as questões validadas por tópico
@@ -62,7 +64,7 @@ export const SorteioService = {
     const topicosDisponiveis = Object.keys(questoesPorTopico);
     let indexTopico = 0;
 
-    // Sorteio Round-Robin equilibrado (só com o que passou no filtro estrito)
+    // Sorteio Round-Robin equilibrado com o que foi encontrado
     while (provaFinal.length < quantidade && topicosDisponiveis.length > 0) {
       const topicoAtual = topicosDisponiveis[indexTopico % topicosDisponiveis.length];
       const questoesDoTopico = questoesPorTopico[topicoAtual];

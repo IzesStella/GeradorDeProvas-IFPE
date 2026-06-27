@@ -14,10 +14,10 @@ interface Questao {
   ano: string | number;
 }
 
-// O filtros foi removido daqui pois não é mais usado na tela
 interface TelaSimuladoProps {
   questoes: Questao[];
   onVoltar: () => void;
+  filtros: any;
 }
 
 // TEMA SEMÂNTICO DE CORES DO CÓDIGO
@@ -25,18 +25,18 @@ const temaDoTCC = JSON.parse(JSON.stringify(vscDarkPlus));
 
 // TABELA DE CORES
 const coresTCC: Record<string, string> = {
-  'keyword': '#3695D7',      // Palavras-chave (function, let, return): Azul
-  'builtin': '#3695D7',      // Tipos (number, string): Azul
-  'number': '#82B384',       // Números (30, 40): Verde claro
-  'string': '#939393',       // Textos ("valor da..."): Cinza escuro
-  'comment': '#5EA63D',      // Comentários (//...): Verde escuro
-  'punctuation': '#FFF500',  // Parênteses e chaves: Amarelo vibrante
-  'function': '#ffffff',     // Nomes de função (multiplicar, log): Branco
-  'class-name': '#ffffff',   // Classes Globais (console): Branco
-  'variable': '#ffffff',     // Nomes de variáveis (resultado, x): Branco
-  'parameter': '#ffffff',    // Parâmetros (a, b, c): Branco
-  'property': '#ffffff',     // Propriedades: Branco
-  'operator': '#ffffff'      // Operadores (=, *): Branco
+  'keyword': '#3695D7', 
+  'builtin': '#3695D7', 
+  'number': '#82B384',
+  'string': '#939393',
+  'comment': '#5EA63D', 
+  'punctuation': '#FFF500', 
+  'function': '#ffffff',
+  'class-name': '#ffffff',
+  'variable': '#ffffff', 
+  'parameter': '#ffffff', 
+  'property': '#ffffff', 
+  'operator': '#ffffff'
 };
 
 // Aplica as cores e remove o itálico de tudo (menos dos comentários)
@@ -67,13 +67,7 @@ const TabelaEnunciado = ({ tabelaData }: { tabelaData: string[][] | null }) => {
 
   return (
     <div style={{ overflowX: 'auto', margin: '20px 0' }} className="bloco-inquebravel">
-      <table style={{ 
-        width: '100%', 
-        borderCollapse: 'collapse', 
-        fontFamily: 'sans-serif',
-        border: '1px solid #ddd',
-        fontSize: '14px'
-      }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'sans-serif', border: '1px solid #ddd', fontSize: '14px' }}>
         <thead>
           <tr style={{ backgroundColor: '#f2f2f2' }}>
             {cabecalhos.map((cabecalho, index) => (
@@ -99,7 +93,17 @@ const TabelaEnunciado = ({ tabelaData }: { tabelaData: string[][] | null }) => {
   );
 };
 
-export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
+export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps) {
+
+  // LÓGICA DO AVISO INTELIGENTE: Verifica se falta alguma dificuldade pedida
+  const quantidadeSolicitada = Number(filtros?.quantidade) || 0;
+  const dificuldadesSolicitadas = filtros?.dificuldades || [];
+  const dificuldadesPresentes = new Set(questoes.map(q => q.nivel_dificuldade));
+  const faltantes = dificuldadesSolicitadas.filter((d: string) => !dificuldadesPresentes.has(d));
+
+  // SÓ MOSTRA O AVISO se houver questões na prova E faltou dificuldade, 
+  // E a quantidade de questões pedida era suficiente para abranger todas as dificuldades!
+  const deveMostrarAvisoFaltantes = questoes.length > 0 && faltantes.length > 0 && quantidadeSolicitada >= dificuldadesSolicitadas.length;
 
   const handleImprimir = () => {
     window.print();
@@ -136,7 +140,7 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
           body, html { margin: 0 !important; padding: 0 !important; background-color: #f4f6f8; }
           * { box-sizing: border-box; }
           
-          /* === ESTILO DAS DIFICULDADES === */
+          /* ESTILO DAS DIFICULDADES */
           .badge { padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; display: inline-block; text-align: center; }
           .badge-facil { background-color: #e8f8f5; color: #2ecc71; }
           .badge-media { background-color: #fef5e7; color: #f39c12; }
@@ -147,7 +151,7 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
             .tela-sistema { width: 100%; padding-bottom: 60px; }
           }
 
-          /* === REGRAS ESPECÍFICAS PARA O PDF === */
+          /* REGRAS ESPECÍFICAS PARA O PDF */
           @media print {
             .tela-sistema { display: none !important; }
             .documento-pdf { display: block !important; width: 100%; font-family: Arial, sans-serif; background-color: white !important; }
@@ -201,29 +205,38 @@ export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
 
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px' }}>
 
+          {/* AVISO: Mostra se alguma dificuldade pedida não foi encontrada */}
+          {deveMostrarAvisoFaltantes && (
+            <div style={{ backgroundColor: '#fff8e1', borderLeft: '5px solid #ffc107', padding: '16px 20px', borderRadius: '6px', marginBottom: '30px', color: '#856404', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ fontSize: '22px' }}>⚠️</span>
+              <div>
+                <strong>Aviso:</strong> Não encontramos questões de nível <strong>{faltantes.join(', ')}</strong> para os tópicos selecionados. <br/>
+                Exibindo apenas as dificuldades disponíveis para garantir seu estudo.
+              </div>
+            </div>
+          )}
+
+          {/* AVISO ABSOLUTO: Se nenhuma questão passar no filtro estrito */}
           {questoes.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '50px 30px', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #eaeaea', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
-    
-        <h2 style={{ color: '#1a1d24', marginTop: 0, fontSize: '24px', fontWeight: '800' }}>
-          Nenhuma questão foi encontrada.
-        </h2>
-    
-         <p style={{ fontSize: '15px', color: '#6a737d', maxWidth: '520px', margin: '0 auto 30px', lineHeight: '1.6' }}>
-           Não temos questões cadastradas que combinem exatamente com os <strong>tópicos</strong> e a <strong>dificuldade</strong> selecionados. <br/><br/>
-      
-            <span style={{ backgroundColor: '#fef5e7', color: '#b9770e', padding: '10px 15px', borderRadius: '8px', display: 'inline-block', fontSize: '14px', border: '1px solid #fdebd0' }}>
-            <strong>💡 Dica:</strong> Assuntos introdutórios (como Operadores, Tipos e Variáveis) geralmente possuem apenas questões de nível Fácil ou Média. Ajuste os filtros e tente novamente!
-            </span>
-         </p>
-    
-          <button 
-             onClick={onVoltar} 
-             style={{ backgroundColor: '#36a860', color: '#fff', border: 'none', padding: '14px 32px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px', letterSpacing: '0.5px', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(54, 168, 96, 0.25)' }}
-           >
-          VOLTAR PARA CONFIGURAÇÕES
-        </button>
-      </div>  
-      ) : (
+            <div style={{ textAlign: 'center', padding: '50px 30px', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #eaeaea', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
+              
+              <h2 style={{ color: '#1a1d24', marginTop: 0, fontSize: '24px', fontWeight: '800' }}>
+                Nenhuma questão foi encontrada.
+              </h2>
+              
+              <p style={{ fontSize: '15px', color: '#6a737d', maxWidth: '520px', margin: '0 auto 30px', lineHeight: '1.6' }}>
+                Não temos questões cadastradas que combinem exatamente com os <strong>tópicos</strong> e a <strong>dificuldade</strong> selecionados. <br/><br/>
+                
+                <span style={{ backgroundColor: '#fef5e7', color: '#b9770e', padding: '10px 15px', borderRadius: '8px', display: 'inline-block', fontSize: '14px', border: '1px solid #fdebd0' }}>
+                  <strong>💡 Dica:</strong> Assuntos introdutórios (como Operadores, Tipos e Variáveis) geralmente possuem apenas questões de nível Fácil ou Média. Ajuste os filtros e tente novamente!
+                </span>
+              </p>
+              
+              <button onClick={onVoltar} style={{ backgroundColor: '#36a860', color: '#fff', border: 'none', padding: '14px 32px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px', letterSpacing: '0.5px', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(54, 168, 96, 0.25)' }}>
+                VOLTAR PARA CONFIGURAÇÕES
+              </button>
+            </div>
+          ) : (
             questoes.map((questao, index) => (
               <div key={questao.id} style={{ backgroundColor: '#ffffff', borderRadius: '12px', marginBottom: '35px', padding: '25px 30px', boxShadow: '0 6px 15px rgba(0,0,0,0.08)' }}>
                 
