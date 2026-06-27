@@ -232,20 +232,34 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
       `}</style>
 
       <div style={{ backgroundColor: '#121418', minHeight: '100vh', color: '#e0e0e0', display: 'flex', flexDirection: 'column' }}>
-        {/* HEADER */}
-        <header className="header-admin" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-             <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>[Logo IFPE]</span>
-          </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>Painel Administrativo</span>
-          </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-            <button onClick={onVoltar} style={{ backgroundColor: 'transparent', color: '#a0aab5', border: '1px solid #2a2d35', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}>
-              Voltar
-            </button>
-          </div>
-        </header>
+       <header className="header-admin" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
+       <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+        <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%' }}>
+       <g transform="translate(5, 5)">
+         <circle cx="50" cy="50" r="55" fill="#c8191e" />
+         <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
+         <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
+         </g>
+          <text x="390" y="340" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="140" fill="#ffffff" letterSpacing="2">INSTITUTO FEDERAL</text>
+          <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="#ffffff">Pernambuco</text>
+         </svg>
+         </div>
+         <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>Painel Administrativo</span>
+         </div>
+         <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+        <button onClick={onVoltar} style={{ backgroundColor: 'transparent', color: '#a0aab5', border: '1px solid #2a2d35', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}>
+            Voltar
+         </button>
+           </div>
+          </header>
 
         {/* CONTAINER PRINCIPAL */}
         <div className="container-principal" style={{ flex: 1, padding: '25px 5vw', display: 'flex', gap: '25px', alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
