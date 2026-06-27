@@ -115,7 +115,8 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
   const handleQuantidadeChange = (delta: number) => {
     if (isQtdLocked) return;
     
-    const novaQtd = Math.max(1, quantidade + delta);
+    // Trava entre mínimo 1 e máximo 12
+    const novaQtd = Math.min(12, Math.max(1, quantidade + delta));
     setQuantidade(novaQtd);
     if (modoAtivo === 'livre') estadoLivreRef.current.quantidade = novaQtd;
   };

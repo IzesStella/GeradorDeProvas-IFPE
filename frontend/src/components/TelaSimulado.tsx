@@ -14,10 +14,10 @@ interface Questao {
   ano: string | number;
 }
 
+// O filtros foi removido daqui pois não é mais usado na tela
 interface TelaSimuladoProps {
   questoes: Questao[];
   onVoltar: () => void;
-  filtros: any;
 }
 
 // TEMA SEMÂNTICO DE CORES DO CÓDIGO
@@ -99,7 +99,7 @@ const TabelaEnunciado = ({ tabelaData }: { tabelaData: string[][] | null }) => {
   );
 };
 
-export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps) {
+export function TelaSimulado({ questoes, onVoltar }: TelaSimuladoProps) {
 
   const handleImprimir = () => {
     window.print();
@@ -200,22 +200,30 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
         </header>
 
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px' }}>
-          
-          {/* AVISO: QUANTIDADE SOLICITADA MAIOR QUE O DISPONÍVEL    */}
-          {filtros?.quantidade && questoes.length > 0 && questoes.length < Number(filtros.quantidade) && (
-            <div style={{ backgroundColor: '#e8f4fd', borderLeft: '5px solid #3695D7', padding: '16px 20px', borderRadius: '6px', marginBottom: '30px', color: '#005b8f', fontSize: '15px', boxShadow: '0 2px 8px rgba(54, 149, 215, 0.1)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span style={{ fontSize: '22px' }}>ℹ️</span>
-              <div>
-                <strong>Informação:</strong> Você solicitou <strong>{filtros.quantidade}</strong> questões, mas encontramos apenas <strong>{questoes.length}</strong> no banco de dados com os filtros aplicados.
-              </div>
-            </div>
-          )}
 
           {questoes.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '50px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 6px 15px rgba(0,0,0,0.08)' }}>
-              <h2>Nenhuma questão encontrada com esses filtros.</h2>
-            </div>
-          ) : (
+        <div style={{ textAlign: 'center', padding: '50px 30px', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #eaeaea', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
+    
+        <h2 style={{ color: '#1a1d24', marginTop: 0, fontSize: '24px', fontWeight: '800' }}>
+          Nenhuma questão foi encontrada.
+        </h2>
+    
+         <p style={{ fontSize: '15px', color: '#6a737d', maxWidth: '520px', margin: '0 auto 30px', lineHeight: '1.6' }}>
+           Não temos questões cadastradas que combinem exatamente com os <strong>tópicos</strong> e a <strong>dificuldade</strong> selecionados. <br/><br/>
+      
+            <span style={{ backgroundColor: '#fef5e7', color: '#b9770e', padding: '10px 15px', borderRadius: '8px', display: 'inline-block', fontSize: '14px', border: '1px solid #fdebd0' }}>
+            <strong>💡 Dica:</strong> Assuntos introdutórios (como Operadores, Tipos e Variáveis) geralmente possuem apenas questões de nível Fácil ou Média. Ajuste os filtros e tente novamente!
+            </span>
+         </p>
+    
+          <button 
+             onClick={onVoltar} 
+             style={{ backgroundColor: '#36a860', color: '#fff', border: 'none', padding: '14px 32px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px', letterSpacing: '0.5px', transition: 'all 0.2s', boxShadow: '0 4px 12px rgba(54, 168, 96, 0.25)' }}
+           >
+          VOLTAR PARA CONFIGURAÇÕES
+        </button>
+      </div>  
+      ) : (
             questoes.map((questao, index) => (
               <div key={questao.id} style={{ backgroundColor: '#ffffff', borderRadius: '12px', marginBottom: '35px', padding: '25px 30px', boxShadow: '0 6px 15px rgba(0,0,0,0.08)' }}>
                 
