@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Autor (1.5) que representa o Autor de um Livro em um programa de computador, o tipo deverá possuir os atributos nome, ano de nascimento. Além disso, implemente a operação idade (2.5) que, dado um Autor e o ano atual, retorna quantos anos ele possui (note que a função foi simplificada para não contar o mês e o dia de nascimento).\n\nExemplo de entrada para a operação idade:\na: Autor ( nome: \"Andrew Tanenbaum\", ano de nascimento: 1944 )\n\nRetorno correspondente à entrada acima:\n81",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Livro (2.0) que representa Livro em um programa de computador, além disso, implemente a operação ehAutorDoLivro (4.0) que, dados um Autor e um Livro, retorna true quando o Autor está na lista de autores do Livro, ou false, caso contrário.\n\nExemplo de entrada para a operação ehAutorDoLivro:\nautor: Autor ( nome: \"Andrew Tanenbaum\", ano de nascimento: 1944 )\nlivro: livro ( nome: \"Redes de Computadores\", autores: [\n  Autor ( nome: \"Nick Feamster\", ano de nascimento: 1953 ),\n  Autor ( nome: \"David Wetherall\", ano de nascimento: 1970 ),\n  Autor ( nome: \"Andrew Tanenbaum\", ano de nascimento: 1944 )\n]\n)\n\nRetorno correspondente à entrada acima:\ntrue",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - IPI",
+    "ano": "2025.01"
+  }
+]

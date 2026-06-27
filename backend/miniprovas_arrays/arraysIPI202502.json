@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de, dado um array de duas dimensões contendo números como parâmetro, retornar a soma dos números negativos presentes nele.\n\nExemplo de parâmetro:\nvetor = [[-10, 0, 3], [2.5, -5, 0]]\n\nRetorno após a execução do subprograma:\n-15",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Arrays - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Qual o estado do array code ao final da execução do subprograma abaixo tendo [[\"n\", \"m\", \"b\", \"48\"], [\"d\", \"o\", \"n\", \"e\"]] como parâmetro?\n\nDica: trate a string como um vetor de caracteres.",
+    "codigo_typescript": "function nmb13(code: string[][]): void {\n  for (let i: number = code[0].length - 1; i > -1; i--) {\n    let temp: string = code[0][i]\n    code[0][i] = code[1][i]\n    code[1][i] = temp\n  }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/71Rs1SILsc0",
+    "origem": "Miniprova - Arrays - IPI",
+    "ano": "2025.02"
+  }
+]

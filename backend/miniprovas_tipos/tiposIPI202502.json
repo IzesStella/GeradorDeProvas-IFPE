@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo País (2.0) que representa um país, além disso, implemente a operação paisDeGrandePopulacao (2.0) que, dado um país, retorna true quando sua população é superior a cem milhões de habitantes, ou false, caso contrário.\n\nExemplo de entrada para a operação paisDeGrandePopulacao:\np: Pais ( nome: \"Uruguai\", populacao: 3382536, estados: 19 )\n\nRetorno correspondente à entrada acima:\nfalse",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Continente (2.0) que agrupa todos os países de um continente, além disso, implemente a operação paisesDeGrandePopulacao (4.0) que, dado um Continente, retorna a quantidade de países com população superior a cem milhões de habitantes.\n\nExemplo de entrada para a operação paisesDeGrandePopulacao:\nc: Continente ( nome: \"América do Sul\",\npaíses: [\n  Pais ( nome: \"Uruguai\", populacao: 3382536, estados: 19 ),\n  Pais ( nome: \"Brasil\", populacao: 213562666, estados: 26 )\n]\n)\n\nRetorno correspondente à entrada acima:\n1",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - IPI",
+    "ano": "2025.02"
+  }
+]

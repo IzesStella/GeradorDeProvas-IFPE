@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de, dado um array, substituir seus itens com os números inteiros positivos em ordem crescente.\n\nExemplo de parâmetro:\nvetor = [[-10, 0], [3, 2.5], [5, 8, 0]]\n\nEstado do array após a execução do subprograma:\narray = [[1, 2], [3, 4, 5], [6, 7, 8]]",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Arrays - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Qual o valor da variável array ao final da chamada sakurazaka([\"NOITARENEG\", \"AWAGADU\"])?\n\nDica: uma string é um vetor onde cada caractere é um elemento do mesmo.",
+    "codigo_typescript": "function sakurazaka(array : string[]) : string {\n  let str : string = \"\"\n\n  for (let i : number = array.length - 1; i >= 0; i = i - 1) {\n    for (let j : number = array[i].length - 1; j >= 0; j = j - 1) {\n      str = str + array[i][j]\n    }\n    str = str + \".\"\n  }\n\n  return str\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/qP52sh7PzYA",
+    "origem": "Miniprova - Arrays - IPI",
+    "ano": "2024.02"
+  }
+]

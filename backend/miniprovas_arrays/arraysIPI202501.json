@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de, dado um array 2D de números como parâmetro, retornar a quantidade de números negativos presentes nele.\n\nExemplo de parâmetro:\narray = [[-10, 0, 3], [2.5, 5, -8]]\n\nRetorno:\n2",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Arrays - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada oni([[\"o\", \"m\", \"o\", \"m\", \"a\", \"k\"], [\"n\", \"o\", \"s\", \"i\", \"i\", \"h\"]])?",
+    "codigo_typescript": "function oni(shi: string[][]): string {\n  let momoka: string = \"\"\n\n  for (let i: number = 0; i < shi.length; i++) {\n    for (let j: number = shi[i].length - 2; j >= 0; j = j - 2) {\n      momoka = shi[i][j+1] + shi[i][j] + momoka\n    }\n  }\n\n  return momoka\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/vRdMndsEqls",
+    "origem": "Miniprova - Arrays - IPI",
+    "ano": "2025.01"
+  }
+]

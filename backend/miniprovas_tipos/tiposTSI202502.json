@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Estado (2.0) que representa um estado dentro de um país, além disso, implemente a operação mesmaRegiao (2.0) que, dado dois estados, retorna true quando ambos são da mesma região, ou false, caso contrário.\n\nExemplo de entrada para a operação mesmaRegiao:\ne1: Estado ( nome: \"Pernambuco\", populacao: 9562007, região: \"nordeste\" )\ne2: Estado ( nome: \"Paraíba\", populacao: 4164468, região: \"nordeste\" )\n\nRetorno correspondente à entrada acima:\ntrue",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Pais (2.0) que agrupa todos estados de país, além disso, implemente a operação populacaoPais (4.0) que, dado um Pais, retorna a soma da população de seus estados.\n\nExemplo de entrada para a operação populacaoPais:\np: Pais ( nome: \"Brasil\",\nestados: [\n  Estado (nome: \"Pernambuco\", populacao: 9562007, regiao: \"nordeste\"),\n  Estado ( nome: \"Paraíba\", populacao: 4164468, regiao: \"nordeste\")\n]\n)\n\nRetorno correspondente à entrada acima:\n13726475",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - TSI",
+    "ano": "2025.02"
+  }
+]

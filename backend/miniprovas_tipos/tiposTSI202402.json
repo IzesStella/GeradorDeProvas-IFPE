@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Episodio (1.5) que armazena os dados de um episódio de uma série, além da operação imprimirElenco (2.5) que, dado um filme, imprime o nome de todos os integrantes do seu elenco.\n\nExemplo de entrada para a operação imprimirElenco:\ne1: Episódio ( titulo: \"Half Loop\", numero: 2, elenco: [\"Adam Scott\", \"Zach Cherry\", \"Britt Lower\"] )\n\nSaída correspondente à entrada acima:\n\"Adam Scott\", \"Zach Cherry\", \"Britt Lower\"",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Criar o tipo Serie (2.0) com o atributo episódios (um array de Episodios), além da operação duração total (4.0) que, dada uma Serie, imprime a soma da duração de seus episódios. Dica: reutilize o código da primeira questão.\n\nExemplo de entrada para a operação listarPorDiretor:\nseverance: Serie ( titulo: \"Severance\", episodios : [\n  Episódio ( titulo: \"Half Loop\", numero: 2, duracao: 53),\n  Episódio ( titulo: \"In Perpetuity\", numero: 3, duracao: 56),\n  Episódio ( titulo: \"The You You Are\", numero: 4, duracao: 46)\n]\n)\n\nSaída correspondente à entrada acima:\n155",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - TSI",
+    "ano": "2024.02"
+  }
+]

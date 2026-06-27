@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de, dado um array e um número n, subtrair n de todos os elementos do array.\n\nExemplo de parâmetros:\narray = [[-10, 0, 3], [2.5, 5, 8, 0]]\nn = 2\n\nEstado do array após a execução do subprograma:\narray = [[-12, -2, 1], [0.5, 3, 6, -2]]",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Arrays - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Qual o valor da variável array ao final da chamada jp([[\"1\", \"1\", \"t\", \"h\"], [\"Si\", \"n\", \"g\", \"le\"], [\"S\", \"T\", \"U\", \"48\"]])?\n\nDica: uma string é um vetor onde cada caractere é um elemento do mesmo.",
+    "codigo_typescript": "function jp(array : string[][]) : void {\n  for (let i : number = 0; i < array.length; i = i + 2) {\n    for (let j : number = 0; j < array[i].length; j++) {\n      let t : string = array[i][j]\n      array[i][j] = array[(i+1) % array.length][j]\n      array[(i+1) % array.length][j] = t\n    }\n  }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/6cdvjCr6SnU",
+    "origem": "Miniprova - Arrays - TSI",
+    "ano": "2024.02"
+  }
+]

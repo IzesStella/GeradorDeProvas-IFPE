@@ -1,0 +1,31 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números da sequência: 321321321...\n\nExemplo de entrada:\nn = 4\n\nSaída correspondente:\n3\n2\n1\n3",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?\nResponda à questão em formato de tabela.",
+    "codigo_typescript": "function abc(n: number): number {\n  let a: number = 2;\n  let b: number = 1;\n  let c: boolean = true;\n\n  while (b < n) {\n    c = (a % 4 == 0) && (b % 3 < 2);\n    if ((a >= 2 && b < a)) {\n      b = b * -2;\n    } else if (a % 2 == 0 || b % 2 == 0) {\n      a = a - b;\n    }\n    console.log(a, b, c);\n  }\n\n  if (!c) {\n    return a * -b;\n  } else {\n    return -a * b;\n  }\n}\n\nconsole.log(abc(3));",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": [
+      [" ", "a", "b", "c"],
+      ["1", " ", " ", " "],
+      ["2", " ", " ", " "],
+      ["3", " ", " ", " "],
+      ["4", " ", " ", " "],
+      ["...", " ", " ", " "]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - TSI",
+    "ano": "2026.01"
+  }
+]

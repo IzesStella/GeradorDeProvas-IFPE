@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de, dado um array de duas dimensões como parâmetro, somar um número n aos seus elementos.\n\nDica: vetores são passados por referência.\n\nExemplo de parâmetros:\nvetor = [[-10, 0, 3], [2.5, 5, 0]]\nn = 3\n\nEstado do vetor após a execução do subprograma:\nvetor = [[-7, 3, 6], [5.5, 8, 3]]",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Arrays - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Qual o retorno do subprograma abaixo tendo [[\"y\", \"p\", \"p\", \"a\", \"h\"], [\"t\", \"e\", \"k\", \"a\", \"_\"]] como parâmetro?",
+    "codigo_typescript": "function mm(code: string[][]): string {\n  let s: string = \"happy_no_\"\n\n  for (let i: number = code[0].length - 1; i > -1; i--) {\n    s = s + code[0][i]\n    s = code[1][i] + s\n  }\n\n  return s\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/6s7Yw0nilco",
+    "origem": "Miniprova - Arrays - TSI",
+    "ano": "2025.02"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Filme (1.5) que armazena os dados de um filme, além da operação mesmoDiretor (2.5) que, dados dois filmes, retorna true se ambos forem do mesmo/a diretor, ou false, caso contrário.\n\nExemplo de entrada para a operação mesmoDiretor:\nf1: Filme ( titulo: \"Ainda estou aqui\", diretor: \"Walter Salles\" )\nf2: Filme ( titulo: \"Central do Brasil\", diretor: \"Walter Salles\" )\n\nRetorno correspondente à entrada acima:\ntrue",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Criar o tipo RepositorioFilmes (2.0) com o atributo filmes (um array de Filmes), além da operação listarPoDiretor (4.0) que, dado um diretor, imprime os títulos dos filmes dirigidos por ele. Dica: reutilize o código da primeira questão.\n\nExemplo de entrada para a operação listarPorDiretor:\nrepositorio: RepositorioFilmes ( filmes: [\n  Filme ( titulo: \"Ainda estou aqui\", diretor: \"Walter Salles\" ),\n  Filme ( titulo: \"Central do Brasil\", diretor: \"Walter Salles\" ),\n  Filme ( titulo: \"Democracia em vertigem\", diretor: \"Petra Costa\" )\n]\n)\ndiretor: Walter Salles\n\nSaída correspondente à entrada acima:\nAinda estou aqui\nCentral do Brasil",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - IPI",
+    "ano": "2024.02"
+  }
+]

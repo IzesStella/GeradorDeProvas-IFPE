@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de imprimir os n primeiros números da sequência: 1, 2, 3, 1, 2, 3, 1...\n\nExemplo de entrada:\nn = 4\n\nSaída correspondente:\n1\n2\n3\n1",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console (terminal) após a execução do programa abaixo?",
+    "codigo_typescript": "function abc(n: number): number {\n  let a: number = 10;\n  let b: number = 10;\n  let c: boolean = true;\n\n  for (let i: number = 0; i < n; i++) {\n    if (a % 2 == 0) {\n      a = a - 3;\n      b = b + 2;\n    } else if (b % 2 == 0) {\n      a = a + 3;\n      b = b - 2;\n    }\n    c = (a > b) || (a == b);\n    console.log(a, b, c);\n  }\n\n  if (c) {\n    return a + b;\n  } else {\n    return a - b;\n  }\n}\n\nconsole.log(abc(3));",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Subprogramas - IPI",
+    "ano": "2026.01"
+  }
+]

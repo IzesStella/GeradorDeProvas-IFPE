@@ -22,7 +22,9 @@ async function importarTodasAsProvas() {
     './miniprovas_laços1',
     './miniprovas_laços2',
     './miniprovas_subprogramas',
-    './miniprovas_vetores'
+    './miniprovas_vetores',
+    './miniprovas_arrays',
+    './miniprovas_tipos'
   ];
 
   try {

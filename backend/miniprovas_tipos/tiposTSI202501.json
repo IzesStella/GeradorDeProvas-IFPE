@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Livro (1.5) que representa um Livro em um programa de computador, além disso, implemente a operação livroMaisLongo (2.5) que, dados dois livros, retorna aquele que possui o maior número de páginas.\n\nExemplo de entrada para a operação livroMaisLongo:\nl1: Livro ( título: \"Como Funciona o Fascismo\", páginas: 208, editora: \"L&PM\" )\nl2: Livro ( título: \"Como as Democracias Morrem\", páginas: 272, editora: \"Zahar\" )\n\nRetorno correspondente à entrada acima:\nl2",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente o tipo Autor (2.0) que representa o autor de um Livro em um programa de computador, além disso, implemente a operação ehAutorDoLivro (4.0) que, dados um Autor e um Livro, retorna true quando o livro está na lista de livros escritos pelo autor, ou false, caso contrário.\n\nExemplo de entrada para a operação ehAutorDoLivro:\nautor: Autor ( nome: \"Umberto Eco\",\nlivros: [\n  Livro (título: \"O Fascismo Eterno\", páginas: 70, editora: \"Record\" ),\n  Livro (titulo: \"Migração e intolerância\", páginas: 79, editora: \"Record\" ),\n  Livro (titulo: \"O pêndulo de Foucault\", páginas: 873, editora: \"Record\" )\n]\n)\nlivro: Livro (título: \"O Fascismo Eterno\", páginas: 70, editora: \"Record\" )\n\nRetorno correspondente à entrada acima:\ntrue",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Tipos - TSI",
+    "ano": "2025.01"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de, dado um array 2D de números como parâmetro, retornar a média dos números positivos presentes nele.\n\nExemplo de parâmetro:\narray = [[-10, 0, 3], [2.5, 5, -8]]\n\nRetorno:\n2.625",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Miniprova - Arrays - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada akb([[\"na\", \"zu\", \"ka\", \"ra\"], [\"su\", \"nc\", \"ha\", \"ke\"]])?",
+    "codigo_typescript": "function akb(mj: string[][]): string[][] {\n  for (let i: number = 0; i < mj[0].length; i = i + 3) {\n    let s = mj[0][i]\n    mj[0][i] = mj[1][i]\n    mj[1][i] = s\n  }\n\n  return mj\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/JLeFZZaUeaQ",
+    "origem": "Miniprova - Arrays - TSI",
+    "ano": "2025.01"
+  }
+]
