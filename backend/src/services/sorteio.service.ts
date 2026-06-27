@@ -5,7 +5,7 @@ export const SorteioService = {
     const { modo, topicos, dificuldades } = filtros;
     let quantidade = parseInt(filtros.quantidade, 10) || 5;
 
-    // TRAVA MÁXIMA DE 12 QUESTÕES PROTEGIDA NO BACKEND
+    // TRAVA MÁXIMA DE 12 QUESTÕES
     if (quantidade > 12) {
       quantidade = 12;
     }
@@ -24,14 +24,26 @@ export const SorteioService = {
       return rows; 
     }
 
-    // LÓGICA PADRÃO - FILTRO ESTRITO NO SQL
     let sql = 'SELECT * FROM questoes WHERE ativo = true';
     const values: any[] = [];
     let contadorVariaveis = 1;
 
     if (topicos && topicos.length > 0) {
+      // EXPANSÃO DE TÓPICOS
+      const topicosParaBuscar = new Set<string>();
+      
+      topicos.forEach((t: string) => {
+        topicosParaBuscar.add(t);
+
+        // Se o filtro principal for "Laços", engloba automaticamente as miniprovas que tem os títulos laços parte 2 e 1
+        if (t === 'Laços') {
+          topicosParaBuscar.add('Laços - Parte 1');
+          topicosParaBuscar.add('Laços - Parte 2');
+        }
+      });
+
       sql += ` AND topico = ANY($${contadorVariaveis})`;
-      values.push(topicos);
+      values.push(Array.from(topicosParaBuscar));
       contadorVariaveis++;
     }
 
@@ -39,14 +51,14 @@ export const SorteioService = {
     if (dificuldades && dificuldades.length > 0) {
       sql += ` AND nivel_dificuldade = ANY($${contadorVariaveis})`;
       values.push(dificuldades);
-      contadorVariaveis++;
+      contadorVariaveis++;  
     }
 
     const { rows, rowCount } = await pool.query(sql, values);
 
     // Se o banco não achar NADA com essa exata combinação, devolve vazio. 
     // (Isso gera o Aviso Absoluto na tela)
-    if (!rows || rowCount === 0) return [];
+    if (!rows || rowCount === 0) return []; 
 
     // Agrupa as questões validadas por tópico
     const questoesPorTopico: Record<string, any[]> = {};
@@ -64,7 +76,7 @@ export const SorteioService = {
     const topicosDisponiveis = Object.keys(questoesPorTopico);
     let indexTopico = 0;
 
-    // Sorteio Round-Robin equilibrado com o que foi encontrado
+    // Sorteio Round-Robin
     while (provaFinal.length < quantidade && topicosDisponiveis.length > 0) {
       const topicoAtual = topicosDisponiveis[indexTopico % topicosDisponiveis.length];
       const questoesDoTopico = questoesPorTopico[topicoAtual];

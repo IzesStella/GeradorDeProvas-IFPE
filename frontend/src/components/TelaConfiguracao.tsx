@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ilustracaoCodigo from '../assets/imagemtelaconf.png';
+import { ModalSobre } from './ModalSobre';
 
 interface TelaConfiguracaoProps {
   onGerar: (filtros: any) => void;
@@ -37,6 +38,9 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
   const [quantidade, setQuantidade] = useState(5);
   const [dificuldadesSelecionadas, setDificuldadesSelecionadas] = useState<string[]>(['Fácil', 'Média', 'Difícil']);
   const [erro, setErro] = useState<string | null>(null);
+  
+  // ESTADO PARA CONTROLAR SE O MODAL ESTÁ ABERTO OU FECHADO
+  const [modalSobreAberto, setModalSobreAberto] = useState(false);
 
   const estadoLivreRef = useRef({
     topicos: [] as string[],
@@ -50,17 +54,17 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
     switch (modoAtivo) {
       case 'miniprova':
         setQuantidade(2);
-        setDificuldadesSelecionadas([]); 
-        setTopicosSelecionados([]); 
+        setDificuldadesSelecionadas([]);
+        setTopicosSelecionados([]);
         break;
       case 'unidade1':
         setQuantidade(5);
         setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
         setTopicosSelecionados([
-          'Operadores, Tipos e Variáveis', 
-          'Operadores Lógicos', 
-          'Execução Condicional', 
-          'Laços', 
+          'Operadores, Tipos e Variáveis',
+          'Operadores Lógicos',
+          'Execução Condicional',
+          'Laços',
           'Subprogramas'
         ]);
         break;
@@ -72,7 +76,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
       case 'final':
         setQuantidade(5);
         setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
-        setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos']); 
+        setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos']);
         break;
       case 'livre':
         setQuantidade(estadoLivreRef.current.quantidade);
@@ -83,13 +87,12 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
     setErro(null);
   }, [modoAtivo]);
 
-  const isQtdLocked = modoAtivo !== 'livre'; 
-  const isDifLocked = modoAtivo === 'unidade1' || modoAtivo === 'unidade2' || modoAtivo === 'final'; 
-  const isTopicosLocked = modoAtivo === 'unidade1' || modoAtivo === 'unidade2' || modoAtivo === 'final'; 
+  const isQtdLocked = modoAtivo !== 'livre';
+  const isDifLocked = modoAtivo === 'unidade1' || modoAtivo === 'unidade2' || modoAtivo === 'final';
+  const isTopicosLocked = modoAtivo === 'unidade1' || modoAtivo === 'unidade2' || modoAtivo === 'final';
 
   const handleToggleTopico = (topico: string) => {
-    if (isTopicosLocked) return; 
-    
+    if (isTopicosLocked) return;
     setTopicosSelecionados(prev => {
       if (modoAtivo === 'miniprova') {
         return prev.includes(topico) ? [] : [topico];
@@ -102,8 +105,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
   };
 
   const handleToggleDificuldade = (nivel: string) => {
-    if (isDifLocked || modoAtivo === 'miniprova') return; 
-
+    if (isDifLocked || modoAtivo === 'miniprova') return;
     setDificuldadesSelecionadas(prev => {
       const novasDificuldades = prev.includes(nivel) ? prev.filter(d => d !== nivel) : [...prev, nivel];
       if (modoAtivo === 'livre') estadoLivreRef.current.dificuldades = novasDificuldades;
@@ -114,7 +116,6 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
 
   const handleQuantidadeChange = (delta: number) => {
     if (isQtdLocked) return;
-    
     // Trava entre mínimo 1 e máximo 12
     const novaQtd = Math.min(12, Math.max(1, quantidade + delta));
     setQuantidade(novaQtd);
@@ -135,7 +136,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
       modo: modoAtivo,
       topicos: topicosSelecionados,
       quantidade,
-      dificuldades: dificuldadesSelecionadas 
+      dificuldades: dificuldadesSelecionadas
     });
   };
 
@@ -151,7 +152,6 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
       <style>{`
         body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background-color: #121418; }
         * { box-sizing: border-box; }
-        
         .checkbox-redondo {
           appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border: 1px solid #6a737d;
           border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -163,35 +163,20 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
           transform: rotate(45deg); margin-bottom: 2px;
         }
         .checkbox-redondo:disabled { cursor: not-allowed; opacity: 0.5; }
-
         .main-container {
           flex: 1; display: flex; flex-direction: row; flex-wrap: nowrap; padding: 30px 5vw;
           align-items: center; justify-content: center; gap: 50px; max-width: 1100px; margin: 0 auto; width: 100%;
         }
-
         .coluna-esquerda { flex: 1 1 350px; max-width: 450px; display: flex; flex-direction: column; gap: 15px; }
         .coluna-direita { flex: 1 1 320px; max-width: 380px; background-color: #1a1d24; padding: 25px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); width: 100%; }
-
         .titulo-principal { font-size: 28px; margin-bottom: 5px; color: #fff; }
         .texto-principal { font-size: 15px; color: #a0aab5; line-height: 1.5; margin: 0; }
-
         .tabs-container { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; border-bottom: 1px solid #2a2d35; padding-bottom: 15px; }
         .tab-btn { background-color: transparent; color: #a0aab5; border: 1px solid #3a3d45; padding: 6px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: 0.2s; font-weight: 500; }
         .tab-btn:hover { background-color: #2a2d35; color: #fff; }
         .tab-btn.ativo { background-color: #36a860; color: #121418; border-color: #36a860; font-weight: bold; }
-        
         .input-locked { opacity: 0.6; }
-
-        /* Estilo para a badge de bloqueio */
-        .badge-locked {
-          color: #e74c3c;
-          font-size: 11px;
-          font-weight: bold;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-        }
-
+        .badge-locked { color: #e74c3c; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px; }
         @media (max-width: 960px) {
           .header-config { flex-direction: row !important; flex-wrap: wrap; padding: 15px 20px !important; }
           .header-config > div { flex: unset !important; }
@@ -206,12 +191,9 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
           .texto-principal { font-size: 15px; }
           .coluna-direita { padding: 25px 20px; }
         }
-        
         @media (max-width: 600px) { .main-container { flex-direction: column; } .coluna-esquerda, .coluna-direita { flex: 1 1 100%; } }
       `}</style>
-
       <div style={{ backgroundColor: '#121418', minHeight: '100vh', display: 'flex', flexDirection: 'column', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-        
         <header className="header-config" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
             <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%' }}>
@@ -231,23 +213,24 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
               <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="#ffffff">Pernambuco</text>
             </svg>
           </div>
-
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>Gerador de Provas</span>
           </div>
-
           <div className="header-botoes" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '15px' }}>
             <button onClick={onAcessarAdmin} style={{ backgroundColor: 'transparent', color: '#a0aab5', border: '1px solid #2a2d35', padding: '8px 15px', borderRadius: '6px', cursor: 'pointer', fontSize: '14px', fontWeight: 'bold' }}>
               Painel Admin
             </button>
-            <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2a2d35', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', cursor: 'pointer', flexShrink: 0 }}>
+            <div 
+              onClick={() => setModalSobreAberto(true)} 
+              style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2a2d35', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', cursor: 'pointer', flexShrink: 0, transition: '0.2s' }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#36a860'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2a2d35'}
+            >
               ?
             </div>
           </div>
         </header>
-
         <main className="main-container">
-          
           <div className="coluna-esquerda">
             <div>
               <h1 className="titulo-principal">SEJA BEM-VINDO!</h1>
@@ -255,16 +238,10 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
                 Selecione os tópicos desejados e gere simulados personalizados de Lógica de Programação baseados em provas reais.
               </p>
             </div>
-            <img 
-              src={ilustracaoCodigo} 
-              alt="Ilustração gerador de simulados" 
-              style={{ width: '100%', maxWidth: '500px', objectFit: 'contain' }} 
-            />
+            <img src={ilustracaoCodigo} alt="Ilustração gerador de simulados" style={{ width: '100%', maxWidth: '500px', objectFit: 'contain' }} />
           </div>
-
           <div className="coluna-direita">
             <h2 style={{ fontSize: '20px', marginBottom: '20px', color: '#fff' }}>Configure o seu simulado</h2>
-
             <div className="tabs-container">
               <button className={`tab-btn ${modoAtivo === 'livre' ? 'ativo' : ''}`} onClick={() => setModoAtivo('livre')}>Modelo Livre</button>
               <button className={`tab-btn ${modoAtivo === 'unidade1' ? 'ativo' : ''}`} onClick={() => setModoAtivo('unidade1')}>1ª Unidade</button>
@@ -272,7 +249,6 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
               <button className={`tab-btn ${modoAtivo === 'miniprova' ? 'ativo' : ''}`} onClick={() => setModoAtivo('miniprova')}>Mini-prova</button>
               <button className={`tab-btn ${modoAtivo === 'final' ? 'ativo' : ''}`} onClick={() => setModoAtivo('final')}>Avaliação Final</button>
             </div>
-
             <div style={{ marginBottom: '15px' }} className={isTopicosLocked ? 'input-locked' : ''}>
               <label style={{ display: 'flex', justifyContent: 'space-between', color: '#a0aab5', fontSize: '13px', marginBottom: '8px' }}>
                 <span>Seleção de Tópicos</span>
@@ -281,19 +257,12 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
               <div style={{ border: '1px solid #2a2d35', borderRadius: '8px', padding: '12px', display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '180px', overflowY: 'auto' }}>
                 {topicosAtuais.map(topico => (
                   <label key={topico} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: isTopicosLocked ? 'not-allowed' : 'pointer', fontSize: '14px', color: '#e0e0e0', wordBreak: 'break-word' }}>
-                    <input 
-                      type="checkbox" 
-                      checked={topicosSelecionados.includes(topico)}
-                      onChange={() => handleToggleTopico(topico)}
-                      disabled={isTopicosLocked}
-                      style={{ width: '16px', height: '16px', cursor: isTopicosLocked ? 'not-allowed' : 'pointer', accentColor: '#2ecc71', flexShrink: 0 }}
-                    />
+                    <input type="checkbox" checked={topicosSelecionados.includes(topico)} onChange={() => handleToggleTopico(topico)} disabled={isTopicosLocked} style={{ width: '16px', height: '16px', cursor: isTopicosLocked ? 'not-allowed' : 'pointer', accentColor: '#2ecc71', flexShrink: 0 }} />
                     {topico}
                   </label>
                 ))}
               </div>
             </div>
-
             <div style={{ marginBottom: '15px' }} className={isQtdLocked ? 'input-locked' : ''}>
               <label style={{ display: 'flex', justifyContent: 'space-between', color: '#a0aab5', fontSize: '13px', marginBottom: '8px' }}>
                 <span>Quantidade de Questões</span>
@@ -305,8 +274,6 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
                 <button onClick={() => handleQuantidadeChange(1)} disabled={isQtdLocked} style={{ flex: 1, padding: '8px', background: 'none', border: 'none', color: '#fff', fontSize: '20px', cursor: isQtdLocked ? 'not-allowed' : 'pointer' }}>+</button>
               </div>
             </div>
-
-            {/* SEÇÃO DE DIFICULDADE DINÂMICA */}
             {modoAtivo !== 'miniprova' ? (
               <div style={{ marginBottom: '15px' }} className={isDifLocked ? 'input-locked' : ''}>
                 <label style={{ display: 'flex', justifyContent: 'space-between', color: '#a0aab5', fontSize: '13px', marginBottom: '8px' }}>
@@ -316,13 +283,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
                 <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
                   {['Fácil', 'Média', 'Difícil', 'Muito Difícil'].map(nivel => (
                     <label key={nivel} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: isDifLocked ? 'not-allowed' : 'pointer', color: '#e0e0e0', fontSize: '14px' }}>
-                      <input 
-                        type="checkbox" 
-                        className="checkbox-redondo"
-                        checked={dificuldadesSelecionadas.includes(nivel)}
-                        onChange={() => handleToggleDificuldade(nivel)}
-                        disabled={isDifLocked}
-                      />
+                      <input type="checkbox" className="checkbox-redondo" checked={dificuldadesSelecionadas.includes(nivel)} onChange={() => handleToggleDificuldade(nivel)} disabled={isDifLocked} />
                       {nivel}
                     </label>
                   ))}
@@ -339,7 +300,6 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
                 </div>
               </div>
             )}
-
             {erro && (
               <div style={{ backgroundColor: 'rgba(231, 76, 60, 0.1)', border: '1px solid #e74c3c', color: '#ff6b6b', padding: '10px 12px', borderRadius: '6px', marginBottom: '15px', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -348,18 +308,17 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
                 {erro}
               </div>
             )}
-
             <button onClick={handleGerar} style={{ width: '100%', backgroundColor: '#36a860', color: '#121418', border: 'none', padding: '12px', borderRadius: '6px', fontSize: '15px', fontWeight: 'bold', cursor: 'pointer' }}>
               Gerar Simulado
             </button>
           </div>
         </main>
-
         <footer style={{ borderTop: '1px solid #2a2d35', padding: '15px', textAlign: 'center', color: '#6a737d', fontSize: '12px' }}>
           Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
         </footer>
-
       </div>
+
+      <ModalSobre isOpen={modalSobreAberto} onClose={() => setModalSobreAberto(false)} />
     </>
   );
 }
