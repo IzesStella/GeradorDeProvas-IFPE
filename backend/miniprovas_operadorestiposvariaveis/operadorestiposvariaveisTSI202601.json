@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de, dados a altura e o perímetro de um retângulo, computar a sua área.\n\nExemplo de entrada:\naltura = 10, perímetro = 30.\n\nResultado ao final do programa:\n50.\n\nDicas:\n• Matemática nem sempre é igual à programação;\n• Pense no computador como uma calculadora, então deixe que ele faz as contas;\n• Seu programa deve funcionar para qualquer entrada, não apenas para o exemplo acima;\n• Compute o valor da base do perímetro usando a fórmula do perímetro;\n• Fórmula do perímetro de um retângulo: $2 \\times (base + altura)$;\n• Fórmula da área de um retângulo: $base \\times altura$.",
+    "enunciado": "Implemente um programa capaz de, dados a altura e o perímetro de um retângulo, computar a sua área.\n\nExemplo de entrada:\naltura = 10, perímetro = 30.\n\nResultado ao final do programa:\n50.\n\nDicas:\n• Matemática nem sempre é igual à programação;\n• Pense no computador como uma calculadora, então deixe que ele faz as contas;\n• Seu programa deve funcionar para qualquer entrada, não apenas para o exemplo acima;\n• Compute o valor da base do perímetro usando a fórmula do perímetro;\n• Fórmula do perímetro de um retângulo: 2 * (base + altura);\n• Fórmula da área de um retângulo: base * altura.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

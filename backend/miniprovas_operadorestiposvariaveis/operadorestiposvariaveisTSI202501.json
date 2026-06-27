@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de computar o valor de y na seguinte equação:\n\n$y = (3 \\times a^3) + (2 \\times b^2) - c$\n\nExemplo de entrada:\na = 1; b = 2; c = 3.\n\nResultado ao final do programa:\ny = 8.",
+    "enunciado": "Implemente um programa capaz de computar o valor de y na seguinte equação:\n\ny = (3 * a³) + (2 * b²) - c\n\nExemplo de entrada:\na = 1; b = 2; c = 3.\n\nResultado ao final do programa:\ny = 8.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

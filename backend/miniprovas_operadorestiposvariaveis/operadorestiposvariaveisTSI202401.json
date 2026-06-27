@@ -1,24 +1,24 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de somar todos os números em um determinado intervalo (inclusivo).\n\nFórmula para a soma:\n$\\frac{quantidade\\_de\\_numeros \\times (inicio + fim)}{2}$\n\nExemplo de entrada:\ninicio = 10, fim = 15.\n\nResultado ao final do programa:\nsoma = 75.",
+    "enunciado": "Implemente um programa capaz de computar as raízes de uma equação do segundo grau no formato: ax² + bx + c = 0.\n\nFórmulas:\n• delta = b² - 4ac;\n• x1 = (-b + raíz_quadrada(delta))/(2a);\n• x2 = (-b - raíz_quadrada(delta))/(2a).\n\nDicas:\n• A linha z = Math.sqrt(w), computa a raiz quadrada de w e guarda na variável z\n• Assuma que o delta nunca será negativo\n\nExemplo de entrada:\na = 1; b = -3; c = -10\n\nResultado ao final do programa:\nx1 = 5; x2 = -2",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
     "ano": "2024.01"
   },
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 12)?",
-    "codigo_typescript": "let a: number = 1\nlet b: number = -2\nlet c: number = b\nlet d: boolean = false\nlet e: number = a - b - c\n\na = (2 * b) + e\nc = (b * 2) - (a * 3)\nd = a == c\nb = (-c) % (a)\n\nconsole.log(a, b, c, d, e)",
+    "enunciado": "Qual a saída no console (terminal) do programa abaixo (valores impressos após a execução da linha 13)?",
+    "codigo_typescript": "let a: number = 2\nlet b: number = -3\nlet c: number = a\nlet d: boolean = true\nlet e: number = a - b + c\n\na = (b * b) + a\nb = a - b + e\nc = (b * 2) - (a * 3)\nd = a != b\nb = a % 3\n\nconsole.log(a, b, c, d, e)",
     "nivel_dificuldade": "Média",
     "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Miniprova - Operadores, Tipos e Variáveis - TSI",
+    "origem": "Miniprova - Operadores, Tipos e Variáveis - IPI",
     "ano": "2024.01"
   }
 ]

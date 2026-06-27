@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de computar a média ponderada entre quatro números.\n\nFórmula:\n$Media = \\frac{numeroA \\times pesoX + numeroB \\times pesoZ}{pesoX + pesoZ}$\n\nExemplo de entrada:\nnúmeroA = 1; pesoX = 2; númeroB = 4; pesoZ = 1.\n\nResultado ao final do programa:\nMédia = 3.",
+    "enunciado": "Implemente um programa capaz de computar a média ponderada entre quatro números.\n\nFórmula:\nMedia = (numeroA * pesoX + numeroB * pesoZ) / (pesoX + pesoZ)\n\nExemplo de entrada:\nnúmeroA = 1; pesoX = 2; númeroB = 4; pesoZ = 1.\n\nResultado ao final do programa:\nMédia = 3.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

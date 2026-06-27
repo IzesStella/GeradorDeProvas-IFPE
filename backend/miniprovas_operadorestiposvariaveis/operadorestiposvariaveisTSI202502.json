@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Na física a Força Elétrica entre dois objetos é calculada usando suas cargas elétricas ($Q_1$ e $Q_2$), a distância entre as cargas ($d$) e a constante eletrostática no vácuo ($K = 9 \\times 10^9$), de acordo com a seguinte fórmula:\n\n$F = \\frac{K \\cdot Q_1 \\cdot Q_2}{d^2}$\n\nEscreva um programa que computa F, dados $Q_1$, $Q_2$ e d.\n\nExemplo de entrada:\n$Q_1 = 5$; $Q_2 = 4$; $d = 3 \\times 10^4$.\n\nResultado ao final do programa:\n$F = 200$.",
+    "enunciado": "Na física a Força Elétrica entre dois objetos é calculada usando suas cargas elétricas (Q_1 e Q_2), a distância entre as cargas (d) e a constante eletrostática no vácuo (K = 9 * 10⁹), de acordo com a seguinte fórmula:\n\nF = (K * Q_1 * Q_2) / d²\n\nEscreva um programa que computa F, dados Q_1, Q_2 e d.\n\nExemplo de entrada:\nQ_1 = 5; Q_2 = 4; d = 3 * 10⁴.\n\nResultado ao final do programa:\nF = 200.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",

@@ -1,7 +1,7 @@
 [
   {
     "topico": "Operadores, Tipos e Variáveis",
-    "enunciado": "Implemente um programa capaz de computar a média harmônica entre 2 números.\n\nFórmula:\n$Media = \\frac{2}{\\frac{1}{numero A} + \\frac{1}{numero B}}$.\n\nExemplo de entrada:\nnúmeroA = 4; númeroB = 10.\n\nResultado ao final do programa:\nMédia = 5.714285714285714.",
+    "enunciado": "Implemente um programa capaz de computar a média harmônica entre 2 números.\n\nFórmula:\nMedia = 2 / ((1 / numero A) + (1 / numero B)).\n\nExemplo de entrada:\nnúmeroA = 4; númeroB = 10.\n\nResultado ao final do programa:\nMédia = 5.714285714285714.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Fácil",
     "tipo_questao": "Implementação",
