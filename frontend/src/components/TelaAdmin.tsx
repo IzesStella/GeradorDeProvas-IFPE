@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ModalAjudaAdmin } from './ModalAjudaAdmin'; // <-- IMPORTAÇÃO AQUI
 
 interface TelaAdminProps {
   onVoltar: () => void;
@@ -61,6 +62,9 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
   
   const [questoes, setQuestoes] = useState<Questao[]>([]);
   const [editandoId, setEditandoId] = useState<number | null>(null);
+
+  // <-- ESTADO DO MODAL DE AJUDA
+  const [modalAjudaAberto, setModalAjudaAberto] = useState(false);
 
   useEffect(() => {
     carregarQuestoes();
@@ -214,7 +218,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         .form-container-fixo::-webkit-scrollbar-thumb:hover { background: #3a3d45; }
         
         .secao-form { background-color: #121418; border: 1px solid #2a2d35; padding: 18px; border-radius: 8px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px;}
-        .secao-titulo { color: #fff; font-size: 14px; font-weight: bold; margin: 0 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid #2a2d35; }
+        .secao-titulo { color: #fff; font-size: 14px; font-weight: bold; margin: 0 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid #2a2d35; display: flex; align-items: center; gap: 8px; }
         
         .form-label { display: block; margin-bottom: 5px; color: #a0aab5; font-size: 13px; }
         .form-input { width: 100%; padding: 10px 12px; background-color: #1a1d24; border: 1px solid #3a3d45; color: #fff; border-radius: 6px; box-sizing: border-box; font-size: 13px; transition: border-color 0.2s;}
@@ -258,10 +262,19 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <span style={{ fontSize: '18px', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>Painel Administrativo</span>
           </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <button onClick={onVoltar} style={{ backgroundColor: 'transparent', color: '#a0aab5', border: '1px solid #2a2d35', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}>
               Voltar
             </button>
+            {/* <-- BOTÃO DE AJUDA DO ADMIN AQUI --> */}
+            <div 
+              onClick={() => setModalAjudaAberto(true)} 
+              style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#36a860', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#121418', fontWeight: 'bold', cursor: 'pointer', flexShrink: 0, transition: '0.2s', marginLeft: '15px' }}
+              onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
+              onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+            >
+              ?
+            </div>
           </div>
         </header>
 
@@ -274,7 +287,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
             
             <form onSubmit={handleSalvar} style={{ display: 'flex', flexDirection: 'column' }}>
               
-              {/* SEÇÃO 1: CLASSIFICAÇÃO */}
               <div className="secao-form">
                 <h3 className="secao-titulo">Classificação</h3>
                 <div>
@@ -305,7 +317,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 </div>
               </div>
 
-              {/* SEÇÃO 2: ORIGEM */}
               <div className="secao-form">
                 <h3 className="secao-titulo">Origem</h3>
                 <div>
@@ -329,7 +340,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 </div>
               </div>
 
-              {/* SEÇÃO 3: CONTEÚDO */}
               <div className="secao-form">
                 <h3 className="secao-titulo">Conteúdo</h3>
                 <div>
@@ -408,6 +418,9 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           </div>
         </div>
       </div>
+      
+      {/* <-- COMPONENTE DO MODAL SENDO CHAMADO AQUI NO FINAL --> */}
+      <ModalAjudaAdmin isOpen={modalAjudaAberto} onClose={() => setModalAjudaAberto(false)} />
     </>
   );
 }
