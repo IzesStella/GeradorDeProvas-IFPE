@@ -273,7 +273,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
                 {questao.easter_egg_conteudo && (
                   <div style={{ backgroundColor: '#fdf8e4', border: '1px solid #faebcc', borderRadius: '8px', marginTop: '25px', padding: '15px', color: '#8a6d3b' }}>
-                    <strong>💡 Curiosidade: </strong>
+                    <strong>💡 Easter egg: </strong>
                     {questao.easter_egg_conteudo.split(/(https?:\/\/[^\s]+)/g).map((part, i) => 
                       part.match(/https?:\/\/[^\s]+/) ? (
                         <a key={i} href={part} target="_blank" rel="noopener noreferrer" style={{ color: '#8a6d3b', textDecoration: 'underline', fontWeight: 'bold' }}>
