@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ModalAjudaAdmin } from './ModalAjudaAdmin'; // <-- IMPORTAÇÃO AQUI
+import { ModalAjudaAdmin } from './ModalAjudaAdmin'; 
 
 interface TelaAdminProps {
   onVoltar: () => void;
@@ -63,7 +63,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
   const [questoes, setQuestoes] = useState<Questao[]>([]);
   const [editandoId, setEditandoId] = useState<number | null>(null);
 
-  // <-- ESTADO DO MODAL DE AJUDA
   const [modalAjudaAberto, setModalAjudaAberto] = useState(false);
 
   useEffect(() => {
@@ -232,10 +231,18 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           .header-admin > div:nth-child(2) { flex: unset !important; width: 100%; justify-content: center !important; margin-top: 15px; order: 3; text-align: center; }
           .container-principal { padding: 20px 15px !important; }
         }
+        
+        /* CORREÇÃO DO BUG DO FORMULÁRIO FLUTUANDO */
         @media (max-width: 768px) {
-          .container-principal { flex-direction: column; align-items: center !important; }
-          .form-container-fixo { position: static; max-width: 100%; padding: 20px; max-height: unset; overflow-y: visible; }
-          .tabela-container { max-width: 100% !important; width: 100%; padding: 20px 15px !important; }
+          .container-principal { flex-direction: column !important; align-items: center !important; gap: 20px !important;}
+          .form-container-fixo { 
+            position: relative !important; 
+            max-width: 100% !important; 
+            max-height: none !important; 
+            overflow: visible !important; 
+            top: auto !important;
+          }
+          .tabela-container { max-width: 100% !important; width: 100% !important; padding: 20px 15px !important; }
         }
       `}</style>
 
@@ -266,12 +273,13 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
             <button onClick={onVoltar} style={{ backgroundColor: 'transparent', color: '#a0aab5', border: '1px solid #2a2d35', padding: '6px 14px', borderRadius: '6px', cursor: 'pointer', fontSize: '13px', fontWeight: 'bold' }}>
               Voltar
             </button>
-            {/* <-- BOTÃO DE AJUDA DO ADMIN AQUI --> */}
+            
+            {/* BOTÃO ? ATUALIZADO: IDÊNTICO AO DA TELA DE CONFIGURAÇÃO */}
             <div 
               onClick={() => setModalAjudaAberto(true)} 
-              style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#36a860', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#121418', fontWeight: 'bold', cursor: 'pointer', flexShrink: 0, transition: '0.2s', marginLeft: '15px' }}
-              onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
-              onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+              style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2a2d35', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', cursor: 'pointer', flexShrink: 0, transition: '0.2s', marginLeft: '15px' }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#36a860'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2a2d35'}
             >
               ?
             </div>
@@ -419,7 +427,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         </div>
       </div>
       
-      {/* <-- COMPONENTE DO MODAL SENDO CHAMADO AQUI NO FINAL --> */}
       <ModalAjudaAdmin isOpen={modalAjudaAberto} onClose={() => setModalAjudaAberto(false)} />
     </>
   );

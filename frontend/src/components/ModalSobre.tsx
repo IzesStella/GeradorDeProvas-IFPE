@@ -98,8 +98,8 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
             </svg>
             <div>
               <strong style={{ color: '#e0e0e0', display: 'block', marginBottom: '5px' }}>Aviso:</strong>
-              Se você solicitar uma dificuldade que não está cadastrada para aquele tópico específico, o sistema mostrará um aviso ou fará automaticamente um ajuste para as dificuldades disponíveis.
-            </div>
+             
+            </div> Se você solicitar uma dificuldade que não está cadastrada para aquele tópico específico, dependendo dos filtros, o sistema mostrará um aviso ou fará automaticamente um ajuste para as dificuldades disponíveis.
           </div>
 
         </div>
