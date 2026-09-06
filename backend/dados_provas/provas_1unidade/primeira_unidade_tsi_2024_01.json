@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa capaz de verificar se uma string é uma vogal ou não. Assuma que a string tem apenas um caractere e não contém letras maiúsculas.\n\nExemplo de entrada:\n\"v\"\n\nSaída correspondente:\nfalse",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar se uma string é uma vogal ou não. Assuma que a string tem apenas um caractere e não contém letras maiúsculas.\n\nExemplo de entrada:\n\"v\"\n\nRetorno:\nfalse",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de, dado um número n, imprimir uma string com n caracteres alternando entre as letras A, K e B.\n\nExemplo de entrada:\n6\n\nSaída correspondente:\n\"AKBAKB\"",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de, dado um número n como parâmetro, retornar uma string com n caracteres alternando entre as letras A, K e B.\n\nExemplo de entrada:\n6\n\nRetorno:\n\"AKBAKB\"",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada ske(4, 8)?",
+    "codigo_typescript": "function ske(a : number, ka : number) : void {\n    let ne : boolean = true\n   \n    while (ne || (ne && !ne)) {\n        if (a > ka) {\n            ka = -2 * ka\n        } else {\n            a = a + (ka % a) + 1\n        }\n        ne = (ka > 0) && (a > 0)\n        console.log(a, ka, ne)\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que seu retorno seja a soma de todos os números entre dois números n e m (intervalo inclusivo). Comente cada uma das modificações feitas.\n\nExemplo de entrada:\nn = 3, m = 5\n\nRetorno esperado:\n12",
+    "codigo_typescript": "function somar(n : number) :  void {\n    let resultado : string = 1\n    for (let i = 0; i < m; i++) {\n        resultado = resultado + m\n    }\n    return resultado\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de, dado um número n, imprimir os n primeiros números primos sem a utilização de laços.\n\nObservação: soluções que utilizem laços valem até 2 pontos; soluções sem a utilização de laços (recursividade) valem até 10 pontos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual TSI",
+    "ano": "2024.01"
+  }
+]

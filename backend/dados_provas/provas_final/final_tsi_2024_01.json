@@ -1,0 +1,101 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de uma dimensão e um número n como parâmetros, inicializar todos os elementos do array com o número n.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de uma dimensão como parâmetros, retornar aquele que possui mais números negativos.\n\nExemplo:\na: [-1, -2, -3]\nb: [4, -5, 6]\n\nRetorno:\na",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de duas dimensões e um número n como parâmetros, inicializar todos os elementos do array com o número n.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de duas dimensões como parâmetro, retornar aquele que possui mais números negativos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Apartamento com ao menos 4 atributos;\n2. Crie um subprograma que, dados um objeto do tipo Apartamento e uma string (representando o nome da cidade) como parâmetros, retorna true quando o apartamento está localizado na cidade, ou false, caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Condominio com ao menos 3 atributos;\n2. Crie um subprograma que, dado um Condominio como parâmetro, retorna a quantidade de apartamentos com suítes no condomínio.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Gato com os atributos nome, raça e idade, além do subprograma maisVelho que, dados dois Gatos como parâmetro, retorna o gato com maior idade. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Gato {\n    nome : string\n    raca : string\n    cor: string\n    idade : number\n    \n    constructor(nome : string, raca : string, idade : number) {\n        this.nome = nome\n        this.raca =  raca\n        this.cor = cor\n    }\n}\n\nfunction maisVelho(g1 : Gato, g2 : Gato) : void {\n    return g1.raca === g2.raca\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 17)?",
+    "codigo_typescript": "class SKE {\n    m : string = \"\"\n    r : string = \"\"\n}\n\nfunction km(mj : SKE) : string {\n    let mo : string = \"\"\n    \n    for (let om = 0; om < mj.m.length; om++) {\n        mo = mj.m[om] + mj.r[om] + mo \n    }\n\n    return mo\n}\n\nlet yk : SKE = { m : \"4321\", r : \"!!!!\"}\nconsole.log(km(yk))",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de preencher os elementos de um array bidimensional de 10x10 com os primeiros 100 números primos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final TSI",
+    "ano": "2024.01"
+  }
+]

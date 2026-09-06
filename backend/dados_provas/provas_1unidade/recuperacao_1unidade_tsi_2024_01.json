@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa que, dados três números, imprime o maior entre eles.\n\nExemplo de entradas:\n-10, 4, 0\n\nSaída correspondente:\n4",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dados três números como parâmetros, retorna o maior entre eles.\n\nExemplo de entradas:\n-10, 4, 0\n\nRetorno:\n4",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente um programa capaz de, dados dois números, imprimir o maior divisor em comum entre eles.\n\nExemplo de entrada:\n24 e 15\n\nSaída correspondente:\n3 (note que não há um número maior do que 3 que divide ambos)",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de, dados dois números, imprimir o maior divisor em comum entre eles.\n\nExemplo de entrada:\n24 e 15\n\nSaída correspondente:\n3 (note que não há um número maior do que 3 que divide ambos)",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada nmb(4, 8)?",
+    "codigo_typescript": "function nmb(na : number, gi : number) : void {\n    let sa : boolean = true\n   \n    while ((na < 0 && gi > 5) || sa) {\n        if (na > 3) {\n            na = -1 * (na + gi)\n        } else {\n            gi = -1 * (gi + na )\n        }\n        sa = sa && (na > gi)\n        console.log(na, gi, sa)\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que seu retorno seja uma string contendo os n primeiros números inteiros positivos. Comente cada uma das modificações feitas.\n\nExemplo de entrada:\nn = 3\n\nRetorno esperado:\n\"123\"",
+    "codigo_typescript": "function inteiros(n : string) : integer {\n    let s : string = \"0\"\n    \n    for (let i : number = 0; i < n; i++) {\n        s  = s + i\n    }\n\n    return n\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do programa abaixo para a chamada s(7, 7)?",
+    "codigo_typescript": "function r(n : number) : string {\n    if (n === 0) return \"\"\n\n    return String(n % 4) + r(n-1)\n}\n\nfunction t(n : number) : string {\n    if (n === 0) return \"\"\n\n    return t(n-1) + String(n % 3)\n}\n\nfunction s(a : number, b : number) : string {\n    if (a === 0) return \"\"\n\n    if (a % 2 == 0) return s(a-1,b) + r(b) + \"\\n\"\n\n    return s(a-1,b) + t(b) + \"\\n\"\n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual TSI",
+    "ano": "2024.01"
+  }
+]

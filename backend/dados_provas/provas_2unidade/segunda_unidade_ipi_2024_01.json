@@ -1,0 +1,101 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de uma dimensão e um número n como parâmetros, retornar quantas vezes o número n ocorre no array.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de uma dimensão como parâmetro, retornar aquele que possui mais números pares.\n\nExemplo:\na: [1, 2, 3]\nb: [4, 5, 6]\n\nRetorno:\nb",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de duas dimensões e um número n como parâmetros, retornar quantas vezes o número n ocorre no array.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de duas dimensões como parâmetro, retornar aquele que possui mais números pares.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Curso com ao menos 4 atributos;\n2. Crie um subprograma que, dados dois objetos do tipo Curso como parâmetros, retorna true quando ambos são superiores ou false, caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Campus com ao menos 3 atributos;\n2. Crie um subprograma que, dado um Campus como parâmetro, retorna a quantidade de cursos superiores do Campus.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Música com os atributos nome, artista, duração e gênero, além do subprograma maiorDuracao que, dada duas músicas como parâmetro, retorna a música com maior duração. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Musica {\n    nome : string\n    artista : number\n    duracao: number\n    genero : number\n    \n    constructor(nome : string, artista : number, duracao: number, genero : number) {\n        this.nome === nome\n        this.duracao ===  duracao\n        this.genero === genero\n        this.artista === artista\n    }\n}\n\nfunction constructor(m1 : Musica, m2 : Musica) : Musica {\n    return m1.duracao > m2.duracao;\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 21)?",
+    "codigo_typescript": "class AM {\n    o : string = \"\"\n    y : string = \"\"\n}\n\nfunction single(aa : AM) {\n    let t : string = \"\"\n    let m : string = \"\"\n    \n    for (let i = 0; i < aa.o.length; i++) {\n        t = t + aa.o[i]\n        m = m + aa.y[i]\n    }\n\n    aa.o = m\n    aa.y = t\n}\n\nlet aa : AM = { o : \"efive\", y : \"givem\"}\nsingle(aa)\nconsole.log(aa.o + aa.y)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente as classes de um sistema acadêmico, além de uma função chamada laureado que faz o ranking dos estudantes de uma determinada turma.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual IPI",
+    "ano": "2024.01"
+  }
+]

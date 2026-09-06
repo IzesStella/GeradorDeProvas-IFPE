@@ -13,8 +13,8 @@ const pool = new Pool({
 async function importarTodasAsProvas() {
   console.log("Iniciando...");
 
-  // Caminhos atualizados para apontar para dentro da pasta dados_miniprovas
   const pastasDeProvas = [
+    // Miniprovas
     './dados_miniprovas/miniprovas_execucaocondicional',
     './dados_miniprovas/miniprovas_operadoreslogicos',
     './dados_miniprovas/miniprovas_operadorestiposvariaveis',
@@ -23,7 +23,11 @@ async function importarTodasAsProvas() {
     './dados_miniprovas/miniprovas_subprogramas',
     './dados_miniprovas/miniprovas_vetores',
     './dados_miniprovas/miniprovas_arrays',
-    './dados_miniprovas/miniprovas_tipos'
+    './dados_miniprovas/miniprovas_tipos',
+    // Provas Maiores
+    './dados_provas/provas_1unidade',
+    './dados_provas/provas_2unidade',
+    './dados_provas/provas_final'
   ];
 
   try {
