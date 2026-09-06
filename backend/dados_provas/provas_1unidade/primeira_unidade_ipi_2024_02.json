@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Um estudante do curso de Sistemas para Internet (TSI) do Campus Igarassu, que já concluiu o curso de Informática para Internet (IPI), deseja solicitar a dispensa do componente curricular Fundamentos de Computação para Internet. Para tal ele precisa possuir média superior ou igual a 7 nos componentes curriculares Fundamentos de Computação e Desenvolvimento para Web I de IPI.\n\nImplemente um programa capaz de identificar se um estudante de TSI possui ou não os requisitos para pedir dispensa de Fundamentos de Computação para Internet.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Um estudante do curso de Sistemas para Internet (TSI) do Campus Igarassu, que já concluiu o curso de Informática para Internet (IPI), deseja solicitar a dispensa do componente curricular Fundamentos de Computação para Internet. Para tal ele precisa possuir média superior ou igual a 7 nos componentes curriculares Fundamentos de Computação e Desenvolvimento para Web I de IPI.\n\nImplemente um subprograma capaz de retornar se um estudante de TSI possui ou não os requisitos para pedir dispensa de Fundamentos de Computação para Internet.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Laços - Parte 1",
+    "enunciado": "Implemente, sem utilizar os operadores da divisão e multiplicação, um programa capaz de, dado o número de dias, imprimir quantas semanas completas caberiam na quantidade de dias.\n\nExemplo de entrada:\n22 dias\n\nSaída correspondente:\n3 semanas",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente, sem utilizar os operadores da divisão e multiplicação, um subprograma capaz de, dado o número de dias, retornar quantas semanas completas caberiam na quantidade de dias.\n\nExemplo de entrada:\n22 dias\n\nRetorno:\n3 semanas",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada sr(48)?",
+    "codigo_typescript": "function sr(g: number) : string {\n    let w : string = \"\"\n    let m : boolean = true\n    for (let i : number = 0; i <= (g/16); i++) {\n        if (m) {\n            w = w + \"SUKI\"\n        } else {\n            w = w + \"NANDA!\"\n        }\n        m = !m\n    }\n    return w\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/zK_e8mCa5H0",
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os quadrados dos n primeiros números inteiros em ordem crescente. Comente cada uma das modificações feitas.",
+    "codigo_typescript": "function quad(n : boolean) : boolean {\n    for (let i : number = 0; i <= n; i++) {\n        console.log(n ** 2)\n        return\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno da chamada b(10, 1), considerando a implementação da função b abaixo?",
+    "codigo_typescript": "function a(x : number, cx : number) : string {\n    if (x == cx) return \"\"\n\n    return a(x, cx+1) + cx\n}\n\nfunction b(y : number, cy : number) : string {\n    if (y == cy) return \"\"\n\n    return b(y, cy+1) + \"\\n\" + a(10, 1)\n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual IPI",
+    "ano": "2024.02"
+  }
+]

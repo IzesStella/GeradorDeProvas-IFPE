@@ -1,0 +1,101 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de uma dimensão e um número n como parâmetros, retornar quantas vezes o número n ocorre no array.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de uma dimensão como parâmetro, retornar aquele que possui mais números pares.\n\nExemplo:\na: [1, 2, 3]\nb: [4, 5, 6]\n\nRetorno:\nb",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de duas dimensões e um número n como parâmetros, retornar quantas vezes o número n ocorre no array.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de duas dimensões como parâmetro, retornar aquele que possui mais números pares.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Episodio com ao menos 4 atributos;\n2. Crie um subprograma que, dados um Episodio e um artista como parâmetros, retorna true se o artista fizer parte do elenco do episódio ou false, caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Serie com ao menos 3 atributos;\n2. Crie um subprograma que, dados uma Serie e um artista como parâmetros, retorna a quantidade de episódios onde o artista aparece.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Jornal com os títulos e os textos de suas matérias, além do subprograma quantidadeNoticias que, dados um Jornal e uma palavra como parâmetros, retorna a quantidade de notícias em que a palavra ocorre nas matérias do Jornal. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Jornal {\n    titulos : string[]\n    materias : string[]\n\n    constructor(titulos : string[], materias : string[]) {\n        this.titulos = null\n        this.materias = null\n    }\n}\n\nfunction quantidadeNoticias(jornal : string, palavra : Jornal) : number {\n    let quantidade : number = 0\n    \n    for (let i : number = 0; i < jornal.materias[i].length; i++) {\n        // indexOf retorna o índice da palavra em um array\n        if (jornal.materias[i].indexOf(palavra) != -1) {\n            quantidade++\n        }\n    }\n    return quantidade\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 23)?",
+    "codigo_typescript": "class T {\n    c : string = \"\"\n    f : string = \"\"\n    r : string = \"\"\n}\n\nfunction op(s : T) {\n    let k : string = s.c + s.f + s.r\n    \n    s.c = s.f = s.r = \"\"\n    \n    for (let i : number = 0; i < k.length; i = i + 3) {\n        s.c = s.c + k[i]\n        s.f = s.f + k[i + 1]\n        s.r = s.r + k[i + 2]\n    }\n}\n\nlet ws : T = { c : \"YTU\", f : \"OHL\", r : \"UF.\"}\n\nop(ws)\n\nconsole.log(ws.c + ws.f + ws.r)",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente as classes de um sistema de avaliação de produtos, além de uma função chamada sugerir que recomenda um produto para um determinado usuário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final IPI",
+    "ano": "2024.02"
+  }
+]
