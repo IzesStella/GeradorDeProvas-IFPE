@@ -22,7 +22,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Laços - Parte 1",
+    "topico": "Laços",
     "enunciado": "Implemente um programa capaz de, dado um número n, imprimir uma string com n caracteres alternando entre as letras A, K e B.\n\nExemplo de entrada:\n6\n\nSaída correspondente:\n\"AKBAKB\"",
     "codigo_typescript": null,
     "nivel_dificuldade": "Média",

@@ -22,7 +22,7 @@
     "ano": "2024.02"
   },
   {
-    "topico": "Laços - Parte 1",
+    "topico": "Laços",
     "enunciado": "Implemente, sem utilizar os operadores da divisão e multiplicação, um programa capaz de, dado o número de dias, imprimir quantas semanas completas caberiam na quantidade de dias.\n\nExemplo de entrada:\n22 dias\n\nSaída correspondente:\n3 semanas",
     "codigo_typescript": null,
     "nivel_dificuldade": "Média",

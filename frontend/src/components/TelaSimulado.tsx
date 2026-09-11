@@ -25,17 +25,17 @@ const temaDoTCC = JSON.parse(JSON.stringify(vscDarkPlus));
 
 // TABELA DE CORES
 const coresTCC: Record<string, string> = {
-  'keyword': '#3695D7', 
-  'builtin': '#3695D7', 
+  'keyword': '#3695D7',
+  'builtin': '#3695D7',
   'number': '#82B384',
   'string': '#939393',
-  'comment': '#5EA63D', 
-  'punctuation': '#FFF500', 
+  'comment': '#5EA63D',
+  'punctuation': '#FFF500',
   'function': '#ffffff',
   'class-name': '#ffffff',
-  'variable': '#ffffff', 
-  'parameter': '#ffffff', 
-  'property': '#ffffff', 
+  'variable': '#ffffff',
+  'parameter': '#ffffff',
+  'property': '#ffffff',
   'operator': '#ffffff'
 };
 
@@ -51,9 +51,9 @@ Object.keys(coresTCC).forEach(token => {
     temaDoTCC[token].color = coresTCC[token];
     if (token !== 'comment') temaDoTCC[token].fontStyle = 'normal';
   } else {
-    temaDoTCC[token] = { 
-      color: coresTCC[token], 
-      fontStyle: token === 'comment' ? 'italic' : 'normal' 
+    temaDoTCC[token] = {
+      color: coresTCC[token],
+      fontStyle: token === 'comment' ? 'italic' : 'normal'
     };
   }
 });
@@ -101,9 +101,13 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
   const dificuldadesPresentes = new Set(questoes.map(q => q.nivel_dificuldade));
   const faltantes = dificuldadesSolicitadas.filter((d: string) => !dificuldadesPresentes.has(d));
 
-  // SÓ MOSTRA O AVISO se houver questões na prova E faltou dificuldade, 
+  // SÓ MOSTRA O AVISO se o modelo for livre, houver questões na prova, faltou dificuldade, 
   // E a quantidade de questões pedida era suficiente para abranger todas as dificuldades!
-  const deveMostrarAvisoFaltantes = questoes.length > 0 && faltantes.length > 0 && quantidadeSolicitada >= dificuldadesSolicitadas.length;
+  const deveMostrarAvisoFaltantes = 
+    filtros?.modo === 'livre' && 
+    questoes.length > 0 && 
+    faltantes.length > 0 && 
+    quantidadeSolicitada >= dificuldadesSolicitadas.length;
 
   const handleImprimir = () => {
     window.print();
@@ -117,10 +121,10 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
       const ehPadraoCodigo = linha.trim().length > 0 && !/[a-z]/.test(linha) && /[X#\*\-\+\[\]\(\)\=]/.test(linha);
       
       return (
-        <span 
-          key={index} 
-          style={{ 
-            display: 'block', 
+        <span
+          key={index}
+          style={{
+            display: 'block',
             fontFamily: ehPadraoCodigo ? "Consolas, 'Courier New', monospace" : 'inherit',
             letterSpacing: ehPadraoCodigo ? '2px' : 'normal',
             color: ehPadraoCodigo ? '#111' : 'inherit',

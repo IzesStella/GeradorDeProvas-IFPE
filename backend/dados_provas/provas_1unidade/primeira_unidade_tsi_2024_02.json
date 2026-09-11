@@ -22,7 +22,7 @@
     "ano": "2024.02"
   },
   {
-    "topico": "Laços - Parte 1",
+    "topico": "Laços",
     "enunciado": "Implemente um programa capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1 + (n - 1) * r.\n\nExemplo de entrada:\na1 = 5, r = 2, n = 3\n\nSaída correspondente:\n5, 7, 9",
     "codigo_typescript": null,
     "nivel_dificuldade": "Média",

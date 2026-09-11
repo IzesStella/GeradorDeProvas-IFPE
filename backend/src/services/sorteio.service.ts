@@ -36,16 +36,16 @@ export const SorteioService = {
     }
     const arrayTopicos = Array.from(topicosParaBuscar);
 
-// 2. REGRA DAS UNIDADES (MODELO NOVO: 7 QUESTÕES)
+    // 2. REGRA DAS UNIDADES (MODELO NOVO: 7 QUESTÕES)
     if (modo === 'unidade1' || modo === 'unidade2') {
       const sql = `
         (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade = 'Fácil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 2)
         UNION ALL
         (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade = 'Média' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 2)
         UNION ALL
-        (SELECT * FROM questoes WHERE tipo_questao = 'Execução de Código' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Execução de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
         UNION ALL
-        (SELECT * FROM questoes WHERE tipo_questao = 'Correção de Código' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Correção de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
         UNION ALL
         (SELECT * FROM questoes WHERE nivel_dificuldade = 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1);
       `;
@@ -68,9 +68,9 @@ export const SorteioService = {
       const sql = `
         (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 3)
         UNION ALL
-        (SELECT * FROM questoes WHERE tipo_questao = 'Correção de Código' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Correção de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
         UNION ALL
-        (SELECT * FROM questoes WHERE tipo_questao = 'Execução de Código' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Execução de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
         UNION ALL
         (SELECT * FROM questoes WHERE nivel_dificuldade = 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1);
       `;
@@ -87,8 +87,8 @@ export const SorteioService = {
       return provaOrdenada; 
     }
 
-    // 3. REGRA DO MODELO LIVRE
-    let sql = "SELECT * FROM questoes WHERE ativo = true AND origem NOT ILIKE '%Miniprova%'";
+    // 4. REGRA DO MODELO LIVRE
+    let sql = "SELECT * FROM questoes WHERE ativo = true";
     const values: any[] = [];
     let contadorVariaveis = 1;
 

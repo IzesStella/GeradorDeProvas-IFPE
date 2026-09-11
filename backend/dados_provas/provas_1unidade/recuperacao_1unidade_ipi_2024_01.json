@@ -22,7 +22,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Laços - Parte 1",
+    "topico": "Laços",
     "enunciado": "Implemente um programa capaz de, dado um número n como parâmetro, imprimir os n (intervalo inclusivo) números inteiros negativos em ordem crescente.\n\nExemplo de entrada:\n3\n\nSaída correspondente:\n-3, -2, -1",
     "codigo_typescript": null,
     "nivel_dificuldade": "Média",
