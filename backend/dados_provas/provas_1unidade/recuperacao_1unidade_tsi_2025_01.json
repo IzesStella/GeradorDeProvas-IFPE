@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa que, dados três booleans como entrada, imprime true quando todos são verdadeiros, ou false, caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dados três booleans como parâmetros, retorna true quando todos são verdadeiros, ou false, caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprima os n primeiros elementos da sequência: 1, -1, 2, -2, 3, -3, 4, -4, 5, -5….",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que dado um número n como parâmetro, imprime os n primeiros elementos da sequência: 1, -1, 2, -2, 3, -3, 4, -4, 5, -5….",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de retornar uma string contendo os n primeiros números múltiplos de 3, separados pelo caractere \"|\". Exemplo de entrada: n = 4, saída: 0, 3, 6, 9.",
+    "codigo_typescript": "function m(n : number) : string {\n    let s : number = \"\" // string vazia\n    while (let i : number = 0; i <= n; i = i + 4) {\n        s = s + i + \"|\"\n    }\n\n    return n\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada stu(48)?",
+    "codigo_typescript": "function stu(s9: number) : string {\n    let ic: string = \"\" // string vazia\n    for (let i : number = 1; i < s9 - 42; i =  i * -2) {\n        if (i < 0 && i < -2) {\n            ic = ic + \"kokoro.\" \n        } else if (i == 1) {\n            ic = ic + \"iki.\"\n        } else if (i < 0 && i > -4) {\n            ic = ic + \"o.\"\n        } else {\n            ic = ic + \"suru.\"\n        }\n    }\n\n    return ic\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/WvUU8yMD-Yo",
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno da chamada b(8, 8, 0), considerando as funções abaixo:",
+    "codigo_typescript": "function a(c : string, x : number, w : number) : string {\n    if (c.length == x) { return c }\n    if (c.length == w && c.length > 2 && c.length < 6) { return a('#' + c, x, w) }\n    return a('.' + c, x, w)\n}\n\nfunction b(x : number, y : number, z : number) : string {\n    if (x == z) { return \"\" } // string vazia\n    return a('', y, z) + '\\n' + b(x, y, z + 1)\n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2025.01"
+  }
+]

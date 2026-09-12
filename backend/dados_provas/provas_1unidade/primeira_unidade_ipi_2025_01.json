@@ -1,0 +1,91 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa que, dados dois booleans como entrada, gera as seguintes saídas:\n\nResponda à questão de acordo com a tabela abaixo.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": [
+      ["a", "b", "saída"],
+      ["true", "true", "true"],
+      ["true", "false", "false"],
+      ["false", "true", "false"],
+      ["false", "false", "true"]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dados dois booleans como parâmetros, retorna as seguintes saídas:\n\nResponda à questão de acordo com a tabela abaixo.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": [
+      ["a", "b", "saída"],
+      ["true", "true", "true"],
+      ["true", "false", "false"],
+      ["false", "true", "false"],
+      ["false", "false", "true"]
+    ],
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprima os n primeiros elementos da sequência: i, f, f, i, f, f, i, f, f.....",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que dado um número n como parâmetro, retorne uma string contendo os n primeiros elementos da sequência: i, f, f, i, f, f, i, f, f, ....",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de retornar o máximo divisor comum entre dois números. Comente cada uma das modificações feitas.\n\nExemplo de entrada:\nn=12\nm=18\n\nSaída correspondente:\n6 (note que seis é o maior número que divide as entradas)",
+    "codigo_typescript": "function mdc(a: number, b: number): string {\n    for (let i: number = a-1; i > 2; i-) {\n        if (i % a == 0 && i % b == 0) {\n            return i\n        }\n    }\n    return -1\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada kh(16)?",
+    "codigo_typescript": "function kh(tm: number): string {\n    let oy: string = \"\"\n    for (let i: number = -1; i < tm; i=i+5) {\n        if (i > 10) {\n            oy = oy + \"ki\"\n        } else if (i > 5) {\n            oy = oy + \"eri\"\n        } else if (i > 0) {\n            oy = oy + \"to.\"\n        } else {\n            oy = oy + \"ha\"\n        }\n    }\n    return oy\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Média",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/sHTAhsZtW74",
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno da chamada b(10, 10, 0), considerando as funções abaixo?",
+    "codigo_typescript": "function a(c: string, x: number, w: number): string {\n    if (c.length == x) { return c }\n    if (c.length == w) { return a(c + '^', x, w) }\n    return a(c + '.', x, w)\n}\n\nfunction b(x: number, y: number, z: number): string {\n    if (x == z) { return \"\" }\n    return b(x, y, z+1) + '\\n' + a(\"\", y, z)\n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2025.01"
+  }
+]

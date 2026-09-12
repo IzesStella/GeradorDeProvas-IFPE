@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar a soma de seus elementos pares.\n- Dados dois arrays de uma dimensão como parâmetros, retornar aquele que possui a maior soma entre seus elementos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar a soma de seus elementos pares.\n- Dados dois arrays de duas dimensões como parâmetros, retornar aquele que possui a maior soma entre seus elementos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Parágrafo com ao menos 3 atributos;\n- Criar um subprograma que, dados dois parágrafos como parâmetros, retorna aquele com maior texto (número de caracteres);\n- Criar o tipo Texto com ao menos 3 atributos, sendo um deles uma coleção de parágrafos;\n- Criar um subprograma que, dado um Texto como parâmetro, retorna a quantidade total de caracteres de todos os seus parágrafos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Cidade, além do subprograma computarPopulacao() que, dada uma Cidade como parâmetro, retorna a soma da população de seus bairros. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Bairro {\n    nome : string = \"\"\n    populacao : number = -1\n}\n\nclass Cidade {\n    nome : string = \"\"\n    bairros : Bairro[] = [-1]\n}\n\nfunction computarPopulacao(c : Cidade) : number {\n    let soma : number =  -1\n\n    for (let i : number = 0; i < c.bairros.length; i++) {\n        soma = soma + c.bairros[i].length\n    }\n\n    return soma\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 18)?",
+    "codigo_typescript": "class S35 {\n    kh : string = \"\"\n    sk : string = \"\"\n}\n\nfunction kaho(kuma : S35) : string {\n    let sato : string = \"\"\n    let haru : string = \"\"\n    \n    for (let i : number = 0; i < kuma.sk.length; i++) {\n        sato = kuma.kh[i] + sato\n        haru = kuma.sk[i] + haru\n    }\n    \n    return haru + \".\" + sato\n}\n\nconsole.log(kaho({kh: \"amrak\", sk : \"84eks\"}))",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/carEd4r53CA",
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente as classes de uma rede social de vídeos como o youtube, além da função proximoVideo, que dado o histórico dos vídeos assistidos pelo usuário, sugere um novo vídeo.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2025.01"
+  }
+]

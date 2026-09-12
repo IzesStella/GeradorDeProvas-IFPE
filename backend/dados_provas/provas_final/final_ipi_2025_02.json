@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de booleans de uma dimensão como parâmetro, retornar a quantidade de elementos verdadeiros dentro do array;\n- Dados dois arrays de booleans de uma dimensão como parâmetros, retornar aquele que possui a maior quantidade de elementos verdadeiros.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de booleans de duas dimensões como parâmetro, retornar a quantidade de elementos verdadeiros dentro do array;\n- Dados dois arrays de booleans de duas dimensões como parâmetros, retornar aquele que possui a maior quantidade de elementos verdadeiros.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Casa com ao menos 3 atributos;\n- Criar um subprograma que, dadas duas casas, retorna aquela que possui a maior área construída;\n- Criar o tipo Rua com ao menos 3 atributos;\n- Criar um subprograma que, dada uma rua, retorna a casa com a maior área construída.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo PersonagemRPG, representando um personagem em um jogo de RPG, além do subprograma ataque que, dados dois personagens, computa o dano causado pelo primeiro ao atacar o segundo. Corrija todos os erros do mesmo e para cada erro encontrado faça um comentário explicando qual o erro e qual foi a solução encontrada.",
+    "codigo_typescript": "class PersonagemRPG {\n    ataque : number = 0\n    defesa : number = 0\n    vida : number = 0\n}\n\nfunction paragrafosLongos(p1 : PersonagemRPG, p2 : PersonagemRPG) : void {\n    if (p1.ataque < p2.defesa) {\n        p1.vida -= p1.ataque - p2.defesa\n    } else if {\n        p2.vida = 0\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console após a execução do programa abaixo?",
+    "codigo_typescript": "class S8 {\n    ni : string = \"kziaaktoo\"\n    na : string = \"imaa rtui\"\n}\n\nfunction decode(n46 : S8) : string {\n    let t : string = \"\"\n\n    for (let i : number = 0; i < n46.ni.length; i++) {\n            t += n46.ni[i]\n            t += n46.na[n46.ni.length - i - 1]\n    }\n\n    return t\n}\n\nconsole.log(decode(new S8()))",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/t9RBW9v_Skw",
+    "origem": "Avaliação Final Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Crie os tipos de um sistema de streaming de áudio (como o Spotfy), além de um subprograma capaz de, dado o perfil de um usuário como parâmetro, retornar uma lista personalizada de músicas recomendadas.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - IPI",
+    "ano": "2025.02"
+  }
+]

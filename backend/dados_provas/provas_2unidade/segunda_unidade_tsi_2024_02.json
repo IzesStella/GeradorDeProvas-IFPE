@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar a multiplicação de seus elementos;\n- Dados dois arrays de uma dimensão como parâmetro, retornar a multiplicação de todos os elementos de ambos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar a multiplicação de seus elementos;\n- Dados dois arrays de duas dimensões como parâmetro, retornar a multiplicação dos elementos de ambos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo AssentoOnibus com ao menos 4 atributos;\n- Criar um subprograma que, dado um AssentoOnibus, marca o mesmo como reservado;\n- Criar o tipo Onibus com ao menos 3 atributos;\n- Criar um subprograma que, dado um Onibus como parâmetro, retorna a quantidade de assentos reservados no mesmo.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Blog com os atributos textos, títulos e autores, além do subprograma titulosPorAutor que, dado um Blog e um autor, retorna um array contendo todos os títulos de seus textos. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Blog {\n    textos: string[]\n    titulos : string[]\n    autores : string[]\n}\n\nfunction titulosPorAutor(blog: Blog, autor : string) : string[] {\n    let resultado : string[] = []\n    for (let i : number = 0; i < blog.autores; i++) {\n        if (blog.autores[i] == autor) {\n            resultado.push(blog.textos[i])\n        }\n    }\n    return autor\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada title(\"okui.dje\")?",
+    "codigo_typescript": "class IE {\n    i : string = \"\"\n    e : string = \"\"\n}\n\nfunction title(s : string) : string {\n    let t : IE = {i : \"\", e : \"\"}\n    \n    for (let i = 0; i < s.length; i = i + 2) {\n        t.i = t.i + s[(i + 4) % s.length]\n        t.e = t.e + s[(i + 5) % s.length]\n    }\n\n    return t.i + t.e\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/Dd2aEfWhdlo",
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente as classes de um jogo da velha, além das funções jogadaPC (que efetua uma jogada automaticamente pelo computador) e a função vencedor (identifica quando um jogador venceu).",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.02"
+  }
+]

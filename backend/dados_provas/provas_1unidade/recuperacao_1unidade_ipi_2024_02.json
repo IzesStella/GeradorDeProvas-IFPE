@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implementar um programa que, dados quatro números, seja capaz de imprimir o maior dentre eles.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implementar um subprograma que, dados quatro números para como parâmetros, seja capaz de retornar o maior dentre eles.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números da sequência representada pela seguinte equação: y(0) = 1 e, para todo x diferente de 0, y(x) = y(x-1) + 2x - 1. Exemplo: entrada: n = 4, saída: y(0) = 1, y(1) = 2, y(2) = 5, y(3) = 10.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar uma string contendo os n primeiros números da sequência representada pela seguinte equação: y(0) = 1 e, para todo x diferente de 0, y(x) = y(x-1) + 2x - 1. Exemplo: entrada: n = 4, saída: y(0) = 1, y(1) = 2, y(2) = 5, y(3) = 10.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada ys(\"bi\", \"ma\", \"ta\")?",
+    "codigo_typescript": "function ys(bi: string, ma : string, ta : string) : string {\n    let s : string = \"\"\n    for (let i : number = 0; i < 4; i++) {\n        if (i == 3) {\n            s = ma + s\n        } else if (i == 0) {\n            s = s + bi\n        } else {\n            s = ta + s\n        }\n    }\n    return s\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/Yq3CPBXxIUM",
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir o fatorial de um número n. Comente cada uma das modificações feitas. Dica o fatorial de n = n * fatorial de n - 1, para n maior do que zero.",
+    "codigo_typescript": "function fatorial(n : number) : number {\n    let resultado : number = 0\n    \n    for (let i : integer = 0; i < n; i++) {\n        resultado = resultado + i\n    }\n    \n    return resultado\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do programa abaixo para a chamada co(0, 0, 10):",
+    "codigo_typescript": "function li(l : number, c : number, m : number) : string {\n    if (c == m + 1) return \"\\n\"\n    \n    return ((l == c) ? \"\\\\\" : ((l + c == m) ? \"/\" : \".\")) + (li(l, c+1, m))    \n}\n\nfunction co(l : number, c : number, m : number) : string {\n    if (l == m + 1) return \"\"\n \n   return li(l, c, m) + co(l +1, c, m)\n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2024.02"
+  }
+]

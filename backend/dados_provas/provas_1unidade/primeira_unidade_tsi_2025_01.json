@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Dados três números como entrada, implemente um programa capaz de identificar quando há exatamente dois números positivos entre eles.\n\nExemplo de entrada:\n1, 2, 3\n\nSaída correspondente:\nnão passou no teste.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Dados três números como parâmetros, implemente um subprograma capaz de identificar quando há exatamente dois números positivos entre eles.\n\nExemplo de entrada:\n1, 2, 3\n\nRetorno:\nfalse",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprima os n primeiros números da sequência: 0, 3, 4, 9, 8, 15, 12, 21, 16, 27, … \nDica: veja a sequência como se fosse a combinação de duas outras.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que dado um número n como parâmetro, retorna uma string contendo os n primeiros números da sequência: 0, 3, 4, 9, 8, 15, 12, 21, 16, 27, … \nDica: veja a sequência como se fosse a combinação de duas outras.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada sg(5)?",
+    "codigo_typescript": "function sg(n1: number) : string {\n    let ma : string = \"\"\n    for (let i : number = n1; i > -1; i--) {\n        if (i % 3 == 2) {\n            ma = ma + \"ai\"\n        } else if (i % 3 == 1) {\n            ma = ma + \"taka\"\n        } else {\n            ma = ma + \"tta.\"\n        }\n    }\n\n    return ma\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/LdL8yFy3ZY4",
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os primeiros números múltiplos de um número m. Comente cada uma das modificações feitas.\n\nExemplo de entrada:\nn = 4\nm = 2\n\nSaída correspondente:\n0, 2, 4, 6",
+    "codigo_typescript": "function multiplos(m : integer, n : integer) : void {\n    for (let i : integer = 1; i < n; i++) {\n        return console.log(i * n)\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de construir uma string caractere por caractere e retornar o seguinte padrão, quando seu parâmetro n é 9:\n\nX###X###X\n#X##X##X#\n##X#X#X##\n###XXX###\n####X####",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.01"
+  }
+]

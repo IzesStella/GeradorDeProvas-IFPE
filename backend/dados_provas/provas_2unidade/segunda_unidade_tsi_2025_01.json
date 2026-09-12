@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar a soma de seus elementos.\n- Dados dois arrays de uma dimensão como parâmetros, copiar o conteúdo do primeiro para o segundo, em ordem inversa.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar a soma de seus elementos.\n- Dados dois arrays de duas dimensões como parâmetros, copiar o conteúdo do primeiro para o segundo, em ordem inversa.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Ingresso com ao menos 3 atributos;\n- Criar um subprograma que, dados dois ingressos como parâmetros, retorna true quando ambos forem para shows do mesmo artista, ou false, caso contrário.\n- Criar o tipo Show com ao menos 3 atributos;\n- Criar um subprograma que, dado um Show como parâmetro, retorna a quantidade de ingressos disponíveis.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Postagem, representando uma publicação de um texto em uma rede social, além do subprograma contemPalavraNosComentarios que, dado uma Postagem e uma palavra como parâmetros, retorna o primeiro comentário que contém a palavra. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Postagem {\n    conteudo : string = \"\"\n    comentarios : string[] = []\n}\n\nfunction contemPalavraNosComentarios (p : Postagem, p : Palavra) : Palavra {\n    for (let i : number; i < p.comentaios.length; i++) {\n        if (p.comentaios[i].contains(p)) {\n            return p.comentaios[i]\n        }\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 21)?",
+    "codigo_typescript": "class S13 {\n    mj : string = \"\"\n    mr : string = \"\"\n}\n\nfunction mm(kk : string) : S13 {\n    let sa : S13 = { mj : \"\", mr : \"\"}\n    \n    for (let i : number = 0; i < kk.length; i++) {\n        if (i > (kk.length / 2)) {\n            sa.mj = sa.mj + kk[i]\n        } else {\n            sa.mr = sa.mr + kk[i]\n        }\n    }\n\n    return sa\n}\n\nlet om : S13 = mm(\"Kawaii.Sansei\")\nconsole.log(om.mj + om.mr)",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/f4TuPNWoDI4",
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Sem utilizar laços, implemente uma função capaz de imprimir todos os elementos de um array de 3 dimensões.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.01"
+  }
+]

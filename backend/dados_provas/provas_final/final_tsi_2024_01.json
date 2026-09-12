@@ -1,68 +1,35 @@
 [
   {
     "topico": "Vetores",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de uma dimensão e um número n como parâmetros, inicializar todos os elementos do array com o número n.",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Vetores",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de uma dimensão como parâmetros, retornar aquele que possui mais números negativos.\n\nExemplo:\na: [-1, -2, -3]\nb: [4, -5, 6]\n\nRetorno:\na",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Arrays",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de duas dimensões e um número n como parâmetros, inicializar todos os elementos do array com o número n.",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Arrays",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de duas dimensões como parâmetro, retornar aquele que possui mais números negativos.",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão e um número n como parâmetros, inicializar todos os elemento do array com o número n;\n- Dados dois arrays de uma dimensão como parâmetros, retornar aquele que possui mais números negativos. Exemplo: a:[-1,-2,-3], b:[4,-5,6], retorno: a.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
+    "origem": "Avaliação Individual Final - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões e um número n como parâmetros, inicializar todos os elemento do array com o número n;\n- Dados dois arrays de duas dimensões como parâmetro, retornar aquele que possui mais números negativos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Tipos",
-    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Apartamento com ao menos 4 atributos;\n2. Crie um subprograma que, dados um objeto do tipo Apartamento e uma string (representando o nome da cidade) como parâmetros, retorna true quando o apartamento está localizado na cidade, ou false, caso contrário.",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Apartamento com ao menos 4 atributos;\n- Criar um subprograma que, dados um objeto do tipo Apartamento e uma string (representando o nome da cidade) como parâmetros, retorna true quando o apartamento está localizado na cidade, ou false, caso contrário.\n- Criar o tipo Condominio com ao menos 3 atributos;\n- Criar um subprograma que, dado um Condominio como parâmetro, retorna a quantidade de apartamentos com suites no condomínio.",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Tipos",
-    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Condominio com ao menos 3 atributos;\n2. Crie um subprograma que, dado um Condominio como parâmetro, retorna a quantidade de apartamentos com suítes no condomínio.",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
+    "origem": "Avaliação Individual Final - TSI",
     "ano": "2024.01"
   },
   {
@@ -73,18 +40,18 @@
     "tipo_questao": "Correção de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
+    "origem": "Avaliação Individual Final - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Tipos",
     "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 17)?",
     "codigo_typescript": "class SKE {\n    m : string = \"\"\n    r : string = \"\"\n}\n\nfunction km(mj : SKE) : string {\n    let mo : string = \"\"\n    \n    for (let om = 0; om < mj.m.length; om++) {\n        mo = mj.m[om] + mj.r[om] + mo \n    }\n\n    return mo\n}\n\nlet yk : SKE = { m : \"4321\", r : \"!!!!\"}\nconsole.log(km(yk))",
-    "nivel_dificuldade": "Média",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
+    "origem": "Avaliação Individual Final - TSI",
     "ano": "2024.01"
   },
   {
@@ -95,7 +62,7 @@
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Avaliação Individual Final TSI",
+    "origem": "Avaliação Individual Final - TSI",
     "ano": "2024.01"
   }
 ]

@@ -1,68 +1,35 @@
 [
   {
     "topico": "Vetores",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de uma dimensão como parâmetro, retornar o menor dos seus elementos.",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Vetores",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de uma dimensão como parâmetro, trocar o conteúdo de ambos.\n\nExemplo:\na: [1, 2, 3]\nb: [4, 5, 6]\n\nResultado após a chamada da função:\na: [4, 5, 6]\nb: [1, 2, 3]",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Arrays",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDado um array de duas dimensões como parâmetro, retornar o menor dos seus elementos.",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Arrays",
-    "enunciado": "Implemente um subprograma capaz de realizar a seguinte operação:\n\nDados dois arrays de duas dimensões como parâmetro, trocar o conteúdo das linhas dos arrays.",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar o menor dos seus elementos;\n- Dados dois arrays de uma dimensão como parâmetro, trocar o conteúdo de ambos. Exemplo: a:[1,2,3], b:[4,5,6] resultado após a chamada da função a:[4,5,6], b:[1,2,3].",
     "codigo_typescript": null,
     "nivel_dificuldade": "Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2024.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar o menor dos seus elementos;\n- Dados dois arrays de duas dimensões como parâmetro, trocar o conteúdo das linhas dos arrays.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Tipos",
-    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo Roupa com ao menos 4 atributos;\n2. Crie um subprograma que, dados dois objetos do tipo Roupa como parâmetros, retorna aquela que possui maior valor.",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Roupa com ao menos 4 atributos;\n- Criar um subprograma que, dados dois objetos do tipo Roupa como parâmetros, retorna aquela que possui maior valor;\n- Criar o tipo GuardaRoupas com ao menos 3 atributos;\n- Criar um subprograma que, dada a cor de uma roupa e um GuardaRoupas como parâmetro, retorna a quantidade de roupas desta cor.",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
-    "ano": "2024.01"
-  },
-  {
-    "topico": "Tipos",
-    "enunciado": "Implemente um programa de acordo com as seguintes especificações:\n\n1. Crie o tipo GuardaRoupas com ao menos 3 atributos;\n2. Crie um subprograma que, dada a cor de uma roupa e um GuardaRoupas como parâmetro, retorna a quantidade de roupas desta cor.",
-    "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
-    "tipo_questao": "Implementação",
-    "tabela_enunciado": null,
-    "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
+    "origem": "Segunda Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
@@ -73,18 +40,18 @@
     "tipo_questao": "Correção de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
+    "origem": "Segunda Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Tipos",
     "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 24)?",
     "codigo_typescript": "class Mm {\n    a : string = \"\"\n    b : string = \"\"\n}\n\nfunction single(mm : Mm) {\n    let x : string = \"\"; let y : string = \"\"\n    \n    for (let i = 0; i < mm.a.length; i++) {\n        if (i % 4 == 1) {\n            y = y + mm.a[i]\n            x = x + mm.b[i]\n        } else {\n            y = y + mm.b[i]\n            x = x + mm.a[i]\n        }\n    }\n    mm.a = x\n    mm.b = y\n}\n\nlet mm : Mm = { a : \"sii  \", b : \"kayou\"}\nsingle(mm)\nconsole.log(mm.a, mm.b)",
-    "nivel_dificuldade": "Média",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
+    "origem": "Segunda Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
@@ -95,7 +62,7 @@
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Segunda Avaliação Individual TSI",
+    "origem": "Segunda Avaliação Individual - TSI",
     "ano": "2024.01"
   }
 ]

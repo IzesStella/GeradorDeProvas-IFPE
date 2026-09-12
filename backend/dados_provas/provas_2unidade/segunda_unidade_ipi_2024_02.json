@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar o maior entre seus elementos.\n- Dados dois arrays de uma dimensão como parâmetros, retornar o maior elemento de ambos os arrays.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar o maior entre seus elementos.\n- Dados dois arrays de duas dimensões como parâmetros, retornar o maior elemento de ambos os arrays.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Musica com ao menos 4 atributos;\n- Criar um subprograma que, dadas duas músicas como parâmetros, retorna true quando a primeira tem maior duração que a segunda, ou false, caso contrário.\n- Criar o tipo Album com ao menos 3 atributos;\n- Criar um subprograma que, dado um Album como parâmetro, retorna a soma da duração de suas músicas.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Chat, representando a conversa de uma pessoa com uma IA, além do subprograma ultimaResposta que, dado um Chat como parâmetro, retorna a última resposta da IA. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Chat {\n    perguntas : string[] = []\n    respostas : string[] = []\n}\n\nfunction ultimaResposta(c : chat) : string {\n    return c.perguntas[c.respostas.length]\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 21)?",
+    "codigo_typescript": "class N46 {\n    s : string = \"\"\n    m : string = \"\"\n}\n\nfunction reika(no : string) : N64 {\n    let snm : N46 = { s : \"\", m : \"\"}\n    \n    for (let i : number = 0; i < no.length; i++) {\n        if (i % 2 == 0) {\n            snm.s = snm.s + no[i]\n        } else {\n            snm.m = no[i] + snm.m\n        }\n    }\n\n    return snm\n}\n\nlet sakurai : N46 = reika(\"sneiiufqueknun.anmo.\")\nconsole.log(sakurai.s + sakurai.m)",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/Ggv1heiVrdM",
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente as classes de um sistema streaming de músicas como o Spotify, além de uma função chamada recomendacoes que retorna uma lista de músicas recomendadas para um usuário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2024.02"
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implementar um programa que, dados três números, seja capaz de imprimí-los em ordem decrescente.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implementar um subprograma que, dados três números como parâmetros, seja capaz de imprimí-los em ordem decrescente.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números negativos múltiplos de 3.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de imprimir os n primeiros números negativos múltiplos de 3.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada sr(\"HKT\")?",
+    "codigo_typescript": "function sr(kh: string) : string {\n    let ms : boolean = true\n    for (let oa : number = 0; oa <= 1; oa++) {\n        if (!ms) {\n            kh = kh + 8\n        } else {\n            kh = kh + 4\n        }\n        ms = !ms\n    }\n    return kh\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://www.youtube.com/@HKT48",
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os divisores de um número n. Comente cada uma das modificações feitas.",
+    "codigo_typescript": "function div(n : number) : void {\n    for (let i : number = 1; i < n; i+=2) {\n        if (n % i == 0) {\n            console.log(n)\n            break\n        }\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de, dado um número n, imprimir o padrão abaixo com n linhas sem a utilização sem a utilização de laços.\n\nPara n = 6, a saída seria:\n#...\n##..\n####\n####\n##..\n#...",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2024.02"
+  }
+]

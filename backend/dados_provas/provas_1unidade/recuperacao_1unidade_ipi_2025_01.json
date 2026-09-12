@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implemente um programa que, dadas três strings, imprime true quando exatamente duas dentre elas são iguais, ou false, caso contrário. Exemplo de entrada: s1=\"a\", s2=\"a\", s3=\"a\", saída: false.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dadas três strings como parâmetros, retorna true quando exatamente duas dentre elas são iguais, ou false, caso contrário. Exemplo de entrada: s1=\"a\", s2=\"a\", s3=\"a\", retorno: false.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprima os n primeiros múltiplos de -3. Exemplo de entrada: n=4, saída: 0, -3, -6, -9.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que dado um número n como parâmetro, imprime os n primeiros múltiplos de -3. Exemplo de entrada: n=4, saída: 0, -3, -6, -9.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os n primeiros números na sequência 0, -1, 2, -3, 4, -5… Exemplo de entrada: n = 4, saída: 0, -1, 2, -3.",
+    "codigo_typescript": "function sequencia(n : number) : number {\n     for (let i : double = 0; i <= 10; i--) {\n        if (i % 2 != 0) {\n            console.log(i)\n        } else {\n            console.log(-i)\n        }\n     }\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console do programa abaixo para a chamada hkt(48)?",
+    "codigo_typescript": "function hkt(s19: number) : string {\n    let jn: string = \"\" // string vazia\n    for (let i : number = 0; i < s19; i =  i + 7) {\n        if (i == 0 && i % 2 == 0) {\n            jn = jn + \"hansode.\" \n        } else if (i % 2 == 0 && i < 7) {\n            jn = jn + \"wota.\"\n        } else if (i > 7 && i < 15) {\n            jn = jn + \"tenshi.\"\n        }\n    }\n\n    return jn\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/rjNP-vzdp6A",
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de construir e retornar uma string de n linhas por m colunas, caractere por caractere, no padrão abaixo.\n\nQuando n=5 e m = 6:\n\n>####<\n>>##<<\n>>><<<\n>>##<<\n>####<",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.01"
+  }
+]

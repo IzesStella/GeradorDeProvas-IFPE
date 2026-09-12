@@ -7,18 +7,18 @@
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Subprogramas",
     "enunciado": "Implemente um subprograma capaz de retornar se uma string é uma vogal ou não. Assuma que a string tem apenas um caractere e não contém letras maiúsculas.\n\nExemplo de entrada:\n\"v\"\n\nRetorno:\nfalse",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
+    "nivel_dificuldade": "Média",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
@@ -29,29 +29,29 @@
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Subprogramas",
     "enunciado": "Implemente um subprograma capaz de, dado um número n como parâmetro, retornar uma string com n caracteres alternando entre as letras A, K e B.\n\nExemplo de entrada:\n6\n\nRetorno:\n\"AKBAKB\"",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
     "topico": "Subprogramas",
     "enunciado": "Qual a saída no console do programa abaixo para a chamada ske(4, 8)?",
     "codigo_typescript": "function ske(a : number, ka : number) : void {\n    let ne : boolean = true\n   \n    while (ne || (ne && !ne)) {\n        if (a > ka) {\n            ka = -2 * ka\n        } else {\n            a = a + (ka % a) + 1\n        }\n        ne = (ka > 0) && (a > 0)\n        console.log(a, ka, ne)\n    }\n}",
-    "nivel_dificuldade": "Média",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
@@ -62,7 +62,7 @@
     "tipo_questao": "Correção de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   },
   {
@@ -73,7 +73,7 @@
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.01"
   }
 ]

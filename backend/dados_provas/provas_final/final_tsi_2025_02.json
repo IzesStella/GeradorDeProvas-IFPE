@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de booleans de uma dimensão como parâmetro, retornar a quantidade de elementos falsos dentro do array;\n- Dados dois arrays de booleans de uma dimensão como parâmetros, retornar aquele que possui a maior quantidade de elementos falsos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de booleans de duas dimensões como parâmetro, retornar a quantidade de elementos falsos dentro do array;\n- Dados dois arrays de booleans de duas dimensões como parâmetros, retornar aquele que possui a maior quantidade de elementos falsos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo loja de shopping center com ao menos 3 atributos;\n- Criar um subprograma que, dadas duas lojas, retorna aquela que possui o menor valor de aluguel do espaço;\n- Criar o tipo shopping com ao menos 3 atributos;\n- Criar um subprograma que, dado um shopping, retorna a loja com menor valor de aluguel.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Palavra, representando uma palavra em um jogo da forca, além do subprograma indices que, dadas uma palavra e uma letra, retorna um array contendo todos os índices onde a letra ocorre na palavra. Exemplo de entradas: \"papagaio\" e \"a\". Saída correspondente: [1, 3, 5]. Corrija todos os erros do mesmo e para cada erro encontrado faça um comentário explicando qual o erro e qual foi a solução encontrada.",
+    "codigo_typescript": "class Palavra{\n    texto : string = \"\"\n    dica : string = \"\"\n}\n\nfunction indices(p : Palavra, letra : string) : number {\n    let resposta : number[] = []\n    for (let i : number = 0; i < p.length; i++) {\n        if (p.texto[i] === letra) {\n            resposta.push(i) // adiciona um elemento ao final do array\n        }\n    }\n\n    return resposta[]\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console após a execução do programa abaixo?",
+    "codigo_typescript": "class S37 {\n    may : string = \"daapo rkk\"\n    uyu : string = \"ooon lcr.\"\n}\n\nfunction decode(akb48 : S37) : string {\n    let t : string = \"\"\n\n    for (let i : number = 0; i < akb48.may.length; i++) {\n            t += akb48.may[akb48.may.length - i - 1]\n            t += akb48.uyu[i]\n    }\n\n    return t\n}\n\nconsole.log(decode(new S37()))",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/JhokU8SlmNg",
+    "origem": "Avaliação Final Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Crie os tipos de um sistema de gerenciamento de frotas de ônibus, além de um subprograma capaz de, dado um conjunto de linhas, ser capaz os veículos que irão sair em cada horário de cada linha.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Final Individual - TSI",
+    "ano": "2025.02"
+  }
+]

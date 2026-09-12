@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar a soma de seus elementos ímpares.\n- Dados dois arrays de uma dimensão como parâmetros, retornar aquele que possui a maior soma entre seus elementos ímpares.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar a soma de seus elementos ímpares.\n- Dados dois arrays de duas dimensões como parâmetros, retornar aquele que possui a maior soma entre seus elementos ímpares.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Bairro com ao menos 3 atributos;\n- Criar um subprograma que, dados dois bairros como parâmetros, retorna aquele com maior população;\n- Criar o tipo Cidade com ao menos 3 atributos, sendo um deles uma coleção de barrios;\n- Criar um subprograma que, dada uma Cidade como parâmetro, retorna o Bairro da Cidade com maior população.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo ControleDeVendas, além do subprograma quantidadeDeVendas() que, dados um ControleDeVendas e um produto como parâmetros, retorna a quantidade unidades vendidas do produto. Corrija todos os erros do programa e comente cada uma das correções.",
+    "codigo_typescript": "class Venda {\n    produto : string = \"\"\n    quantidade : number = -1\n}\n\nclass ControleDeVendas {\n    loja : string = \"\"\n    vendas : Venda[] = []\n}\n\nquantidadeDeVendas(controle : ControleDeVendas, produto : string) : number {\n    let quantidade : number =  0\n    \n    for (let i : number = 0; i < controle.vendas.length; i++) {\n        if (controle.vendas[i].produto != produto) {\n            quantidade = quantidade + controle.vendas[i].quantidade\n        }\n    }\n    \n    return quantidade.length\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console do programa abaixo (valores impressos após a execução da linha 15)?",
+    "codigo_typescript": "class Not {\n    equal : string = \"\"\n    me : string = \"\"\n}\n\nfunction cw(sashi : string) : string {\n    let hara : Not = new Not()\n    \n    for (let i : number = 0; i < sashi.length / 2; i++) {\n        hara.equal = sashi[i] + hara.equal\n        hara.me = sashi[i + 6] + hara.me\n    }\n\n    return hara.equal + hara.me\n}\n\nconsole.log(cw(\"|efak.neukar\"))",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/vA5O8Pq9j44",
+    "origem": "Avaliação Individual Final - IPI",
+    "ano": "2025.01"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Sem utilizar laços, implemente um subprograma capaz de retornar a soma dos elementos de um array de quatro dimensões.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Avaliação Individual Final - IPI",
+    "ano": "2025.01"
+  }
+]

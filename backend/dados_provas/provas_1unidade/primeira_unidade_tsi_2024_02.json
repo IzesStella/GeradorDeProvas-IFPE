@@ -1,57 +1,57 @@
 [
   {
     "topico": "Operadores Lógicos",
-    "enunciado": "Um estudante do curso de Sistemas para Internet do Campus Igarassu deseja comprar um novo notebook para utilizar no curso, para tal ele necessita de uma máquina com as seguintes características mínimas: processador - 8 núcleos, memória RAM - 16gb, tela full HD IPS e SSD de 512gb.\n\nImplemente um programa capaz de, dadas as características de um computador, identificar se enquadra nas características mínimas para estudantes de Sistemas para Internet.",
+    "enunciado": "Um estudante do curso de Sistemas para Internet do Campus Igarassu deseja comprar um novo notebook para utilizar no curso, para tal ele necessita de uma máquina com as seguintes características mínimas: processador - 8 núcleos, memória RAM - 16gb, tela full HD IPS e SSD de 512gb. Implemente um programa capaz de, dadas as características de um computador, identificar se enquadra nas características mínimas para estudantes de Sistemas para Internet.",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
+    "nivel_dificuldade": "Média",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   },
   {
     "topico": "Subprogramas",
-    "enunciado": "Um estudante do curso de Sistemas para Internet do Campus Igarassu deseja comprar um novo notebook para utilizar no curso, para tal ele necessita de uma máquina com as seguintes características mínimas: processador - 8 núcleos, memória RAM - 16gb, tela full HD IPS e SSD de 512gb.\n\nImplemente um subprograma capaz de, dadas as características de um computador, retornar se enquadra nas características mínimas para estudantes de Sistemas para Internet.",
+    "enunciado": "Um estudante do curso de Sistemas para Internet do Campus Igarassu deseja comprar um novo notebook para utilizar no curso, para tal ele necessita de uma máquina com as seguintes características mínimas: processador - 8 núcleos, memória RAM - 16gb, tela full HD IPS e SSD de 512gb. Implemente um subprograma capaz de, dadas as características de um computador, retornar se enquadra nas características mínimas para estudantes de Sistemas para Internet.",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Fácil",
+    "nivel_dificuldade": "Média",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   },
   {
     "topico": "Laços",
-    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1 + (n - 1) * r.\n\nExemplo de entrada:\na1 = 5, r = 2, n = 3\n\nSaída correspondente:\n5, 7, 9",
+    "enunciado": "Implemente um programa capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1+(n-1).r.\n\nExemplo de entrada: a1 = 5, r = 2, n = 3.\nSaída correspondente: 5, 7, 9.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Média",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   },
   {
     "topico": "Subprogramas",
-    "enunciado": "Implemente um subprograma capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1 + (n - 1) * r.\n\nExemplo de entrada:\na1 = 5, r = 2, n = 3\n\nSaída correspondente:\n5, 7, 9",
+    "enunciado": "Implemente um subprograma capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1+(n-1).r.\n\nExemplo de entrada: a1 = 5, r = 2, n = 3.\nSaída correspondente: 5, 7, 9.",
     "codigo_typescript": null,
-    "nivel_dificuldade": "Média",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   },
   {
     "topico": "Subprogramas",
     "enunciado": "Qual a saída no console do programa abaixo para a chamada jpop(48)?",
     "codigo_typescript": "function jpop(g: number) : string {\n    let s : string = \"\"\n    for (let i : number = 0; i < 12; i++) {\n        if (i % 4 == 1) {\n            s = s + \"K\"\n        } else if (i % 4 == 2) {\n            s = s + \"E\"\n        } else if (i % 4 == 0) {\n            s = s + \"S\"\n        } else {\n            s = s + g + \".\"\n        }\n    }\n    return s\n}",
-    "nivel_dificuldade": "Média",
+    "nivel_dificuldade": "Difícil",
     "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": "https://www.youtube.com/@SKE48",
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   },
   {
@@ -62,18 +62,18 @@
     "tipo_questao": "Correção de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   },
   {
     "topico": "Subprogramas",
-    "enunciado": "Implemente um subprograma capaz de, dado um número n, imprimir o padrão abaixo com n linhas sem a utilização de laços.\n\nObservação: soluções que utilizem laços valem até 2 pontos, soluções sem a utilização de laços (recursão) valem até 10 pontos.\n\nPara n = 6, a saída seria:\n\nK  K\nK K\nKK\nKK\nK K\nK  K",
+    "enunciado": "Implemente um subprograma capaz de, dado um número n, imprimir o padrão abaixo com n linhas sem a utilização de laços.\n\nObservação: soluções que utilizem laços valem até 2 pontos, soluções sem a utilização de laços, valem até 10 pontos.\n\nPara n = 6, a saída seria:\n\nK  K\nK K\nKK\nKK\nK K\nK  K",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",
     "tipo_questao": "Implementação",
     "tabela_enunciado": null,
     "easter_egg_conteudo": null,
-    "origem": "Primeira Avaliação Individual TSI",
+    "origem": "Primeira Avaliação Individual - TSI",
     "ano": "2024.02"
   }
 ]
