@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar true quando todos os seus elementos são 0, ou false caso contrário;\n- Dado um array de uma dimensão como parâmetro, retornar true quando a soma dos seus elementos pares for igual à soma de seus elementos ímpares, ou false caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar true quando todos os seus elementos são 0, ou false caso contrário;\n- Dado um array de duas dimensões como parâmetro, retornar true quando a soma dos seus elementos pares for igual à soma de seus elementos ímpares, ou false caso contrário.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo ComponenteComputador com ao menos 3 atributos;\n- Criar um subprograma que testa se dois componentes distintos são idênticos;\n- Criar o Computador contendo uma coleção de componentes;\n- Criar um subprograma que, dados dois computadores, identifica se ambos possuem os mesmos componentes.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Musica, além do subprograma ehAutor que retorna se uma pessoa é um dos autores da música.",
+    "codigo_typescript": "class Musica {\n    titulo : string = \"\"\n    autores : string[] = []\n}\n\nfunction ehAutor(m : Musica, autor : Autor) : boolean {\n    for (let i : number = 0; i < m.autores.length; i++) {\n        if (m.autores[i] == \"autor\") {\n            return false\n        }\n    }\n\n    return true\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console após a execução do programa abaixo?",
+    "codigo_typescript": "class Ts {\n    w : string = \"aisFBA\"\n    m : string = \"lvte K\"\n}\n\nfunction title(ts : Ts) : string {\n    let t : string = \"\"\n\n    for (let i : number = 0; i < ts.w.length; i++) {\n            t = ts.m[i] + t\n            t = ts.w[i] + t\n    }\n\n    return t\n}\n\nconsole.log(title(new Ts()))",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/JELg3Ljmv0g",
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Recursão",
+    "enunciado": "Uma lista ligada é uma estrutura de dados onde cada elemento possui um valor e um link para o próximo elemento da fila. Implemente uma lista ligada além de operações para a busca, inserção e remoção de um elemento na lista.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - IPI",
+    "ano": "2025.02"
+  }
+]

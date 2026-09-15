@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implementar um programa que, dado um ano, identifica se ele é bissexto (possui 366 dias). Um ano é bissexto quando seu número atende a ao menos uma das duas regras: (1) é divisível por 400 ou (2) divisível por 4 mas não por 100.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implementar um subprograma que, dado um ano como parâmetro, retorna true quando ele é bissexto (possui 366 dias), ou false, caso contrário. Um ano é bissexto quando seu número atende a ao menos uma das duas regras: (1) é divisível por 400 ou (2) divisível por 4 mas não por 100.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Considerando um número positivo e ímpar n como entrada, além do seguintes exemplos de saídas correspondentes ao valor de n:\n\nn=1, sequência=1\nn=3, sequência=121\nn=5, sequência=12321\nn=7, sequência=1234321\n\nImplemente um programa capaz de, dado n, imprimir a saída correspondente a n.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Considerando um número positivo e ímpar n como parâmetro, além do seguintes exemplos de saídas correspondentes ao valor de n:\n\nn=1, sequência=1\nn=3, sequência=121\nn=5, sequência=12321\nn=7, sequência=1234321\n\nImplemente um subprograma capaz de, dado n, retornar uma string com a saída correspondente a n.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console e o retorno do programa abaixo para a chamada fi(5)?",
+    "codigo_typescript": "function fi(n : number) : number {\n    let n1 : number = 0; let n2 : number = 1; let r : number = 0\n\n    if (n < 2) return n\n\n    for (let i : number = 0; i < n; i++) {\n        console.log(r, n2, n1)\n        r = n1 + n2\n        n2 = n1\n        n1 = r\n    }\n\n    return r\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os n primeiros dígitos da sequência \"<><><><><><>….\". Comente cada uma das modificações feitas.\n\nExemplo de entrada: n = 4\nSaída: \"<><>\"",
+    "codigo_typescript": "function g(n : number) : string {\n    let s : boolean = \"\"\n    for (let i : number = 0; i < 2*n; s++) {\n        if (i % 2 != 0) {\n            s = s + \"<\"\n        } else {\n            s = s + \">\"\n        }\n    }\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Recursão",
+    "enunciado": "Qual retorno do programa abaixo para a chamada h(10, 1):",
+    "codigo_typescript": "function s(a : number, b : number, c : number) : string {\n    if (b >= a) return \"\"\n    if (b < (a-1)/2) return c + s(a, b + 1, c + 1)\n    return c + s(a, b + 1, c - 1)\n}\n\nfunction h(a : number, b : number)  : string {\n    if (b >= a) return \"\"\n    return s(b, 0, 1) + \"\\n\" + h(a, b + 2) \n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "Como tirar 10 na prova sem ter que escrever uma única linha de código (i.e. resposta da última questão): a função s é uma possível resposta para a terceira questão.",
+    "origem": "Primeira Avaliação Individual - IPI",
+    "ano": "2026.01"
+  }
+]

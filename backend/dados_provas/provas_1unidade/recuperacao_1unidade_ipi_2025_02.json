@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Dados três números como entrada, implemente um programa capaz de identificar quando todos os três são divisíveis por 4 e superiores a 25.\n\nExemplo de entrada: 3, 25, 0\nSaída correspondente: não passou no teste.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dados três números como parâmetros, seja capaz de retornar true, quando todos os três são divisíveis por 4 e superiores a 25, ou false, caso contrário.\n\nExemplo de entrada: 3, 25, 0\nSaída correspondente: false.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprime maior divisor de n que não seja ele mesmo.\n\nExemplo de entrada: 25\nSaída correspondente: 5.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um programa que dado um número n como parâmetro, retorne o maior divisor de n que não seja ele mesmo.\n\nExemplo de entrada: 25\nRetorno: 5.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada s(9)?\n\nDica: preste atenção nos tipos das variáveis.",
+    "codigo_typescript": "function s(n: number) : string {\n    let r : string = \"\"\n    for (let i : number = n; i >= 0; i--) {\n        if (i > 4 && i < 7) {\n            r = r + (i - 1)\n        } else if (i < 7) {\n            r = (i + 1)  + r\n        } else {\n            r = r + i\n        }\n    }\n    return r\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de retornar a soma dos n primeiros números da sequência: n = n³ - n, iniciando com n = 1. Comente cada uma das modificações feitas.",
+    "codigo_typescript": "function x(n : number) : number {\n    let soma : number = 1\n\n    for (let i : number = 1; n < 10; i++) {\n        soma = soma + (i * i) * (i - i)\n    }\n\n    return i\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console após a execução do programa abaixo? Além de escrever a saída, explique linha por linha seu funcionamento.",
+    "codigo_typescript": "function x(i : number, n : number) {\n    if (i == n) return\n\n    console.log(i, y(2, i))\n    x(i + 1, n)\n}\n\nfunction y(i : number, n : number) : boolean {\n    if (i >= n || i < 2) return false \n    \n    if (n % i == 0) return true\n\n    return y(i + 1, n)\n}\n\nx(1, 10)",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2025.02"
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "topico": "Vetores",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de uma dimensão como parâmetro, retornar true quando a soma de seus elementos é igual a 0, ou false caso contrário;\n- Dados dois arrays de uma dimensão como parâmetros, retornar aquele que possui a maior soma de seus elementos ou null caso a soma seja idêntica.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Arrays",
+    "enunciado": "Implemente subprogramas capazes de realizar as seguintes operações:\n\n- Dado um array de duas dimensões como parâmetro, retornar true quando a soma de seus elementos é igual a 0, ou false caso contrário;\n- Dados dois arrays de duas dimensões como parâmetros, retornar aquele que possui a maior soma de seus elementos.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Implemente programas de acordo com as seguintes especificações:\n\n- Criar o tipo Computador com ao menos 5 atributos;\n- Criar um subprograma que testa se um computador atende aos requisitos mínimos para executar um software, o subprograma deve receber dois computadores como parâmetro, o primeiro representa as configurações do computador a ser testado, já o segundo possui as configurações mínimas para executar o programa;\n- Criar o tipo Laboratório com ao menos 3 atributos;\n- Criar um subprograma que identifica quantos computadores em um laboratório atendem aos requisitos mínimos para executar um programa.\n\nDica: reutilize os códigos das demais questões.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "O programa abaixo deveria implementar o tipo Noticia, representando uma notícia publicada em um portal da internet, além do subprograma paragrafosLongos que retorna a quantidade de parágrafos com mais de 1000 caracteres na notícia.",
+    "codigo_typescript": "class Noticia {\n    titulo : string === \"\"\n    paragrafos : string[] === []\n}\n\nfunction paragrafosLongos(n : Noticia) : boolean {\n    let c : number = 0\n    \n    for (let i : number = 0; i <= n.paragrafos.length; i++) {\n        if (n.paragrafos[i].length = 1000) {\n            c++\n        }\n    }\n\n    return c\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Qual a saída no console após a execução do programa abaixo?",
+    "codigo_typescript": "class S67 {\n    i : string = \"ngrzkr\"\n    m : string = \"aoiaua\"\n}\n\nfunction title(s67 : S67) : string {\n    let t : string = \"\"\n\n    for (let i : number = 0; i < s67.i.length; i++) {\n            t += s67.i[i]\n            t += s67.m[i]\n    }\n\n    return t\n}\n\nconsole.log(title(new S67()))",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://youtu.be/PrGmuz5bQKw",
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Tipos",
+    "enunciado": "Crie os tipos de um sistema de edição de texto (como o Word) além de uma função capaz de, dada uma palavra como parâmetro, avaliar se ela está corretamente escrita (retornando um array vazio) ou, não (retornando um array contendo uma lista de sugestões de palavras para correção.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Segunda Avaliação Individual - TSI",
+    "ano": "2025.02"
+  }
+]

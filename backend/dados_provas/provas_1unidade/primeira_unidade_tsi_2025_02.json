@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Dados três números como entrada, implemente um programa capaz de identificar quando há ao menos um número entre -10 e 10 (intervalo inclusivo). Exemplo de entrada: 12, 24, -10, saída: passou no teste.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um programa que, dados três números como parâmetros, é capaz de identificar quando há ao menos um número entre -10 e 10 (intervalo inclusivo). Exemplo de entrada: 12, 24, -10, retorno: true.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa que dado um número n como entrada, imprime os n primeiros números da sequência definida pela fórmula n-ésimo número = (n³) - (n²). Exemplo de entrada: n = 4, saída: 0, 4, 18, 48.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma que, dado um número n como parâmetro, imprime os n primeiros números da sequência definida pela fórmula n-ésimo número = (n³) - (n²). Exemplo de entrada: n = 4, saída: 0, 4, 18, 48.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada s(9)?",
+    "codigo_typescript": "function s(n: number) : string {\n    let r : string = \"\"\n    for (let i : number = n; i > 0; i--) {\n        if (i > 6) {\n            r = r + i\n        } else if (i > 3) {\n            r = i + r\n        } else {\n            r = r + i\n        }\n    }\n    return r\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de retornar quantos números positivos dividem os parâmetros a e b ao mesmo tempo…. Comente cada uma das modificações feitas. Exemplo de entrada: a = 6, b = 12, saída: 4",
+    "codigo_typescript": "function x(a: number, c : number) : number {\n    let r : number = 0\n    for (let i : number = 2; i < b; i++) {\n        if (a % i == b % i) {\n            r = r - 1 \n        }\n    }\n    return i\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console após a execução do programa abaixo? Além de escrever a saída, explique linha por linha seu funcionamento.",
+    "codigo_typescript": "function a(x : number, y : number, z : number) : string {\n    if (x == z) {\n        return \"\"\n    } else if (x >= z - y) {\n        return \"#\" + a(x+1, y, z)\n    } else {\n        return \"$\" + a(x+1, y, z)\n    }\n}\n\nfunction b(x : number, y : number, z : number) : string {\n    if (y == z) {\n        return \"\"\n    } else {\n        return a(x, y, z) + \"\\n\" + b(x, y+1, z) \n    }\n}\n\nconsole.log(b(0, 0, 10))",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2025.02"
+  }
+]

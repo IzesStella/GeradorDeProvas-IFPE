@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implementar um programa que, dadas duas datas como parâmetros (dia, mês e ano), identifica qual a maior entre elas.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implementar um subprograma que, dadas duas datas como parâmetros (dia, mês e ano), retorna a maior dentre elas.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa capaz, de dado um número n, imprimir o valor dos n primeiros números da sequência definida pela seguinte equação: y(x) = (-x)³ + x² - 3x.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz, de dado um número n como parâmetro, retornar a soma dos n primeiros números da sequência definida pela seguinte equação: y(x) = (-x)³ + x² - 3x.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual a saída no console e o retorno do programa abaixo para a chamada abc(1, 5)?",
+    "codigo_typescript": "function abc(x : number, y : number) : string {\n    let r1 : string = \"\"\n    let r2 : string = \"\"\n\n    for (let i : number = x; i < y; i++) {\n        r1 = r1 + i\n        r2 = i + r2\n    }\n\n    return r1 + r2\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os n primeiros números da sequência 1, -2, 3, -4, 5, -6… Comente cada uma das modificações feitas.",
+    "codigo_typescript": "function c(n : number) : void {\n    let x : number = -1\n    for (let i : number = 0; i < n; i--) {\n        if (x % 2 == 0) {\n            x = -x\n        }\n    }\n    console.log(i*x)\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Recursão",
+    "enunciado": "Qual retorno do programa abaixo para a chamada a(0, 7, 7):",
+    "codigo_typescript": "function a(x : number, y : number, z : number) : string {\n    if (!(x < y)) return \"0\"\n\n    return (x % z) + b(x, y, z)\n}\n\nfunction b(x: number, y : number, z : number) : string {\n    return a(x + 1, y, z - 1)\n}",
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Avaliação Individual - TSI",
+    "ano": "2026.01"
+  }
+]

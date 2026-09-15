@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implementar um programa que, dados dois números como entradas, identifica se a distância entre eles é superior a 7.\n\nExemplo de entrada: a=4, b=10\nSaída: não passou no teste.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implementar um subprograma que, dados dois números como parâmetros, retorna true, se a distância entre eles é superior a 7, ou false, caso contrário.\n\nExemplo de entrada: a=4, b=10\nSaída: false.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa capaz, de dado um número n, imprimir os n primeiros número da sequência 1,2,-3,4,5,-6,7,8,-9,10...",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz, de dado um número n, retornar a soma dos n primeiros número da sequência 1,2,-3,4,5,-6,7,8,-9,10...",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do programa abaixo para a chamada abc(1, 2, 3)?",
+    "codigo_typescript": "function abc(x : number, y : number, z : number) : number {\n    let r : number = 0\n\n    for (let i : number = x; i <= z; i = i + 0.5) {\n        r = (r * 10) + (y * z) \n    }\n\n    return r\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de retornar o n-ésino número da sequência -1, 2, -6, 24, -120… Dada pela fórmula: f(n) = n x (n+1) x (n+2) … x(-1), onde n é um número negativo. Comente cada uma das modificações realizadas.\n\nExemplo: para n = -3, f(-3) = -3 x (-2) x (-1) = -6.\n\nDica: note como a sequência é essencialmente o fatorial de números negativos.",
+    "codigo_typescript": "function fat(n : number) : number {\n    let r : number = 1\n\n    for (let i : number = 1; i <= n; i++) {\n        r = r * i\n    }\n\n    return r\n}",
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar uma string no formato abaixo.\n\nLimitações:\n(1) a resposta não pode contar laços;\n(2) a resposta deve construir a string caractere por caractere.\n\n*_*_*_AAAAAA\n_*_*_*BBBBBB\nAAAAAAAAAAAA\nBBBBBBBBBBBB",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - TSI",
+    "ano": "2026.01"
+  }
+]

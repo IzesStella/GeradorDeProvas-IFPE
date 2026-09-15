@@ -1,0 +1,79 @@
+[
+  {
+    "topico": "Operadores Lógicos",
+    "enunciado": "Implementar um programa que, dados três números como entrada, identificar qual deles está mais distante da média dos três parâmetros.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Fácil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implementar um subprograma que, dados três números como parâmetros, retornar qual deles está mais distante da média dos três parâmetros.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Laços",
+    "enunciado": "Implemente um programa capaz, de dado um número n, imprimir os n primeiros números que são divisíveis por 4 e 3 ao mesmo tempo.\n\nExemplo: para a entrada n = 3, a saída correta são os números 12, 24 e 36.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz, de dado um número n, retornar a média dos n primeiros números que são divisíveis por 4 e 3 ao mesmo tempo.\n\nExemplo: para a entrada n = 3, a saída correta seria 24.",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Média",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Qual o retorno do subprograma abaixo para a chamada kururun(3, 4, \"[\", \"]\")?",
+    "codigo_typescript": "function kururun(n : number, m : number, c1 : string, c2 : string)  : string {\n    let s : string = \"\"\n    for (let i : number = 0; i < m * n; i++) {\n        let x : number = i % m\n        if (x < m/2) {\n            s = s + c1\n        } else {\n            s = s + c2\n        }\n    }\n\n    return s\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Execução de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/Suzuki_Kurumi",
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir todos os números entre 0 e n (inclusivo), que quando divididos por 5 deixam como resto 1 ou 2. Comente todas as alterações realizadas.",
+    "codigo_typescript": "function kitarie(n : number) : string {\n    for (let i : number = 0; i < n; i = i + 2) {\n        if (i % 5 == 1 && i % 5 == 2) {\n            console.log(i % 5)\n        }\n    }\n}",
+    "nivel_dificuldade": "Difícil",
+    "tipo_questao": "Correção de Código",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": "https://akb48.fandom.com/wiki/Kitahara_Rie",
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  },
+  {
+    "topico": "Subprogramas",
+    "enunciado": "Implemente um subprograma capaz de retornar uma string no formato a baixo.\n\nLimitações para tirar a nota máxima:\n(1) a resposta não pode contar laços;\n(2) a resposta deve construir a string caractere por caractere.\n\n#####%#####\n#####%#####\n%%%%%%%%%%%\n#####%#####\n#####%#####",
+    "codigo_typescript": null,
+    "nivel_dificuldade": "Muito Difícil",
+    "tipo_questao": "Implementação",
+    "tabela_enunciado": null,
+    "easter_egg_conteudo": null,
+    "origem": "Primeira Recuperação Individual - IPI",
+    "ano": "2026.01"
+  }
+]
