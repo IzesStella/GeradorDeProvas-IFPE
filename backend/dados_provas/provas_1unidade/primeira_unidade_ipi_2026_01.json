@@ -66,13 +66,13 @@
     "ano": "2026.01"
   },
   {
-    "topico": "Recursão",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Qual retorno do programa abaixo para a chamada h(10, 1):",
     "codigo_typescript": "function s(a : number, b : number, c : number) : string {\n    if (b >= a) return \"\"\n    if (b < (a-1)/2) return c + s(a, b + 1, c + 1)\n    return c + s(a, b + 1, c - 1)\n}\n\nfunction h(a : number, b : number)  : string {\n    if (b >= a) return \"\"\n    return s(b, 0, 1) + \"\\n\" + h(a, b + 2) \n}",
     "nivel_dificuldade": "Muito Difícil",
     "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
-    "easter_egg_conteudo": "Como tirar 10 na prova sem ter que escrever uma única linha de código (i.e. resposta da última questão): a função s é uma possível resposta para a terceira questão.",
+    "easter_egg_conteudo": null,
     "origem": "Primeira Avaliação Individual - IPI",
     "ano": "2026.01"
   }

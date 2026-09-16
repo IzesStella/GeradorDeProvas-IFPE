@@ -66,7 +66,7 @@
     "ano": "2025.02"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Qual a saída no console após a execução do programa abaixo? Além de escrever a saída, explique linha por linha seu funcionamento.",
     "codigo_typescript": "function x(i : number, n : number) {\n    if (i == n) return\n\n    console.log(i, y(2, i))\n    x(i + 1, n)\n}\n\nfunction y(i : number, n : number) : boolean {\n    if (i >= n || i < 2) return false \n    \n    if (n % i == 0) return true\n\n    return y(i + 1, n)\n}\n\nx(1, 10)",
     "nivel_dificuldade": "Muito Difícil",

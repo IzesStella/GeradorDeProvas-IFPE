@@ -66,7 +66,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Qual o retorno do programa abaixo para a chamada s(7,7).",
     "codigo_typescript": "function r(n : number) : string {\n    if (n === 0) return \"\"\n\n    return String(n % 4) + r(n-1)\n}\n\nfunction t(n : number) : string {\n    if (n === 0) return \"\"\n\n    return t(n-1) + String(n % 3)\n}\n\nfunction s(a : number, b : number) : string {\n    if (a === 0) return \"\"\n\n    if (a % 2 == 0) return s(a-1,b) + r(b) + \"\\n\"\n\n    return s(a-1,b) + t(b) + \"\\n\"\n}",
     "nivel_dificuldade": "Muito Difícil",

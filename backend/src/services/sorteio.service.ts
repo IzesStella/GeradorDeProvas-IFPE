@@ -9,7 +9,7 @@ export const SorteioService = {
       quantidade = 12;
     }
 
-    // 1. REGRA DA MINIPROVA
+    // 1. REGRA DA MINIPROVA (implementação + execução)
     if (modo === 'miniprova') {
       const topicoSelecionado = topicos && topicos.length > 0 ? topicos[0] : null;
       if (!topicoSelecionado) return [];
@@ -36,12 +36,10 @@ export const SorteioService = {
     }
     const arrayTopicos = Array.from(topicosParaBuscar);
 
-    // 2. REGRA DAS UNIDADES (MODELO NOVO: 7 QUESTÕES)
-    if (modo === 'unidade1' || modo === 'unidade2') {
+    // 2. REGRA DA UNIDADE 1 (Ordenada por progressão de Dificuldade)
+    if (modo === 'unidade1') {
       const sql = `
-        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade = 'Fácil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 2)
-        UNION ALL
-        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade = 'Média' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 2)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 4)
         UNION ALL
         (SELECT * FROM questoes WHERE tipo_questao = 'Execução de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
         UNION ALL
@@ -51,10 +49,14 @@ export const SorteioService = {
       `;
       const { rows } = await pool.query(sql, [arrayTopicos]);
       
-      // FORÇANDO A ORDEM EXATA NO JAVASCRIPT:
+      const pesosDificuldade: Record<string, number> = { 'Fácil': 1, 'Média': 2, 'Difícil': 3 };
+
+      const implementacoes = rows
+        .filter(q => q.tipo_questao === 'Implementação' && q.nivel_dificuldade !== 'Muito Difícil')
+        .sort((a, b) => (pesosDificuldade[a.nivel_dificuldade] || 99) - (pesosDificuldade[b.nivel_dificuldade] || 99));
+
       const provaOrdenada = [
-        ...rows.filter(q => q.tipo_questao === 'Implementação' && q.nivel_dificuldade === 'Fácil'),
-        ...rows.filter(q => q.tipo_questao === 'Implementação' && q.nivel_dificuldade === 'Média'),
+        ...implementacoes,
         ...rows.filter(q => q.tipo_questao === 'Execução de Código' && q.nivel_dificuldade !== 'Muito Difícil'),
         ...rows.filter(q => q.tipo_questao === 'Correção de Código' && q.nivel_dificuldade !== 'Muito Difícil'),
         ...rows.filter(q => q.nivel_dificuldade === 'Muito Difícil')
@@ -63,10 +65,14 @@ export const SorteioService = {
       return provaOrdenada; 
     }
 
-    // 3. REGRA DA AVALIAÇÃO FINAL (MODELO ANTIGO: 6 QUESTÕES)
-    if (modo === 'final') {
+    // 2.1 REGRA DA UNIDADE 2 (6 Questões - Ordenada por progressão de Tópicos)
+    if (modo === 'unidade2') {
       const sql = `
-        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 3)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = 'Vetores' ORDER BY RANDOM() LIMIT 1)
+        UNION ALL
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = 'Arrays' ORDER BY RANDOM() LIMIT 1)
+        UNION ALL
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = 'Tipos' ORDER BY RANDOM() LIMIT 1)
         UNION ALL
         (SELECT * FROM questoes WHERE tipo_questao = 'Correção de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
         UNION ALL
@@ -76,9 +82,40 @@ export const SorteioService = {
       `;
       const { rows } = await pool.query(sql, [arrayTopicos]);
       
-      // FORÇANDO A ORDEM EXATA DA FINAL: Impl -> Correção -> Execução -> Muito Difícil
+      const pesosTopico: Record<string, number> = { 'Vetores': 1, 'Arrays': 2, 'Tipos': 3 };
+
+      // Ordena garantindo que Vetores vem antes de Arrays, que vem antes de Tipos
+      const implementacoes = rows
+        .filter(q => q.tipo_questao === 'Implementação' && q.nivel_dificuldade !== 'Muito Difícil')
+        .sort((a, b) => (pesosTopico[a.topico] || 99) - (pesosTopico[b.topico] || 99));
+
       const provaOrdenada = [
-        ...rows.filter(q => q.tipo_questao === 'Implementação' && q.nivel_dificuldade !== 'Muito Difícil'),
+        ...implementacoes,
+        ...rows.filter(q => q.tipo_questao === 'Correção de Código' && q.nivel_dificuldade !== 'Muito Difícil'),
+        ...rows.filter(q => q.tipo_questao === 'Execução de Código' && q.nivel_dificuldade !== 'Muito Difícil'),
+        ...rows.filter(q => q.nivel_dificuldade === 'Muito Difícil')
+      ];
+
+      return provaOrdenada; 
+    }
+
+    // 3. REGRA DA AVALIAÇÃO FINAL (Garantindo equilíbrio entre Média e Difícil)
+    if (modo === 'final') {
+      const sql = `
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade = 'Média' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 2)
+        UNION ALL
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade = 'Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        UNION ALL
+        (SELECT * FROM questoes WHERE tipo_questao = 'Correção de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        UNION ALL
+        (SELECT * FROM questoes WHERE tipo_questao = 'Execução de Código' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1)
+        UNION ALL
+        (SELECT * FROM questoes WHERE nivel_dificuldade = 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = ANY($1) ORDER BY RANDOM() LIMIT 1);
+      `;
+      const { rows } = await pool.query(sql, [arrayTopicos]);
+      
+      const provaOrdenada = [
+        ...rows.filter(q => q.tipo_questao === 'Implementação'),
         ...rows.filter(q => q.tipo_questao === 'Correção de Código' && q.nivel_dificuldade !== 'Muito Difícil'),
         ...rows.filter(q => q.tipo_questao === 'Execução de Código' && q.nivel_dificuldade !== 'Muito Difícil'),
         ...rows.filter(q => q.nivel_dificuldade === 'Muito Difícil')
@@ -107,17 +144,46 @@ export const SorteioService = {
     const { rows, rowCount } = await pool.query(sql, values);
     if (!rows || rowCount === 0) return []; 
 
+    const provaFinal: any[] = [];
+    
+    // Embaralha o pool completo antes de começar a extrair
+    const questoesRestantes = [...rows].sort(() => 0.5 - Math.random());
+
+    // PASSO 1: Garantir ao menos UMA questão de cada DIFICULDADE solicitada (se existir no BD)
+    if (dificuldades && dificuldades.length > 0) {
+      const dificuldadesEmbaralhadas = [...dificuldades].sort(() => 0.5 - Math.random());
+      for (const dif of dificuldadesEmbaralhadas) {
+        if (provaFinal.length >= quantidade) break;
+        const index = questoesRestantes.findIndex(q => q.nivel_dificuldade === dif);
+        if (index !== -1) {
+          provaFinal.push(questoesRestantes.splice(index, 1)[0]);
+        }
+      }
+    }
+
+    // PASSO 2: Garantir ao menos UMA questão de cada TÓPICO solicitado (se existir no BD)
+    if (arrayTopicos && arrayTopicos.length > 0) {
+      const topicosEmbaralhados = [...arrayTopicos].sort(() => 0.5 - Math.random());
+      for (const topico of topicosEmbaralhados) {
+        if (provaFinal.length >= quantidade) break;
+        // Verifica se esse tópico já foi incluído no Passo 1
+        const hasTopic = provaFinal.some(q => q.topico === topico);
+        if (!hasTopic) {
+          const index = questoesRestantes.findIndex(q => q.topico === topico);
+          if (index !== -1) {
+            provaFinal.push(questoesRestantes.splice(index, 1)[0]);
+          }
+        }
+      }
+    }
+
+    // PASSO 3: Preencher o restante (se faltar) dividindo os tópicos de forma equilibrada (Round-Robin)
     const questoesPorTopico: Record<string, any[]> = {};
-    for (const q of rows) {
+    for (const q of questoesRestantes) {
       if (!questoesPorTopico[q.topico]) questoesPorTopico[q.topico] = [];
       questoesPorTopico[q.topico].push(q);
     }
 
-    for (const t in questoesPorTopico) {
-      questoesPorTopico[t] = questoesPorTopico[t].sort(() => 0.5 - Math.random());
-    }
-
-    const provaFinal: any[] = [];
     const topicosDisponiveis = Object.keys(questoesPorTopico);
     let indexTopico = 0;
 
@@ -135,6 +201,7 @@ export const SorteioService = {
       indexTopico++;
     }
 
+    // Retorna a prova final misturada para a ordem não ficar previsível
     return provaFinal.sort(() => 0.5 - Math.random());
   }
 };

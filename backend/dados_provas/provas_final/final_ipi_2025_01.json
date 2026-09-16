@@ -55,7 +55,7 @@
     "ano": "2025.01"
   },
   {
-    "topico": "Arrays",
+    "topico": "Recursão - Unidade 2",
     "enunciado": "Sem utilizar laços, implemente um subprograma capaz de retornar a soma dos elementos de um array de quatro dimensões.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

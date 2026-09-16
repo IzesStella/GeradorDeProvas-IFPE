@@ -15,7 +15,9 @@ const TOPICOS_PADRAO = [
   'Subprogramas',
   'Vetores',
   'Arrays',
-  'Tipos'
+  'Tipos',
+  'Recursão - Unidade 1',
+  'Recursão - Unidade 2'
 ];
 
 const TOPICOS_MINIPROVA = [
@@ -65,18 +67,19 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
           'Operadores Lógicos',
           'Execução Condicional',
           'Laços',
-          'Subprogramas'
+          'Subprogramas',
+          'Recursão - Unidade 1'
         ]);
         break;
       case 'unidade2':
-        setQuantidade(7);
+        setQuantidade(6);
         setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
-        setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos']);
+        setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos', 'Recursão - Unidade 2']);
         break;
       case 'final':
         setQuantidade(6);
         setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
-        setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos']);
+        setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos', 'Recursão - Unidade 2']);
         break;
       case 'livre':
         setQuantidade(estadoLivreRef.current.quantidade);

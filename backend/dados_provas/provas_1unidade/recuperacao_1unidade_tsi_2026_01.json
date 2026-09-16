@@ -66,7 +66,7 @@
     "ano": "2026.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Implemente um subprograma capaz de retornar uma string no formato abaixo.\n\nLimitações:\n(1) a resposta não pode contar laços;\n(2) a resposta deve construir a string caractere por caractere.\n\n*_*_*_AAAAAA\n_*_*_*BBBBBB\nAAAAAAAAAAAA\nBBBBBBBBBBBB",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

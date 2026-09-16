@@ -66,7 +66,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Implemente um subprograma capaz de, dado um número n, imprimir os n primeiros números primos sem a utilização de laços.\n\nObservação: soluções que utilizem laços valem até 2 pontos; soluções sem a utilização de laços (recursividade) valem até 10 pontos.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

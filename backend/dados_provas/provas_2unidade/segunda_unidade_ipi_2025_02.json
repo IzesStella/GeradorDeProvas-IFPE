@@ -55,7 +55,7 @@
     "ano": "2025.02"
   },
   {
-    "topico": "Recursão",
+    "topico": "Recursão - Unidade 2",
     "enunciado": "Uma lista ligada é uma estrutura de dados onde cada elemento possui um valor e um link para o próximo elemento da fila. Implemente uma lista ligada além de operações para a busca, inserção e remoção de um elemento na lista.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

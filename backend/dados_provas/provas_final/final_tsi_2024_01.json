@@ -55,7 +55,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 2", 
     "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de preencher os elementos de um array bidimensional de 10x10 com os primeiros 100 números primos.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

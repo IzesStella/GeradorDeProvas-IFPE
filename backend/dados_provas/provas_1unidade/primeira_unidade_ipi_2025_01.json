@@ -78,7 +78,7 @@
     "ano": "2025.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Qual o retorno da chamada b(10, 10, 0), considerando as funções abaixo?",
     "codigo_typescript": "function a(c: string, x: number, w: number): string {\n    if (c.length == x) { return c }\n    if (c.length == w) { return a(c + '^', x, w) }\n    return a(c + '.', x, w)\n}\n\nfunction b(x: number, y: number, z: number): string {\n    if (x == z) { return \"\" }\n    return b(x, y, z+1) + '\\n' + a(\"\", y, z)\n}",
     "nivel_dificuldade": "Muito Difícil",

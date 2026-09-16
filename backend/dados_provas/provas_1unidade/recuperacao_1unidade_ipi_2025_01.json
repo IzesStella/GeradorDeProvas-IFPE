@@ -66,7 +66,7 @@
     "ano": "2025.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de construir e retornar uma string de n linhas por m colunas, caractere por caractere, no padrão abaixo.\n\nQuando n=5 e m = 6:\n\n>####<\n>>##<<\n>>><<<\n>>##<<\n>####<",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

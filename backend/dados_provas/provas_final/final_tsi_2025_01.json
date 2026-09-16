@@ -55,7 +55,7 @@
     "ano": "2025.01"
   },
   {
-    "topico": "Tipos",
+    "topico": "Recursão - Unidade 2",
     "enunciado": "Implemente as classes de uma rede social de vídeos como o youtube, além da função proximoVideo, que dado o histórico dos vídeos assistidos pelo usuário, sugere um novo vídeo.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

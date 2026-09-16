@@ -55,7 +55,7 @@
     "ano": "2025.01"
   },
   {
-    "topico": "Arrays",
+    "topico": "Recursão - Unidade 2",
     "enunciado": "Sem utilizar laços, implemente uma função capaz de imprimir todos os elementos de um array de 3 dimensões.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

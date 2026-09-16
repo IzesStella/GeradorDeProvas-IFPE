@@ -66,7 +66,7 @@
     "ano": "2025.02"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de construir uma string caractere por caractere e retornar o seguinte padrão, quando seu parâmetro n é 7:\n\nHHHH*\nHHH**\nHH***\nH****\nHH***\nHHH**\nHHHH*",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

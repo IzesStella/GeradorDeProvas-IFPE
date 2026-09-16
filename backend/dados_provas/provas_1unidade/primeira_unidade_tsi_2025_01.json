@@ -66,7 +66,7 @@
     "ano": "2025.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Implemente um subprograma (sem utilizar laços) capaz de construir uma string caractere por caractere e retornar o seguinte padrão, quando seu parâmetro n é 9:\n\nX###X###X\n#X##X##X#\n##X#X#X##\n###XXX###\n####X####",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

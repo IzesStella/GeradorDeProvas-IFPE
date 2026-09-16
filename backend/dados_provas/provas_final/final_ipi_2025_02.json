@@ -56,7 +56,7 @@
   },
   {
     "topico": "Tipos",
-    "enunciado": "Crie os tipos de um sistema de streaming de áudio (como o Spotfy), além de um subprograma capaz de, dado o perfil de um usuário como parâmetro, retornar uma lista personalizada de músicas recomendadas.",
+    "enunciado": "Crie os tipos de um sistema de streaming de áudio (como o Spotify), além de um subprograma capaz de, dado o perfil de um usuário como parâmetro, retornar uma lista personalizada de músicas recomendadas.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",
     "tipo_questao": "Implementação",

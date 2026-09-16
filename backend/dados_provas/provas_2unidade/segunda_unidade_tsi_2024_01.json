@@ -55,7 +55,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Tipos",
+    "topico": "Recursão - Unidade 2",
     "enunciado": "Implemente as classes de um serviço de micromensagens como o threads ou o bluesky.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",

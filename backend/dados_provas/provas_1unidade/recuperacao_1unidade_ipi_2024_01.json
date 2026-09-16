@@ -66,7 +66,7 @@
     "ano": "2024.01"
   },
   {
-    "topico": "Subprogramas",
+    "topico": "Recursão - Unidade 1",
     "enunciado": "Implemente um subprograma capaz de, dado um número ímpar n, imprimir um padrão losangular de n linhas, conforme o exemplo abaixo para n = 7:\n\n#######\n### ###\n##   ##\n#     #\n##   ##\n### ###\n#######\n\nObservação: soluções que utilizem laços valem até 2 pontos, soluções sem a utilização de laços, valem até 10 pontos.",
     "codigo_typescript": null,
     "nivel_dificuldade": "Muito Difícil",
