@@ -61,7 +61,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         break;
       case 'unidade1':
         setQuantidade(7);
-        setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
+        setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil', 'Muito Difícil']);
         setTopicosSelecionados([
           'Operadores, Tipos e Variáveis',
           'Operadores Lógicos',
@@ -73,12 +73,12 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         break;
       case 'unidade2':
         setQuantidade(6);
-        setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
+        setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil', 'Muito Difícil']);
         setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos', 'Recursão - Unidade 2']);
         break;
       case 'final':
         setQuantidade(6);
-        setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil']);
+        setDificuldadesSelecionadas(['Fácil', 'Média', 'Difícil', 'Muito Difícil']);
         setTopicosSelecionados(['Vetores', 'Arrays', 'Tipos', 'Recursão - Unidade 2']);
         break;
       case 'livre':
