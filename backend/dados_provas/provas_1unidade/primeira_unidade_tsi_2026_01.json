@@ -56,7 +56,7 @@
   },
   {
     "topico": "Subprogramas",
-    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os n primeiros números da sequência 1, -2, 3, -4, 5, -6… Comente cada uma das modificações feitas.",
+    "enunciado": "Corrija o subprograma abaixo para que ele seja capaz de imprimir os n primeiros números da sequência 1, -2, 3, -4, 5, -6…\n Comente cada uma das modificações feitas.",
     "codigo_typescript": "function c(n : number) : void {\n    let x : number = -1\n    for (let i : number = 0; i < n; i--) {\n        if (x % 2 == 0) {\n            x = -x\n        }\n    }\n    console.log(i*x)\n}",
     "nivel_dificuldade": "Difícil",
     "tipo_questao": "Correção de Código",
