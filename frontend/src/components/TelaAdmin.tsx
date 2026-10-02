@@ -50,6 +50,7 @@ const ORIGENS_BASE = [
 ];
 
 const CURSOS_DISPONIVEIS = ['IPI', 'TSI'];
+const ITENS_POR_PAGINA = 12;
 
 export function TelaAdmin({ onVoltar }: TelaAdminProps) {
   const [topico, setTopico] = useState('');
@@ -61,13 +62,21 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
   const [origemCurso, setOrigemCurso] = useState(CURSOS_DISPONIVEIS[0]);
   const [tipoQuestao, setTipoQuestao] = useState('Implementação');
   const [tabelaEnunciado, setTabelaEnunciado] = useState('');
+  
   const [questoes, setQuestoes] = useState<Questao[]>([]);
   const [editandoId, setEditandoId] = useState<number | null>(null);
   const [modalAjudaAberto, setModalAjudaAberto] = useState(false);
 
+  const [termoPesquisa, setTermoPesquisa] = useState('');
+  const [paginaAtual, setPaginaAtual] = useState(1);
+
   useEffect(() => {
     carregarQuestoes();
   }, []);
+
+  useEffect(() => {
+    setPaginaAtual(1);
+  }, [termoPesquisa]);
 
   const carregarQuestoes = async () => {
     try {
@@ -83,7 +92,6 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
 
   const handleSalvar = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!topico) {
       alert('Por favor, selecione um tópico válido.');
       return;
@@ -149,6 +157,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
 
     let oBase = '';
     let oCurso = CURSOS_DISPONIVEIS[0];
+
     if (questao.origem) {
       if (questao.origem.endsWith(' - IPI')) {
         oCurso = 'IPI';
@@ -189,6 +198,27 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
     setTabelaEnunciado('');
   };
 
+  const questoesFiltradas = questoes.filter((q) => {
+    const termo = termoPesquisa.toLowerCase();
+    return (
+      q.topico.toLowerCase().includes(termo) ||
+      q.origem.toLowerCase().includes(termo) ||
+      q.ano.toLowerCase().includes(termo) ||
+      q.nivel_dificuldade.toLowerCase().includes(termo) ||
+      (q.tipo_questao || '').toLowerCase().includes(termo) ||
+      q.id.toString().includes(termo)
+    );
+  });
+
+  const totalPaginas = Math.max(1, Math.ceil(questoesFiltradas.length / ITENS_POR_PAGINA));
+  
+  if (paginaAtual > totalPaginas) {
+    setPaginaAtual(totalPaginas);
+  }
+
+  const indexInicial = (paginaAtual - 1) * ITENS_POR_PAGINA;
+  const questoesPaginadas = questoesFiltradas.slice(indexInicial, indexInicial + ITENS_POR_PAGINA);
+
   return (
     <>
       <style>{`
@@ -202,28 +232,42 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
         .btn-link-editar:hover { text-decoration: underline; opacity: 0.8; }
         .btn-link-excluir { background: transparent; color: #e74c3c; border: none; padding: 0; font-size: 13px; font-weight: bold; cursor: pointer; transition: opacity 0.2s; }
         .btn-link-excluir:hover { text-decoration: underline; opacity: 0.8; }
+        
         .badge { font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; color: #e0e0e0; line-height: 1; }
         .badge::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; position: relative; top: -1px; }
         .badge-facil::before { background-color: #2ecc71; box-shadow: 0 0 8px rgba(46, 204, 113, 0.4); }
         .badge-media::before { background-color: #f39c12; box-shadow: 0 0 8px rgba(243, 156, 18, 0.4); }
-        .badge-dificil::before { background-color: #e74c3c; box-shadow: 0 0 8px rgba(231, 76, 60, 0.4); }
-        .form-container-fixo {
-          background-color: #1a1d24; padding: 25px; border-radius: 12px; flex: 1 1 340px; max-width: 480px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-          position: sticky; top: 25px; align-self: flex-start; max-height: calc(100vh - 50px); overflow-y: auto;
-        }
-        .form-container-fixo::-webkit-scrollbar { width: 6px; }
-        .form-container-fixo::-webkit-scrollbar-track { background: #1a1d24; }
-        .form-container-fixo::-webkit-scrollbar-thumb { background: #2a2d35; border-radius: 4px; }
-        .form-container-fixo::-webkit-scrollbar-thumb:hover { background: #3a3d45; }
+        .badge-dificil::before { background-color: #ff331d; box-shadow: 0 0 8px rgba(231, 76, 60, 0.4); }
+        .badge-muitodificil::before { background-color: #ff0707; box-shadow: 0 0 8px rgba(192, 57, 43, 0.4); }
+        
+        .form-container-fixo { background-color: #1a1d24; padding: 25px; border-radius: 12px; flex: 1 1 340px; max-width: 480px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        
         .secao-form { background-color: #121418; border: 1px solid #2a2d35; padding: 18px; border-radius: 8px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px;}
         .secao-titulo { color: #fff; font-size: 14px; font-weight: bold; margin: 0 0 12px 0; padding-bottom: 8px; border-bottom: 1px solid #2a2d35; display: flex; align-items: center; gap: 8px; }
         .form-label { display: block; margin-bottom: 5px; color: #a0aab5; font-size: 13px; }
-        .form-input {
-          width: 100%; padding: 10px 12px; background-color: #1a1d24; border: 1px solid #3a3d45;
-          color: #fff; border-radius: 6px; box-sizing: border-box; font-size: 13px; transition: border-color 0.2s;
-        }
+        .form-input { width: 100%; padding: 10px 12px; background-color: #1a1d24; border: 1px solid #3a3d45; color: #fff; border-radius: 6px; box-sizing: border-box; font-size: 13px; transition: border-color 0.2s; }
         .form-input:focus { border-color: #36a860; outline: none; }
         .form-input::placeholder { color: #6a737d; }
+
+        .btn-paginacao { background-color: #2a2d35; color: #fff; border: none; width: 32px; height: 32px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background-color 0.2s; font-weight: bold; }
+        .btn-paginacao:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-paginacao:not(:disabled):hover { background-color: #36a860; color: #121418; }
+        
+        .tabela-container-principal {
+          display: flex;
+          flex-direction: column;
+          background-color: #1a1d24;
+          padding: 25px;
+          border-radius: 12px;
+          flex: 2 1 450px;
+          width: 100%;
+          max-width: 100%;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .input-pesquisa-container { position: relative; width: 280px; max-width: 100%; }
+        .input-pesquisa-container svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #6a737d; }
+
         @media (max-width: 960px) {
           .header-admin { flex-direction: row !important; flex-wrap: wrap; padding: 15px 20px !important; }
           .header-admin > div:nth-child(1) { flex: unset !important; width: 50%; justify-content: flex-start !important; }
@@ -231,13 +275,14 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           .header-admin > div:nth-child(2) { flex: unset !important; width: 100%; justify-content: center !important; margin-top: 15px; order: 3; text-align: center; }
           .container-principal { padding: 20px 15px !important; }
         }
-        /* CORREÇÃO DO BUG DO FORMULÁRIO FLUTUANDO */
         @media (max-width: 768px) {
-          .container-principal { flex-direction: column !important; align-items: center !important; gap: 20px !important;}
-          .form-container-fixo { position: relative !important; max-width: 100% !important; max-height: none !important; overflow: visible !important; top: auto !important; }
-          .tabela-container { max-width: 100% !important; width: 100% !important; padding: 20px 15px !important; }
+          .container-principal { flex-direction: column !important; align-items: stretch !important; gap: 20px !important;}
+          .tabela-container-principal { max-width: 100% !important; width: 100% !important; padding: 20px 15px !important; height: auto !important; }
+          .cabecalho-tabela { flex-direction: column; align-items: flex-start !important; gap: 15px; }
+          .input-pesquisa-container { width: 100%; }
         }
       `}</style>
+
       <div style={{ backgroundColor: '#121418', minHeight: '100vh', color: '#e0e0e0', display: 'flex', flexDirection: 'column' }}>
         <header className="header-admin" style={{ backgroundColor: '#1a1d24', padding: '15px 5vw', display: 'flex', alignItems: 'center', borderBottom: '1px solid #2a2d35' }}>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
@@ -266,7 +311,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
               Voltar
             </button>
             <div 
-              onClick={() => setModalAjudaAberto(true)} 
+              onClick={() => setModalAjudaAberto(true)}
               style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#2a2d35', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', cursor: 'pointer', flexShrink: 0, transition: '0.2s', marginLeft: '15px' }}
               onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#36a860'}
               onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2a2d35'}
@@ -276,12 +321,13 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
           </div>
         </header>
 
-        <div className="container-principal" style={{ flex: 1, padding: '25px 5vw', display: 'flex', gap: '30px', alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div className="container-principal" style={{ flex: 1, padding: '25px 5vw', display: 'flex', gap: '30px', alignItems: 'stretch', justifyContent: 'center', flexWrap: 'wrap' }}>
+          
           <div className="form-container-fixo">
             <h2 style={{ color: '#fff', marginBottom: '20px', fontSize: '22px', marginTop: 0 }}>
               {editandoId ? 'Editar Questão' : 'Cadastrar Nova Questão'}
             </h2>
-            <form onSubmit={handleSalvar} style={{ display: 'flex', flexDirection: 'column' }}>
+            <form onSubmit={handleSalvar} style={{ display: 'flex', flexDirection: 'column', height: 'calc(100% - 45px)' }}>
               <div className="secao-form">
                 <h3 className="secao-titulo">Classificação</h3>
                 <div>
@@ -311,7 +357,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                   </div>
                 </div>
               </div>
-
+              
               <div className="secao-form">
                 <h3 className="secao-titulo">Origem</h3>
                 <div>
@@ -335,7 +381,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 </div>
               </div>
 
-              <div className="secao-form">
+              <div className="secao-form" style={{ flex: 1 }}>
                 <h3 className="secao-titulo">Conteúdo</h3>
                 <div>
                   <label className="form-label">Enunciado (Use Enter p/ quebrar linha):</label>
@@ -351,7 +397,7 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '10px' }}>
+              <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
                 <button type="submit" className="btn-primario" style={{ flex: editandoId ? 1 : 2 }}>
                   {editandoId ? 'Atualizar Questão' : 'Salvar Nova Questão'}
                 </button>
@@ -364,11 +410,29 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
             </form>
           </div>
 
-          <div className="tabela-container" style={{ backgroundColor: '#1a1d24', padding: '25px', borderRadius: '12px', flex: '2 1 450px', width: '100%', maxWidth: '100%', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-            <h2 style={{ color: '#fff', marginBottom: '20px', fontSize: '20px', marginTop: 0 }}>Banco de Questões</h2>
-            <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '10px' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '650px' }}>
-                <thead>
+          <div className="tabela-container-principal">
+            <div className="cabecalho-tabela" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h2 style={{ color: '#fff', margin: 0, fontSize: '20px' }}>Banco de Questões</h2>
+              
+              <div className="input-pesquisa-container">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Pesquisar por tópico, ano, tipo..."
+                  value={termoPesquisa}
+                  onChange={(e) => setTermoPesquisa(e.target.value)}
+                  className="form-input"
+                  style={{ paddingLeft: '36px', borderRadius: '20px' }}
+                />
+              </div>
+            </div>
+
+            <div style={{ flex: 1, overflowX: 'auto', paddingRight: '5px', display: 'flex', flexDirection: 'column' }}>
+              <table style={{ width: '100%', height: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '650px' }}>
+                <thead style={{ position: 'sticky', top: 0, backgroundColor: '#1a1d24', zIndex: 1, height: '40px' }}>
                   <tr style={{ borderBottom: '2px solid #2a2d35', color: '#a0aab5', fontSize: '13px' }}>
                     <th style={{ padding: '10px 8px' }}>ID</th>
                     <th style={{ padding: '10px 8px' }}>Tópico</th>
@@ -379,19 +443,25 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                   </tr>
                 </thead>
                 <tbody>
-                  {questoes.length === 0 ? (
+                  {questoesFiltradas.length === 0 ? (
                     <tr>
-                      <td colSpan={6} style={{ padding: '30px', textAlign: 'center', color: '#6a737d' }}>Nenhuma questão cadastrada ainda.</td>
+                      <td colSpan={6} style={{ padding: '40px', textAlign: 'center', color: '#6a737d' }}>
+                        {termoPesquisa ? 'Nenhuma questão encontrada com esses filtros.' : 'Nenhuma questão cadastrada ainda.'}
+                      </td>
                     </tr>
                   ) : (
-                    questoes.map((q) => (
-                      <tr key={q.id} style={{ borderBottom: '1px solid #2a2d35', fontSize: '13px' }}>
+                    questoesPaginadas.map((q, index) => (
+                      <tr key={q.id} style={{ borderBottom: index === questoesPaginadas.length - 1 ? 'none' : '1px solid #2a2d35', fontSize: '13px' }}>
                         <td style={{ padding: '12px 8px', color: '#a0aab5' }}>#{q.id}</td>
                         <td style={{ padding: '12px 8px', fontWeight: 'bold', color: '#e0e0e0' }}>{q.topico}</td>
                         <td style={{ padding: '12px 8px', color: '#a0aab5' }}>{q.tipo_questao || 'N/A'}</td>
                         <td style={{ padding: '12px 8px', color: '#a0aab5' }}>{q.origem} ({q.ano})</td>
                         <td style={{ padding: '12px 8px' }}>
-                          <span className={ q.nivel_dificuldade === 'Fácil' ? 'badge badge-facil' : q.nivel_dificuldade === 'Média' ? 'badge badge-media' : 'badge badge-dificil' }>
+                          <span className={
+                            q.nivel_dificuldade === 'Fácil' ? 'badge badge-facil' :
+                            q.nivel_dificuldade === 'Média' ? 'badge badge-media' : 
+                            q.nivel_dificuldade === 'Difícil' ? 'badge badge-dificil' : 'badge badge-muitodificil'
+                          }>
                             {q.nivel_dificuldade}
                           </span>
                         </td>
@@ -407,9 +477,39 @@ export function TelaAdmin({ onVoltar }: TelaAdminProps) {
                 </tbody>
               </table>
             </div>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '15px', borderTop: '1px solid #2a2d35', marginTop: 'auto' }}>
+              <div style={{ color: '#a0aab5', fontSize: '13px' }}>
+                Mostrando <strong style={{ color: '#fff' }}>{questoesFiltradas.length > 0 ? indexInicial + 1 : 0}</strong> a <strong style={{ color: '#fff' }}>{Math.min(indexInicial + ITENS_POR_PAGINA, questoesFiltradas.length)}</strong> de <strong style={{ color: '#fff' }}>{questoesFiltradas.length}</strong>
+              </div>
+              
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <button 
+                  onClick={() => setPaginaAtual(p => Math.max(1, p - 1))} 
+                  disabled={paginaAtual === 1} 
+                  className="btn-paginacao"
+                  title="Página Anterior"
+                >
+                  &lt;
+                </button>
+                <span style={{ color: '#a0aab5', fontSize: '13px', margin: '0 5px' }}>
+                  Página <strong style={{ color: '#fff' }}>{paginaAtual}</strong> de {totalPaginas}
+                </span>
+                <button 
+                  onClick={() => setPaginaAtual(p => Math.min(totalPaginas, p + 1))} 
+                  disabled={paginaAtual === totalPaginas} 
+                  className="btn-paginacao"
+                  title="Próxima Página"
+                >
+                  &gt;
+                </button>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
+
       <ModalAjudaAdmin isOpen={modalAjudaAberto} onClose={() => setModalAjudaAberto(false)} />
     </>
   );
