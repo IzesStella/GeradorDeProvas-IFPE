@@ -565,7 +565,10 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         .adm-campo label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 5px; }
         .adm-dica { color: var(--mudo); font-size: 12px; margin-top: 4px; }
         .adm-modal { position: fixed; inset: 0; display: grid; place-items: center; z-index: 20; background: var(--veu); padding: 16px; }
-        .adm-modal .adm-card { padding: 22px; max-width: 360px; }
+        .adm-confirma { width: 100%; max-width: 420px; padding: 0; }
+        .adm-confirma-pe { justify-content: flex-end; }
+        .adm-btn.perigo { background: var(--vermelho); border-color: var(--vermelho); color: var(--on); }
+        .adm-btn.perigo:hover { background: var(--vermelho); filter: brightness(1.08); }
         .adm-aviso { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--texto); color: var(--bg); padding: 9px 16px; border-radius: 8px; z-index: 30; }
 
         @media (max-width: 960px) {
@@ -879,12 +882,16 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
 
         {idParaExcluir !== null && (
           <div className="adm-modal" onClick={() => setIdParaExcluir(null)}>
-            <div className="adm-card" role="alertdialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
-              <h3 style={{ margin: '0 0 6px' }}>Excluir questão #{idParaExcluir}?</h3>
-              <p className="adm-mudo" style={{ margin: '0 0 16px' }}>Essa ação não pode ser desfeita.</p>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
-                <button className="adm-btn" onClick={() => setIdParaExcluir(null)}>Cancelar</button>
-                <button className="adm-btn d" onClick={confirmarExclusao}>Excluir</button>
+            <div className="adm-card adm-confirma" role="alertdialog" aria-modal="true" aria-labelledby="adm-confirma-titulo" onClick={(e) => e.stopPropagation()}>
+              <div className="adm-gh">
+                <h3 id="adm-confirma-titulo">Excluir questão #{idParaExcluir}</h3>
+                <button className="adm-icone" onClick={() => setIdParaExcluir(null)} aria-label="Fechar">✕</button>
+              </div>
+              <div className="adm-gc">
+                A questão será removida do banco de dados. Essa ação não poderá ser desfeita.
+              </div>
+              <div className="adm-gf adm-confirma-pe">
+                <button className="adm-btn perigo" onClick={confirmarExclusao}>Excluir questão</button>
               </div>
             </div>
           </div>
