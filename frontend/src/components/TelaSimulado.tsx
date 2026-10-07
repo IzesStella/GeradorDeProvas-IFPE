@@ -187,9 +187,15 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
   const [questaoAtiva, setQuestaoAtiva] = useState(0);
   const secoesRef = useRef<(HTMLElement | null)[]>([]);
+  const cliqueRef = useRef<number | null>(null);
 
   useEffect(() => {
     const aoRolar = () => {
+      if (cliqueRef.current !== null) {
+        window.clearTimeout(cliqueRef.current);
+        cliqueRef.current = window.setTimeout(() => { cliqueRef.current = null; }, 150);
+        return;
+      }
       let atual = 0;
       secoesRef.current.forEach((el, i) => {
         if (el && el.getBoundingClientRect().top <= 160) atual = i;
@@ -209,6 +215,9 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
   const irParaQuestao = (index: number) => {
     const suave = !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (cliqueRef.current !== null) window.clearTimeout(cliqueRef.current);
+    cliqueRef.current = window.setTimeout(() => { cliqueRef.current = null; }, 300);
+    setQuestaoAtiva(index);
     secoesRef.current[index]?.scrollIntoView({ behavior: suave ? 'smooth' : 'auto', block: 'start' });
   };
 
