@@ -181,7 +181,7 @@ function Seletor({ rotulo, todos, valor, opcoes, onChange, ponto, alinharDireita
           </li>
           {opcoes.map((o) => (
             <li key={o} role="option" aria-selected={valor === o} className={valor === o ? 'on' : ''} onClick={() => escolher(o)}>
-              <span>{ponto && <i className={`adm-dif ${ponto(o)}`} style={{ marginRight: 2 }} />}{o}</span>{valor === o && <b>✓</b>}
+              <span className={ponto ? `adm-dif ${ponto(o)}` : undefined}>{o}</span>{valor === o && <b>✓</b>}
             </li>
           ))}
         </ul>
@@ -506,6 +506,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         .adm-sel-menu li:hover { background: var(--soft); }
         .adm-sel-menu li.on { background: var(--verde-bg); color: var(--verde-tx); font-weight: 700; }
         .adm-sel-menu li b { font-size: 12px; }
+        .adm-sel-menu .adm-dif { font-size: inherit; font-weight: inherit; }
         .adm-limpar { background: none; border: 0; color: var(--verde-tx); font-weight: 600; font-size: 13px; padding: 0 6px; height: 38px; }
         .adm-limpar:hover { text-decoration: underline; }
         .adm-busca { position: relative; flex: 1; min-width: 220px; }
@@ -675,10 +676,10 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
               <Icone d={ICONES.busca} />
               <input className="adm-in" type="text" placeholder="Buscar por enunciado, tópico, ano, tipo..." value={termoPesquisa} onChange={(e) => setTermoPesquisa(e.target.value)} aria-label="Buscar questões" />
             </div>
-            <Seletor rotulo="Tópico" todos="todos" valor={fTopico} opcoes={TOPICOS_DISPONIVEIS} onChange={setFTopico} />
-            <Seletor rotulo="Tipo" todos="todos" valor={fTipo} opcoes={TIPOS_QUESTAO} onChange={setFTipo} />
-            <Seletor rotulo="Dificuldade" todos="todas" valor={fDif} opcoes={DIFICULDADES} onChange={setFDif} ponto={classeDif} alinharDireita />
-            <Seletor rotulo="Curso" todos="todos" valor={fCurso} opcoes={CURSOS_DISPONIVEIS} onChange={setFCurso} alinharDireita />
+            <Seletor rotulo="Tópico" todos="Todos" valor={fTopico} opcoes={TOPICOS_DISPONIVEIS} onChange={setFTopico} />
+            <Seletor rotulo="Tipo" todos="Todos" valor={fTipo} opcoes={TIPOS_QUESTAO} onChange={setFTipo} />
+            <Seletor rotulo="Dificuldade" todos="Todas" valor={fDif} opcoes={DIFICULDADES} onChange={setFDif} ponto={classeDif} alinharDireita />
+            <Seletor rotulo="Curso" todos="Todos" valor={fCurso} opcoes={CURSOS_DISPONIVEIS} onChange={setFCurso} alinharDireita />
             {(fTopico || fTipo || fDif || fCurso) && (
               <button type="button" className="adm-limpar" onClick={() => { setFTopico(''); setFTipo(''); setFDif(''); setFCurso(''); }}>Limpar filtros</button>
             )}
