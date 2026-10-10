@@ -3,6 +3,7 @@ import { TelaConfiguracao } from './components/TelaConfiguracao';
 import { TelaSimulado } from './components/TelaSimulado';
 import { TelaAdmin } from './components/TelaAdmin';
 import { TelaLogin } from './components/TelaLogin';
+import { API_URL } from './config';
 import './App.css';
 
 export default function App() {
@@ -22,9 +23,9 @@ export default function App() {
 
   const handleGerar = async (filtros: any) => {
     setFiltrosSimulado(filtros);
-    
+
     try {
-      const resposta = await fetch('http://localhost:3333/api/simulado', {
+      const resposta = await fetch(`${API_URL}/api/simulado`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,37 +42,37 @@ export default function App() {
       }
     } catch (erro) {
       console.error('Erro na requisição:', erro);
-      alert('Erro de conexão. O backend está rodando na porta 3333?');
+      alert(`Erro de conexão. O backend está rodando em ${API_URL}?`);
     }
   };
 
   return (
     <>
       {telaAtual === 'configuracao' && (
-        <TelaConfiguracao 
-          onGerar={handleGerar} 
-          onAcessarAdmin={() => setTelaAtual('admin')} 
+        <TelaConfiguracao
+          onGerar={handleGerar}
+          onAcessarAdmin={() => setTelaAtual('admin')}
         />
       )}
-      
+
       {telaAtual === 'simulado' && (
-        <TelaSimulado 
+        <TelaSimulado
           questoes={questoesAtuais}
-          filtros={filtrosSimulado} 
-          onVoltar={() => setTelaAtual('configuracao')} 
+          filtros={filtrosSimulado}
+          onVoltar={() => setTelaAtual('configuracao')}
         />
       )}
 
       {telaAtual === 'admin' && (
         <>
           {!autenticado ? (
-            <TelaLogin 
-              onLoginSucesso={() => setAutenticado(true)} 
-              onVoltar={() => setTelaAtual('configuracao')} 
+            <TelaLogin
+              onLoginSucesso={() => setAutenticado(true)}
+              onVoltar={() => setTelaAtual('configuracao')}
             />
           ) : (
-            <TelaAdmin 
-              onVoltar={handleLogout} 
+            <TelaAdmin
+              onVoltar={handleLogout}
             />
           )}
         </>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ModalAjudaAdmin } from './ModalAjudaAdmin';
+import { API_URL } from '../config';
 
 const temaDoTCC = JSON.parse(JSON.stringify(vscDarkPlus));
 
@@ -95,7 +96,7 @@ const DIFICULDADES = ['Fácil', 'Média', 'Difícil', 'Muito Difícil'];
 // Quantidade de questões por página: no mínimo 12, aumentando conforme a altura da tela
 const MIN_ITENS_POR_PAGINA = 12;
 const MAX_ITENS_POR_PAGINA = 60;
-const API = 'http://localhost:3333/api/questoes';
+const API = `${API_URL}/api/questoes`;
 
 const separarOrigem = (origem: string) => {
   const m = (origem || '').match(/^(.*) - (IPI|TSI)$/);

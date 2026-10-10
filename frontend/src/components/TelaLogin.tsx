@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../config';
 
 interface TelaLoginProps {
   onLoginSucesso: () => void;
@@ -70,7 +71,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
     setErro('');
     setEnviando(true);
     try {
-      const resposta = await fetch('http://localhost:3333/api/login', {
+      const resposta = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ usuario, senha })

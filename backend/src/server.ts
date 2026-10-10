@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import routes from './routes/index.js';
@@ -10,7 +11,7 @@ app.use(express.json());
 // Direciona todas as requisições com prefixo /api para o arquivo routes/index.ts
 app.use('/api', routes);
 
-const PORT = 3333;
+const PORT = Number(process.env.PORT) || 3333;
 app.listen(PORT, () => {
   console.log(`Servidor backend rodando na porta ${PORT}`);
 });
