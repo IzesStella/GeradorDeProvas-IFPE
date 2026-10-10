@@ -371,11 +371,11 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
         .tela-simulado[data-tema='escuro'] .d3 { --c: #f08a5d; --b: rgba(240,138,93,.14); --t: #f6a07a; }
         .tela-simulado[data-tema='escuro'] .d4 { --c: #f27a96; --b: rgba(242,122,150,.14); --t: #f79bb1; }
 
-        .tela-simulado { background-color: var(--bg); color: var(--tx); font-family: system-ui, -apple-system, sans-serif; }
+        .tela-simulado { --cab: 71px; background-color: var(--bg); color: var(--tx); font-family: system-ui, -apple-system, sans-serif; }
         .tela-simulado button { font-family: inherit; }
         .tela-simulado button:focus-visible { outline: 2px solid var(--g); outline-offset: 2px; }
 
-        .header-sim { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); }
+        .header-sim { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); position: sticky; top: 0; z-index: 5; }
         .header-sim > div { flex: 1; display: flex; align-items: center; }
         .sim-titulo-cab { font-size: 18px; font-weight: bold; color: var(--tx); text-align: center; }
         .sim-contagem { font-size: 14px; font-weight: bold; color: var(--mu); white-space: nowrap; }
@@ -431,11 +431,11 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
         .sim-conteudo { min-width: 0; }
         .sim-indice { display: none; }
-        .sim-card { scroll-margin-top: 20px; }
+        .sim-card { scroll-margin-top: calc(var(--cab) + 20px); }
 
         @media screen and (min-width: 1100px) {
           .sim-main.com-indice { max-width: 1260px; display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: start; }
-          .sim-indice { display: flex; flex-direction: column; position: sticky; top: 20px; max-height: calc(100vh - 40px); background: var(--card); border: 1px solid var(--bd); border-radius: 16px; box-shadow: var(--sombra); padding: 18px 12px 12px; }
+          .sim-indice { display: flex; flex-direction: column; position: sticky; top: calc(var(--cab) + 20px); max-height: calc(100vh - var(--cab) - 40px); background: var(--card); border: 1px solid var(--bd); border-radius: 16px; box-shadow: var(--sombra); padding: 18px 12px 12px; }
           .sim-indice-topo { padding: 0 8px 12px; border-bottom: 1px solid var(--bd); margin-bottom: 8px; }
           .sim-indice-topo strong { display: block; font-size: 15px; }
           .sim-indice-topo span { font-size: 13px; color: var(--mu); }
@@ -461,6 +461,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           .sim-indice-topo span, .sim-indice-item > span { font-size: 15px; }
           .sim-indice-item small { font-size: 13px; }
           .sim-indice-item b { width: 30px; height: 30px; font-size: 13px; }
+          .tela-simulado { --cab: 83px; }
           .header-sim { padding: 18px 4vw; }
           .header-sim svg.sim-logo { height: 46px; }
           .sim-titulo-cab { font-size: 20px; }
@@ -482,6 +483,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           .sim-indice-topo span, .sim-indice-item > span { font-size: 18px; }
           .sim-indice-item small { font-size: 15px; }
           .sim-indice-item b { width: 36px; height: 36px; font-size: 15px; }
+          .tela-simulado { --cab: 101px; }
           .header-sim { padding: 22px 4vw; }
           .header-sim svg.sim-logo { height: 56px; }
           .sim-titulo-cab { font-size: 24px; }

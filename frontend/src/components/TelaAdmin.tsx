@@ -37,9 +37,7 @@ Object.keys(coresTCC).forEach((token) => {
 const normalizar = (t: unknown) =>
   String(t ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
-// Mesma chave usada pela tela inicial, para o tema ser um só em todo o sistema
 const CHAVE_TEMA = 'tema-gerador-provas';
-// Mesmos fundos da tela inicial e do login
 const FUNDO_BODY = { claro: '#f3f6f4', escuro: '#121418' } as const;
 
 interface TelaAdminProps {
@@ -443,7 +441,6 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         body, html { margin: 0; padding: 0; width: 100%; }
         .adm, .adm * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
 
-        /* Paleta igual à da tela inicial e do login */
         .adm { --bg:#f3f6f4; --surface:#ffffff; --soft:#f3f6f4; --chip:#eef2ef; --line:#dce4df; --line2:#aab7af; --texto:#17211b; --mudo:#55625b; --rodape:#66736b; --logo:#111111;
           --verde:#1f7a3d; --verde-h:#17602f; --verde-tx:#17602f; --verde-bg:#e6f4ea; --on:#ffffff; --vermelho:#c0392b;
           --sombra:0 6px 24px rgba(23,33,27,.06); --veu:rgba(10,20,14,.45);
@@ -459,7 +456,6 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         .adm button { cursor: pointer; }
         .adm :focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
 
-        /* Cabeçalho com as mesmas medidas da tela inicial */
         .adm-header { background: var(--surface); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 15px 5vw; position: sticky; top: 0; z-index: 5; line-height: normal; }
         .adm-logo { display: flex; justify-content: flex-start; }
         .adm-titulo { font-size: 18px; font-weight: bold; text-align: center; }

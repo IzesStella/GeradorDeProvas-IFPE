@@ -56,7 +56,6 @@ const NIVEIS = [
   { nome: 'Muito Difícil', classe: 'd4' }
 ];
 
-// Mesma chave usada pelo painel admin, para o tema ser um só em todo o sistema
 const CHAVE_TEMA = 'tema-gerador-provas';
 const FUNDO_BODY: Record<Tema, string> = { claro: '#f3f6f4', escuro: '#121418' };
 
@@ -246,7 +245,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
   return (
     <>
       <style>{`
-        body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+        body, html { margin: 0; padding: 0; width: 100%; overflow-x: clip; }
         *, *::before, *::after { box-sizing: border-box; }
 
         .tela-config {
@@ -275,7 +274,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         .tela-config { background-color: var(--bg); color: var(--tx); min-height: 100vh; display: flex; flex-direction: column; font-family: system-ui, -apple-system, sans-serif; }
         .tela-config button { font-family: inherit; }
 
-        .header-config { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); }
+        .header-config { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); position: sticky; top: 0; z-index: 5; }
         .titulo-cab { font-size: 18px; font-weight: bold; color: var(--tx); text-align: center; }
         .btn-admin { background: transparent; color: var(--mu); border: 1px solid var(--bd); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; }
         .btn-admin:hover { color: var(--tx); border-color: var(--bd2); }

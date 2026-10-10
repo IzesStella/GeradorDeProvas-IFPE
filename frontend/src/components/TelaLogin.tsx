@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 interface TelaLoginProps {
-  onLoginSucesso: () => void; // Nome alterado para coincidir com o App.tsx
+  onLoginSucesso: () => void;
   onVoltar: () => void;
 }
 
 type Tema = 'claro' | 'escuro';
 
-// Mesma chave usada pela tela inicial e pelo painel admin, para o tema ser um só em todo o sistema
 const CHAVE_TEMA = 'tema-gerador-provas';
 const FUNDO_BODY: Record<Tema, string> = { claro: '#f3f6f4', escuro: '#121418' };
 
@@ -80,7 +79,6 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
       const dados = await resposta.json();
 
       if (dados.auth) {
-        // Agora chamamos a função correta que o App.tsx espera
         onLoginSucesso();
       } else {
         setErro(dados.error || 'Usuário ou senha inválidos.');
@@ -96,7 +94,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
     <>
       <style>{`
         :root { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
-        body, html, #root { margin: 0 !important; padding: 0 !important; width: 100% !important; overflow-x: hidden; }
+        body, html, #root { margin: 0 !important; padding: 0 !important; width: 100% !important; overflow-x: clip; }
         .tela-login, .tela-login *, .tela-login *::before, .tela-login *::after { box-sizing: border-box; }
 
         .tela-login {
@@ -117,7 +115,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
         .tela-login { background-color: var(--bg); color: var(--tx); min-height: 100vh; display: flex; flex-direction: column; font-family: system-ui, -apple-system, sans-serif; }
         .tela-login button, .tela-login input { font-family: inherit; }
 
-        .header-login { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); }
+        .header-login { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); position: sticky; top: 0; z-index: 5; }
         .header-login > div { flex: 1; display: flex; align-items: center; }
         .login-titulo-cab { font-size: 18px; font-weight: bold; color: var(--tx); text-align: center; }
         .login-btn-circ { width: 32px; height: 32px; border-radius: 50%; background-color: var(--chip); color: var(--tx); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: 0.2s; padding: 0; }

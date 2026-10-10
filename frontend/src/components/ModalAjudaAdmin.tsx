@@ -3,123 +3,166 @@ interface ModalAjudaAdminProps {
   onClose: () => void;
 }
 
+const temaAtual = () => {
+  try {
+    const salvo = localStorage.getItem('tema-gerador-provas');
+    if (salvo === 'claro' || salvo === 'escuro') return salvo;
+  } catch {
+  }
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+};
+
 export function ModalAjudaAdmin({ isOpen, onClose }: ModalAjudaAdminProps) {
   if (!isOpen) return null;
 
   return (
-    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.75)', zIndex: 999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-      <div style={{ backgroundColor: '#1a1d24', borderRadius: '12px', width: '100%', maxWidth: '850px', maxHeight: '90vh', overflowY: 'auto', border: '1px solid #2a2d35', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column' }}>
-        
+    <div className="mda-veu" data-tema={temaAtual()} onClick={onClose}>
+      <style>{`
+        .mda-veu, .mda-veu * { box-sizing: border-box; }
+        .mda-veu {
+          --u: 1px; --bg: #f3f6f4; --card: #ffffff; --tx: #17211b; --mu: #55625b; --bd: #dce4df; --chip: #eef2ef;
+          --g: #1f7a3d; --on: #ffffff; --sombra: 0 20px 50px rgba(23,33,27,.18); --veu: rgba(10,20,14,.45);
+        }
+        .mda-veu[data-tema='escuro'] {
+          --bg: #121418; --card: #1a1d24; --tx: #e8efea; --mu: #a0aab5; --bd: #2a2d35; --chip: #2a2d35;
+          --g: #36a860; --on: #121418; --sombra: 0 20px 50px rgba(0,0,0,.5); --veu: rgba(0,0,0,.6);
+        }
+        .mda-veu .d1 { --c: #1f7a3d; --b: #e6f4ea; --t: #17602f; }
+        .mda-veu .d2 { --c: #b7791f; --b: #fff3d6; --t: #8a5a00; }
+        .mda-veu .d3 { --c: #c2501f; --b: #fde8df; --t: #a23a10; }
+        .mda-veu .d4 { --c: #a3203f; --b: #fbe3ea; --t: #8e1d3b; }
+        .mda-veu[data-tema='escuro'] .d1 { --c: #5fd38a; --b: rgba(95,211,138,.14); --t: #7fe3a2; }
+        .mda-veu[data-tema='escuro'] .d2 { --c: #f0b84a; --b: rgba(240,184,74,.14); --t: #f6c866; }
+        .mda-veu[data-tema='escuro'] .d3 { --c: #f08a5d; --b: rgba(240,138,93,.14); --t: #f6a07a; }
+        .mda-veu[data-tema='escuro'] .d4 { --c: #f27a96; --b: rgba(242,122,150,.14); --t: #f79bb1; }
+
+        .mda-veu { position: fixed; inset: 0; z-index: 999; background: var(--veu); display: flex; align-items: center; justify-content: center; padding: 20px; font-family: system-ui, -apple-system, sans-serif; }
+        .mda { width: 100%; max-width: calc(1060 * var(--u)); max-height: 90vh; background: var(--card); border: 1px solid var(--bd); border-radius: 16px; box-shadow: var(--sombra); display: flex; flex-direction: column; font-size: calc(16 * var(--u)); line-height: 1.6; color: var(--mu); text-align: left; }
+        .mda button { font-family: inherit; cursor: pointer; }
+        .mda button:focus-visible { outline: 2px solid var(--g); outline-offset: 2px; }
+        .mda-topo { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--bd); }
+        .mda-topo b { width: calc(36 * var(--u)); height: calc(36 * var(--u)); border-radius: 50%; background: var(--g); color: var(--on); display: grid; place-items: center; font-size: calc(18 * var(--u)); flex: none; }
+        .mda-topo > div { flex: 1; }
+        .mda-topo h2 { margin: 0; font-size: calc(21 * var(--u)); line-height: 1.2; color: var(--tx); }
+        .mda-topo span { font-size: calc(15 * var(--u)); }
+        .mda-fechar { width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--chip); color: var(--tx); display: grid; place-items: center; flex: none; padding: 0; transition: 0.2s; }
+        .mda-fechar:hover { background: var(--g); color: var(--on); }
+        .mda-corpo { padding: 26px 28px; overflow-y: auto; }
+        .mda-pe { padding: 16px 24px; border-top: 1px solid var(--bd); display: flex; justify-content: flex-end; }
+        .mda-btn { height: calc(46 * var(--u)); padding: 0 26px; border: 0; border-radius: 10px; background: var(--g); color: var(--on); font-size: calc(16 * var(--u)); font-weight: 700; }
+        .mda-btn:hover { filter: brightness(1.08); }
+
+        .mda-secao { margin: 0 0 12px; font-size: calc(18 * var(--u)); font-weight: 600; color: var(--tx); }
+        .mda-bloco { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--bd); }
+
+        .mda-lista { display: grid; gap: 8px; }
+        .mda-campo, .mda-nivel { display: grid; gap: 14px; align-items: start; border: 1.5px solid var(--bd); border-radius: 10px; padding: 12px 14px; font-size: calc(15 * var(--u)); }
+        .mda-campo { grid-template-columns: calc(140 * var(--u)) minmax(0, 1fr); }
+        .mda-campo strong { color: var(--tx); font-size: calc(16 * var(--u)); }
+        .mda-nivel, .mda-colunas { grid-template-columns: calc(140 * var(--u)) minmax(0, 1fr) minmax(0, 1.15fr); }
+        .mda-colunas { display: grid; gap: 14px; padding: 0 14px 6px; font-size: calc(14 * var(--u)); font-weight: 600; }
+        .mda-dif { display: inline-flex; align-items: center; gap: 7px; justify-self: start; border-radius: 999px; padding: 4px 12px; font-size: calc(13 * var(--u)); font-weight: 600; background: var(--b); color: var(--t); white-space: nowrap; }
+        .mda-dif::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+        .mda-exemplo { background: var(--bg); border-radius: 8px; padding: 10px 12px; color: var(--tx); }
+        .mda-exemplo small { display: block; margin-top: 6px; font-size: calc(13 * var(--u)); color: var(--mu); }
+        .mda-campo > span, .mda-nivel > span:nth-child(2), .mda-exemplo { text-align: justify; hyphens: auto; }
+        .mda-exemplo small { text-align: left; }
+
+        @media (min-width: 1700px) { .mda-veu { --u: 1.15px; } }
+        @media (min-width: 2200px) { .mda-veu { --u: 1.4px; } }
+        @media (max-width: 720px) {
+          .mda-veu { padding: 10px; }
+          .mda-campo, .mda-nivel { grid-template-columns: 1fr; gap: 8px; }
+          .mda-colunas { display: none; }
+          .mda-topo, .mda-corpo, .mda-pe { padding-left: 16px; padding-right: 16px; }
+        }
+      `}</style>
+
+      <div className="mda" lang="pt-BR" role="dialog" aria-modal="true" aria-labelledby="mda-titulo" onClick={(e) => e.stopPropagation()}>
+
         {/* HEADER DO MODAL */}
-        <div style={{ padding: '20px 30px', borderBottom: '1px solid #2a2d35', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'sticky', top: 0, backgroundColor: '#1a1d24', zIndex: 10 }}>
-          <h2 style={{ margin: 0, color: '#fff', fontSize: '18px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{ backgroundColor: '#36a860', color: '#121418', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-              </svg>
-            </div>
-            Guia de Cadastro de Questões
-          </h2>
-          <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#a0aab5', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', padding: '5px', transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = '#fff'} onMouseOut={(e) => e.currentTarget.style.color = '#a0aab5'}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+        <div className="mda-topo">
+          <b aria-hidden="true">?</b>
+          <div>
+            <h2 id="mda-titulo">Guia de cadastro de questões</h2>
+            <span>Como preencher o formulário e classificar a dificuldade</span>
+          </div>
+          <button type="button" className="mda-fechar" onClick={onClose} aria-label="Fechar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M18 6 6 18M6 6l12 12"></path>
             </svg>
           </button>
         </div>
 
         {/* CORPO DO MODAL */}
-        <div style={{ padding: '30px', color: '#a0aab5', fontSize: '14px', lineHeight: '1.6' }}>
-          
+        <div className="mda-corpo">
+
           {/* COMO CADASTRAR */}
-          <h3 style={{ color: '#fff', borderBottom: '1px solid #2a2d35', paddingBottom: '10px', margin: '0 0 15px 0', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', fontWeight: 600 }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#36a860" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="3" y1="9" x2="21" y2="9"></line>
-              <line x1="9" y1="21" x2="9" y2="9"></line>
-            </svg>
-            Como Preencher o Formulário
-          </h3>
-          <ul style={{ listStyleType: 'none', paddingLeft: 0, margin: '0 0 35px 0' }}>
-            <li style={{ marginBottom: '12px', paddingLeft: '16px', position: 'relative' }}>
-              <span style={{ position: 'absolute', left: 0, top: '8px', width: '6px', height: '6px', backgroundColor: '#36a860', borderRadius: '50%' }}></span>
-              <span style={{ color: '#e0e0e0', fontWeight: 600 }}>Classificação:</span> Defina o assunto da questão (Tópico). Defina se o aluno vai programar (Implementação), fazer teste de mesa (Execução) ou corrigir código (Correção). E o nível de dificuldade. 
-            </li>
-            <li style={{ marginBottom: '12px', paddingLeft: '16px', position: 'relative' }}>
-              <span style={{ position: 'absolute', left: 0, top: '8px', width: '6px', height: '6px', backgroundColor: '#36a860', borderRadius: '50%' }}></span>
-              <span style={{ color: '#e0e0e0', fontWeight: 600 }}>Origem:</span> Selecione a fonte original da questão (ex: Miniprova - Arrays) e o curso (IPI ou TSI) correspondente. O campo "Ano" ajuda a organizar a cronologia, mantendo a rastreabilidade entre o material original e o sistema.
-            </li>
-            <li style={{ paddingLeft: '16px', position: 'relative' }}>
-              <span style={{ position: 'absolute', left: 0, top: '8px', width: '6px', height: '6px', backgroundColor: '#36a860', borderRadius: '50%' }}></span>
-              <span style={{ color: '#e0e0e0', fontWeight: 600 }}>Conteúdo:</span> O enunciado deve conter a descrição clara da questão. Nunca use LaTeX (códigos com $) para contas matemáticas. Use formatação em texto puro (ex: x² + y² = z). A Tabela e o Código TypeScript são opcionais e só devem ser preenchidos se a questão exigir.
-            </li>
-          </ul>
+          <div className="mda-secao">Como preencher o formulário</div>
+          <div className="mda-lista">
+            <div className="mda-campo">
+              <strong>Classificação</strong>
+              <span>Defina o assunto da questão (Tópico). Defina se o aluno vai programar (Implementação), fazer teste de mesa (Execução) ou corrigir código (Correção). E o nível de dificuldade.</span>
+            </div>
+            <div className="mda-campo">
+              <strong>Origem</strong>
+              <span>Selecione a fonte original da questão (ex: Miniprova - Arrays) e o curso (IPI ou TSI) correspondente. O campo "Ano" ajuda a organizar a cronologia, mantendo a rastreabilidade entre o material original e o sistema.</span>
+            </div>
+            <div className="mda-campo">
+              <strong>Conteúdo</strong>
+              <span>O enunciado deve conter a descrição clara da questão. Nunca use LaTeX (códigos com $) para contas matemáticas. Use formatação em texto puro (ex: x² + y² = z). A Tabela e o Código TypeScript são opcionais e só devem ser preenchidos se a questão exigir.</span>
+            </div>
+          </div>
 
           {/* TABELA DE DIFICULDADES */}
-          <h3 style={{ color: '#fff', borderBottom: '1px solid #2a2d35', paddingBottom: '10px', margin: '0 0 15px 0', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '16px', fontWeight: 600 }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#36a860" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="12" y1="20" x2="12" y2="10"></line>
-              <line x1="18" y1="20" x2="18" y2="4"></line>
-              <line x1="6" y1="20" x2="6" y2="16"></line>
-            </svg>
-            Critérios e Exemplos de Dificuldade
-          </h3>
-          
-          <div style={{ overflowX: 'auto', border: '1px solid #2a2d35', borderRadius: '8px', marginTop: '15px' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
-              <thead>
-                <tr style={{ backgroundColor: '#2a2d35', color: '#fff' }}>
-                  <th style={{ padding: '12px', borderBottom: '1px solid #3a3d45', width: '15%', fontWeight: 600 }}>Nível</th>
-                  <th style={{ padding: '12px', borderBottom: '1px solid #3a3d45', width: '40%', fontWeight: 600 }}>Critério</th>
-                  <th style={{ padding: '12px', borderBottom: '1px solid #3a3d45', width: '45%', fontWeight: 'normal' }}>Exemplo Real no Banco</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #2a2d35' }}>
-                  <td style={{ padding: '12px', color: '#2ecc71', fontWeight: 600 }}>Fácil</td>
-                  <td style={{ padding: '12px', color: '#a0aab5', lineHeight: '1.5' }}>Geralmente encontradas em Miniprovas, são focadas na aplicação direta da sintaxe e dos fundamentos do tópico avaliado. O objetivo central é testar a compreensão inicial e a estruturação básica do algoritmo.</td>
-                  <td style={{ padding: '12px', color: '#e0e0e0', lineHeight: '1.5' }}>
-                    <span style={{ fontStyle: 'italic' }}>"Implemente um programa capaz de imprimir o valor de um balde de pipoca em um Cinema de acordo com seu tamanho. Os valores são os seguintes: balde grande - R$25,00, balde médio - R$18,00 e balde pequeno - R$12,00."</span>
-                    <div style={{ fontSize: '13px', color: '#7a8490', marginTop: '8px' }}>Origem: Miniprova - Execução Condicional - TSI / Ano: 2024.01</div>
-                  </td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #2a2d35' }}>
-                  <td style={{ padding: '12px', color: '#f39c12', fontWeight: 600 }}>Média</td>
-                  <td style={{ padding: '12px', color: '#a0aab5', lineHeight: '1.5' }}>Exigem a combinação simultânea de conceitos lógicos. Diferente do nível fácil, o foco não é testar a sintaxe, mas sim a capacidade do aluno de estruturar e acompanhar o fluxo do código.</td>
-                  <td style={{ padding: '12px', color: '#e0e0e0', lineHeight: '1.5' }}>
-                    <span style={{ fontStyle: 'italic' }}>"Implemente um programa capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1+(n-1).r."</span>
-                    <div style={{ fontSize: '13px', color: '#7a8490', marginTop: '8px' }}>Origem: Primeira Avaliação Individual - TSI / Ano: 2024.02</div>
-                  </td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #2a2d35' }}>
-                  <td style={{ padding: '12px', color: '#e74c3c', fontWeight: 600 }}>Difícil</td>
-                  <td style={{ padding: '12px', color: '#a0aab5', lineHeight: '1.5' }}>Demanda maior capacidade de abstração e foca nos conceitos de nível avançado da ementa. A diferença para o nível médio está na profundidade do raciocínio lógico, exigindo a construção de soluções mais trabalhosas para serem pensadas e organizadas.</td>
-                  <td style={{ padding: '12px', color: '#e0e0e0', lineHeight: '1.5' }}>
-                    <span style={{ fontStyle: 'italic' }}>"Implemente subprogramas capazes de realizar as seguintes operações: - Dado um array de uma dimensão e um número n como parâmetros, retornar quantas vezes o número n ocorre no array; - Dados dois arrays de uma dimensão como parâmetro, retornar aquele que possui mais números pares."</span>
-                    <div style={{ fontSize: '13px', color: '#7a8490', marginTop: '8px' }}>Origem: Avaliação Individual Final - IPI / Ano: 2024.02</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '12px', color: '#c0392b', fontWeight: 600 }}>Muito Difícil</td>
-                  <td style={{ padding: '12px', color: '#a0aab5', lineHeight: '1.5' }}>Questões com perfil de desafio ou questão extra. Cobram a resolução de problemas obedecendo a restrições específicas estipuladas no enunciado.</td>
-                  <td style={{ padding: '12px', color: '#e0e0e0', lineHeight: '1.5' }}>
-                    <span style={{ fontStyle: 'italic' }}>"Implemente um subprograma capaz de, dado um número ímpar n, imprimir um padrão losangular de n linhas [...] Observação: soluções que utilizem laços valem até 2 pontos, soluções sem a utilização de laços, valem até 10 pontos."</span>
-                    <div style={{ fontSize: '13px', color: '#7a8490', marginTop: '8px' }}>Origem: Primeira Recuperação Individual - IPI / Ano: 2024.01</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="mda-bloco">
+            <div className="mda-secao">Critérios e exemplos de dificuldade</div>
+            <div className="mda-colunas">
+              <span>Nível</span>
+              <span>Critério</span>
+              <span>Exemplo real no banco</span>
+            </div>
+            <div className="mda-lista">
+              <div className="mda-nivel">
+                <span className="mda-dif d1">Fácil</span>
+                <span>Geralmente encontradas em Miniprovas, são focadas na aplicação direta da sintaxe e dos fundamentos do tópico avaliado. O objetivo central é testar a compreensão inicial e a estruturação básica do algoritmo.</span>
+                <div className="mda-exemplo">
+                  "Implemente um programa capaz de imprimir o valor de um balde de pipoca em um Cinema de acordo com seu tamanho. Os valores são os seguintes: balde grande - R$25,00, balde médio - R$18,00 e balde pequeno - R$12,00."
+                  <small>Miniprova - Execução Condicional - TSI · 2024.01</small>
+                </div>
+              </div>
+              <div className="mda-nivel">
+                <span className="mda-dif d2">Média</span>
+                <span>Exigem a combinação simultânea de conceitos lógicos. Diferente do nível fácil, o foco não é testar a sintaxe, mas sim a capacidade do aluno de estruturar e acompanhar o fluxo do código.</span>
+                <div className="mda-exemplo">
+                  "Implemente um programa capaz de imprimir os n primeiros números de uma Progressão Aritmética (PA). Fórmula para o n-ésimo número de uma PA: an = a1+(n-1).r."
+                  <small>Primeira Avaliação Individual - TSI · 2024.02</small>
+                </div>
+              </div>
+              <div className="mda-nivel">
+                <span className="mda-dif d3">Difícil</span>
+                <span>Demanda maior capacidade de abstração e foca nos conceitos de nível avançado da ementa. A diferença para o nível médio está na profundidade do raciocínio lógico, exigindo a construção de soluções mais trabalhosas para serem pensadas e organizadas.</span>
+                <div className="mda-exemplo">
+                  "Implemente subprogramas capazes de realizar as seguintes operações: - Dado um array de uma dimensão e um número n como parâmetros, retornar quantas vezes o número n ocorre no array; - Dados dois arrays de uma dimensão como parâmetro, retornar aquele que possui mais números pares."
+                  <small>Avaliação Individual Final - IPI · 2024.02</small>
+                </div>
+              </div>
+              <div className="mda-nivel">
+                <span className="mda-dif d4">Muito Difícil</span>
+                <span>Questões com perfil de desafio ou questão extra. Cobram a resolução de problemas obedecendo a restrições específicas estipuladas no enunciado.</span>
+                <div className="mda-exemplo">
+                  "Implemente um subprograma capaz de, dado um número ímpar n, imprimir um padrão losangular de n linhas [...] Observação: soluções que utilizem laços valem até 2 pontos, soluções sem a utilização de laços, valem até 10 pontos."
+                  <small>Primeira Recuperação Individual - IPI · 2024.01</small>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
 
         {/* FOOTER DO MODAL */}
-        <div style={{ padding: '20px 30px', borderTop: '1px solid #2a2d35', display: 'flex', justifyContent: 'flex-end', backgroundColor: '#1a1d24', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px' }}>
-          <button onClick={onClose} style={{ backgroundColor: '#36a860', color: '#121418', border: 'none', padding: '10px 24px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600, fontSize: '14px', transition: 'opacity 0.2s' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>
-            ENTENDI, FECHAR
-          </button>
+        <div className="mda-pe">
+          <button type="button" className="mda-btn" onClick={onClose}>Entendi</button>
         </div>
 
       </div>
