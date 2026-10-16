@@ -193,7 +193,7 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
           ) : (
           <div className="mdl-agradece">
             <p>
-              O Igara.log está hospedado no servidor do PET Conexão Periferia (Programa de Educação Tutorial), vinculado aos cursos de Tecnologia da Informação do IFPE <em>Campus</em> Igarassu. O grupo atua no desenvolvimento tecnológico, na inclusão digital e na educação midiática.
+              O Igara.log está hospedado no servidor do PET Conexão Periferia (Programa de Educação Tutorial), vinculado aos cursos de Tecnologia da Informação do Instituto Federal de Pernambuco - <em>Campus</em> Igarassu. O grupo atua no desenvolvimento tecnológico, na inclusão digital e na educação midiática.
             </p>
             <p>
               Um agradecimento especial ao PET e ao professor Allan Lima pelo incentivo e pela infraestrutura do servidor, fundamentais para que esta ferramenta de estudo esteja disponível de forma contínua e gratuita a todos os estudantes.

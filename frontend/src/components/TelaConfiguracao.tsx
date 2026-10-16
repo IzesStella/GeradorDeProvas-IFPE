@@ -48,7 +48,7 @@ const MODOS: { id: ModoProva; titulo: string; descricao: string }[] = [
   { id: 'unidade1', titulo: '1ª Unidade', descricao: 'Simulado do primeiro ciclo do componente curricular, abordando os primeiros assuntos até Subprogramas.' },
   { id: 'unidade2', titulo: '2ª Unidade', descricao: 'Simulado do segundo ciclo do componente curricular, focado em Vetores, Arrays e Tipos.' },
   { id: 'miniprova', titulo: 'Mini-prova', descricao: 'Formato de avaliação semanal: 1 questão de Implementação e 1 de Execução.' },
-  { id: 'final', titulo: 'Avaliação Final', descricao: 'Revisão de toda a ementa.' }
+  { id: 'final', titulo: 'Avaliação Final', descricao: 'Simulado da avaliação final do componente curricular, com questões de Vetores, Arrays e Tipos.' }
 ];
 
 const NIVEIS = [
