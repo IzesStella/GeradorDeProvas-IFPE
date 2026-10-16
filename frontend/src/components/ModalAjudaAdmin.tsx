@@ -85,7 +85,6 @@ export function ModalAjudaAdmin({ isOpen, onClose }: ModalAjudaAdminProps) {
           <b aria-hidden="true">?</b>
           <div>
             <h2 id="mda-titulo">Guia de cadastro de questões</h2>
-            <span>Como preencher o formulário e classificar a dificuldade</span>
           </div>
           <button type="button" className="mda-fechar" onClick={onClose} aria-label="Fechar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

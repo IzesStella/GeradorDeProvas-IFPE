@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface ModalSobreProps {
   isOpen: boolean;
   onClose: () => void;
@@ -13,6 +15,12 @@ const temaAtual = () => {
 };
 
 export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
+  const [aba, setAba] = useState<'como' | 'agradecimentos'>('como');
+
+  useEffect(() => {
+    if (isOpen) setAba('como');
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -40,7 +48,11 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
         .mdl { width: 100%; max-width: calc(920 * var(--u)); max-height: 90vh; background: var(--card); border: 1px solid var(--bd); border-radius: 16px; box-shadow: var(--sombra); display: flex; flex-direction: column; font-size: calc(16 * var(--u)); line-height: 1.6; color: var(--mu); text-align: left; }
         .mdl button { font-family: inherit; cursor: pointer; }
         .mdl button:focus-visible { outline: 2px solid var(--g); outline-offset: 2px; }
-        .mdl-topo { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--bd); }
+        .mdl-topo { display: flex; align-items: center; gap: 12px; padding: 18px 24px 14px; }
+        .mdl-abas { display: flex; gap: 4px; padding: 0 24px; border-bottom: 1px solid var(--bd); }
+        .mdl-aba { background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 10px 14px; font-size: calc(15 * var(--u)); font-weight: 600; color: var(--mu); }
+        .mdl-aba:hover { color: var(--tx); }
+        .mdl-aba.on { color: var(--g); border-bottom-color: var(--g); }
         .mdl-topo b { width: calc(36 * var(--u)); height: calc(36 * var(--u)); border-radius: 50%; background: var(--g); color: var(--on); display: grid; place-items: center; font-size: calc(18 * var(--u)); flex: none; }
         .mdl-topo > div { flex: 1; }
         .mdl-topo h2 { margin: 0; font-size: calc(21 * var(--u)); line-height: 1.2; color: var(--tx); }
@@ -56,6 +68,8 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
         .mdl-intro + p { margin: 0 0 24px; }
         .mdl-bloco { padding: 20px 0; border-top: 1px solid var(--bd); }
         .mdl-bloco:last-child { padding-bottom: 0; }
+        .mdl-agradece p { margin: 0 0 10px; }
+        .mdl-agradece p:last-child { margin-bottom: 0; }
         .mdl-secao { margin: 0 0 12px; font-size: calc(18 * var(--u)); font-weight: 600; color: var(--tx); }
         .mdl-secao small { display: block; font-size: calc(15 * var(--u)); font-weight: 400; color: var(--mu); }
 
@@ -81,7 +95,7 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
           .mdl-veu { padding: 10px; }
           .mdl-modelos, .mdl-nivel { grid-template-columns: 1fr; }
           .mdl-nivel { gap: 8px; }
-          .mdl-topo, .mdl-corpo, .mdl-pe { padding-left: 16px; padding-right: 16px; }
+          .mdl-topo, .mdl-abas, .mdl-corpo, .mdl-pe { padding-left: 16px; padding-right: 16px; }
         }
       `}</style>
 
@@ -92,7 +106,6 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
           <b aria-hidden="true">?</b>
           <div>
             <h2 id="mdl-sobre-titulo">Sobre o sistema</h2>
-            <span>Como o gerador monta os simulados</span>
           </div>
           <button type="button" className="mdl-fechar" onClick={onClose} aria-label="Fechar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -101,8 +114,15 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
           </button>
         </div>
 
+        <div className="mdl-abas" role="tablist">
+          <button type="button" role="tab" aria-selected={aba === 'como'} className={`mdl-aba ${aba === 'como' ? 'on' : ''}`} onClick={() => setAba('como')}>Como funciona</button>
+          <button type="button" role="tab" aria-selected={aba === 'agradecimentos'} className={`mdl-aba ${aba === 'agradecimentos' ? 'on' : ''}`} onClick={() => setAba('agradecimentos')}>Agradecimentos</button>
+        </div>
+
         {/* CORPO DO MODAL */}
         <div className="mdl-corpo">
+          {aba === 'como' ? (
+          <>
           <p className="mdl-intro">
             Este sistema foi desenvolvido especialmente para os estudantes do 1º período dos cursos de Sistemas para Internet (TSI) e Informática para Internet (IPI) do Instituto Federal de Pernambuco - <em>Campus</em> Igarassu.
           </p>
@@ -169,6 +189,17 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
               </div>
             </div>
           </div>
+          </>
+          ) : (
+          <div className="mdl-agradece">
+            <p>
+              O Igara.log está hospedado no servidor do PET Conexão Periferia (Programa de Educação Tutorial), vinculado aos cursos de Tecnologia da Informação do IFPE <em>Campus</em> Igarassu. O grupo atua no desenvolvimento tecnológico, na inclusão digital e na educação midiática.
+            </p>
+            <p>
+              Um agradecimento especial ao PET e ao professor Allan Lima pelo incentivo e pela infraestrutura do servidor, fundamentais para que esta ferramenta de estudo esteja disponível de forma contínua e gratuita a todos os estudantes.
+            </p>
+          </div>
+          )}
         </div>
 
         {/* FOOTER DO MODAL */}

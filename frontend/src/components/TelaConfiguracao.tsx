@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ModalSobre } from './ModalSobre';
+import logoPreto from '../assets/logo-ifpe-igarassu-preto.svg';
+import logoBranco from '../assets/logo-ifpe-igarassu-branco.svg';
 
 interface TelaConfiguracaoProps {
   onGerar: (filtros: any) => void;
@@ -276,6 +278,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
 
         .header-config { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); position: sticky; top: 0; z-index: 5; }
         .titulo-cab { font-size: 18px; font-weight: bold; color: var(--tx); text-align: center; }
+        .logo-if { display: block; height: 40px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; flex-shrink: 0; }
         .btn-admin { background: transparent; color: var(--mu); border: 1px solid var(--bd); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; }
         .btn-admin:hover { color: var(--tx); border-color: var(--bd2); }
         .btn-circ { width: 32px; height: 32px; border-radius: 50%; background-color: var(--chip); color: var(--tx); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: 0.2s; padding: 0; font-weight: bold; font-size: 14px; }
@@ -283,7 +286,9 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
 
         .config-main { flex: 1 0 auto; display: flex; flex-direction: column; width: 100%; max-width: 1320px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 56px); }
         .hero { margin-bottom: 20px; }
-        .hero h1 { font-size: 28px; line-height: 1.2; margin: 0 0 6px; color: var(--tx); }
+        .hero h1 { font-size: 40px; line-height: 1.1; margin: 0; color: var(--tx); }
+        .hero h1 span { color: var(--g); }
+        .hero .hero-tag { margin: 4px 0 8px; font-size: 19px; font-weight: 600; color: var(--tx); }
         .hero p { margin: 0; color: var(--mu); font-size: 15px; line-height: 1.5; max-width: 820px; }
         .colunas { flex: 1 1 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 20px; align-items: stretch; }
         .painel { background: var(--card); border: 1px solid var(--bd); border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; box-shadow: var(--sombra); min-width: 0; }
@@ -347,14 +352,15 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
 
         @media (min-width: 1700px) {
           .header-config { padding: 18px 4vw; }
-          .header-config svg { height: 46px; }
+          .header-config .logo-if { height: 46px; }
           .titulo-cab { font-size: 20px; }
           .btn-admin { font-size: 15px; padding: 10px 18px; }
           .btn-circ { width: 38px; height: 38px; font-size: 16px; }
           .config-main { max-width: 1680px; padding: 38px 4vw; }
           .hero { margin-bottom: 26px; }
-          .hero h1 { font-size: 36px; }
+          .hero h1 { font-size: 52px; }
           .hero p { font-size: 17px; max-width: 980px; }
+          .hero .hero-tag { font-size: 22px; }
           .colunas { gap: 26px; }
           .painel { padding: 30px 34px; border-radius: 18px; }
           .painel-topo { padding-bottom: 20px; margin-bottom: 20px; }
@@ -384,13 +390,14 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         }
         @media (min-width: 2200px) {
           .header-config { padding: 22px 4vw; }
-          .header-config svg { height: 56px; }
+          .header-config .logo-if { height: 56px; }
           .titulo-cab { font-size: 24px; }
           .btn-admin { font-size: 17px; padding: 12px 22px; }
           .btn-circ { width: 46px; height: 46px; font-size: 18px; }
           .config-main { max-width: 2100px; padding: 48px 4vw; }
-          .hero h1 { font-size: 44px; }
+          .hero h1 { font-size: 64px; }
           .hero p { font-size: 20px; max-width: 1200px; }
+          .hero .hero-tag { font-size: 26px; }
           .colunas { gap: 32px; }
           .painel { padding: 38px 44px; }
           .painel-topo b { width: 44px; height: 44px; font-size: 20px; }
@@ -422,7 +429,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
           .header-config > div:nth-child(1) { width: 50%; justify-content: flex-start !important; }
           .header-botoes { width: 50%; justify-content: flex-end !important; }
           .header-config > div:nth-child(2) { width: 100%; justify-content: center !important; margin-top: 15px; order: 3; }
-          .header-config svg { height: 35px !important; }
+          .header-config .logo-if { height: 35px !important; }
           }
         @media (max-width: 1100px) {
           .colunas { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); }
@@ -431,7 +438,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         @media (max-width: 800px) {
           .colunas { grid-template-columns: 1fr; }
           .grade-dif { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-          .hero h1 { font-size: 24px; }
+          .hero h1 { font-size: 32px; }
         }
         @media (max-width: 600px) {
           .config-main { padding: 20px 14px; }
@@ -446,25 +453,10 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
       <div className="tela-config" data-tema={tema}>
         <header className="header-config">
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-            <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%', color: 'var(--logo)' }}>
-              <g transform="translate(5, 5)">
-                <circle cx="50" cy="50" r="55" fill="#c8191e" />
-                <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-              </g>
-              <text x="390" y="340" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="140" fill="currentColor" letterSpacing="2">INSTITUTO FEDERAL</text>
-              <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="currentColor">Pernambuco</text>
-            </svg>
+            <img className="logo-if" src={tema === 'escuro' ? logoBranco : logoPreto} alt="Instituto Federal de Pernambuco - Campus Igarassu" />
           </div>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <span className="titulo-cab">Gerador de Provas</span>
+            <span className="titulo-cab">Configurar Simulado</span>
           </div>
           <div className="header-botoes" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '15px' }}>
             <button type="button" className="btn-admin" onClick={onAcessarAdmin}>
@@ -485,8 +477,9 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
 
         <main className="config-main">
           <div className="hero">
-            <h1>Simulados de Lógica de Programação</h1>
-            <p>Gere simulados personalizados a partir de um banco de questões baseado nas avaliações aplicadas nos cursos de Sistemas para Internet (TSI) e Informática para Internet (IPI) do Campus Igarassu.</p>
+            <h1>Igara<span>.log</span></h1>
+            <p className="hero-tag">Simulados de Lógica de Programação</p>
+            <p>Gere simulados personalizados a partir de um banco de questões baseado nas avaliações aplicadas nos cursos de Sistemas para Internet (TSI) e Informática para Internet (IPI) do <em>Campus</em> Igarassu.</p>
           </div>
 
           <div className="colunas">
@@ -635,7 +628,7 @@ export function TelaConfiguracao({ onGerar, onAcessarAdmin }: TelaConfiguracaoPr
         </main>
 
         <footer className="rodape-config">
-          Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
+          Instituto Federal de Educação, Ciência e Tecnologia - <em>Campus</em> Igarassu | Izes Stella Barbalho Bezerra
         </footer>
       </div>
 

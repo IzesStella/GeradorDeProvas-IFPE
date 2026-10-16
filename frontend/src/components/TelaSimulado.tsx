@@ -1,6 +1,8 @@
 import { Fragment, useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import logoPreto from '../assets/logo-ifpe-igarassu-preto.svg';
+import logoBranco from '../assets/logo-ifpe-igarassu-branco.svg';
 
 interface Questao {
   id: number;
@@ -237,20 +239,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
   const topoPdf = (
     <>
       <header className="cabecalho-pdf">
-        <svg viewBox="0 0 350 470">
-          <g transform="translate(5, 5)">
-            <circle cx="50" cy="50" r="55" fill="#c8191e" />
-            <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-            <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-          </g>
-        </svg>
+        <img src={logoPreto} alt="Instituto Federal de Pernambuco - Campus Igarassu" />
         <div>
           <h2>Simulado Personalizado</h2>
           <p>Instituto Federal - <em>Campus</em> Igarassu</p>
@@ -312,7 +301,6 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
 
   const rodapePdf = (index: number) => (
     <footer className="rodape-pdf">
-      <span>IFPE Campus Igarassu</span>
       <span>Questão {index + 1} de {questoes.length}</span>
     </footer>
   );
@@ -378,6 +366,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
         .header-sim { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); position: sticky; top: 0; z-index: 5; }
         .header-sim > div { flex: 1; display: flex; align-items: center; }
         .sim-titulo-cab { font-size: 18px; font-weight: bold; color: var(--tx); text-align: center; }
+        .logo-if { display: block; height: 40px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; flex-shrink: 0; }
         .sim-contagem { font-size: 14px; font-weight: bold; color: var(--mu); white-space: nowrap; }
         .sim-btn { background: transparent; color: var(--mu); border: 1px solid var(--bd); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; white-space: nowrap; }
         .sim-btn:hover { color: var(--tx); border-color: var(--bd2); }
@@ -463,7 +452,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           .sim-indice-item b { width: 30px; height: 30px; font-size: 13px; }
           .tela-simulado { --cab: 83px; }
           .header-sim { padding: 18px 4vw; }
-          .header-sim svg.sim-logo { height: 46px; }
+          .header-sim .logo-if { height: 46px; }
           .sim-titulo-cab { font-size: 20px; }
           .sim-contagem { font-size: 15px; }
           .sim-btn { font-size: 15px; padding: 10px 18px; }
@@ -485,7 +474,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           .sim-indice-item b { width: 36px; height: 36px; font-size: 15px; }
           .tela-simulado { --cab: 101px; }
           .header-sim { padding: 22px 4vw; }
-          .header-sim svg.sim-logo { height: 56px; }
+          .header-sim .logo-if { height: 56px; }
           .sim-titulo-cab { font-size: 24px; }
           .sim-contagem { font-size: 17px; }
           .sim-btn { font-size: 17px; padding: 12px 22px; }
@@ -505,7 +494,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
           .header-sim > div:nth-child(1) { width: 35%; }
           .header-sim > div:nth-child(3) { width: 65%; }
           .header-sim > div:nth-child(2) { width: 100%; margin-top: 15px; order: 3; }
-          .header-sim svg.sim-logo { height: 35px; }
+          .header-sim .logo-if { height: 35px; }
         }
         @media screen and (max-width: 600px) {
           .header-sim > div:nth-child(1), .header-sim > div:nth-child(3) { width: 100%; justify-content: center !important; }
@@ -521,7 +510,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
         .pagina-pdf, .medidor-pdf { font-family: Arial, sans-serif; color: #222; }
 
         .cabecalho-pdf { display: flex; align-items: center; gap: 16px; padding-bottom: 12px; border-bottom: 2px solid #e2e2e2; margin-bottom: 14px; }
-        .cabecalho-pdf svg { height: 46px; flex-shrink: 0; }
+        .cabecalho-pdf img { height: 46px; flex-shrink: 0; }
         .cabecalho-pdf > div { border-left: 3px solid #2f9e41; padding-left: 14px; }
         .cabecalho-pdf h2 { margin: 0; font-size: 19px; color: #111; }
         .cabecalho-pdf p { margin: 2px 0 0; font-size: 12px; color: #555; }
@@ -573,22 +562,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
       <div className="tela-sistema">
         <header className="header-sim">
           <div style={{ justifyContent: 'flex-start' }}>
-            <svg className="sim-logo" viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%', color: 'var(--logo)' }}>
-              <g transform="translate(5, 5)">
-                <circle cx="50" cy="50" r="55" fill="#c8191e" />
-                <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-              </g>
-              <text x="390" y="340" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="140" fill="currentColor" letterSpacing="2">INSTITUTO FEDERAL</text>
-              <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="currentColor">Pernambuco</text>
-            </svg>
+            <img className="logo-if" src={tema === 'escuro' ? logoBranco : logoPreto} alt="Instituto Federal de Pernambuco - Campus Igarassu" />
           </div>
           <div style={{ justifyContent: 'center' }}>
             <span className="sim-titulo-cab">Simulado Personalizado</span>
@@ -763,7 +737,7 @@ export function TelaSimulado({ questoes, onVoltar, filtros }: TelaSimuladoProps)
         </main>
 
         <footer className="rodape-sim">
-          Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
+          Instituto Federal de Educação, Ciência e Tecnologia - <em>Campus</em> Igarassu | Izes Stella Barbalho Bezerra
         </footer>
       </div>
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL } from '../config';
+import logoPreto from '../assets/logo-ifpe-igarassu-preto.svg';
+import logoBranco from '../assets/logo-ifpe-igarassu-branco.svg';
 
 interface TelaLoginProps {
   onLoginSucesso: () => void;
@@ -10,6 +12,21 @@ type Tema = 'claro' | 'escuro';
 
 const CHAVE_TEMA = 'tema-gerador-provas';
 const FUNDO_BODY: Record<Tema, string> = { claro: '#f3f6f4', escuro: '#121418' };
+
+const SimboloIf = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 282 373" role="img" aria-label="Instituto Federal de Pernambuco">
+    <path d="M202 10C202 7.23858 204.239 5 207 5H277C279.761 5 282 7.23858 282 10V80C282 82.7614 279.761 85 277 85H207C204.239 85 202 82.7614 202 80V10Z" fill="#2F9E41" />
+    <path d="M202 202C202 199.239 204.239 197 207 197H277C279.761 197 282 199.239 282 202V272C282 274.761 279.761 277 277 277H207C204.239 277 202 274.761 202 272V202Z" fill="#2F9E41" />
+    <path d="M106 202C106 199.239 108.239 197 111 197H181C183.761 197 186 199.239 186 202V272C186 274.761 183.761 277 181 277H111C108.239 277 106 274.761 106 272V202Z" fill="#2F9E41" />
+    <path d="M10 202C10 199.239 12.2386 197 15 197H85C87.7614 197 90 199.239 90 202V272C90 274.761 87.7614 277 85 277H15C12.2386 277 10 274.761 10 272V202Z" fill="#2F9E41" />
+    <path d="M106 298C106 295.239 108.239 293 111 293H181C183.761 293 186 295.239 186 298V368C186 370.761 183.761 373 181 373H111C108.239 373 106 370.761 106 368V298Z" fill="#2F9E41" />
+    <path d="M10 298C10 295.239 12.2386 293 15 293H85C87.7614 293 90 295.239 90 298V368C90 370.761 87.7614 373 85 373H15C12.2386 373 10 370.761 10 368V298Z" fill="#2F9E41" />
+    <path d="M10 106C10 103.239 12.2386 101 15 101H85C87.7614 101 90 103.239 90 106V176C90 178.761 87.7614 181 85 181H15C12.2386 181 10 178.761 10 176V106Z" fill="#2F9E41" />
+    <path d="M106 106C106 103.239 108.239 101 111 101H181C183.761 101 186 103.239 186 106V176C186 178.761 183.761 181 181 181H111C108.239 181 106 178.761 106 176V106Z" fill="#2F9E41" />
+    <path d="M106 10C106 7.23858 108.239 5 111 5H181C183.761 5 186 7.23858 186 10V80C186 82.7614 183.761 85 181 85H111C108.239 85 106 82.7614 106 80V10Z" fill="#2F9E41" />
+    <path d="M90 45C90 69.8528 69.8528 90 45 90C20.1472 90 0 69.8528 0 45C0 20.1472 20.1472 0 45 0C69.8528 0 90 20.1472 90 45Z" fill="#CD191E" />
+  </svg>
+);
 
 const IconeTema = ({ tema }: { tema: Tema }) =>
   tema === 'escuro' ? (
@@ -119,6 +136,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
         .header-login { background-color: var(--card); padding: 15px 5vw; display: flex; align-items: center; border-bottom: 1px solid var(--bd); position: sticky; top: 0; z-index: 5; }
         .header-login > div { flex: 1; display: flex; align-items: center; }
         .login-titulo-cab { font-size: 18px; font-weight: bold; color: var(--tx); text-align: center; }
+        .logo-if { display: block; height: 40px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; flex-shrink: 0; }
         .login-btn-circ { width: 32px; height: 32px; border-radius: 50%; background-color: var(--chip); color: var(--tx); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: 0.2s; padding: 0; }
         .login-btn-circ:hover { background-color: var(--g); color: var(--on); }
 
@@ -146,7 +164,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
 
         @media (min-width: 1700px) {
           .header-login { padding: 18px 4vw; }
-          .header-login svg.login-logo { height: 46px; }
+          .header-login .logo-if { height: 46px; }
           .login-titulo-cab { font-size: 20px; }
           .login-btn-circ { width: 38px; height: 38px; }
           .login-painel { max-width: 480px; padding: 48px; }
@@ -160,7 +178,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
         }
         @media (min-width: 2200px) {
           .header-login { padding: 22px 4vw; }
-          .header-login svg.login-logo { height: 56px; }
+          .header-login .logo-if { height: 56px; }
           .login-titulo-cab { font-size: 24px; }
           .login-btn-circ { width: 46px; height: 46px; }
           .login-painel { max-width: 580px; padding: 56px; }
@@ -178,7 +196,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
           .header-login > div:nth-child(1) { width: 50%; }
           .header-login > div:nth-child(3) { width: 50%; }
           .header-login > div:nth-child(2) { width: 100%; margin-top: 15px; order: 3; }
-          .header-login svg.login-logo { height: 35px; }
+          .header-login .logo-if { height: 35px; }
         }
         @media (max-width: 600px) {
           .login-main { padding: 20px 14px; }
@@ -191,22 +209,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
       <div className="tela-login" data-tema={tema}>
         <header className="header-login">
           <div style={{ justifyContent: 'flex-start' }}>
-            <svg className="login-logo" viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%', color: 'var(--logo)' }}>
-              <g transform="translate(5, 5)">
-                <circle cx="50" cy="50" r="55" fill="#c8191e" />
-                <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-              </g>
-              <text x="390" y="340" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="140" fill="currentColor" letterSpacing="2">INSTITUTO FEDERAL</text>
-              <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="currentColor">Pernambuco</text>
-            </svg>
+            <img className="logo-if" src={tema === 'escuro' ? logoBranco : logoPreto} alt="Instituto Federal de Pernambuco - Campus Igarassu" />
           </div>
           <div style={{ justifyContent: 'center' }}>
             <span className="login-titulo-cab">Painel Administrativo</span>
@@ -227,20 +230,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
         <main className="login-main">
           <section className="login-painel">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '5px' }}>
-              <svg viewBox="0 0 350 470" className="logo-if-login" style={{ flexShrink: 0 }}>
-                <g transform="translate(5, 5)">
-                  <circle cx="50" cy="50" r="55" fill="#c8191e" />
-                  <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                  <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                </g>
-              </svg>
+              <SimboloIf className="logo-if-login" />
             </div>
 
             <h2 className="titulo-acesso">Acesso do Administrador</h2>
@@ -292,7 +282,7 @@ export function TelaLogin({ onLoginSucesso, onVoltar }: TelaLoginProps) {
         </main>
 
         <footer className="rodape-login">
-          Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
+          Instituto Federal de Educação, Ciência e Tecnologia - <em>Campus</em> Igarassu | Izes Stella Barbalho Bezerra
         </footer>
       </div>
     </>

@@ -3,6 +3,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ModalAjudaAdmin } from './ModalAjudaAdmin';
 import { API_URL } from '../config';
+import logoPreto from '../assets/logo-ifpe-igarassu-preto.svg';
+import logoBranco from '../assets/logo-ifpe-igarassu-branco.svg';
 
 const temaDoTCC = JSON.parse(JSON.stringify(vscDarkPlus));
 
@@ -459,6 +461,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
 
         .adm-header { background: var(--surface); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 15px 5vw; position: sticky; top: 0; z-index: 5; line-height: normal; }
         .adm-logo { display: flex; justify-content: flex-start; }
+        .logo-if { display: block; height: 40px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; flex-shrink: 0; }
         .adm-titulo { font-size: 18px; font-weight: bold; text-align: center; }
         .adm-direita { display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
 
@@ -571,7 +574,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         @media (max-width: 960px) {
           .adm-header { display: flex; flex-wrap: wrap; padding: 15px 20px; }
           .adm-logo { flex: 1; }
-          .adm-logo svg { height: 35px; }
+          .adm-logo .logo-if { height: 35px; }
           .adm-direita { flex: 1; }
           .adm-titulo { order: 3; width: 100%; margin-top: 15px; }
         }
@@ -586,7 +589,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         @media (min-width: 1700px) {
           .adm { font-size: 15px; }
           .adm-header { padding: 18px 4vw; }
-          .adm-logo svg { height: 46px; }
+          .adm-logo .logo-if { height: 46px; }
           .adm-titulo { font-size: 20px; }
           .adm-main { max-width: 1560px; padding: 36px 4vw; }
           .adm-topo { margin-bottom: 22px; }
@@ -608,7 +611,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         @media (min-width: 2200px) {
           .adm { font-size: 17px; }
           .adm-header { padding: 22px 4vw; }
-          .adm-logo svg { height: 56px; }
+          .adm-logo .logo-if { height: 56px; }
           .adm-titulo { font-size: 24px; }
           .adm-main { max-width: 1960px; padding: 44px 4vw; }
           .adm-topo h2 { font-size: 36px; }
@@ -632,22 +635,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
       <div className="adm" data-tema={tema}>
         <header className="adm-header">
           <div className="adm-logo">
-            <svg viewBox="0 0 2300 470" height="40" style={{ flexShrink: 0, maxWidth: '100%', color: 'var(--logo)' }}>
-              <g transform="translate(5, 5)">
-                <circle cx="50" cy="50" r="55" fill="#c8191e" />
-                <rect x="0" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="0" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="120" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="120" y="360" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="0" width="100" height="100" rx="10" fill="#2f9e41" />
-                <rect x="240" y="240" width="100" height="100" rx="10" fill="#2f9e41" />
-              </g>
-              <text x="390" y="340" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="140" fill="currentColor" letterSpacing="2">INSTITUTO FEDERAL</text>
-              <text x="390" y="460" fontFamily="Arial, sans-serif" fontWeight="normal" fontSize="105" fill="currentColor">Pernambuco</text>
-            </svg>
+            <img className="logo-if" src={tema === 'escuro' ? logoBranco : logoPreto} alt="Instituto Federal de Pernambuco - Campus Igarassu" />
           </div>
 
           <div className="adm-titulo">Painel Administrativo</div>
@@ -750,7 +738,7 @@ export function TelaAdmin({ onVoltar, onSair }: TelaAdminProps) {
         </main>
 
         <footer className="adm-rodape" ref={footerRef}>
-          Instituto Federal de Educação, Ciência e Tecnologia - Campus Igarassu | Izes Stella Barbalho Bezerra
+          Instituto Federal de Educação, Ciência e Tecnologia - <em>Campus</em> Igarassu | Izes Stella Barbalho Bezerra
         </footer>
 
         <div className={`adm-veu ${painel ? 'on' : ''}`} onClick={fecharPainel} />
