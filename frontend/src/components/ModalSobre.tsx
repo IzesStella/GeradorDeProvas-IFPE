@@ -141,8 +141,8 @@ export function ModalSobre({ isOpen, onClose }: ModalSobreProps) {
               </div>
               <div className="mdl-modelo">
                 <strong>Avaliações maiores</strong>
-                <em>6 questões</em>
-                <span>1ª Unidade, 2ª Unidade e Avaliação Final. Englobam os assuntos correspondentes a cada ciclo (ex: a 1ª Unidade vai até Subprogramas; a 2ª Unidade engloba Vetores, Arrays e Tipos).</span>
+                <em>6 ou 7 questões</em>
+                <span>A 1ª Unidade tem 7 questões e cobre os assuntos até Subprogramas. A 2ª Unidade e a Avaliação Final têm 6 questões e cobrem Vetores, Arrays e Tipos. Nenhuma das três utiliza questões de miniprovas.</span>
               </div>
               <div className="mdl-modelo">
                 <strong>Modelo Livre</strong>
