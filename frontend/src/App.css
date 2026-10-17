@@ -1,4 +1,4 @@
-/* --- REGRAS EXCLUSIVAS PARA A HORA DE IMPRIMIR O PDF --- */
+/* REGRAS PARA A HORA DE IMPRIMIR O PDF */
 @media print {
   /* 1. Esconde os botões e fundos escuros do painel */
   .esconder-na-impressao {
