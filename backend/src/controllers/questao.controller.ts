@@ -67,16 +67,16 @@ export const QuestaoController = {
     }
   },
 
-  // Exclusão lógica (desativar)
+  // Exclusão definitiva
   async deletar(req: Request, res: Response) {
     const { id } = req.params;
     try {
-      const sql = 'UPDATE questoes SET ativo = false WHERE id = $1 RETURNING *';
+      const sql = 'DELETE FROM questoes WHERE id = $1';
       const { rowCount } = await pool.query(sql, [id]);
       if (rowCount === 0) return res.status(404).json({ error: 'Questão não encontrada.' });
-      return res.json({ message: 'Questão desativada com sucesso.' });
+      return res.json({ message: 'Questão excluída com sucesso.' });
     } catch (error: any) {
-      console.error('Erro ao desativar questão:', error);
+      console.error('Erro ao excluir questão:', error);
       return res.status(500).json({ error: error.message });
     }
   }

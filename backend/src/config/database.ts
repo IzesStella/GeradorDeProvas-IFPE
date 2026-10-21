@@ -12,5 +12,5 @@ pool.connect((err) => {
     console.error('Erro ao conectar com o PostgreSQL:', err.stack);
   } else {
     console.log('Conectado ao PostgreSQL com sucesso!');
-  }
+  } 
 });

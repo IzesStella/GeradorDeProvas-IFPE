@@ -39,8 +39,8 @@ export const SorteioService = {
     // 2. REGRA DA UNIDADE 1 (Ordenada por progressão de assuntos)
     if (modo === 'unidade1') {
       const sql = `
-      -- Sorteia 1 questão de Implementação sobre Operadores Lógicos (exclui as Muito Difíceis)
-        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = 'Operadores Lógicos' ORDER BY RANDOM() LIMIT 1)
+      -- Sorteia 1 questão de Implementação sobre Operadores Lógicos ou Execução Condicional (exclui as Muito Difíceis)
+        (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico IN ('Operadores Lógicos', 'Execução Condicional') ORDER BY RANDOM() LIMIT 1)
         UNION ALL
 
         -- Sorteia 2 questões de Implementação focadas em Subprogramas (exclui as Muito Difíceis)
@@ -65,7 +65,7 @@ export const SorteioService = {
       const { rows } = await pool.query(sql, [arrayTopicos]);
       
       // Separando as questões por tipo para enfileirar na ordem exata
-      const opLogicos = rows.filter(q => q.tipo_questao === 'Implementação' && q.topico === 'Operadores Lógicos');
+      const opLogicos = rows.filter(q => q.tipo_questao === 'Implementação' && (q.topico === 'Operadores Lógicos' || q.topico === 'Execução Condicional'));
       const subprogramas = rows.filter(q => q.tipo_questao === 'Implementação' && q.topico === 'Subprogramas');
       const lacos = rows.filter(q => q.tipo_questao === 'Implementação' && q.topico.includes('Laços'));
       
@@ -75,8 +75,8 @@ export const SorteioService = {
 
       const provaOrdenada = [];
       
-      //monta a prova garantindo a ordem correta
-      // 1. Op Lógicos -> 2. Subprogramas -> 3. Laços -> 4. Subprogramas
+      // Monta a prova garantindo a ordem correta
+      // 1. Op Lógicos ou Execução Condicional -> 2. Subprogramas -> 3. Laços -> 4. Subprogramas
       if (opLogicos.length > 0) provaOrdenada.push(opLogicos[0]);
       if (subprogramas.length > 0) provaOrdenada.push(subprogramas[0]);
       if (lacos.length > 0) provaOrdenada.push(lacos[0]);
@@ -90,7 +90,7 @@ export const SorteioService = {
       return provaOrdenada; 
     }
 
-    // 2.1 REGRA DA UNIDADE 2 E AVALIAÇÃO FINAL (6 Questões - Ordem setada)
+    // 2.1 REGRA DA UNIDADE 2 E AVALIAÇÃO FINAL (6 Questões: Ordem setada)
     if (modo === 'unidade2' || modo === 'final') {
       const sql = `
         (SELECT * FROM questoes WHERE tipo_questao = 'Implementação' AND nivel_dificuldade != 'Muito Difícil' AND ativo = true AND origem NOT ILIKE '%Miniprova%' AND topico = 'Vetores' ORDER BY RANDOM() LIMIT 1)
@@ -123,7 +123,7 @@ export const SorteioService = {
       return provaOrdenada; 
     }
 
-    // 4. REGRA DO MODELO LIVRE
+    // 3. REGRA DO MODELO LIVRE
     let sql = "SELECT * FROM questoes WHERE ativo = true";
     const values: any[] = [];
     let contadorVariaveis = 1;
@@ -160,7 +160,7 @@ export const SorteioService = {
       }
     }
 
-    // Garantir ao menos UMA questão de cada TÓPICO solicitado (se existir no BD)
+    // passo 2: Garantir ao menos UMA questão de cada TÓPICO solicitado (se existir no BD)
     if (arrayTopicos && arrayTopicos.length > 0) {
       const topicosEmbaralhados = [...arrayTopicos].sort(() => 0.5 - Math.random());
       for (const topico of topicosEmbaralhados) {

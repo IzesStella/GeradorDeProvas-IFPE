@@ -71,7 +71,7 @@
     "enunciado": "Qual a saída no console do programa abaixo para a chamada kh(16)?",
     "codigo_typescript": "function kh(tm: number): string {\n    let oy: string = \"\"\n    for (let i: number = -1; i < tm; i=i+5) {\n        if (i > 10) {\n            oy = oy + \"ki\"\n        } else if (i > 5) {\n            oy = oy + \"eri\"\n        } else if (i > 0) {\n            oy = oy + \"to.\"\n        } else {\n            oy = oy + \"ha\"\n        }\n    }\n    return oy\n}",
     "nivel_dificuldade": "Difícil",
-    "tipo_questao": "Média",
+    "tipo_questao": "Execução de Código",
     "tabela_enunciado": null,
     "easter_egg_conteudo": "https://youtu.be/sHTAhsZtW74",
     "origem": "Primeira Avaliação Individual - IPI",
