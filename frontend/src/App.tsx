@@ -1,82 +1,50 @@
 import { useState } from 'react';
-import { TelaConfiguracao } from './components/TelaConfiguracao';
-import { TelaSimulado } from './components/TelaSimulado';
-import { TelaAdmin } from './components/TelaAdmin';
-import { TelaLogin } from './components/TelaLogin';
+import { TelaConfiguracao } from './telas/configuracao/TelaConfiguracao';
+import { TelaSimulado } from './telas/simulado/TelaSimulado';
+import { TelaLogin } from './telas/login/TelaLogin';
+import { TelaAdmin } from './telas/admin/TelaAdmin';
+import { api, sessao } from './api';
 import { API_URL } from './config';
-import './App.css';
+import type { FiltrosSimulado, Questao } from './tipos';
 
+type NomeTela = 'configuracao' | 'simulado' | 'admin';
+
+// Decide qual tela aparece e guarda o simulado gerado
 export default function App() {
-  const [telaAtual, setTelaAtual] = useState<'configuracao' | 'simulado' | 'admin'>('configuracao');
-  const [filtrosSimulado, setFiltrosSimulado] = useState<any>(null);
-  const [questoesAtuais, setQuestoesAtuais] = useState<any[]>([]);
+  const [tela, setTela] = useState<NomeTela>('configuracao');
+  const [filtros, setFiltros] = useState<FiltrosSimulado | null>(null);
+  const [questoes, setQuestoes] = useState<Questao[]>([]);
+  const [logado, setLogado] = useState(sessao.ativa);
 
-  const [autenticado, setAutenticado] = useState(() => {
-    return !!localStorage.getItem('gerador_token');
-  });
-
-  const handleLogout = () => {
-    localStorage.removeItem('gerador_token');
-    setAutenticado(false);
-    setTelaAtual('configuracao');
+  // Sai do painel: apaga o token do login e volta para a tela inicial
+  const sair = () => {
+    sessao.encerrar();
+    setLogado(false);
+    setTela('configuracao');
   };
 
-  const handleGerar = async (filtros: any) => {
-    setFiltrosSimulado(filtros);
-
+  // Pede as questões ao backend e abre a tela do simulado
+  const gerarSimulado = async (novosFiltros: FiltrosSimulado) => {
     try {
-      const resposta = await fetch(`${API_URL}/api/simulado`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(filtros),
-      });
-
-      if (resposta.ok) {
-        const questoesSorteadas = await resposta.json();
-        setQuestoesAtuais(questoesSorteadas);
-        setTelaAtual('simulado');
-      } else {
-        alert('Erro ao buscar as questões. Verifique o servidor.');
-      }
+      setQuestoes(await api.gerarSimulado(novosFiltros));
+      setFiltros(novosFiltros);
+      setTela('simulado');
     } catch (erro) {
-      console.error('Erro na requisição:', erro);
-      alert(`Erro de conexão. O backend está rodando em ${API_URL}?`);
+      console.error(erro);
+      alert(`Não foi possível gerar o simulado. O backend está rodando em ${API_URL}?`);
     }
   };
 
-  return (
-    <>
-      {telaAtual === 'configuracao' && (
-        <TelaConfiguracao
-          onGerar={handleGerar}
-          onAcessarAdmin={() => setTelaAtual('admin')}
-        />
-      )}
+  if (tela === 'simulado' && filtros) {
+    return <TelaSimulado questoes={questoes} filtros={filtros} onVoltar={() => setTela('configuracao')} />;
+  }
 
-      {telaAtual === 'simulado' && (
-        <TelaSimulado
-          questoes={questoesAtuais}
-          filtros={filtrosSimulado}
-          onVoltar={() => setTelaAtual('configuracao')}
-        />
-      )}
+  // O painel só aparece depois do login
+  if (tela === 'admin') {
+    return logado
+      ? <TelaAdmin onSair={sair} />
+      : <TelaLogin onLoginSucesso={() => setLogado(true)} onVoltar={() => setTela('configuracao')} />;
+  }
 
-      {telaAtual === 'admin' && (
-        <>
-          {!autenticado ? (
-            <TelaLogin
-              onLoginSucesso={() => setAutenticado(true)}
-              onVoltar={() => setTelaAtual('configuracao')}
-            />
-          ) : (
-            <TelaAdmin
-              onVoltar={handleLogout}
-            />
-          )}
-        </>
-      )}
-    </>
-  );
+  return <TelaConfiguracao ultimosFiltros={filtros} onGerar={gerarSimulado} onAcessarAdmin={() => setTela('admin')} />;
 }

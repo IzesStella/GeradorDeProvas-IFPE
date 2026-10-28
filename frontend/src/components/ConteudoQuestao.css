@@ -1,0 +1,7 @@
+.enunciado-linha { display: block; min-height: 1.6em; }
+.enunciado-linha.desenho { font-family: Consolas, 'Courier New', monospace; letter-spacing: 2px; }
+
+.tabela-enunciado-area { overflow-x: auto; margin: 20px 0; }
+.tabela-enunciado { width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid var(--borda); }
+.tabela-enunciado th { padding: 10px 12px; border: 1px solid var(--borda); text-align: left; background: var(--chip); color: var(--texto); }
+.tabela-enunciado td { padding: 10px 12px; border: 1px solid var(--borda); color: var(--texto); }

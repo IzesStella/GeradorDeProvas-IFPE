@@ -1,0 +1,196 @@
+.config-conteudo { flex: 1 0 auto; display: flex; flex-direction: column; width: 100%; max-width: 1320px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 56px); }
+
+.apresentacao { margin-bottom: 20px; }
+.apresentacao h1 { font-size: 40px; line-height: 1.1; margin: 0; color: var(--texto); }
+.apresentacao h1 span { color: var(--verde); }
+.apresentacao .apresentacao-subtitulo { margin: 4px 0 8px; font-size: 19px; font-weight: 600; color: var(--texto); }
+.apresentacao p { margin: 0; color: var(--texto-suave); font-size: 15px; line-height: 1.5; }
+
+.colunas { flex: 1 1 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 20px; align-items: stretch; }
+.painel { background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; box-shadow: var(--sombra); min-width: 0; }
+.painel-topo { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--borda); margin-bottom: 16px; }
+.painel-topo b { width: 30px; height: 30px; border-radius: 50%; background: var(--verde); color: var(--sobre-verde); display: grid; place-items: center; font-size: 14px; flex: none; }
+.painel-topo h3 { margin: 0; font-size: 17px; line-height: 1.2; }
+.painel-topo span { font-size: 13px; color: var(--texto-suave); }
+
+/* Painel 1: modelos de prova */
+.lista-modelos { flex: 1; display: flex; flex-direction: column; }
+.modelo { flex: 1 1 auto; display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; border: 1.5px solid var(--borda); border-radius: 10px; min-height: 60px; padding: 10px 14px; margin-bottom: 8px; background: var(--campo); cursor: pointer; color: var(--texto); }
+.modelo:last-child { margin-bottom: 0; }
+.modelo::before { content: ''; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--borda-forte); }
+.modelo > div { flex: 1; font-size: 13px; color: var(--texto-suave); line-height: 1.4; }
+.modelo strong { display: block; font-size: 15px; color: var(--texto); }
+.modelo em { font-style: normal; font-size: 12px; font-weight: 600; color: var(--texto-suave); background: var(--fundo); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.modelo.selecionado { border-color: var(--verde); background: var(--verde-claro); }
+.modelo.selecionado::before { border: 5px solid var(--verde); background: var(--cartao); }
+.modelo.selecionado em { color: var(--verde-texto); }
+
+/* Painel 2: tópicos, quantidade e dificuldade */
+.bloco { padding: 16px 0; border-top: 1px solid var(--borda); }
+.painel-topo + .bloco { border-top: 0; padding-top: 0; }
+.bloco-topicos { flex: 1; display: flex; flex-direction: column; }
+.bloco-cabecalho { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+.bloco-cabecalho em { font-style: normal; font-weight: 500; color: var(--texto-suave); font-size: 13px; }
+.link-acao { background: none; border: 0; color: var(--verde-texto); font-size: 13px; font-weight: 600; cursor: pointer; padding: 0; }
+.trava { color: var(--alerta); background: var(--alerta-fundo); font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; border-radius: 999px; padding: 2px 9px; }
+.trava .icone-cadeado { flex-shrink: 0; margin-top: -1px; }
+
+.opcao { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 6px 12px; border: 1.5px solid var(--borda); border-radius: 10px; background: var(--campo); color: var(--texto); font-size: 14px; font-weight: 500; line-height: 1.2; text-align: left; cursor: pointer; width: 100%; }
+.opcao.selecionado { border-color: var(--verde); background: var(--verde-claro); font-weight: 600; }
+.opcao:disabled { cursor: not-allowed; opacity: .55; }
+
+.grade-topicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); grid-auto-rows: minmax(46px, 1fr); gap: 8px; flex: 1; }
+.grade-topicos .opcao::before { content: ''; flex: none; width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--borda-forte); }
+.grade-topicos .opcao[role='radio']::before { border-radius: 50%; }
+.grade-topicos .opcao.selecionado::before { content: '✓'; background: var(--verde); border-color: var(--verde); color: var(--sobre-verde); font-size: 12px; display: grid; place-items: center; }
+
+.grade-niveis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.grade-niveis .opcao { justify-content: center; text-align: center; padding: 6px; }
+.grade-niveis .opcao::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--nivel-cor); flex: none; }
+.grade-niveis .opcao.selecionado { border-color: var(--nivel-cor); background: var(--nivel-fundo); color: var(--nivel-texto); }
+
+.contador { display: inline-flex; align-items: center; height: 46px; border: 1.5px solid var(--borda); border-radius: 10px; background: var(--campo); }
+.contador button { width: 46px; height: 100%; border: 0; background: none; font-size: 20px; cursor: pointer; color: var(--texto); }
+.contador button:disabled { cursor: not-allowed; opacity: .55; }
+.contador output { min-width: 48px; text-align: center; font-size: 18px; font-weight: 700; border-left: 1.5px solid var(--borda); border-right: 1.5px solid var(--borda); line-height: 30px; }
+.linha-quantidade { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.linha-quantidade span { font-size: 13px; color: var(--texto-suave); }
+.caixa-automatica { padding: 12px; background: var(--fundo); border-radius: 10px; border: 1px solid var(--borda); color: var(--texto-suave); font-size: 13px; text-align: center; }
+
+/* Erro e barra de resumo */
+.erro-config { background-color: rgba(231,76,60,.1); border: 1px solid #e74c3c; color: var(--erro); padding: 10px 12px; border-radius: 10px; margin-top: 20px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
+.barra-resumo { margin-top: 20px; background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; box-shadow: var(--sombra); }
+.barra-resumo strong { font-size: 18px; display: block; }
+.barra-resumo span { font-size: 14px; color: var(--texto-suave); }
+.botao-gerar { height: 48px; padding: 0 34px; border-radius: 10px; border: 0; background: var(--verde); color: var(--sobre-verde); font-size: 16px; font-weight: 700; cursor: pointer; }
+.botao-gerar:hover { filter: brightness(1.08); }
+
+/* No computador, a tela inicial ocupa exatamente a altura da janela, sem rolagem:
+   os quadros esticam ou encolhem conforme o espaço, e os espaçamentos e textos
+   acompanham a altura da janela (vh = 1% da altura).
+   Os quadros nunca ficam menores que o próprio texto: se a janela for pequena
+   demais para tudo caber, a página rola em vez de cortar o conteúdo */
+@media (min-width: 801px) {
+  .tela-config { height: 100vh; height: 100dvh; overflow-y: auto; }
+  .tela-config .config-conteudo { padding-top: clamp(10px, 2.6vh, 28px); padding-bottom: clamp(10px, 2.6vh, 28px); }
+  .colunas { grid-template-rows: 1fr; }
+  .painel { padding-top: clamp(12px, 2.2vh, 22px); padding-bottom: clamp(12px, 2.2vh, 22px); }
+  .painel-topo { padding-bottom: clamp(8px, 1.6vh, 16px); margin-bottom: clamp(8px, 1.6vh, 16px); }
+  .modelo { flex: 1 1 0; min-height: auto; padding-top: clamp(4px, 1vh, 10px); padding-bottom: clamp(4px, 1vh, 10px); margin-bottom: clamp(6px, 1vh, 8px); }
+  .modelo > div { font-size: clamp(11.5px, 1.45vh, 13px); line-height: 1.3; }
+  .bloco { padding-top: clamp(8px, 1.6vh, 16px); padding-bottom: clamp(8px, 1.6vh, 16px); }
+  .bloco-cabecalho { margin-bottom: clamp(6px, 1vh, 10px); }
+  .grade-topicos { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); grid-auto-rows: auto; }
+  .grade-topicos .opcao { min-height: auto; padding-top: 2px; padding-bottom: 2px; }
+  .opcao { font-size: clamp(12.5px, 1.6vh, 14px); }
+  .grade-niveis .opcao, .contador { min-height: 0; height: clamp(32px, 4.6vh, 46px); }
+  .grade-niveis .opcao { line-height: 1.1; }
+  .apresentacao { margin-bottom: clamp(8px, 2vh, 20px); }
+  .apresentacao h1 { font-size: clamp(28px, 4.4vh, 40px); }
+  .apresentacao .apresentacao-subtitulo { margin: 2px 0 clamp(2px, 0.8vh, 8px); font-size: clamp(15px, 2.1vh, 19px); }
+  .apresentacao p { font-size: clamp(13px, 1.7vh, 15px); }
+  .erro-config { margin-top: clamp(8px, 1.6vh, 20px); }
+  .barra-resumo { margin-top: clamp(8px, 2vh, 20px); padding-top: clamp(6px, 1.4vh, 16px); padding-bottom: clamp(6px, 1.4vh, 16px); }
+  .botao-gerar { height: clamp(36px, 5.4vh, 48px); }
+}
+
+/* Janelas de até 950px de altura: Quantidade e Dificuldade lado a lado, abaixo dos tópicos */
+@media (min-width: 801px) and (max-height: 950px) {
+  .painel-personalizar { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr auto; column-gap: 28px; }
+  .painel-personalizar > .painel-topo, .painel-personalizar > .bloco-topicos { grid-column: 1 / -1; }
+  .painel-personalizar > .bloco:not(.bloco-topicos) { padding-bottom: 0; }
+}
+
+/* Janelas bem baixas (até 700px): subtítulos ao lado dos títulos e tópicos mais juntos */
+@media (min-width: 801px) and (max-height: 700px) {
+  .apresentacao { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 14px; }
+  .apresentacao p:last-child { flex-basis: 100%; }
+  .barra-resumo strong { display: inline; margin-right: 10px; }
+  .painel-topo > div { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 8px; }
+  .grade-topicos { gap: 6px; }
+  .grade-topicos .opcao { line-height: 1.1; }
+}
+
+/* Telas grandes: aumenta textos e espaços só quando a altura também é grande,
+   para o conteúdo continuar cabendo (ex.: monitor ultrawide 3440 × 1440) */
+@media (min-width: 1700px) and (min-height: 1260px) {
+  .config-conteudo { max-width: 1680px; padding: 38px 4vw; }
+  .apresentacao { margin-bottom: 26px; }
+  .apresentacao h1 { font-size: 52px; }
+  .apresentacao p { font-size: 17px; }
+  .apresentacao .apresentacao-subtitulo { font-size: 22px; }
+  .colunas { gap: 26px; }
+  .painel { padding: 30px 34px; border-radius: 18px; }
+  .painel-topo { padding-bottom: 20px; margin-bottom: 20px; }
+  .painel-topo b { width: 36px; height: 36px; font-size: 16px; }
+  .painel-topo h3 { font-size: 21px; }
+  .painel-topo span { font-size: 15px; }
+  .modelo { padding: 14px 18px; gap: 16px; margin-bottom: 10px; }
+  .modelo strong { font-size: 18px; }
+  .modelo > div { font-size: 15px; }
+  .modelo em { font-size: 13px; padding: 4px 12px; }
+  .bloco { padding: 22px 0; }
+  .bloco-cabecalho { font-size: 16px; margin-bottom: 14px; }
+  .bloco-cabecalho em, .link-acao, .linha-quantidade span { font-size: 15px; }
+  .trava { font-size: 12px; }
+  .opcao { font-size: 16px; padding: 8px 16px; }
+  .grade-topicos { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .grade-niveis { gap: 10px; }
+  .contador { height: 56px; }
+  .contador button { width: 56px; font-size: 24px; }
+  .contador output { min-width: 60px; font-size: 22px; }
+  .caixa-automatica { font-size: 15px; padding: 16px; }
+  .barra-resumo { margin-top: 26px; padding: 22px 34px; border-radius: 18px; }
+  .barra-resumo strong { font-size: 22px; }
+  .barra-resumo span { font-size: 16px; }
+  .botao-gerar { height: 58px; padding: 0 46px; font-size: 18px; }
+}
+@media (min-width: 2200px) and (min-height: 1300px) {
+  .config-conteudo { max-width: 2100px; padding: 48px 4vw; }
+  .apresentacao h1 { font-size: 64px; }
+  .apresentacao p { font-size: 20px; }
+  .apresentacao .apresentacao-subtitulo { font-size: 26px; }
+  .colunas { gap: 32px; }
+  .painel { padding: 38px 44px; }
+  .painel-topo b { width: 44px; height: 44px; font-size: 20px; }
+  .painel-topo h3 { font-size: 26px; }
+  .painel-topo span { font-size: 18px; }
+  .modelo { padding: 18px 24px; }
+  .modelo strong { font-size: 22px; }
+  .modelo > div { font-size: 18px; }
+  .modelo em { font-size: 16px; padding: 5px 14px; }
+  .bloco-cabecalho { font-size: 19px; }
+  .bloco-cabecalho em, .link-acao, .linha-quantidade span { font-size: 18px; }
+  .trava { font-size: 14px; }
+  .opcao { font-size: 19px; }
+  .grade-topicos { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .contador { height: 68px; }
+  .contador button { width: 68px; font-size: 28px; }
+  .contador output { min-width: 76px; font-size: 26px; }
+  .caixa-automatica { font-size: 18px; }
+  .barra-resumo { padding: 28px 44px; }
+  .barra-resumo strong { font-size: 27px; }
+  .barra-resumo span { font-size: 19px; }
+  .botao-gerar { height: 70px; padding: 0 60px; font-size: 22px; }
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .grade-topicos { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+@media (max-width: 1100px) {
+  .colunas { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); }
+  .grade-niveis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+  .colunas { grid-template-columns: 1fr; }
+  .grade-niveis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .apresentacao h1 { font-size: 32px; }
+}
+@media (max-width: 600px) {
+  .config-conteudo { padding: 20px 14px; }
+  .painel { padding: 18px 16px; }
+  .grade-topicos { grid-template-columns: 1fr; }
+  .grade-niveis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .barra-resumo { padding: 16px; }
+  .botao-gerar { width: 100%; }
+}

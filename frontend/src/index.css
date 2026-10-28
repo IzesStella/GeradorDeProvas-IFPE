@@ -1,0 +1,95 @@
+/* Regras gerais da página, cores dos temas e botões. Valem para todas as telas. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; width: 100%; }
+html, body { overflow-x: clip; background-color: var(--fundo); }
+body { font-family: system-ui, -apple-system, sans-serif; color: var(--texto); }
+button, input, select, textarea { font: inherit; }
+button:focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
+
+/* Tema claro (padrão) */
+:root {
+  --fundo: #f3f6f4; --cartao: #ffffff; --campo: #ffffff; --suave: #f3f6f4; --chip: #eef2ef;
+  --texto: #17211b; --texto-suave: #55625b; --rodape: #66736b;
+  --borda: #dce4df; --borda-forte: #aab7af;
+  --verde: #1f7a3d; --verde-texto: #17602f; --verde-claro: #e6f4ea; --sobre-verde: #ffffff;
+  --vermelho: #c0392b; --erro: #d63b2b;
+  --alerta: #8a5a00; --alerta-fundo: rgba(240,184,74,.18); --alerta-borda: #e0a52e;
+  --info-borda: #3d8fd6;
+  --implementacao: #17602f; --implementacao-fundo: #e6f4ea;
+  --execucao: #55625b; --execucao-fundo: #eef2ef;
+  --correcao: #0f6b73; --correcao-fundo: #d8f0f1;
+  --sombra: 0 6px 24px rgba(23,33,27,.06);
+  --sombra-modal: 0 20px 50px rgba(23,33,27,.18);
+  --fundo-modal: rgba(10,20,14,.45);
+}
+
+/* Tema escuro */
+:root[data-tema='escuro'] {
+  --fundo: #121418; --cartao: #1a1d24; --campo: #20242c; --suave: #20242c; --chip: #2a2d35;
+  --texto: #e8efea; --texto-suave: #a0aab5; --rodape: #6a737d;
+  --borda: #2a2d35; --borda-forte: #4a525c;
+  --verde: #36a860; --verde-texto: #7fe3a2; --verde-claro: rgba(54,168,96,.16); --sobre-verde: #121418;
+  --vermelho: #f0705f; --erro: #ff6b6b;
+  --alerta: #f0b84a; --alerta-fundo: rgba(240,184,74,.12); --alerta-borda: #f0b84a;
+  --info-borda: #3d8fd6;
+  --implementacao: #7fe3a2; --implementacao-fundo: rgba(54,168,96,.16);
+  --execucao: #a0aab5; --execucao-fundo: #2a2d35;
+  --correcao: #6fd3da; --correcao-fundo: #12353a;
+  --sombra: 0 10px 40px rgba(0,0,0,.3);
+  --sombra-modal: 0 20px 50px rgba(0,0,0,.5);
+  --fundo-modal: rgba(0,0,0,.6);
+}
+
+/* Cor de cada nível de dificuldade: --nivel-cor (bolinha), --nivel-fundo e --nivel-texto */
+.nivel-facil { --nivel-cor: #1f7a3d; --nivel-fundo: #e6f4ea; --nivel-texto: #17602f; }
+.nivel-media { --nivel-cor: #b7791f; --nivel-fundo: #fff3d6; --nivel-texto: #8a5a00; }
+.nivel-dificil { --nivel-cor: #c2501f; --nivel-fundo: #fde8df; --nivel-texto: #a23a10; }
+.nivel-muito-dificil { --nivel-cor: #a3203f; --nivel-fundo: #fbe3ea; --nivel-texto: #8e1d3b; }
+[data-tema='escuro'] .nivel-facil { --nivel-cor: #5fd38a; --nivel-fundo: rgba(95,211,138,.14); --nivel-texto: #7fe3a2; }
+[data-tema='escuro'] .nivel-media { --nivel-cor: #f0b84a; --nivel-fundo: rgba(240,184,74,.14); --nivel-texto: #f6c866; }
+[data-tema='escuro'] .nivel-dificil { --nivel-cor: #f08a5d; --nivel-fundo: rgba(240,138,93,.14); --nivel-texto: #f6a07a; }
+[data-tema='escuro'] .nivel-muito-dificil { --nivel-cor: #f27a96; --nivel-fundo: rgba(242,122,150,.14); --nivel-texto: #f79bb1; }
+
+/* Cor de cada tipo de questão */
+.tipo-implementacao { --tipo-fundo: var(--implementacao-fundo); --tipo-texto: var(--implementacao); }
+.tipo-execucao { --tipo-fundo: var(--execucao-fundo); --tipo-texto: var(--execucao); }
+.tipo-correcao { --tipo-fundo: var(--correcao-fundo); --tipo-texto: var(--correcao); }
+
+/* Estrutura comum das telas */
+.tela { min-height: 100vh; display: flex; flex-direction: column; background-color: var(--fundo); color: var(--texto); }
+
+/* Botões usados em várias telas */
+.botao { background: transparent; color: var(--texto-suave); border: 1px solid var(--borda); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; white-space: nowrap; }
+.botao:hover { color: var(--texto); border-color: var(--borda-forte); }
+.botao.primario { background: var(--verde); border-color: var(--verde); color: var(--sobre-verde); }
+.botao.perigo { background: var(--vermelho); border-color: var(--vermelho); color: var(--sobre-verde); }
+.botao.primario:hover, .botao.perigo:hover { filter: brightness(1.08); }
+.botao-redondo { width: 32px; height: 32px; border-radius: 50%; background-color: var(--chip); color: var(--texto); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: 0.2s; padding: 0; font-weight: bold; font-size: 14px; }
+.botao-redondo:hover { background-color: var(--verde); color: var(--sobre-verde); }
+
+/* Rodapé de todas as telas (aumenta junto com o cabeçalho, ver Estrutura.css) */
+.rodape { border-top: 1px solid var(--borda); padding: 15px; text-align: center; color: var(--rodape); font-size: 12px; zoom: var(--zoom-cabecalho); }
+
+@media (min-width: 1700px) and (min-height: 1000px) {
+  .botao { font-size: 15px; padding: 10px 18px; }
+  .botao-redondo { width: 38px; height: 38px; font-size: 16px; }
+}
+@media (min-width: 2200px) and (min-height: 1000px) {
+  .botao { font-size: 17px; padding: 12px 22px; }
+  .botao-redondo { width: 46px; height: 46px; font-size: 18px; }
+}
+
+/* Etiquetas de tipo, tópico e nível (simulado e painel) */
+.etiquetas { display: flex; gap: 8px; flex-wrap: wrap; }
+.etiqueta { display: inline-flex; align-items: center; gap: 7px; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 600; background: var(--tipo-fundo, var(--chip)); color: var(--tipo-texto, var(--texto)); white-space: nowrap; }
+.etiqueta.nivel { background: var(--nivel-fundo); color: var(--nivel-texto); }
+.etiqueta.nivel::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--nivel-cor); }
+
+/* Janelas baixas: rodapé mais fino */
+@media (max-height: 760px) {
+  .rodape { padding: 10px; }
+}
+@media (max-height: 700px) {
+  .rodape { padding: 6px; }
+}

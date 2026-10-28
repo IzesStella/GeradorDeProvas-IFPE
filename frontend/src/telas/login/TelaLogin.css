@@ -1,0 +1,48 @@
+/* Cartão de login, centralizado na tela */
+.login-conteudo { flex: 1 0 auto; display: flex; align-items: center; justify-content: center; padding: 28px clamp(16px, 4vw, 56px); }
+.login-cartao { width: 100%; max-width: 400px; background: var(--cartao); border: 1px solid var(--borda); border-radius: 12px; padding: 40px; box-shadow: var(--sombra); display: flex; flex-direction: column; gap: 20px; }
+.login-simbolo { height: 60px; align-self: center; margin-bottom: 5px; }
+.login-titulo { color: var(--texto); font-size: 22px; text-align: center; margin: 0 0 10px 0; }
+
+/* Campos de usuário e senha */
+.login-formulario { display: flex; flex-direction: column; gap: 15px; }
+.login-formulario label { display: block; color: var(--texto-suave); font-size: 14px; margin-bottom: 8px; }
+.login-campo { width: 100%; height: 46px; padding: 0 12px; border: 1.5px solid var(--borda); border-radius: 10px; background: var(--campo); color: var(--texto); font-size: 14px; outline: none; }
+.login-campo::placeholder { color: var(--texto-suave); opacity: .8; }
+.login-campo:focus { border-color: var(--verde); box-shadow: 0 0 0 3px var(--verde-claro); }
+
+/* Mensagem de erro e botões */
+.login-erro { background-color: rgba(231,76,60,.1); border: 1px solid #e74c3c; color: var(--erro); padding: 10px 12px; border-radius: 10px; font-size: 13px; text-align: center; word-break: break-word; }
+.login-entrar { width: 100%; height: 48px; margin-top: 4px; border-radius: 10px; border: 0; background: var(--verde); color: var(--sobre-verde); font-size: 16px; font-weight: 700; cursor: pointer; }
+.login-entrar:hover:not(:disabled) { filter: brightness(1.08); }
+.login-entrar:disabled { opacity: .6; cursor: not-allowed; }
+.login-voltar { width: 100%; background: transparent; color: var(--texto-suave); border: 1px solid var(--borda); padding: 14px; border-radius: 8px; font-size: 15px; cursor: pointer; }
+.login-voltar:hover { color: var(--texto); border-color: var(--borda-forte); }
+
+/* Telas grandes */
+@media (min-width: 1700px) {
+  .login-cartao { max-width: 480px; padding: 48px; }
+  .login-simbolo { height: 72px; }
+  .login-titulo { font-size: 26px; }
+  .login-formulario label { font-size: 16px; }
+  .login-campo { height: 56px; font-size: 16px; }
+  .login-entrar { height: 58px; font-size: 18px; }
+  .login-voltar { font-size: 17px; padding: 16px; }
+}
+@media (min-width: 2200px) {
+  .login-cartao { max-width: 580px; padding: 56px; }
+  .login-simbolo { height: 88px; }
+  .login-titulo { font-size: 31px; }
+  .login-formulario label { font-size: 19px; }
+  .login-campo { height: 68px; font-size: 19px; }
+  .login-entrar { height: 70px; font-size: 22px; }
+  .login-voltar { font-size: 20px; padding: 20px; }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .login-conteudo { padding: 20px 14px; }
+  .login-cartao { padding: 25px 20px; gap: 15px; }
+  .login-simbolo { height: 50px; }
+  .login-titulo { font-size: 19px; }
+}

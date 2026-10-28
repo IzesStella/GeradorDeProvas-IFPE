@@ -1,0 +1,137 @@
+.admin { font-size: 14px; line-height: 1.45; }
+.admin-texto-suave { color: var(--texto-suave); }
+
+.admin-conteudo { flex: 1; display: flex; flex-direction: column; width: 100%; max-width: 1180px; margin: 0 auto; padding: 28px 5vw; }
+.admin-topo { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 16px; }
+.admin-topo h2 { margin: 0; font-size: 24px; }
+.admin-cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; box-shadow: var(--sombra); overflow: hidden; }
+.admin-conteudo > .admin-cartao { flex: 1; display: flex; flex-direction: column; }
+
+/* Campos de texto e listas de seleção */
+.admin-entrada { width: 100%; background: var(--campo); color: var(--texto); border: 1px solid var(--borda); border-radius: 8px; padding: 9px 11px; font-size: 13px; }
+.admin-entrada:focus { border-color: var(--verde); outline: none; box-shadow: 0 0 0 3px var(--verde-claro); }
+.admin-entrada::placeholder { color: var(--texto-suave); }
+.admin-entrada.codigo { font-family: monospace; }
+textarea.admin-entrada { resize: vertical; }
+select.admin-entrada { appearance: none; -webkit-appearance: none; padding-right: 32px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237a877f' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 11px center; cursor: pointer; }
+
+/* Busca e filtros */
+.admin-filtros { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+.admin-busca { position: relative; flex: 1; min-width: 220px; }
+.admin-busca svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--texto-suave); }
+.admin-busca .admin-entrada { height: 38px; padding-left: 34px; }
+.admin-filtro { position: relative; }
+.admin-filtro-botao { height: 38px; display: inline-flex; align-items: center; gap: 6px; padding: 0 11px 0 13px; background: var(--cartao); color: var(--texto); border: 1px solid var(--borda); border-radius: 8px; font-size: 13px; white-space: nowrap; cursor: pointer; transition: border-color .15s, background-color .15s; }
+.admin-filtro-botao:hover { border-color: var(--borda-forte); }
+.admin-filtro-rotulo { color: var(--texto-suave); }
+.admin-filtro-valor { font-weight: 600; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+.admin-filtro-seta { display: flex; color: var(--texto-suave); margin-left: 2px; transition: transform .15s; }
+.admin-filtro-seta.aberto { transform: rotate(180deg); }
+.admin-filtro-botao.ativo { border-color: var(--verde); background: var(--verde-claro); }
+.admin-filtro-botao.ativo .admin-filtro-valor { color: var(--verde-texto); }
+.admin-filtro-menu { position: absolute; top: calc(100% + 6px); left: 0; min-width: 100%; width: max-content; max-width: min(320px, 80vw); max-height: 300px; overflow: auto; margin: 0; padding: 5px; list-style: none; background: var(--cartao); border: 1px solid var(--borda); border-radius: 10px; box-shadow: var(--sombra); z-index: 8; }
+.admin-filtro-menu.a-direita { left: auto; right: 0; }
+.admin-filtro-menu li { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 8px 10px; border-radius: 6px; font-size: 13px; cursor: pointer; }
+.admin-filtro-menu li:hover { background: var(--suave); }
+.admin-filtro-menu li.selecionado { background: var(--verde-claro); color: var(--verde-texto); font-weight: 700; }
+.admin-filtro-menu li b { font-size: 12px; }
+.admin-filtro-menu .admin-nivel { font-size: inherit; font-weight: inherit; }
+.admin-limpar-filtros { background: none; border: 0; color: var(--verde-texto); font-weight: 600; font-size: 13px; padding: 0 6px; height: 38px; cursor: pointer; }
+.admin-limpar-filtros:hover { text-decoration: underline; }
+
+/* Tabela */
+.admin-tabela { overflow-x: auto; flex: 1; }
+.admin-tabela table { width: 100%; border-collapse: collapse; min-width: 760px; text-align: left; }
+.admin-tabela th { font-size: 12px; font-weight: 600; color: var(--texto-suave); background: var(--suave); padding: 11px 16px; border-bottom: 1px solid var(--borda); }
+.admin-tabela td { padding: 11px 16px; border-bottom: 1px solid var(--borda); vertical-align: middle; font-size: 13px; }
+.admin-tabela tbody tr:hover { background: var(--suave); }
+.admin-topico { font-weight: 700; }
+.admin-origem small { display: flex; gap: 6px; align-items: center; color: var(--texto-suave); margin-top: 2px; font-size: 12px; }
+.admin-curso { border: 1px solid var(--texto-suave); border-radius: 3px; font-size: 10px; font-weight: 700; padding: 0 4px; color: var(--texto-suave); }
+.admin-nivel { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 12px; white-space: nowrap; }
+.admin-nivel::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--nivel-cor); }
+.admin-acoes { display: flex; gap: 6px; }
+.admin-botao-icone { width: 34px; height: 34px; border-radius: 6px; border: 1px solid var(--borda); background: var(--cartao); color: var(--texto); display: grid; place-items: center; padding: 0; flex-shrink: 0; cursor: pointer; }
+.admin-botao-icone:hover { background: var(--suave); }
+.admin-vazio { padding: 40px; text-align: center; color: var(--texto-suave); }
+
+/* Paginação */
+.admin-paginacao { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; color: var(--texto-suave); font-size: 13px; flex-wrap: wrap; gap: 8px; }
+.admin-paginas { display: flex; gap: 6px; }
+.admin-paginas button { min-width: 32px; height: 32px; border: 1px solid var(--borda); background: var(--cartao); color: var(--texto); border-radius: 6px; font-weight: 600; cursor: pointer; }
+.admin-paginas button.selecionado { background: var(--verde); border-color: var(--verde); color: var(--sobre-verde); }
+.admin-paginas button:disabled { opacity: .4; cursor: not-allowed; }
+.admin-paginas button:not(:disabled):not(.selecionado):hover { background: var(--suave); }
+
+/* Janelas de visualização e de formulário */
+.admin-fundo-escuro { position: fixed; inset: 0; background: var(--fundo-modal); opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 10; }
+.admin-fundo-escuro.visivel { opacity: 1; pointer-events: auto; }
+.admin-janela { position: fixed; top: 50%; left: 50%; width: min(1040px, calc(100% - 24px)); max-height: 86vh; background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; box-shadow: var(--sombra); z-index: 11; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transform: translate(-50%, -48%); transition: opacity .2s, transform .2s; }
+.admin-janela.aberta { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%); }
+.admin-janela-topo, .admin-janela-rodape { padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.admin-janela-topo { border-bottom: 1px solid var(--borda); }
+.admin-janela-rodape { border-top: 1px solid var(--borda); }
+.admin-janela-topo h3 { margin: 0; font-size: 18px; }
+.admin-janela-corpo { padding: 20px 22px; overflow: auto; flex: 1; min-height: 0; }
+.admin-janela .etiquetas { margin-bottom: 8px; }
+.admin-detalhe-origem { margin-bottom: 14px; }
+.admin-enunciado { margin-bottom: 14px; }
+
+/* Formulário de cadastro e edição */
+.admin-formulario { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.admin-formulario-colunas { display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; }
+.admin-secao { font-weight: 700; margin: 6px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--borda); }
+.admin-duas-colunas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.admin-campo { margin-bottom: 14px; }
+.admin-campo label { display: block; }
+.admin-rotulo { display: block; font-weight: 600; font-size: 13px; margin-bottom: 5px; }
+.admin-dica { color: var(--texto-suave); font-size: 12px; margin-top: 4px; }
+
+/* Confirmação de exclusão e aviso rápido */
+.admin-modal-fundo { position: fixed; inset: 0; display: grid; place-items: center; z-index: 20; background: var(--fundo-modal); padding: 16px; }
+.admin-confirmacao { width: 100%; max-width: 420px; }
+.admin-confirmacao-rodape { justify-content: flex-end; }
+.admin-aviso { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--texto); color: var(--fundo); padding: 9px 16px; border-radius: 8px; z-index: 30; }
+
+/* Celular */
+@media (max-width: 760px) {
+  .admin-conteudo { padding: 20px 15px; }
+  .admin-topo { flex-direction: column; align-items: flex-start; }
+  .admin-filtro { flex: 1 1 140px; }
+  .admin-filtro-botao { width: 100%; justify-content: space-between; }
+  .admin-formulario-colunas, .admin-duas-colunas { grid-template-columns: 1fr; }
+}
+
+/* Telas grandes */
+@media (min-width: 1700px) {
+  .admin { font-size: 15px; }
+  .admin-conteudo { max-width: 1560px; padding: 36px 4vw; }
+  .admin-topo { margin-bottom: 22px; }
+  .admin-topo h2 { font-size: 30px; }
+  .admin-botao-icone { width: 38px; height: 38px; }
+  .admin-entrada { font-size: 14px; padding: 11px 13px; }
+  .admin-busca .admin-entrada, .admin-filtro-botao, .admin-limpar-filtros { height: 44px; }
+  .admin-filtro-botao, .admin-filtro-menu li, .admin-limpar-filtros { font-size: 14px; }
+  .admin-tabela th { font-size: 13px; padding: 16px 22px; }
+  .admin-tabela td { font-size: 14px; padding: 17px 22px; }
+  .admin-nivel { font-size: 13px; }
+  .admin-paginacao { padding: 18px 22px; font-size: 14px; }
+  .admin-paginas button { min-width: 38px; height: 38px; }
+  .admin-janela { width: min(1240px, calc(100% - 48px)); }
+}
+@media (min-width: 2200px) {
+  .admin { font-size: 17px; }
+  .admin-conteudo { max-width: 1960px; padding: 44px 4vw; }
+  .admin-topo h2 { font-size: 36px; }
+  .admin-botao-icone { width: 46px; height: 46px; }
+  .admin-entrada { font-size: 16px; padding: 13px 15px; }
+  .admin-busca .admin-entrada, .admin-filtro-botao, .admin-limpar-filtros { height: 52px; }
+  .admin-filtro-botao, .admin-filtro-menu li, .admin-limpar-filtros { font-size: 16px; }
+  .admin-tabela th { font-size: 15px; padding: 20px 28px; }
+  .admin-tabela td { font-size: 16px; padding: 22px 28px; }
+  .admin-nivel { font-size: 15px; }
+  .admin-paginacao { padding: 22px 28px; font-size: 16px; }
+  .admin-paginas button { min-width: 46px; height: 46px; font-size: 15px; }
+  .admin-janela { width: min(1500px, calc(100% - 64px)); }
+}
+@media (prefers-reduced-motion: reduce) { .admin-fundo-escuro, .admin-janela { transition: none; } }

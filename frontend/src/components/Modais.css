@@ -1,0 +1,65 @@
+/* --escala aumenta textos e espaços dos modais em telas grandes */
+.modal-fundo { --escala: 1px; position: fixed; inset: 0; z-index: 999; background: var(--fundo-modal); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal { width: 100%; max-width: calc(920 * var(--escala)); max-height: 90vh; background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; box-shadow: var(--sombra-modal); display: flex; flex-direction: column; font-size: calc(16 * var(--escala)); line-height: 1.6; color: var(--texto-suave); text-align: left; }
+.modal.largo { max-width: calc(1060 * var(--escala)); }
+.modal button { cursor: pointer; }
+
+.modal-topo { display: flex; align-items: center; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--borda); }
+.modal-topo.com-abas { padding-bottom: 14px; border-bottom: 0; }
+.modal-topo b { width: calc(36 * var(--escala)); height: calc(36 * var(--escala)); border-radius: 50%; background: var(--verde); color: var(--sobre-verde); display: grid; place-items: center; font-size: calc(18 * var(--escala)); flex: none; }
+.modal-topo h2 { flex: 1; margin: 0; font-size: calc(21 * var(--escala)); line-height: 1.2; color: var(--texto); }
+.modal-fechar { width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--chip); color: var(--texto); display: grid; place-items: center; flex: none; padding: 0; transition: 0.2s; }
+.modal-fechar:hover { background: var(--verde); color: var(--sobre-verde); }
+
+.modal-abas { display: flex; gap: 4px; padding: 0 24px; border-bottom: 1px solid var(--borda); }
+.modal-aba { background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 10px 14px; font-size: calc(15 * var(--escala)); font-weight: 600; color: var(--texto-suave); }
+.modal-aba:hover { color: var(--texto); }
+.modal-aba.selecionado { color: var(--verde); border-bottom-color: var(--verde); }
+
+.modal-corpo { padding: 26px 28px; overflow-y: auto; }
+.modal-rodape { padding: 16px 24px; border-top: 1px solid var(--borda); display: flex; justify-content: flex-end; }
+.modal-botao { height: calc(46 * var(--escala)); padding: 0 26px; border: 0; border-radius: 10px; background: var(--verde); color: var(--sobre-verde); font-size: calc(16 * var(--escala)); font-weight: 700; }
+.modal-botao:hover { filter: brightness(1.08); }
+
+/* Conteúdo dos modais */
+.modal-secao { margin: 0 0 12px; font-size: calc(18 * var(--escala)); font-weight: 600; color: var(--texto); }
+.modal-secao small { display: block; font-size: calc(15 * var(--escala)); font-weight: 400; color: var(--texto-suave); }
+.modal-bloco { padding: 20px 0; border-top: 1px solid var(--borda); }
+.modal-bloco:last-child { padding-bottom: 0; }
+.modal-lista { display: grid; gap: 8px; }
+.modal-item { display: grid; gap: 14px; align-items: start; border: 1.5px solid var(--borda); border-radius: 10px; padding: 12px 14px; font-size: calc(15 * var(--escala)); }
+.modal-item strong { color: var(--texto); font-size: calc(16 * var(--escala)); }
+.modal-nivel { display: inline-flex; align-items: center; gap: 7px; justify-self: start; border-radius: 999px; padding: 4px 12px; font-size: calc(13 * var(--escala)); font-weight: 600; background: var(--nivel-fundo); color: var(--nivel-texto); white-space: nowrap; }
+.modal-nivel::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--nivel-cor); }
+.modal-corpo p, .modal-item > span:last-child, .modal-justificado { text-align: justify; hyphens: auto; }
+
+/* Modal Sobre */
+.sobre-intro { margin: 0 0 6px; font-size: calc(17 * var(--escala)); color: var(--texto); }
+.sobre-intro + p { margin: 0 0 24px; }
+.sobre-modelos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sobre-modelo { border: 1.5px solid var(--borda); border-radius: 10px; padding: 12px 14px; font-size: calc(15 * var(--escala)); }
+.sobre-modelo strong { display: block; font-size: calc(17 * var(--escala)); color: var(--texto); }
+.sobre-modelo em { display: inline-block; font-style: normal; font-size: calc(13 * var(--escala)); font-weight: 600; background: var(--fundo); border-radius: 999px; padding: 3px 10px; margin: 6px 0 8px; }
+.sobre-modelo span { display: block; text-align: justify; hyphens: auto; }
+.sobre-niveis .modal-item { grid-template-columns: calc(140 * var(--escala)) minmax(0, 1fr); }
+.sobre-nota { display: flex; gap: 12px; align-items: flex-start; margin-top: 20px; padding: 14px 18px; border: 1px solid var(--borda); border-left: 4px solid var(--verde); border-radius: 10px; font-size: calc(15 * var(--escala)); }
+.sobre-nota svg { color: var(--verde); flex: none; margin-top: 1px; }
+.sobre-nota strong { display: block; color: var(--texto); font-weight: 600; }
+.sobre-agradecimento p { margin: 0; }
+
+/* Modal Guia de cadastro */
+.guia-campos .modal-item { grid-template-columns: calc(140 * var(--escala)) minmax(0, 1fr); }
+.guia-niveis .modal-item, .guia-colunas { grid-template-columns: calc(140 * var(--escala)) minmax(0, 1fr) minmax(0, 1.15fr); }
+.guia-colunas { display: grid; gap: 14px; padding: 0 14px 6px; font-size: calc(14 * var(--escala)); font-weight: 600; }
+.guia-exemplo { background: var(--fundo); border-radius: 8px; padding: 10px 12px; color: var(--texto); text-align: justify; hyphens: auto; }
+.guia-exemplo small { display: block; margin-top: 6px; font-size: calc(13 * var(--escala)); color: var(--texto-suave); text-align: left; }
+.guia-niveis .modal-item > span:nth-child(2) { text-align: justify; hyphens: auto; }
+
+@media (min-width: 1700px) { .modal-fundo { --escala: 1.15px; } }
+@media (min-width: 2200px) { .modal-fundo { --escala: 1.4px; } }
+@media (max-width: 720px) {
+  .modal-fundo { padding: 10px; }
+  .modal-topo, .modal-abas, .modal-corpo, .modal-rodape { padding-left: 16px; padding-right: 16px; }
+  .sobre-modelos, .sobre-niveis .modal-item, .guia-campos .modal-item, .guia-niveis .modal-item { grid-template-columns: 1fr; gap: 8px; }
+  .guia-colunas { display: none; }
+}

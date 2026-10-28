@@ -1,1 +1,2 @@
 export const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3333';
+export const PORTAL_CAMPUS = 'https://portal.ifpe.edu.br/igarassu/';
