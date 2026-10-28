@@ -58,7 +58,9 @@ interface FormularioQuestaoProps {
   aoSalvar: (dados: object) => void;
 }
 
-// Valores dos campos: os da questão em edição ou, numa questão nova, os padrões
+// O que já vem preenchido quando o formulário abre:
+// ao editar, os dados salvos da questão. já numa questão nova, tudo em branco,
+// menos Tipo (Implementação), Dificuldade (Fácil) e Curso (IPI)
 const camposIniciais = (questao: Questao | null) => {
   const origem = separarOrigem(questao?.origem ?? '');
   return {
@@ -167,6 +169,11 @@ export function FormularioQuestao({ aberto, questao, aoFechar, aoSalvar }: Formu
                   <input type="text" value={campos.ano} onChange={alterar('ano')} placeholder="Ex: 2025.1" required className="admin-entrada" />
                 </Campo>
               </div>
+
+              <div className="admin-secao">Extra</div>
+              <Campo rotulo="Easter egg (link, opcional)">
+                <input type="text" value={campos.easterEgg} onChange={alterar('easterEgg')} placeholder="Ex: https://youtu.be/..." className="admin-entrada" />
+              </Campo>
             </div>
 
             <div>
@@ -179,9 +186,6 @@ export function FormularioQuestao({ aberto, questao, aoFechar, aoSalvar }: Formu
               </Campo>
               <Campo rotulo="Código TypeScript (opcional)">
                 <textarea value={campos.codigo} onChange={alterar('codigo')} rows={6} placeholder="let x = 10;" className="admin-entrada codigo" />
-              </Campo>
-              <Campo rotulo="Easter egg (link, opcional)">
-                <input type="text" value={campos.easterEgg} onChange={alterar('easterEgg')} placeholder="Ex: https://youtu.be/..." className="admin-entrada" />
               </Campo>
             </div>
           </div>
